@@ -167,6 +167,20 @@ export default defineConfig(({ command, mode }) => {
                         ]
                       },
                       {
+                        text: 'CMS Pages',
+                        collapsed: true,
+                        items: [
+                          {
+                            text: 'Queries',
+                            collapsed: false,
+                            items: [
+                              { text: 'Pages', link: '/api/graphql-api/shop/queries/get-pages' },
+                              { text: 'Single Page', link: '/api/graphql-api/shop/queries/get-page' },
+                            ]
+                          }
+                        ]
+                      },
+                      {
                         text: 'Product',
                         collapsed: true,
                         items: [
@@ -386,7 +400,20 @@ export default defineConfig(({ command, mode }) => {
                             ]
                           }
                         ]
-                      },                              
+                      },
+                      {
+                        text: 'Contact Us',
+                        collapsed: true,
+                        items: [
+                          {
+                            text: 'Mutations',
+                            collapsed: false,
+                            items: [
+                              { text: 'Create Contact Us', link: '/api/graphql-api/shop/mutations/create-contact-us' },
+                            ]
+                          }
+                        ]
+                      },
                 ]
               },
               {

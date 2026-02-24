@@ -52,7 +52,7 @@ Retrieve available payment methods for checkout.
 This query supports both authenticated customers and guest users:
 
 - **Authenticated customers**: Provide a valid customer authentication token in the `Authorization` header. Obtain this token via the [Customer Login API](/api/graphql-api/shop/mutations/customer-login).
-- **Guest users**: Provide a valid customer authentication token in the `Authorization` header.
+- **Guest users**: Provide the Guest Cart Token `cartToken` obtained from the [Create Cart mutation](/api/graphql-api/shop/mutations/create-cart).
 
 ```
 Authorization: Bearer <accessToken>

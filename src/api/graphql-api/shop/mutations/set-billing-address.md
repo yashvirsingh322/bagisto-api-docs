@@ -5,60 +5,85 @@ examples:
     title: Set Billing Address
     description: Set the billing address for a cart.
     query: |
-      mutation setBillingAddress($input: SetBillingAddressInput!) {
-        setBillingAddress(input: $input) {
-          cart {
-            id
-            billingAddress {
-              firstName
-              lastName
-              address
-              city
-              state
-              country
-              zipCode
-              phone
-            }
+      mutation createCheckoutAddress(
+          $billingFirstName: String!
+          $billingLastName: String!
+          $billingEmail: String!
+          $billingAddress: String!
+          $billingCity: String!
+          $billingCountry: String!
+          $billingState: String!
+          $billingPostcode: String!
+          $billingPhoneNumber: String!
+          $useForShipping: Boolean
+      ) {
+        createCheckoutAddress(
+          input: { 
+            billingFirstName: $billingFirstName
+            billingLastName: $billingLastName
+            billingEmail: $billingEmail
+            billingAddress: $billingAddress
+            billingCity: $billingCity
+            billingCountry: $billingCountry
+            billingState: $billingState
+            billingPostcode: $billingPostcode
+            billingPhoneNumber: $billingPhoneNumber
+            useForShipping: $useForShipping
           }
-          message
-          success
+        ) {
+          checkoutAddress {
+            _id
+            success
+            message
+            id
+            cartToken
+            billingFirstName
+            billingLastName
+            billingAddress
+            billingCity
+            billingState
+            billingPostcode
+            billingPhoneNumber
+            shippingFirstName
+            shippingLastName
+            shippingCity
+          }
         }
       }
     variables: |
       {
-        "input": {
-          "cartId": "cart-123",
-          "customerId": "1",
-          "firstName": "John",
-          "lastName": "Doe",
-          "address": "123 Main Street",
-          "city": "New York",
-          "state": "NY",
-          "country": "US",
-          "zipCode": "10001",
-          "phone": "+1-555-0100",
-          "sameAsShippingAddress": false
-        }
+        "billingFirstName": "John",
+        "billingLastName": "Doe",
+        "billingEmail": "john@example.com",
+        "billingAddress": "123 Main St",
+        "billingCity": "Los Angeles",
+        "billingCountry": "IN",
+        "billingState": "UP",
+        "billingPostcode": "201301",
+        "billingPhoneNumber": "2125551234",
+        "useForShipping": true
       }
     response: |
       {
         "data": {
-          "setBillingAddress": {
-            "cart": {
-              "id": "cart-123",
-              "billingAddress": {
-                "firstName": "John",
-                "lastName": "Doe",
-                "address": "123 Main Street",
-                "city": "New York",
-                "state": "NY",
-                "country": "US",
-                "zipCode": "10001",
-                "phone": "+1-555-0100"
-              }
-            },
-            "message": "Billing address set successfully",
-            "success": true
+          "createCheckoutAddress": {
+            "checkoutAddress": {
+              "_id": "1",
+              "success": true,
+              "message": "Billing address set successfully",
+              "id": "1",
+              "cartToken": "cart-123",
+              "billingFirstName": "John",
+              "billingLastName": "Doe",
+              "billingAddress": "123 Main St",
+              "billingCity": "Los Angeles",
+              "billingState": "UP",
+              "billingPostcode": "201301",
+              "billingPhoneNumber": "2125551234",
+              "shippingFirstName": "John",
+              "shippingLastName": "Doe",
+              "shippingCity": "Los Angeles"
+            }
           }
         }
       }
@@ -80,40 +105,52 @@ Authorization: Bearer <accessToken>
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `cartId` | String | ✅ Yes | Cart ID |
-| `customerId` | String | ❌ No | Customer ID (for registered customers) |
-| `firstName` | String | ✅ Yes | First name |
-| `lastName` | String | ✅ Yes | Last name |
-| `address` | String | ✅ Yes | Street address |
-| `city` | String | ✅ Yes | City |
-| `state` | String | ✅ Yes | State/Province |
-| `country` | String | ✅ Yes | Country code |
-| `zipCode` | String | ✅ Yes | Postal/Zip code |
-| `phone` | String | ❌ No | Phone number |
-| `sameAsShippingAddress` | Boolean | ❌ No | Use shipping address as billing address |
+| `billingFirstName` | String | ✅ Yes | Billing first name |
+| `billingLastName` | String | ✅ Yes | Billing last name |
+| `billingEmail` | String | ✅ Yes | Billing email address |
+| `billingAddress` | String | ✅ Yes | Billing street address |
+| `billingCity` | String | ✅ Yes | Billing city |
+| `billingCountry` | String | ✅ Yes | Billing country code |
+| `billingState` | String | ✅ Yes | Billing state/province |
+| `billingPostcode` | String | ✅ Yes | Billing postal/zip code |
+| `billingPhoneNumber` | String | ✅ Yes | Billing phone number |
+| `useForShipping` | Boolean | ❌ No | Use billing address as shipping address |
 
 ## Response
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `cart` | Cart | Updated cart object with billing address |
-| `message` | String | Success or error message |
-| `success` | Boolean | Success status |
+| `checkoutAddress._id` | String | Internal ID |
+| `checkoutAddress.success` | Boolean | Success status |
+| `checkoutAddress.message` | String | Success or error message |
+| `checkoutAddress.id` | String | Address ID |
+| `checkoutAddress.cartToken` | String | Cart token |
+| `checkoutAddress.billingFirstName` | String | Billing first name |
+| `checkoutAddress.billingLastName` | String | Billing last name |
+| `checkoutAddress.billingAddress` | String | Billing street address |
+| `checkoutAddress.billingCity` | String | Billing city |
+| `checkoutAddress.billingState` | String | Billing state/province |
+| `checkoutAddress.billingPostcode` | String | Billing postal/zip code |
+| `checkoutAddress.billingPhoneNumber` | String | Billing phone number |
+| `checkoutAddress.shippingFirstName` | String | Shipping first name (if `useForShipping` is true) |
+| `checkoutAddress.shippingLastName` | String | Shipping last name (if `useForShipping` is true) |
+| `checkoutAddress.shippingCity` | String | Shipping city (if `useForShipping` is true) |
 
 ## Validation Rules
 
-- All required address fields must be provided (unless using sameAsShippingAddress)
-- Country code must be valid
-- Phone number should be in valid format if provided
-- If sameAsShippingAddress is true, address fields are optional
+- All required billing address fields must be provided
+- `billingEmail` must be a valid email address
+- `billingCountry` must be a valid country code
+- `billingPhoneNumber` should be in valid format
+- If `useForShipping` is true, the billing address will also be used as the shipping address
 
 ## Error Responses
 
 ```json
 {
   "errors": {
-    "cartId": ["Cart not found."],
-    "country": ["Invalid country code."]
+    "billingEmail": ["The billing email must be a valid email address."],
+    "billingCountry": ["Invalid country code."]
   }
 }
 ```

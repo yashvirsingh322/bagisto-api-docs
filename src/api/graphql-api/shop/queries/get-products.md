@@ -244,6 +244,900 @@ examples:
       - error: PRICE_OUT_OF_RANGE
         cause: Price exceeds acceptable range
         solution: Check product pricing configuration
+
+  - id: get-products-type-simple
+    title: Get Products - Simple Type
+    description: Retrieve all simple products. Simple products have no variants and include pricing, images, attributes, and categories.
+    query: |
+      query getAllSimpleProducts {
+        products(filter: "{\"type\": \"simple\"}") {
+          edges {
+            node {
+              id
+              name
+              sku
+              urlKey
+              description
+              shortDescription
+              price
+              specialPrice
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    publicPath
+                    position
+                  }
+                }
+              }
+              attributeValues {
+                edges {
+                  node {
+                    value
+                    attribute {
+                      code
+                      adminName
+                    }
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    id
+                    translation {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/products/1",
+                  "name": "Classic White T-Shirt",
+                  "sku": "TSHIRT-WHT-001",
+                  "urlKey": "classic-white-t-shirt",
+                  "description": "A comfortable everyday white t-shirt made from 100% cotton.",
+                  "shortDescription": "100% cotton white t-shirt.",
+                  "price": "29.99",
+                  "specialPrice": "24.99",
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/product-images/10",
+                          "publicPath": "https://your-store.com/storage/product/tshirt-white.jpg",
+                          "position": 1
+                        }
+                      }
+                    ]
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "White",
+                          "attribute": {
+                            "code": "color",
+                            "adminName": "Color"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "categories": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/categories/3",
+                          "translation": {
+                            "name": "T-Shirts"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "totalCount": 16
+          }
+        }
+      }
+    commonErrors:
+      - error: INVALID_FILTER_FORMAT
+        cause: Filter string is not valid JSON
+        solution: Pass filter as a single-line JSON string with escaped quotes e.g. "{\"type\":\"simple\"}"
+
+  - id: get-products-type-configurable
+    title: Get Products - Configurable Type
+    description: Retrieve all configurable products. Configurable products have selectable variants (e.g. size, color) and include variants, combinations, and superAttributeOptions.
+    query: |
+      query getAllConfigurableProducts {
+        products(filter: "{\"type\": \"configurable\"}") {
+          edges {
+            node {
+              id
+              name
+              sku
+              type
+              combinations
+              superAttributeOptions
+              variants {
+                edges {
+                  node {
+                    id
+                    name
+                    sku
+                    price
+                    attributeValues {
+                      edges {
+                        node {
+                          value
+                          attribute {
+                            code
+                            adminName
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              urlKey
+              description
+              shortDescription
+              minimumPrice
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    publicPath
+                    position
+                  }
+                }
+              }
+              attributeValues {
+                edges {
+                  node {
+                    value
+                    attribute {
+                      code
+                      adminName
+                    }
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    id
+                    translation {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/products/5",
+                  "name": "Premium Hoodie",
+                  "sku": "HOODIE-001",
+                  "type": "configurable",
+                  "combinations": "{\"small-black\":{\"id\":\"6\"},\"medium-black\":{\"id\":\"7\"}}",
+                  "superAttributeOptions": "{\"size\":{\"small\":\"1\",\"medium\":\"2\"},\"color\":{\"black\":\"3\"}}",
+                  "variants": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/products/6",
+                          "name": "Premium Hoodie - Small / Black",
+                          "sku": "HOODIE-001-SM-BLK",
+                          "price": "59.99",
+                          "attributeValues": {
+                            "edges": [
+                              {
+                                "node": {
+                                  "value": "Small",
+                                  "attribute": { "code": "size", "adminName": "Size" }
+                                }
+                              },
+                              {
+                                "node": {
+                                  "value": "Black",
+                                  "attribute": { "code": "color", "adminName": "Color" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "urlKey": "premium-hoodie",
+                  "description": "A premium quality hoodie available in multiple sizes and colors.",
+                  "shortDescription": "Premium quality hoodie.",
+                  "minimumPrice": "59.99",
+                  "images": { "edges": [] },
+                  "attributeValues": { "edges": [] },
+                  "categories": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/categories/4",
+                          "translation": { "name": "Hoodies" }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "totalCount": 9
+          }
+        }
+      }
+    commonErrors:
+      - error: INVALID_FILTER_FORMAT
+        cause: Filter string is not valid JSON
+        solution: Pass filter as a single-line JSON string with escaped quotes
+
+  - id: get-products-type-booking
+    title: Get Products - Booking Type
+    description: Retrieve all booking products. Booking products are time-slot or appointment-based and include bookingProducts connection with availability details.
+    query: |
+      query getAllBookingProducts {
+        products(filter: "{\"type\": \"booking\"}") {
+          edges {
+            node {
+              id
+              name
+              sku
+              type
+              urlKey
+              description
+              shortDescription
+              price
+              specialPrice
+              bookingProducts {
+                edges {
+                  node {
+                    id
+                    type
+                    qty
+                    location
+                    showLocation
+                    availableEveryWeek
+                    availableFrom
+                    availableTo
+                    createdAt
+                    updatedAt
+                  }
+                }
+              }
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    publicPath
+                    position
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    id
+                    translation {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/products/20",
+                  "name": "Conference Room Booking",
+                  "sku": "BOOKING-CONF-001",
+                  "type": "booking",
+                  "urlKey": "conference-room-booking",
+                  "description": "Book a conference room by the hour.",
+                  "shortDescription": "Hourly conference room rental.",
+                  "price": "50.00",
+                  "specialPrice": null,
+                  "bookingProducts": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "1",
+                          "type": "default",
+                          "qty": 10,
+                          "location": "Main Building, Floor 2",
+                          "showLocation": true,
+                          "availableEveryWeek": true,
+                          "availableFrom": null,
+                          "availableTo": null,
+                          "createdAt": "2025-01-10T09:00:00+05:30",
+                          "updatedAt": "2025-01-10T09:00:00+05:30"
+                        }
+                      }
+                    ]
+                  },
+                  "images": { "edges": [] },
+                  "categories": { "edges": [] }
+                }
+              }
+            ],
+            "totalCount": 0
+          }
+        }
+      }
+    commonErrors:
+      - error: INVALID_FILTER_FORMAT
+        cause: Filter string is not valid JSON
+        solution: Pass filter as a single-line JSON string with escaped quotes
+
+  - id: get-products-type-virtual
+    title: Get Products - Virtual Type
+    description: Retrieve all virtual products. Virtual products are non-physical items (e.g. services, warranties) that require no shipping. Structurally similar to simple products.
+    query: |
+      query getAllVirtualProducts {
+        products(filter: "{\"type\": \"virtual\"}") {
+          edges {
+            node {
+              id
+              name
+              sku
+              type
+              urlKey
+              description
+              shortDescription
+              price
+              specialPrice
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    publicPath
+                    position
+                  }
+                }
+              }
+              attributeValues {
+                edges {
+                  node {
+                    value
+                    attribute {
+                      code
+                      adminName
+                    }
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    id
+                    translation {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/products/30",
+                  "name": "1-Year Extended Warranty",
+                  "sku": "WARRANTY-1YR",
+                  "type": "virtual",
+                  "urlKey": "1-year-extended-warranty",
+                  "description": "Extend your product warranty by 1 year with full coverage.",
+                  "shortDescription": "1-year full coverage warranty.",
+                  "price": "19.99",
+                  "specialPrice": null,
+                  "images": { "edges": [] },
+                  "attributeValues": { "edges": [] },
+                  "categories": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/categories/10",
+                          "translation": { "name": "Services" }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "totalCount": 0
+          }
+        }
+      }
+    commonErrors:
+      - error: INVALID_FILTER_FORMAT
+        cause: Filter string is not valid JSON
+        solution: Pass filter as a single-line JSON string with escaped quotes
+
+  - id: get-products-type-grouped
+    title: Get Products - Grouped Type
+    description: Retrieve all grouped products. Grouped products are a collection of simple products sold together. Includes groupedProducts connection with associated product details.
+    query: |
+      query getAllGroupedProducts {
+        products(filter: "{\"type\": \"grouped\"}") {
+          edges {
+            node {
+              id
+              name
+              sku
+              type
+              urlKey
+              description
+              shortDescription
+              groupedProducts {
+                edges {
+                  node {
+                    id
+                    qty
+                    sortOrder
+                    associatedProduct {
+                      id
+                      name
+                      sku
+                      price
+                      specialPrice
+                      images(first: 3) {
+                        edges {
+                          node {
+                            id
+                            publicPath
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    publicPath
+                    position
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    id
+                    translation {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/products/40",
+                  "name": "Office Essentials Bundle",
+                  "sku": "OFFICE-BUNDLE-001",
+                  "type": "grouped",
+                  "urlKey": "office-essentials-bundle",
+                  "description": "A curated bundle of essential office products.",
+                  "shortDescription": "Essential office products bundle.",
+                  "groupedProducts": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "1",
+                          "qty": 1,
+                          "sortOrder": 1,
+                          "associatedProduct": {
+                            "id": "/api/shop/products/41",
+                            "name": "Ballpoint Pen Pack",
+                            "sku": "PEN-BALL-12",
+                            "price": "5.99",
+                            "specialPrice": null,
+                            "images": { "edges": [] }
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "2",
+                          "qty": 1,
+                          "sortOrder": 2,
+                          "associatedProduct": {
+                            "id": "/api/shop/products/42",
+                            "name": "Spiral Notebook A5",
+                            "sku": "NB-SPIRAL-A5",
+                            "price": "3.49",
+                            "specialPrice": null,
+                            "images": { "edges": [] }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "images": { "edges": [] },
+                  "categories": { "edges": [] }
+                }
+              }
+            ],
+            "totalCount": 0
+          }
+        }
+      }
+    commonErrors:
+      - error: INVALID_FILTER_FORMAT
+        cause: Filter string is not valid JSON
+        solution: Pass filter as a single-line JSON string with escaped quotes
+
+  - id: get-products-type-downloadable
+    title: Get Products - Downloadable Type
+    description: Retrieve all downloadable products. Downloadable products are digital items with file links and optional samples. Includes downloadableLinks and downloadableSamples connections.
+    query: |
+      query getAllDownloadableProducts {
+        products(filter: "{\"type\": \"downloadable\"}") {
+          edges {
+            node {
+              id
+              name
+              sku
+              type
+              urlKey
+              description
+              shortDescription
+              price
+              specialPrice
+              downloadableLinks {
+                edges {
+                  node {
+                    id
+                    type
+                    price
+                    downloads
+                    sortOrder
+                    fileUrl
+                    sampleFileUrl
+                    translation {
+                      title
+                    }
+                  }
+                }
+              }
+              downloadableSamples {
+                edges {
+                  node {
+                    id
+                    type
+                    fileUrl
+                    sortOrder
+                    translation {
+                      title
+                    }
+                  }
+                }
+              }
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    publicPath
+                    position
+                  }
+                }
+              }
+              attributeValues {
+                edges {
+                  node {
+                    value
+                    attribute {
+                      code
+                      adminName
+                    }
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    id
+                    translation {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/products/50",
+                  "name": "UX Design Course",
+                  "sku": "COURSE-UX-001",
+                  "type": "downloadable",
+                  "urlKey": "ux-design-course",
+                  "description": "A comprehensive UX design course with 40 video lessons.",
+                  "shortDescription": "40-lesson UX design video course.",
+                  "price": "99.00",
+                  "specialPrice": "79.00",
+                  "downloadableLinks": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "1",
+                          "type": "file",
+                          "price": "0.00",
+                          "downloads": 5,
+                          "sortOrder": 1,
+                          "fileUrl": "https://your-store.com/storage/downloadable/course-module-1.zip",
+                          "sampleFileUrl": null,
+                          "translation": {
+                            "title": "Module 1 – Introduction to UX"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "downloadableSamples": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "1",
+                          "type": "file",
+                          "fileUrl": "https://your-store.com/storage/downloadable/sample-ux.pdf",
+                          "sortOrder": 1,
+                          "translation": {
+                            "title": "Free Sample – UX Basics"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "images": { "edges": [] },
+                  "attributeValues": { "edges": [] },
+                  "categories": { "edges": [] }
+                }
+              }
+            ],
+            "totalCount": 0
+          }
+        }
+      }
+    commonErrors:
+      - error: INVALID_FILTER_FORMAT
+        cause: Filter string is not valid JSON
+        solution: Pass filter as a single-line JSON string with escaped quotes
+
+  - id: get-products-type-bundle
+    title: Get Products - Bundle Type
+    description: Retrieve all bundle products. Bundle products are composed of selectable options where customers can choose individual components. Includes bundleOptions and bundleOptionProducts connections.
+    query: |
+      query getAllBundleProducts {
+        products(filter: "{\"type\": \"bundle\"}") {
+          edges {
+            node {
+              id
+              name
+              sku
+              type
+              urlKey
+              description
+              shortDescription
+              minimumPrice
+              bundleOptions {
+                edges {
+                  node {
+                    id
+                    type
+                    isRequired
+                    sortOrder
+                    translation {
+                      label
+                    }
+                    bundleOptionProducts {
+                      edges {
+                        node {
+                          id
+                          qty
+                          isDefault
+                          isUserDefined
+                          sortOrder
+                          product {
+                            id
+                            name
+                            sku
+                            price
+                            images(first: 3) {
+                              edges {
+                                node {
+                                  id
+                                  publicPath
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    publicPath
+                    position
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    id
+                    translation {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/products/60",
+                  "name": "Build Your Own Laptop",
+                  "sku": "LAPTOP-BUNDLE-001",
+                  "type": "bundle",
+                  "urlKey": "build-your-own-laptop",
+                  "description": "Configure your own laptop by choosing CPU, RAM, and storage.",
+                  "shortDescription": "Customisable laptop bundle.",
+                  "minimumPrice": "799.00",
+                  "bundleOptions": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "1",
+                          "type": "select",
+                          "isRequired": true,
+                          "sortOrder": 1,
+                          "translation": { "label": "Choose RAM" },
+                          "bundleOptionProducts": {
+                            "edges": [
+                              {
+                                "node": {
+                                  "id": "1",
+                                  "qty": 1,
+                                  "isDefault": true,
+                                  "isUserDefined": false,
+                                  "sortOrder": 1,
+                                  "product": {
+                                    "id": "/api/shop/products/61",
+                                    "name": "8GB DDR5 RAM",
+                                    "sku": "RAM-8GB-DDR5",
+                                    "price": "80.00",
+                                    "images": { "edges": [] }
+                                  }
+                                }
+                              },
+                              {
+                                "node": {
+                                  "id": "2",
+                                  "qty": 1,
+                                  "isDefault": false,
+                                  "isUserDefined": false,
+                                  "sortOrder": 2,
+                                  "product": {
+                                    "id": "/api/shop/products/62",
+                                    "name": "16GB DDR5 RAM",
+                                    "sku": "RAM-16GB-DDR5",
+                                    "price": "140.00",
+                                    "images": { "edges": [] }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "images": { "edges": [] },
+                  "categories": { "edges": [] }
+                }
+              }
+            ],
+            "totalCount": 0
+          }
+        }
+      }
+    commonErrors:
+      - error: INVALID_FILTER_FORMAT
+        cause: Filter string is not valid JSON
+        solution: Pass filter as a single-line JSON string with escaped quotes
 ---
 
 # Get Products
@@ -277,6 +1171,7 @@ The query supports cursor-based pagination to efficiently handle large product c
 | `sortKey` | `ProductSortKeys` | Field to sort by: `TITLE`, `PRICE`, `CREATED_AT`, `UPDATED_AT`. Default: `TITLE` |
 | `reverse` | `Boolean` | Reverse the sort order. Default: `false` |
 | `query` | `String` | Search query string for filtering products. Supports advanced search syntax. |
+| `filter` | `String` | JSON string for filtering by type, category, attributes, or price. See examples below. |
 
 ## Possible Returns
 
@@ -292,4 +1187,18 @@ The query supports cursor-based pagination to efficiently handle large product c
 | `pageInfo.startCursor` | `String` | Cursor of the first product on the current page. |
 | `pageInfo.endCursor` | `String` | Cursor of the last product on the current page. |
 | `totalCount` | `Int!` | Total number of products matching the query criteria. |
+
+## Product Types
+
+Use the `filter` argument with `"type"` to fetch products of a specific kind. The filter value must be a single-line JSON string with escaped quotes.
+
+| Type | Filter Value | Key Fields |
+|------|-------------|------------|
+| Simple | `"{\"type\": \"simple\"}"` | `price`, `specialPrice`, `images`, `attributeValues` |
+| Configurable | `"{\"type\": \"configurable\"}"` | `variants`, `combinations`, `superAttributeOptions` |
+| Booking | `"{\"type\": \"booking\"}"` | `bookingProducts` (type, qty, location, availability) |
+| Virtual | `"{\"type\": \"virtual\"}"` | `price`, `specialPrice`, `attributeValues` |
+| Grouped | `"{\"type\": \"grouped\"}"` | `groupedProducts` → `associatedProduct` |
+| Downloadable | `"{\"type\": \"downloadable\"}"` | `downloadableLinks`, `downloadableSamples` |
+| Bundle | `"{\"type\": \"bundle\"}"` | `bundleOptions` → `bundleOptionProducts` → `product` |
 

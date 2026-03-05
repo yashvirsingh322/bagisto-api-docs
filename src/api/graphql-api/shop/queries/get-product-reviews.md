@@ -99,6 +99,266 @@ examples:
         cause: Rating value is out of valid range
         solution: Use rating between 1 and 5
 
+  - id: get-product-reviews-by-product-id
+    title: Get Product Reviews - By Product ID
+    description: Retrieve reviews for a specific product using its numeric product ID.
+    query: |
+      query productReviews($first: Int, $after: String, $productId: Int) {
+        productReviews(first: $first, after: $after, product_id: $productId) {
+          edges {
+            node {
+              id
+              _id
+              name
+              title
+              rating
+              comment
+              status
+              createdAt
+              updatedAt
+            }
+            cursor
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {
+        "productId": 1,
+        "first": 10
+      }
+    response: |
+      {
+        "data": {
+          "productReviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/reviews/2",
+                  "_id": 2,
+                  "name": "lxbfYeaa",
+                  "title": "Mr.",
+                  "rating": 1,
+                  "comment": "1",
+                  "status": "approved",
+                  "createdAt": "2025-05-27T17:50:27+05:30",
+                  "updatedAt": "2025-09-03T12:40:50+05:30"
+                },
+                "cursor": "MA=="
+              },
+              {
+                "node": {
+                  "id": "/api/shop/reviews/3",
+                  "_id": 3,
+                  "name": "lxbfYeaa",
+                  "title": "Mr.",
+                  "rating": 1,
+                  "comment": "1",
+                  "status": "approved",
+                  "createdAt": "2025-05-27T17:52:20+05:30",
+                  "updatedAt": "2025-09-03T12:40:50+05:30"
+                },
+                "cursor": "MQ=="
+              }
+            ],
+            "pageInfo": {
+              "hasNextPage": false,
+              "endCursor": "MQ=="
+            },
+            "totalCount": 2
+          }
+        }
+      }
+    commonErrors:
+      - error: invalid-product-id
+        cause: Product ID is not a valid integer or product does not exist
+        solution: Use a valid numeric product ID from your store
+      - error: invalid-pagination
+        cause: Invalid pagination arguments
+        solution: Use valid first/after or last/before combinations with max value 100
+
+  - id: get-product-reviews-by-status
+    title: Get Product Reviews - Filtered by Status
+    description: Retrieve reviews filtered by approval status. Use "approved" to show published reviews, "pending" for those awaiting moderation, or "rejected" for declined reviews.
+    query: |
+      query productReviewsByStatus($status: String, $first: Int, $after: String) {
+        productReviews(status: $status, first: $first, after: $after) {
+          edges {
+            node {
+              id
+              _id
+              name
+              title
+              rating
+              comment
+              status
+              createdAt
+              updatedAt
+            }
+            cursor
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {
+        "status": "approved",
+        "first": 10
+      }
+    response: |
+      {
+        "data": {
+          "productReviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/reviews/4",
+                  "_id": 4,
+                  "name": "Gerson Rivera",
+                  "title": "Earphones",
+                  "rating": 5,
+                  "comment": "I've been using these earphones for a week now and I'm really impressed. The sound is clear and balanced, with just the right amount of bass.",
+                  "status": "approved",
+                  "createdAt": "2025-09-03T12:32:39+05:30",
+                  "updatedAt": "2025-09-03T12:33:56+05:30"
+                },
+                "cursor": "MA=="
+              },
+              {
+                "node": {
+                  "id": "/api/shop/reviews/5",
+                  "_id": 5,
+                  "name": "Gerson Rivera",
+                  "title": "Overhead",
+                  "rating": 5,
+                  "comment": "I've been using these overhead headphones for a while and they feel really solid. The sound quality is excellent – clear vocals, detailed highs, and a deep, punchy bass.",
+                  "status": "approved",
+                  "createdAt": "2025-09-03T12:33:34+05:30",
+                  "updatedAt": "2025-09-03T12:33:56+05:30"
+                },
+                "cursor": "MQ=="
+              }
+            ],
+            "pageInfo": {
+              "hasNextPage": true,
+              "endCursor": "MQ=="
+            },
+            "totalCount": 12
+          }
+        }
+      }
+    commonErrors:
+      - error: invalid-status
+        cause: Status value is not a recognised string
+        solution: Use one of "approved", "pending", or "rejected"
+      - error: invalid-pagination
+        cause: Invalid pagination arguments
+        solution: Use valid first/after or last/before combinations with max value 100
+
+  - id: get-product-reviews-by-rating
+    title: Get Product Reviews - Filtered by Rating
+    description: Retrieve reviews filtered by a specific star rating (1–5). Useful for highlighting top-rated feedback or surfacing low-rated reviews for quality control.
+    query: |
+      query productReviewsByRating($rating: Int, $first: Int, $after: String) {
+        productReviews(rating: $rating, first: $first, after: $after) {
+          edges {
+            node {
+              id
+              _id
+              name
+              title
+              rating
+              comment
+              status
+              createdAt
+              updatedAt
+            }
+            cursor
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+          totalCount
+        }
+      }
+    variables: |
+      {
+        "rating": 5,
+        "first": 10
+      }
+    response: |
+      {
+        "data": {
+          "productReviews": {
+            "edges": [
+              {
+                "node": {
+                  "id": "/api/shop/reviews/4",
+                  "_id": 4,
+                  "name": "Gerson Rivera",
+                  "title": "Earphones",
+                  "rating": 5,
+                  "comment": "I've been using these earphones for a week now and I'm really impressed. The sound is clear and balanced, with just the right amount of bass. Definitely worth it if you're looking for reliable everyday earphones.",
+                  "status": "approved",
+                  "createdAt": "2025-09-03T12:32:39+05:30",
+                  "updatedAt": "2025-09-03T12:33:56+05:30"
+                },
+                "cursor": "MA=="
+              },
+              {
+                "node": {
+                  "id": "/api/shop/reviews/5",
+                  "_id": 5,
+                  "name": "Gerson Rivera",
+                  "title": "Overhead",
+                  "rating": 5,
+                  "comment": "I've been using these overhead headphones for a while and they feel really solid. The sound quality is excellent – clear vocals, detailed highs, and a deep, punchy bass that makes music more immersive.",
+                  "status": "approved",
+                  "createdAt": "2025-09-03T12:33:34+05:30",
+                  "updatedAt": "2025-09-03T12:33:56+05:30"
+                },
+                "cursor": "MQ=="
+              },
+              {
+                "node": {
+                  "id": "/api/shop/reviews/7",
+                  "_id": 7,
+                  "name": "Gerson Rivera",
+                  "title": "Royal Sofa",
+                  "rating": 5,
+                  "comment": "I recently purchased the royal leather sofa and it truly adds a luxurious touch to the living room. The leather finish feels premium and elegant.",
+                  "status": "approved",
+                  "createdAt": "2025-09-03T12:36:08+05:30",
+                  "updatedAt": "2025-09-03T12:40:50+05:30"
+                },
+                "cursor": "Mg=="
+              }
+            ],
+            "pageInfo": {
+              "hasNextPage": true,
+              "endCursor": "Mg=="
+            },
+            "totalCount": 9
+          }
+        }
+      }
+    commonErrors:
+      - error: invalid-rating
+        cause: Rating value is out of valid range
+        solution: Use an integer between 1 and 5
+      - error: invalid-pagination
+        cause: Invalid pagination arguments
+        solution: Use valid first/after or last/before combinations with max value 100
+
   # - id: get-product-reviews-filtered
   #   title: Get Product Reviews - Filtered by Product
   #   description: Retrieve product reviews filtered by product ID with optional status and rating filters.
@@ -371,7 +631,7 @@ This query supports full pagination with cursor-based navigation and flexible fi
 
 | Argument | Type | Required | Description |
 |----------|------|----------|-------------|
-| `status` | `Int` | ❌ No | Filter by review status (0 = pending, 1 = approved, 2 = rejected). |
+| `status` | `String` | ❌ No | Filter by review status (`"pending"`, `"approved"`, `"rejected"`). |
 | `rating` | `Int` | ❌ No | Filter by rating value (1-5 stars). |
 | `first` | `Int` | ❌ No | Number of results to return (forward pagination). Max: 100. |
 | `after` | `String` | ❌ No | Pagination cursor for forward navigation. Use with `first`. |
@@ -388,7 +648,7 @@ This query supports full pagination with cursor-based navigation and flexible fi
 | `title` | `String!` | Review title/headline. |
 | `rating` | `Int!` | Star rating (1-5). |
 | `comment` | `String!` | Review comment/text. |
-| `status` | `Int!` | Review status (0 = pending, 1 = approved, 2 = rejected). |
+| `status` | `String!` | Review approval status (`"pending"`, `"approved"`, `"rejected"`). |
 | `createdAt` | `DateTime!` | Review creation timestamp. |
 | `updatedAt` | `DateTime!` | Last update timestamp. |
 | `pageInfo` | `PageInfo!` | Pagination information. |
@@ -402,20 +662,20 @@ This query supports full pagination with cursor-based navigation and flexible fi
 
 | Status | Description |
 |--------|-------------|
-| `0` | Pending - Awaiting approval |
-| `1` | Approved - Published on storefront |
-| `2` | Rejected - Not published |
+| `"pending"` | Awaiting moderation approval |
+| `"approved"` | Published and visible on the storefront |
+| `"rejected"` | Declined and not published |
 
 ## Use Cases
 
 ### 1. Product Reviews Page
-Use the "Filtered by Product" example to display all approved reviews for a specific product.
+Use the "By Product ID" example to display all approved reviews for a specific product.
 
 ### 2. Admin Review Management
-Use the "Complete Details" example with `status: 0` to show pending reviews requiring approval.
+Use the "Filtered by Status" example with `status: "pending"` to show reviews awaiting moderation.
 
 ### 3. High-Rated Reviews
-Use the "Filtered by Product" example with `rating: 5` to highlight 5-star reviews.
+Use the "Filtered by Rating" example with `rating: 5` to highlight 5-star reviews.
 
 ### 4. Customer Testimonials
 Filter by approved status and high rating to display customer testimonials.
@@ -425,7 +685,7 @@ Use pagination to fetch all reviews for a product and calculate statistics.
 
 ## Best Practices
 
-1. **Filter by Status** - Always filter by `status: 1` to show only approved reviews to customers
+1. **Filter by Status** - Always filter by `status: "approved"` to show only approved reviews to customers
 2. **Show Ratings** - Display the rating prominently alongside the review
 3. **Use Pagination** - Always implement pagination for better performance
 4. **Cache Results** - Cache reviews for better performance as they change infrequently

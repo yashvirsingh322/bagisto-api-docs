@@ -27,7 +27,7 @@ examples:
           "password": "SecurePassword123!",
           "firstName": "John",
           "lastName": "Doe",
-          "phone": "123-456-7890"
+          "phone": "1234567890"
         }
       }
     response: |

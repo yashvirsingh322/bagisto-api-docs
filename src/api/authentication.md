@@ -257,6 +257,18 @@ Admins have full control over:
 | **Customer** | Cart, orders, profile | `X-STOREFRONT-KEY` + `Authorization: Bearer` | ✅ Customer login |
 | **Admin** | Manage products, inventory | `Authorization: Bearer` only | ✅ Admin login |
 
+### Optional Context Headers
+
+In addition to authentication headers, you can pass these optional headers to control the locale, currency, and channel context for the response data:
+
+| Header | Purpose | Example | Fallback |
+|--------|---------|---------|----------|
+| `X-LOCALE` | Return content in a specific locale | `fr` | Channel's default locale |
+| `X-CURRENCY` | Return pricing in a specific currency | `EUR` | Channel's base currency |
+| `X-CHANNEL` | Use a specific sales channel | `default` | Default channel |
+
+If these headers are omitted or contain a value that doesn't exist in the system, the API silently falls back to the default value. For more details, see the [GraphQL Introduction](/api/graphql-api/introduction#context-headers-x-locale-x-currency-x-channel).
+
 ---
 
 ## Common Patterns

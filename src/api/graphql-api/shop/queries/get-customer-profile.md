@@ -32,7 +32,7 @@ examples:
             "email": "john.doe@example.com",
             "dateOfBirth": "1990-01-15",
             "gender": "Male",
-            "phone": "555-0123",
+            "phone": "5550123",
             "status": "1",
             "subscribedToNewsLetter": true,
             "isVerified": "1",

@@ -213,6 +213,10 @@ The `updateCartItem` mutation modifies the quantity or options of an existing ca
 
 This mutation validates the new quantity against available inventory and updates cart totals including any applicable discounts and taxes.
 
+::: warning Quantity Update Not Supported for All Product Types
+**Event booking** and **appointment booking** products do not support quantity updates after being added to the cart. These products have fixed quantities tied to their booking configuration — event bookings have ticket quantities set during add-to-cart, and appointment bookings are always for a single slot. You can identify these items by checking the `canChangeQty` field on the cart item, which will be `false` for these product types. To change the quantity, the customer must remove the item and re-add it with the desired configuration.
+:::
+
 ## Authentication
 
 This mutation supports both authenticated customers and guest users:

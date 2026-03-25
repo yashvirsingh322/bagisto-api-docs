@@ -36,7 +36,7 @@ examples:
           "lastName": "Doe",
           "gender": "Male",
           "dateOfBirth": "01/15/1990",
-          "phone": "555-0123",
+          "phone": "5550123",
           "status": "1",
           "isVerified": "1",
           "isSuspended": "0",
@@ -69,7 +69,7 @@ examples:
                       "subscribedToNewsLetter": true,
                       "status": "1",
                       "token": "7b65c50e0c15cdc684d36e5819eb7c19",
-                      "phone": "555-0123"
+                      "phone": "5550123"
                   }
               }
           }

@@ -166,11 +166,41 @@ All GraphQL responses follow a consistent format:
 
 ## Common Headers
 
-| Header | Purpose | Example |
-|--------|---------|---------|
-| `Authorization` | Authentication token | `Bearer eyJhbGc...` |
-| `X-STOREFRONT-KEY` | For Public Data | `pk_storefront_oJv4u-e29b...` |
-| `Content-Type` | Request format | `application/json` | 
+| Header | Required | Purpose | Example |
+|--------|----------|---------|---------|
+| `Content-Type` | Yes | Request format | `application/json` |
+| `X-STOREFRONT-KEY` | Yes | Storefront API key for public data access | `pk_storefront_WaZh0x0FlbKF1suY...` |
+| `Authorization` | Conditional | Authentication token (required for customer/admin APIs) | `Bearer 867\|DlQxl04kMnUj...` |
+| `X-LOCALE` | No | Locale code for localized content | `fr` |
+| `X-CURRENCY` | No | Currency code for pricing | `EUR` |
+| `X-CHANNEL` | No | Channel code for multi-channel stores | `default` |
+
+### Context Headers (X-LOCALE, X-CURRENCY, X-CHANNEL)
+
+These optional headers let you control which locale, currency, and channel context the API uses when returning data. This is useful for building multi-language, multi-currency, or multi-channel storefronts.
+
+```bash
+curl -X POST https://your-domain.com/api/graphql \
+  -H "Content-Type: application/json" \
+  -H "X-STOREFRONT-KEY: pk_storefront_WaZh0x0FlbKF1suYmDD37YTfkRKm6BJ1" \
+  -H "Authorization: Bearer 867|DlQxl04kMnUjSpduZpd2gaVWX8oi3vvGY3RZn4pE03404429" \
+  -H "X-LOCALE: fr" \
+  -H "X-CURRENCY: EUR" \
+  -H "X-CHANNEL: default" \
+  -d '{
+    "query": "query { products(first: 10) { edges { node { id name price } } } }"
+  }'
+```
+
+**Fallback behavior:**
+- If a header is **not present**, the system uses the **default value** configured in your Bagisto instance (e.g., the default locale, base currency, or default channel).
+- If the value passed in a header **does not exist** in the system (e.g., `X-LOCALE: xx` where `xx` is not a configured locale), the system falls back to the **default value** instead of throwing an error.
+
+| Header | Fallback When Missing or Invalid |
+|--------|----------------------------------|
+| `X-LOCALE` | Uses the channel's default locale |
+| `X-CURRENCY` | Uses the channel's base currency |
+| `X-CHANNEL` | Uses the default channel | 
 
 <!-- ## Rate Limiting
 

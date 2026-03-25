@@ -53,7 +53,7 @@ examples:
                   "state": "NY",
                   "country": "US",
                   "zipCode": "10001",
-                  "phone": "+1-555-0100",
+                  "phone": "+15550100",
                   "useForShipping": true,
                   "createdAt": "2024-01-10T10:00:00Z"
                 }

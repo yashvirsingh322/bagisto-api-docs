@@ -380,19 +380,20 @@ examples:
 
   - id: sort-cheapest-first
     title: Sort Cheapest First
-    description: Sort products by price, lowest to highest.
+    description: Sort products by price, lowest to highest. Sorting is based on the minimumPrice column, which is the price displayed to the customer. This accounts for all price variants — including special price and configurable variant prices — making minimumPrice the primary reference for what the customer actually sees.
     query: |
-      query getProducts {
-        products(sortKey: "PRICE", reverse: false, first: 10) {
+      query getProductsSorted {
+        products(reverse: false, sortKey: "PRICE", first: 10) {
           edges {
             node {
               id
               name
               sku
+              minimumPrice
               price
+              specialPrice
             }
           }
-          totalCount
         }
       }
     variables: |
@@ -402,10 +403,9 @@ examples:
         "data": {
           "products": {
             "edges": [
-              { "node": { "id": "/api/shop/products/8", "name": "Basic Tee", "sku": "BAS-008", "price": 12.99 } },
-              { "node": { "id": "/api/shop/products/3", "name": "Cotton Socks", "sku": "SOC-003", "price": 5.99 } }
-            ],
-            "totalCount": 50
+              { "node": { "id": "/api/shop/products/3", "name": "Cotton Socks", "sku": "SOC-003", "minimumPrice": 5.99, "price": 5.99, "specialPrice": null } },
+              { "node": { "id": "/api/shop/products/8", "name": "Basic Tee", "sku": "BAS-008", "minimumPrice": 10.99, "price": 12.99, "specialPrice": 10.99 } }
+            ]
           }
         }
       }
@@ -443,8 +443,8 @@ examples:
       }
 
   - id: new-products
-    title: New Products
-    description: Retrieve new products sorted by newest first — equivalent to the REST endpoint /api/products?new=1&sort=asc.
+    title: Search Products - New Products
+    description: Retrieve products that are flagged as "new" in the catalog, sorted by creation date ascending. Equivalent to the REST endpoint /api/products?new=1&sort=asc.
     query: |
       query getProducts {
         products(filter: "{\"new\": \"1\"}", sortKey: "CREATED_AT", reverse: false, first: 10) {
@@ -485,7 +485,7 @@ examples:
       }
 
   - id: featured-products
-    title: Featured Products
+    title: Search Products - Featured Products
     description: Retrieve featured products sorted by newest first — equivalent to the REST endpoint /api/products?featured=1&sort=created_at-desc.
     query: |
       query getProducts {
@@ -651,6 +651,18 @@ Use `sortKey` and `reverse` to control result ordering:
 | Oldest First | `"CREATED_AT"` | `false` | Earliest created |
 | Cheapest First | `"PRICE"` | `false` | Lowest price first |
 | Most Expensive First | `"PRICE"` | `true` | Highest price first |
+
+### How Price Sorting Works
+
+When sorting by `PRICE`, the sort is not based on the `price` field alone. Instead, it is based on the `minimumPrice` column — the effective price shown to the customer on the storefront.
+
+`minimumPrice` reflects the lowest applicable price for a product after accounting for:
+
+- **Special price** — if a discounted price is set, `minimumPrice` will reflect that instead of the regular `price`
+- **Configurable variants** — for products with multiple variants, `minimumPrice` is the lowest price across all variants
+- **Regular price** — if no special price or variant pricing applies, `minimumPrice` equals `price`
+
+This means when you sort by price, you are sorting by what the customer actually sees — not the base catalog price. Always use `minimumPrice` in your UI when displaying the effective price alongside price-sorted results.
 
 ## REST API Equivalents
 

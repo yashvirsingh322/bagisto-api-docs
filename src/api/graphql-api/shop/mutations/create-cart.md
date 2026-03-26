@@ -84,7 +84,7 @@ examples:
 
 ## About
 
-The `createCart` mutation creates a new shopping cart session for a customer. Use this mutation to:
+The `createCart` mutation creates a new shopping cart session. Use this mutation to:
 
 - Initialize a new shopping cart for checkout flows
 - Generate a unique cart token for session tracking
@@ -94,6 +94,8 @@ The `createCart` mutation creates a new shopping cart session for a customer. Us
 - Manage multiple concurrent cart sessions
 
 This mutation returns a unique cart token that identifies the cart session. This token must be used in subsequent cart operations (add items, update, checkout).
+
+> **Note:** This mutation is primarily intended for **guest (non-logged-in) users**. It generates a `sessionToken` that must be passed as the `Authorization` header in all subsequent cart operations (e.g. add to cart, get cart). Authenticated customers already have a cart session tied to their account, so they do not need to call this mutation.
 
 
 ## Authentication

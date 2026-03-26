@@ -6,16 +6,14 @@ examples:
     description: Retrieve available payment methods for checkout.
     query: |
       query checkoutPaymentMethods {
-        collectionPaymentMethods(token: "") {
+        collectionPaymentMethods {
           id
           _id
           method
           title
           description
           icon
-          id
           isAllowed
-          
         }
       }
     response: |
@@ -40,12 +38,6 @@ examples:
 
 Retrieve available payment methods for checkout.
 
-
-## Query Parameters
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `token` | String | No | **Deprecated** - Keep empty. Use Authorization header instead |
 
 ## Authentication
 

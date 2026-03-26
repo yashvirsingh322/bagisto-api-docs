@@ -31,35 +31,6 @@ examples:
         cause: Missing or invalid Bearer token
         solution: Login and provide a valid customer authentication token
 
-  - id: delete-all-compare-items-empty
-    title: Delete All Compare Items - No Items
-    description: Calling delete all when the customer has no compare items returns a zero deleted count.
-    query: |
-      mutation DeleteAllCompareItems {
-        createDeleteAllCompareItems(input: {}) {
-          deleteAllCompareItems {
-            message
-            deletedCount
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "createDeleteAllCompareItems": {
-            "deleteAllCompareItems": {
-              "message": "All compare items have been removed successfully",
-              "deletedCount": 0
-            }
-          }
-        }
-      }
-    commonErrors:
-      - error: UNAUTHENTICATED
-        cause: Missing or invalid Bearer token
-        solution: Login and provide a valid customer authentication token
 ---
 
 # Delete All Compare Items
@@ -98,3 +69,5 @@ Authorization: Bearer <accessToken>
 |-------|------|-------------|
 | `deleteAllCompareItems.message` | `String!` | Success message confirming deletion. |
 | `deleteAllCompareItems.deletedCount` | `Int!` | Number of compare items that were removed. |
+
+> **Note:** If the customer has no compare items, the mutation still succeeds and returns `deletedCount: 0` with the same success message. No error is thrown for an already-empty list.

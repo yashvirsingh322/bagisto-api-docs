@@ -627,6 +627,8 @@ The `productReviews` query retrieves a collection of product reviews with filter
 
 This query supports full pagination with cursor-based navigation and flexible filtering options for various use cases.
 
+> **Note:** This query only returns reviews that have been **approved by an admin**. Reviews submitted by customers are set to `pending` by default and will not appear in the results until an admin approves them from the admin panel. `pending` and `rejected` reviews are never visible to storefront users.
+
 ## Arguments
 
 | Argument | Type | Required | Description |

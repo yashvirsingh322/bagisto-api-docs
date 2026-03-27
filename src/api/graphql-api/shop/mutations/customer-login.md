@@ -18,7 +18,7 @@ examples:
           customerLogin {
             id
             _id
-            apiToken      
+            apiToken
             token
             success
             message
@@ -45,11 +45,61 @@ examples:
           }
         }
       }
+
+  - id: customer-login-with-device-token
+    title: Customer Login with Device Token
+    description: Authenticate a customer with email, password and an FCM device token. Only applicable if the Bagisto Push Notification package is installed.
+    query: |
+      mutation createCustomerLogin(
+        $email: String!
+        $password: String!
+        $deviceToken: String!
+      ) {
+        createCustomerLogin(
+          input: {
+            email: $email
+            password: $password
+            deviceToken: $deviceToken
+          }
+        ) {
+          customerLogin {
+            id
+            _id
+            apiToken
+            token
+            success
+            message
+          }
+        }
+      }
+    variables: |
+      {
+          "email": "john.doe@example.com",
+          "password": "SecurePass@123",
+          "deviceToken": "your_fcm_device_token"
+      }
+    response: |
+      {
+        "data": {
+          "createCustomerLogin": {
+            "customerLogin": {
+              "id": "1",
+              "_id": 1,
+              "apiToken": "OOxDk2s06JCndg5FHb8WbfF6ZR8jGq23168m9gm37J9Cmz4xah8B8AFK0Cp95x...",
+              "token": "1|xy56RHXcttcDnimTHVEGIeyxzMKAWX6MyICCsZTA7dc...",
+              "success": true,
+              "message": "You have logged in successfully"
+            }
+          }
+        }
+      }
 ---
 
 # Customer Login
 
 Authenticate a customer account with email and password.
+
+> **Push Notifications:** The `deviceToken` field is only applicable if the [Bagisto Push Notification](https://bagisto.com/en/extensions/push-notifications-for-bagisto/) package is installed. Pass the FCM device token here to associate the device with the customer session for push notification delivery. If the package is not installed, this field can be omitted.
 
 ## Arguments
 
@@ -57,6 +107,7 @@ Authenticate a customer account with email and password.
 |------|------|----------|-------------|
 | `email` | String | ✅ Yes | Customer's email address |
 | `password` | String | ✅ Yes | Customer's password |
+| `deviceToken` | String | ❌ No | FCM device token for push notifications. Only required if the [Bagisto Push Notification](https://bagisto.com/en/extensions/push-notifications-for-bagisto/) package is installed. |
 
 ## Response
 

@@ -245,6 +245,64 @@ examples:
         cause: Price exceeds acceptable range
         solution: Check product pricing configuration
 
+  - id: get-products-currency-formatted-prices
+    title: Get Products with Currency Formatted Prices
+    description: Fetch products with all formatted price fields that reflect the active currency set via the locale header. Use these formatted fields instead of raw price fields when displaying prices to customers, as they include currency conversion and symbol.
+    query: |
+      query getProductsSorted {
+        products(first: 10) {
+          edges {
+            node {
+              id
+              name
+              sku
+              price
+              formattedPrice
+              specialPrice
+              formattedSpecialPrice
+              minimumPrice
+              formattedMinimumPrice
+              maximumPrice
+              formattedMaximumPrice
+              regularMinimumPrice
+              formattedRegularMinimumPrice
+              regularMaximumPrice
+              formattedRegularMaximumPrice
+            }
+          }
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "1",
+                  "name": "Product A",
+                  "sku": "SKU001",
+                  "price": 29.99,
+                  "formattedPrice": "$29.99",
+                  "specialPrice": 24.99,
+                  "formattedSpecialPrice": "$24.99",
+                  "minimumPrice": 24.99,
+                  "formattedMinimumPrice": "$24.99",
+                  "maximumPrice": 29.99,
+                  "formattedMaximumPrice": "$29.99",
+                  "regularMinimumPrice": 29.99,
+                  "formattedRegularMinimumPrice": "$29.99",
+                  "regularMaximumPrice": 29.99,
+                  "formattedRegularMaximumPrice": "$29.99"
+                }
+              }
+            ]
+          }
+        }
+      }
+
   - id: get-products-type-simple
     title: Get Products - Simple Type
     description: Retrieve all simple products. Simple products have no variants and include pricing, images, attributes, and categories.
@@ -1160,6 +1218,8 @@ The query supports cursor-based pagination to efficiently handle large product c
 - Publication and availability status
 - Created and updated timestamps
 
+> **Currency & Formatted Prices:** Raw price fields like `price` and `specialPrice` return numeric values in the store's base currency and do not reflect currency conversion. When the active currency is changed via the `X-Currency` locale header, always use the formatted price fields (e.g. `formattedPrice`, `formattedMinimumPrice`) — these return the converted, currency-symbol-prefixed value that should be displayed to the customer. See the [Get Products with Currency Formatted Prices](#get-products-currency-formatted-prices) example for all available formatted price fields.
+
 ## Arguments
 
 | Argument | Type | Description |
@@ -1187,6 +1247,25 @@ The query supports cursor-based pagination to efficiently handle large product c
 | `pageInfo.startCursor` | `String` | Cursor of the first product on the current page. |
 | `pageInfo.endCursor` | `String` | Cursor of the last product on the current page. |
 | `totalCount` | `Int!` | Total number of products matching the query criteria. |
+
+## Price Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `price` | `Float` | Base catalog price in the store's base currency. Does not reflect currency conversion. |
+| `formattedPrice` | `String` | `price` formatted with the active currency symbol and conversion applied. |
+| `specialPrice` | `Float` | Discounted price if a special price is set, otherwise `null`. |
+| `formattedSpecialPrice` | `String` | `specialPrice` formatted with the active currency symbol and conversion applied. |
+| `minimumPrice` | `Float` | The lowest effective price shown to the customer — accounts for special price and configurable variant pricing. Used for price sorting. |
+| `formattedMinimumPrice` | `String` | `minimumPrice` formatted with the active currency symbol and conversion applied. |
+| `maximumPrice` | `Float` | The highest effective price across all variants or configurations. |
+| `formattedMaximumPrice` | `String` | `maximumPrice` formatted with the active currency symbol and conversion applied. |
+| `regularMinimumPrice` | `Float` | The regular (non-discounted) minimum price before any special price is applied. |
+| `formattedRegularMinimumPrice` | `String` | `regularMinimumPrice` formatted with the active currency symbol and conversion applied. |
+| `regularMaximumPrice` | `Float` | The regular (non-discounted) maximum price before any special price is applied. |
+| `formattedRegularMaximumPrice` | `String` | `regularMaximumPrice` formatted with the active currency symbol and conversion applied. |
+
+> Always use `formatted*` fields when rendering prices in your storefront UI. The raw numeric fields do not include currency conversion.
 
 ## Product Types
 

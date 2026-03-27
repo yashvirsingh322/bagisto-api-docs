@@ -444,10 +444,10 @@ examples:
 
   - id: new-products
     title: Search Products - New Products
-    description: Retrieve products that are flagged as "new" in the catalog, sorted by creation date ascending. Equivalent to the REST endpoint /api/products?new=1&sort=asc.
+    description: Retrieve products that are flagged as "new" in the catalog, sorted by creation date descending (newest first). Equivalent to the REST endpoint /api/products?new=1&sort=created_at-desc.
     query: |
       query getProducts {
-        products(filter: "{\"new\": \"1\"}", sortKey: "CREATED_AT", reverse: false, first: 10) {
+        products(filter: "{\"new\": \"1\"}", sortKey: "CREATED_AT", reverse: true, first: 10) {
           edges {
             node {
               id
@@ -668,7 +668,7 @@ This means when you sort by price, you are sorting by what the customer actually
 
 | Use Case | REST Endpoint | GraphQL Equivalent |
 |----------|---------------|--------------------|
-| New Products | `/api/products?new=1&sort=asc&limit=10` | `products(filter: "{\"new\": \"1\"}", sortKey: "CREATED_AT", reverse: false, first: 10)` |
+| New Products | `/api/products?new=1&sort=created_at-desc&limit=10` | `products(filter: "{\"new\": \"1\"}", sortKey: "CREATED_AT", reverse: true, first: 10)` |
 | Featured Products | `/api/products?sort=created_at-desc&limit=12` | `products(filter: "{\"featured\": \"1\"}", sortKey: "CREATED_AT", reverse: true, first: 12)` |
 | Popular by Brand | `/api/products?sort=created_at-desc&brand=25&limit=12` | `products(filter: "{\"brand\": \"25\"}", sortKey: "CREATED_AT", reverse: true, first: 12)` |
 | All (Price Desc) | `/api/products?sort=price-desc&limit=12` | `products(sortKey: "PRICE", reverse: true, first: 12)` |

@@ -151,18 +151,38 @@ examples:
         solution: Use simple product query
   - id: get-product-details-full
     title: Get Full Product Details
-    description: Retrieve complete product information including attributes, images, descriptions, and pricing.
+    description: Retrieve complete product information including attributes, images, descriptions, pricing, and all formatted price fields.
     query: |
       query getProduct($id: ID!) {
         product(id: $id) {
           id
           name
           sku
+          type
           urlKey
+          locale
+          channel
+          status
           description
           shortDescription
+          color
+          size
+          featured
+          new
+          guestCheckout
+          isSaleable
           price
           specialPrice
+          minimumPrice
+          maximumPrice
+          regularMinimumPrice
+          regularMaximumPrice
+          formattedPrice
+          formattedSpecialPrice
+          formattedMinimumPrice
+          formattedMaximumPrice
+          formattedRegularMinimumPrice
+          formattedRegularMaximumPrice
           images {
             edges {
               node {
@@ -224,14 +244,34 @@ examples:
       {
         "data": {
           "product": {
-            "id": "1",
+            "id": "/api/shop/products/1",
             "name": "Premium Wireless Headphones",
             "sku": "HEADPHONES-001",
+            "type": "simple",
             "urlKey": "premium-wireless-headphones",
+            "locale": "en",
+            "channel": "default",
+            "status": "1",
             "description": "High-quality wireless headphones with noise cancellation and 30-hour battery life",
             "shortDescription": "Premium wireless headphones with active noise cancellation",
+            "color": null,
+            "size": null,
+            "featured": true,
+            "new": false,
+            "guestCheckout": true,
+            "isSaleable": true,
             "price": 199.99,
             "specialPrice": 149.99,
+            "minimumPrice": 149.99,
+            "maximumPrice": 199.99,
+            "regularMinimumPrice": 199.99,
+            "regularMaximumPrice": 199.99,
+            "formattedPrice": "$199.99",
+            "formattedSpecialPrice": "$149.99",
+            "formattedMinimumPrice": "$149.99",
+            "formattedMaximumPrice": "$199.99",
+            "formattedRegularMinimumPrice": "$199.99",
+            "formattedRegularMaximumPrice": "$199.99",
             "images": {
               "edges": [
                 {
@@ -247,50 +287,24 @@ examples:
                     "publicPath": "http://127.0.0.1:8000/storage/product/7/sW5mmHIh07PJJefnSLC8jwtvx0BpjnWVhVUYonVs.webp",
                     "position": "2"
                   }
-                },
+                }
+              ]
+            },
+            "attributeValues": {
+              "edges": [
                 {
                   "node": {
-                    "id": "/api/admin/images/9",
-                    "publicPath": "http://127.0.0.1:8000/storage/product/7/4Br5gcMadRVhsIAli3Q8qLKvBabRA9aPXQhL7dI1.webp",
-                    "position": "3"
+                    "value": "Black",
+                    "attribute": {
+                      "code": "color",
+                      "adminName": "Color"
+                    }
                   }
                 }
               ]
             },
-            "attributes": [
-              {
-                "code": "color",
-                "value": "Black"
-              },
-              {
-                "code": "brand",
-                "value": "Premium Audio"
-              }
-            ],
             "variants": {
-              "edges": [
-                {
-                  "node": {
-                    "id": "/api/shop/products/8",
-                    "name": "OmniHeat Men's Solid Hooded Puffer Jacket-Blue-Yellow-M",
-                    "sku": "SP-005",
-                    "price": "14",
-                    "attributeValues": {
-                      "edges": [
-                        {
-                          "node": {
-                            "value": "SP-001",
-                            "attribute": {
-                              "code": "sku",
-                              "adminName": "SKU"
-                            }
-                          }
-                        },
-                      ]
-                    }
-                  }
-                },
-              ]
+              "edges": []
             },
             "categories": {
               "edges": [
@@ -298,7 +312,7 @@ examples:
                   "node": {
                     "id": "/api/shop/categories/3",
                     "translation": {
-                      "name": "Winter Wear"
+                      "name": "Electronics"
                     }
                   }
                 }

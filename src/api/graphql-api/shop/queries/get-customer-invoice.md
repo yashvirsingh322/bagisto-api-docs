@@ -76,7 +76,7 @@ examples:
             "reminders": 0,
             "createdAt": "2025-02-10T10:30:00+00:00",
             "updatedAt": "2025-02-10T10:30:00+00:00",
-            "downloadUrl": "http://localhost:8000/api/shop/customer-invoices/1/pdf",
+            "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-invoices/1/pdf",
             "items": {
               "edges": [
                 {

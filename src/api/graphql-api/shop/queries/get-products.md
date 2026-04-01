@@ -167,7 +167,7 @@ examples:
 
   - id: get-products-cheapest-first
     title: Get Products - Cheapest First
-    description: Fetch products sorted by price in ascending order.
+    description: Fetch products sorted by price in ascending order. Uses minimumPrice as the sort basis.
     query: |
       query getProductsSorted {
         products(reverse: false, sortKey: "PRICE", first: 10) {
@@ -177,6 +177,8 @@ examples:
               name
               sku
               price
+              minimumPrice
+              maximumPrice
             }
           }
         }
@@ -193,7 +195,9 @@ examples:
                   "id": "5",
                   "name": "Budget Product",
                   "sku": "SKU005",
-                  "price": 9.99
+                  "price": 9.99,
+                  "minimumPrice": 9.99,
+                  "maximumPrice": 9.99
                 }
               }
             ]
@@ -207,7 +211,7 @@ examples:
 
   - id: get-products-expensive-first
     title: Get Products - Most Expensive First
-    description: Fetch products sorted by price in descending order.
+    description: Fetch products sorted by price in descending order. Uses minimumPrice as the sort basis.
     query: |
       query getProductsSorted {
         products(reverse: true, sortKey: "PRICE", first: 10) {
@@ -217,6 +221,8 @@ examples:
               name
               sku
               price
+              minimumPrice
+              maximumPrice
             }
           }
         }
@@ -233,7 +239,9 @@ examples:
                   "id": "50",
                   "name": "Premium Product",
                   "sku": "SKU050",
-                  "price": 999.99
+                  "price": 999.99,
+                  "minimumPrice": 999.99,
+                  "maximumPrice": 999.99
                 }
               }
             ]
@@ -1218,7 +1226,7 @@ The query supports cursor-based pagination to efficiently handle large product c
 - Publication and availability status
 - Created and updated timestamps
 
-> **Currency & Formatted Prices:** Raw price fields like `price` and `specialPrice` return numeric values in the store's base currency and do not reflect currency conversion. When the active currency is changed via the `X-Currency` locale header, always use the formatted price fields (e.g. `formattedPrice`, `formattedMinimumPrice`) — these return the converted, currency-symbol-prefixed value that should be displayed to the customer. See the [Get Products with Currency Formatted Prices](#get-products-currency-formatted-prices) example for all available formatted price fields.
+> **Currency & Formatted Prices:** All price fields reflect the active currency set via the `X-Currency` header — both numeric fields (e.g. `price`, `specialPrice`, `minimumPrice`) and formatted fields (e.g. `formattedPrice`, `formattedMinimumPrice`) return converted values. The difference is that numeric fields return the converted amount as a number, while formatted fields return the converted amount as a string with the currency symbol prefixed (e.g. `"€84.99"`). See the "Get Products with Currency Formatted Prices" dropdown example above for all available price fields.
 
 ## Arguments
 
@@ -1252,20 +1260,20 @@ The query supports cursor-based pagination to efficiently handle large product c
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `price` | `Float` | Base catalog price in the store's base currency. Does not reflect currency conversion. |
-| `formattedPrice` | `String` | `price` formatted with the active currency symbol and conversion applied. |
-| `specialPrice` | `Float` | Discounted price if a special price is set, otherwise `null`. |
-| `formattedSpecialPrice` | `String` | `specialPrice` formatted with the active currency symbol and conversion applied. |
-| `minimumPrice` | `Float` | The lowest effective price shown to the customer — accounts for special price and configurable variant pricing. Used for price sorting. |
-| `formattedMinimumPrice` | `String` | `minimumPrice` formatted with the active currency symbol and conversion applied. |
-| `maximumPrice` | `Float` | The highest effective price across all variants or configurations. |
-| `formattedMaximumPrice` | `String` | `maximumPrice` formatted with the active currency symbol and conversion applied. |
-| `regularMinimumPrice` | `Float` | The regular (non-discounted) minimum price before any special price is applied. |
-| `formattedRegularMinimumPrice` | `String` | `regularMinimumPrice` formatted with the active currency symbol and conversion applied. |
-| `regularMaximumPrice` | `Float` | The regular (non-discounted) maximum price before any special price is applied. |
-| `formattedRegularMaximumPrice` | `String` | `regularMaximumPrice` formatted with the active currency symbol and conversion applied. |
+| `price` | `Float` | Base catalog price. Returns the converted numeric value based on the active currency set via `X-Currency` header. |
+| `formattedPrice` | `String` | Same as `price` but returned as a string with the currency symbol prefixed (e.g. `"€84.99"`). |
+| `specialPrice` | `Float` | Discounted price if a special price is set, otherwise `null`. Reflects currency conversion. |
+| `formattedSpecialPrice` | `String` | Same as `specialPrice` but with the currency symbol prefixed. |
+| `minimumPrice` | `Float` | The lowest effective price — accounts for special price and configurable variant pricing. Used for price sorting. Reflects currency conversion. |
+| `formattedMinimumPrice` | `String` | Same as `minimumPrice` but with the currency symbol prefixed. |
+| `maximumPrice` | `Float` | The highest effective price across all variants or configurations. Reflects currency conversion. |
+| `formattedMaximumPrice` | `String` | Same as `maximumPrice` but with the currency symbol prefixed. |
+| `regularMinimumPrice` | `Float` | The regular (non-discounted) minimum price before any special price is applied. Reflects currency conversion. |
+| `formattedRegularMinimumPrice` | `String` | Same as `regularMinimumPrice` but with the currency symbol prefixed. |
+| `regularMaximumPrice` | `Float` | The regular (non-discounted) maximum price before any special price is applied. Reflects currency conversion. |
+| `formattedRegularMaximumPrice` | `String` | Same as `regularMaximumPrice` but with the currency symbol prefixed. |
 
-> Always use `formatted*` fields when rendering prices in your storefront UI. The raw numeric fields do not include currency conversion.
+> The difference between numeric and formatted price fields is purely presentational: numeric fields (e.g. `price`) return the converted amount as a number, while formatted fields (e.g. `formattedPrice`) return the same converted amount as a string with the currency symbol (e.g. `"€84.99"`). Both reflect the active currency set via the `X-Currency` header.
 
 ## Product Types
 

@@ -492,7 +492,7 @@ This query requires a valid customer authentication token in the `Authorization`
 ## cURL Example
 
 ```bash
-curl -X POST "http://localhost:8000/api/graphql" \
+curl -X POST "https://api-demo.bagisto.com/api/graphql" \
   -H "X-STOREFRONT-KEY: pk_storefront_your_key_here" \
   -H "Authorization: Bearer YOUR_CUSTOMER_TOKEN" \
   -H "Content-Type: application/json" \

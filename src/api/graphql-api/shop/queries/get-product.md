@@ -183,6 +183,8 @@ examples:
           formattedMaximumPrice
           formattedRegularMinimumPrice
           formattedRegularMaximumPrice
+          superAttributeOptions
+          combinations
           images {
             edges {
               node {
@@ -272,19 +274,21 @@ examples:
             "formattedMaximumPrice": "$199.99",
             "formattedRegularMinimumPrice": "$199.99",
             "formattedRegularMaximumPrice": "$199.99",
+            "superAttributeOptions": "[{\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":19,\"label\":\"Blue\"},{\"id\":20,\"label\":\"Ash grey\"},{\"id\":23,\"label\":\"Pink\"}]},{\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"},{\"id\":7,\"label\":\"M\"}]}]",
+            "combinations": "{\"8\":{\"color\":3,\"size\":7},\"9\":{\"color\":3,\"size\":8},\"10\":{\"color\":2,\"size\":7},\"11\":{\"color\":2,\"size\":8}}",
             "images": {
               "edges": [
                 {
                   "node": {
                     "id": "/api/admin/images/7",
-                    "publicPath": "http://127.0.0.1:8000/storage/product/7/L79gIVq7SdiKK2Xk7MHVHdEZgAb32TedY764iZr4.webp",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/7/L79gIVq7SdiKK2Xk7MHVHdEZgAb32TedY764iZr4.webp",
                     "position": "1"
                   }
                 },
                 {
                   "node": {
                     "id": "/api/admin/images/8",
-                    "publicPath": "http://127.0.0.1:8000/storage/product/7/sW5mmHIh07PJJefnSLC8jwtvx0BpjnWVhVUYonVs.webp",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/7/sW5mmHIh07PJJefnSLC8jwtvx0BpjnWVhVUYonVs.webp",
                     "position": "2"
                   }
                 }
@@ -313,6 +317,330 @@ examples:
                     "id": "/api/shop/categories/3",
                     "translation": {
                       "name": "Electronics"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    commonErrors:
+      - error: PRODUCT_NOT_FOUND
+        cause: Product ID does not exist
+        solution: Verify the product ID is correct
+  - id: get-downloadable-product-samples
+    title: Get Downloadable Product with Samples
+    description: Retrieve a downloadable product with its downloadable links and product-level samples. Use the _id from each link or sample to download the corresponding file.
+    query: |
+      query getProduct($id: ID!) {
+        product(id: $id) {
+          _id
+          name
+          sku
+          type
+          price
+          downloadableLinks {
+            edges {
+              node {
+                _id
+                type
+                translation {
+                  title
+                }
+                price
+                formattedPrice
+                sampleType
+                sampleFile
+                sampleFileUrl
+                sampleUrl
+              }
+            }
+          }
+          downloadableSamples {
+            edges {
+              node {
+                _id
+                type
+                file
+                fileUrl
+                url
+                translation {
+                  title
+                }
+              }
+            }
+          }
+        }
+      }
+    variables: |
+      {
+        "id": "1"
+      }
+    response: |
+      {
+        "data": {
+          "product": {
+            "_id": 15,
+            "name": "Laravel Masterclass E-Book",
+            "sku": "EBOOK-LARAVEL-001",
+            "type": "downloadable",
+            "price": "49.99",
+            "downloadableLinks": {
+              "edges": [
+                {
+                  "node": {
+                    "_id": 1,
+                    "type": "file",
+                    "translation": {
+                      "title": "Part 1 - Fundamentals"
+                    },
+                    "price": "29.99",
+                    "formattedPrice": "$29.99",
+                    "sampleType": "file",
+                    "sampleFile": "product_downloadable_links/15/part1-sample.pdf",
+                    "sampleFileUrl": "https://your-domain.com/api/downloadable/download-sample/link/1",
+                    "sampleUrl": null
+                  }
+                },
+                {
+                  "node": {
+                    "_id": 2,
+                    "type": "file",
+                    "translation": {
+                      "title": "Part 2 - Advanced Topics"
+                    },
+                    "price": "39.99",
+                    "formattedPrice": "$39.99",
+                    "sampleType": "file",
+                    "sampleFile": "product_downloadable_links/15/part2-sample.pdf",
+                    "sampleFileUrl": "https://your-domain.com/api/downloadable/download-sample/link/2",
+                    "sampleUrl": null
+                  }
+                }
+              ]
+            },
+            "downloadableSamples": {
+              "edges": [
+                {
+                  "node": {
+                    "_id": 1,
+                    "type": "file",
+                    "file": "product_downloadable_links/15/table-of-contents.pdf",
+                    "fileUrl": "https://your-domain.com/api/downloadable/download-sample/sample/1",
+                    "url": null,
+                    "translation": {
+                      "title": "Table of Contents Preview"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    commonErrors:
+      - error: PRODUCT_NOT_FOUND
+        cause: Product ID does not exist
+        solution: Verify the product ID is correct
+  - id: get-grouped-product
+    title: Get Grouped Product
+    description: Retrieve a grouped product with its associated child products and quantities. Grouped products bundle multiple simple products together, each with a default quantity.
+    query: |
+      query getProduct($id: ID!) {
+        product(id: $id) {
+          id
+          name
+          sku
+          type
+          urlKey
+          locale
+          channel
+          status
+          description
+          shortDescription
+          featured
+          new
+          guestCheckout
+          isSaleable
+          price
+          specialPrice
+          minimumPrice
+          maximumPrice
+          regularMinimumPrice
+          regularMaximumPrice
+          formattedPrice
+          formattedSpecialPrice
+          formattedMinimumPrice
+          formattedMaximumPrice
+          formattedRegularMinimumPrice
+          formattedRegularMaximumPrice
+          groupedProducts {
+            edges {
+              node {
+                id
+                qty
+                sortOrder
+                associatedProduct {
+                  id
+                  name
+                  sku
+                  price
+                  formattedPrice
+                  specialPrice
+                  formattedSpecialPrice
+                  images(first: 3) {
+                    edges {
+                      node {
+                        id
+                        publicPath
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          images {
+            edges {
+              node {
+                id
+                publicPath
+                position
+              }
+            }
+          }
+          categories {
+            edges {
+              node {
+                id
+                translation {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    variables: |
+      {
+        "id": "20"
+      }
+    response: |
+      {
+        "data": {
+          "product": {
+            "id": "/api/shop/products/20",
+            "name": "Fitness Essentials Kit",
+            "sku": "FITNESS-KIT-001",
+            "type": "grouped",
+            "urlKey": "fitness-essentials-kit",
+            "locale": "en",
+            "channel": null,
+            "status": "1",
+            "description": "Get everything you need to start your fitness journey with this all-in-one kit. Includes a yoga mat, resistance bands, and a water bottle.",
+            "shortDescription": "All-in-one fitness starter kit with yoga mat, resistance bands, and water bottle.",
+            "featured": "1",
+            "new": "1",
+            "guestCheckout": "1",
+            "isSaleable": "1",
+            "price": "0",
+            "specialPrice": null,
+            "minimumPrice": "15.99",
+            "maximumPrice": "49.99",
+            "regularMinimumPrice": "15.99",
+            "regularMaximumPrice": "49.99",
+            "formattedPrice": "$0.00",
+            "formattedSpecialPrice": null,
+            "formattedMinimumPrice": "$15.99",
+            "formattedMaximumPrice": "$49.99",
+            "formattedRegularMinimumPrice": "$15.99",
+            "formattedRegularMaximumPrice": "$49.99",
+            "groupedProducts": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "/api/shop/grouped-products/1",
+                    "qty": 1,
+                    "sortOrder": 1,
+                    "associatedProduct": {
+                      "id": "/api/shop/products/21",
+                      "name": "Premium Yoga Mat",
+                      "sku": "YOGA-MAT-001",
+                      "price": "29.99",
+                      "formattedPrice": "$29.99",
+                      "specialPrice": null,
+                      "formattedSpecialPrice": null,
+                      "images": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "/api/admin/images/50",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/21/yoga-mat.webp"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/grouped-products/2",
+                    "qty": 2,
+                    "sortOrder": 2,
+                    "associatedProduct": {
+                      "id": "/api/shop/products/22",
+                      "name": "Resistance Bands Set",
+                      "sku": "RESISTANCE-BANDS-001",
+                      "price": "15.99",
+                      "formattedPrice": "$15.99",
+                      "specialPrice": "12.99",
+                      "formattedSpecialPrice": "$12.99",
+                      "images": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "/api/admin/images/51",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/22/resistance-bands.webp"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/grouped-products/3",
+                    "qty": 1,
+                    "sortOrder": 3,
+                    "associatedProduct": {
+                      "id": "/api/shop/products/23",
+                      "name": "Insulated Water Bottle",
+                      "sku": "WATER-BOTTLE-001",
+                      "price": "19.99",
+                      "formattedPrice": "$19.99",
+                      "specialPrice": null,
+                      "formattedSpecialPrice": null,
+                      "images": {
+                        "edges": []
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "images": {
+              "edges": []
+            },
+            "categories": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "/api/shop/categories/5",
+                    "translation": {
+                      "name": "Fitness & Sports"
                     }
                   }
                 }
@@ -802,6 +1130,8 @@ All product types (simple, configurable, grouped, bundle, downloadable, virtual)
 | `shortDescription` | `String` | Brief product summary. |
 | `price` | `Float!` | Base product price. |
 | `specialPrice` | `Float` | Promotional/discounted price if applicable. |
+| `superAttributeOptions` | `String (JSON)` | JSON-encoded array of configurable attribute options (e.g. color, size) with their available values. Only populated for **configurable** products — returns the attributes and selectable options that define the product's variants. |
+| `combinations` | `String (JSON)` | JSON-encoded object mapping variant product IDs to their attribute option combinations. Each key is a variant ID and the value contains the attribute option IDs that define that variant. Only populated for **configurable** products. |
 | `taxClass` | `String` | Tax classification for the product. |
 | `images` | `[ProductImage!]` | Array of product images with URLs and metadata. |
 | `images.url` | `String!` | Image URL. |
@@ -823,6 +1153,84 @@ All product types (simple, configurable, grouped, bundle, downloadable, virtual)
 | `visibility` | `String!` | Visibility status (visible, not visible, search only). |
 | `createdAt` | `DateTime!` | Product creation date. |
 | `updatedAt` | `DateTime!` | Last modification date. |
+
+## Configurable Products
+
+A **configurable product** is a product that has multiple variants based on attributes like color, size, or material. For example, a T-shirt that comes in 3 colors and 2 sizes would have 6 variants. When querying a configurable product, two additional fields are returned that are essential for building a variant selection UI:
+
+### `superAttributeOptions`
+
+This field returns a JSON-encoded string containing the configurable attributes and their selectable options. Each entry includes:
+
+- `code` — the attribute code (e.g. `color`, `size`)
+- `label` — the display label (e.g. `Color`, `Size`)
+- `options` — an array of available values, each with an `id` and `label`
+
+Use this field to render attribute dropdowns (e.g. color picker, size selector) on the product detail page.
+
+### `combinations`
+
+This field returns a JSON-encoded object that maps each **variant product ID** to its specific attribute option combination. For example:
+
+```json
+{"8": {"color": 3, "size": 7}, "9": {"color": 3, "size": 8}}
+```
+
+This means variant ID `8` is the product with color option `3` and size option `7`. When a customer selects a color and size from the dropdowns, use this mapping to resolve which variant ID to load (for pricing, stock, images, etc.).
+
+### How they work together
+
+1. Use `superAttributeOptions` to render the attribute dropdowns on your product page
+2. When the customer selects options (e.g. Color: Blue, Size: M), match their selection against the `combinations` object to find the corresponding variant ID
+3. Use that variant ID to display the correct price, stock status, and images for the selected variant
+
+> For non-configurable product types (simple, grouped, bundle, etc.), both `superAttributeOptions` and `combinations` will be `null`.
+
+## Downloadable Products
+
+A **downloadable** product contains digital files that customers can download after purchase. Each downloadable product can have two types of sample files:
+
+### `downloadableLinks`
+
+These are the individual download links that make up the product (e.g. Track 1, Track 2 for a music album, or Chapter 1, Chapter 2 for an e-book). Each link has its own price and can optionally have a **sample file** attached for preview. The fields `sampleFile`, `sampleFileUrl`, and `sampleUrl` provide details about the sample associated with each link.
+
+### `downloadableSamples`
+
+These are **product-level samples** — general preview files for the entire product rather than a specific link. The `_id` from each sample node is used to download the sample via:
+
+```
+GET /api/shop/downloadable/download-sample/sample/{_id}
+```
+
+### Downloading purchased files
+
+After a customer purchases a downloadable product, the purchased files can be downloaded using the `_id` from the [Get Downloadable Products](/api/graphql-api/shop/queries/get-customer-downloadable-products) query (not the product query). See the [Download Downloadable Product](/api/graphql-api/shop/queries/download-downloadable-product) page for full details.
+
+> Sample downloads are free and do not require authentication. Purchased file downloads require customer authentication and have a limited number of downloads.
+
+## Grouped Products
+
+A **grouped product** bundles multiple simple products together, allowing customers to purchase them as a set. Unlike a bundle product where the customer selects options, a grouped product presents each child product with a default quantity that the customer can adjust before adding to cart.
+
+### `groupedProducts`
+
+This field returns the list of associated child products via the `groupedProducts` connection. Each node contains:
+
+- `id` — the grouped product relationship ID
+- `qty` — the default quantity for that child product in the group
+- `sortOrder` — the display order of the child product
+- `associatedProduct` — the full child product details including `id`, `name`, `sku`, `price`, `formattedPrice`, `specialPrice`, `formattedSpecialPrice`, and `images`
+
+### Pricing behavior
+
+A grouped product's own `price` is always `0` because it does not have a standalone price. Instead, the price range is derived from its child products:
+
+- `minimumPrice` — the lowest priced child product
+- `maximumPrice` — the highest priced child product
+
+The customer's total depends on which child products they select and in what quantities.
+
+> For non-grouped product types, the `groupedProducts` field will return an empty edges array.
 
 ## Booking Product Types
 

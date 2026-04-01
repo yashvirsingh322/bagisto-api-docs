@@ -192,6 +192,9 @@ curl -X POST https://your-domain.com/api/graphql \
   }'
 ```
 
+> **Pre-requisite: Channel Configuration**
+> Before the `X-LOCALE` and `X-CURRENCY` headers will have any effect, the desired locale and currency must first be **added to the channel** in the Bagisto admin panel. Navigate to **Settings → Channels → [Your Channel]** and add the locales and currencies you want to support. Only locales and currencies that are assigned to the channel will be recognized by the API — passing a locale or currency that is not configured on the channel will cause the system to fall back to the channel's default values.
+
 **Fallback behavior:**
 - If a header is **not present**, the system uses the **default value** configured in your Bagisto instance (e.g., the default locale, base currency, or default channel).
 - If the value passed in a header **does not exist** in the system (e.g., `X-LOCALE: xx` where `xx` is not a configured locale), the system falls back to the **default value** instead of throwing an error.

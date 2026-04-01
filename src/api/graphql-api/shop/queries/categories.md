@@ -180,8 +180,8 @@ examples:
                   "bannerPath": null,
                   "createdAt": "2023-11-02T16:41:54+05:30",
                   "updatedAt": "2023-11-29T10:56:40+05:30",
-                  "url": "http://127.0.0.1:8000/men",
-                  "logoUrl": "http://127.0.0.1:8000/storage/category/2/OYsuHioryn5KrOE7p8wQ2hQ3BReXY5CSbDzhvEk8.webp",
+                  "url": "https://api-demo.bagisto.com/men",
+                  "logoUrl": "https://api-demo.bagisto.com/storage/category/2/OYsuHioryn5KrOE7p8wQ2hQ3BReXY5CSbDzhvEk8.webp",
                   "bannerUrl": null,
                   "translation": {
                     "name": "Men",

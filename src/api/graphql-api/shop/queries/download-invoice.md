@@ -1,11 +1,12 @@
 ---
 outline: false
+apiType: rest
 examples:
   - id: download-invoice-with-bearer-token
     title: Download Invoice PDF with Bearer Token
     description: Download a customer invoice as PDF using the downloadUrl with Bearer token authentication.
     query: |
-      curl -X GET "http://localhost:8000/api/shop/customer-invoices/1/pdf" \
+      curl -X GET "https://api-demo.bagisto.com/api/shop/customer-invoices/1/pdf" \
         -H "X-STOREFRONT-KEY: <storefrontKey>" \
         -H "Authorization: Bearer <accessToken>" \
         -o invoice-1.pdf
@@ -48,7 +49,7 @@ examples:
           "customerInvoice": {
             "_id": 1,
             "incrementId": "INV-001",
-            "downloadUrl": "http://localhost:8000/api/shop/customer-invoices/1/pdf"
+            "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-invoices/1/pdf"
           }
         }
       }
@@ -142,7 +143,7 @@ GET /api/shop/customer-invoices/{invoiceId}/pdf
 ### Using cURL with Bearer Token
 
 ```bash
-curl -X GET "http://localhost:8000/api/shop/customer-invoices/1/pdf" \
+curl -X GET "https://api-demo.bagisto.com/api/shop/customer-invoices/1/pdf" \
   -H "X-STOREFRONT-KEY: pk_storefront_qrr4vsdbs6xNpL7DN0GHUcB0XnhjnjIS" \
   -H "Authorization: Bearer 4|RZI3ySNlzbcz5osLbnfuAcTgy2eqRN5i987eUsMS22e18f1c" \
   -o invoice-1.pdf
@@ -152,7 +153,7 @@ curl -X GET "http://localhost:8000/api/shop/customer-invoices/1/pdf" \
 
 ```javascript
 const invoiceId = 1;
-const downloadUrl = `http://localhost:8000/api/shop/customer-invoices/${invoiceId}/pdf`;
+const downloadUrl = `https://api-demo.bagisto.com/api/shop/customer-invoices/${invoiceId}/pdf`;
 const accessToken = '<your-access-token>';
 const storefrontKey = '<your-storefront-key>';
 
@@ -180,7 +181,7 @@ fetch(downloadUrl, {
 import requests
 
 invoice_id = 1
-download_url = f"http://localhost:8000/api/shop/customer-invoices/{invoice_id}/pdf"
+download_url = f"https://api-demo.bagisto.com/api/shop/customer-invoices/{invoice_id}/pdf"
 access_token = '<your-access-token>'
 storefront_key = '<your-storefront-key>'
 

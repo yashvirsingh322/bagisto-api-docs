@@ -39,7 +39,6 @@ examples:
           "city": "New York",
           "state": "NY",
           "country": "US",
-          "phone": "+1-555-0100",
           "useForShipping": true
         }
       }
@@ -54,7 +53,7 @@ examples:
               "city": "New York",
               "state": "NY",
               "country": "US",
-              "phone": "+1-555-0100",
+              "phone": "+918888888888",
               "addressId": 2851,
               "email": "hello@example.com",
               "address1": "123 Main Street",

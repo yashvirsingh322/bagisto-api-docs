@@ -3,7 +3,7 @@ outline: false
 examples:
   - id: get-addresses
     title: Get Checkout Addresses
-    description: Retrieve all cart addresses for checkout.
+    description: Retrieve the address applied to the current checkout session — either the guest-entered address or the authenticated customer's selected checkout address.
     query: |
       query collectionGetCheckoutAddresses {
         collectionGetCheckoutAddresses {
@@ -11,11 +11,11 @@ examples:
             node {
               id
               _id
+              name
               addressType
               parentAddressId
               firstName
               lastName
-              gender
               companyName
               address
               city
@@ -30,12 +30,10 @@ examples:
               additional
               createdAt
               updatedAt
-              name
             }
           }
         }
       }
-      
     variables: |
       {}
     response: |
@@ -45,24 +43,55 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "1",
+                  "id": "/api/shop/get_checkout_addresses/3025",
+                  "_id": 3025,
+                  "name": "John Doe",
+                  "addressType": "cart_billing",
+                  "parentAddressId": null,
                   "firstName": "John",
                   "lastName": "Doe",
-                  "address": "123 Main Street",
-                  "city": "New York",
-                  "state": "NY",
+                  "companyName": null,
+                  "address": "123 Main St",
+                  "city": "Los Angeles",
+                  "state": "CA",
                   "country": "US",
-                  "zipCode": "10001",
-                  "phone": "+1-555-0100",
-                  "useForShipping": true,
-                  "createdAt": "2024-01-10T10:00:00Z"
+                  "postcode": "90001",
+                  "email": "john@example.com",
+                  "phone": "2125551234",
+                  "vatId": null,
+                  "defaultAddress": false,
+                  "useForShipping": false,
+                  "additional": null,
+                  "createdAt": "2026-04-02T13:44:34+05:30",
+                  "updatedAt": "2026-04-02T13:44:34+05:30"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/get_checkout_addresses/3026",
+                  "_id": 3026,
+                  "name": "John Doe",
+                  "addressType": "cart_shipping",
+                  "parentAddressId": null,
+                  "firstName": "John",
+                  "lastName": "Doe",
+                  "companyName": null,
+                  "address": "123 Main St",
+                  "city": "Los Angeles",
+                  "state": "CA",
+                  "country": "US",
+                  "postcode": "90001",
+                  "email": "john@example.com",
+                  "phone": "2125551234",
+                  "vatId": null,
+                  "defaultAddress": false,
+                  "useForShipping": false,
+                  "additional": null,
+                  "createdAt": "2026-04-02T13:44:34+05:30",
+                  "updatedAt": "2026-04-02T13:44:34+05:30"
                 }
               }
-            ],
-            "pageInfo": {
-              "hasNextPage": false,
-              "endCursor": "cursor-value"
-            }
+            ]
           }
         }
       }
@@ -70,12 +99,13 @@ examples:
 
 # Get Checkout Addresses
 
-Retrieve all saved addresses for the authenticated customer.
+Retrieve the address associated with the current checkout session.
 
+> **Note:** This query does **not** return all saved addresses for a customer. It returns only the address applied to the active checkout — either the address entered during guest checkout or the address the authenticated customer has selected for the current order. To fetch all saved customer addresses, use the [Get Customer Addresses](/api/graphql-api/shop/queries/get-customer-addresses) query instead.
 
 ## Authentication
 
-This mutation supports both authenticated customers and guest users:
+This query supports both authenticated customers and guest users:
 
 - **Authenticated customers**: Provide a valid customer authentication token in the `Authorization` header. Obtain this token via the [Customer Login API](/api/graphql-api/shop/mutations/customer-login).
 - **Guest users**: Provide the Guest Cart Token `cartToken` obtained from the [Create Cart mutation](/api/graphql-api/shop/mutations/create-cart).
@@ -84,58 +114,33 @@ This mutation supports both authenticated customers and guest users:
 Authorization: Bearer <accessToken>
 ```
 
-## Arguments
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| `first` | Int | ❌ No | Number of addresses to fetch (default: 10, max: 100) |
-| `after` | String | ❌ No | Cursor for forward pagination |
-| `last` | Int | ❌ No | Number of addresses to fetch backward |
-| `before` | String | ❌ No | Cursor for backward pagination |
-
 ## Response
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | String | Address ID |
+| `addressType` | String | Type of address (billing or shipping) |
 | `firstName` | String | First name |
 | `lastName` | String | Last name |
 | `address` | String | Street address |
 | `city` | String | City |
 | `state` | String | State/Province |
 | `country` | String | Country code |
-| `zipCode` | String | Postal/Zip code |
+| `postcode` | String | Postal/Zip code |
+| `email` | String | Email address |
 | `phone` | String | Phone number |
-| `isDefault` | Boolean | Is this the default address |
+| `useForShipping` | Boolean | Whether this address is also used for shipping |
+| `defaultAddress` | Boolean | Whether this is the customer's default address |
 | `createdAt` | DateTime | When address was created |
-
-## Pagination
-
-Uses cursor-based pagination:
-- `first` + `after` for forward pagination
-- `last` + `before` for backward pagination
-- `pageInfo` contains `hasNextPage` and `endCursor`
 
 ## Use Cases
 
-- Display address list in checkout
-- Pre-fill address selection dropdown
-- Allow customers to select shipping/billing address
-- Manage saved addresses
-
-## Error Responses
-
-```json
-{
-  "errors": {
-    "authentication": ["Unauthorized: Invalid or expired token"]
-  }
-}
-```
+- Confirm the address applied to the current checkout session
+- Display the selected address on the order review/summary page
+- Verify guest checkout address before placing the order
 
 ## Related Documentation
 
-- [Create Customer Address](/api/graphql-api/shop/mutations/create-customer-address)
-- [Update Customer Address](/api/graphql-api/shop/mutations/update-customer-address)
+- [Get Customer Addresses](/api/graphql-api/shop/queries/get-customer-addresses)
 - [Set Shipping Address](/api/graphql-api/shop/mutations/set-shipping-address)
 - [Set Billing Address](/api/graphql-api/shop/mutations/set-billing-address)

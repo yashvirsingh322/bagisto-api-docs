@@ -16,7 +16,7 @@ examples:
           "name": "English",
           "direction": "ltr",
           "logoPath": "locales/JuC6oD40TWtf6R2S08kQ95cecRqUKd3UctVivnSt.png",
-          "logoUrl": "http://127.0.0.1:8000/storage/locales/JuC6oD40TWtf6R2S08kQ95cecRqUKd3UctVivnSt.png"
+          "logoUrl": "https://api-demo.bagisto.com/storage/locales/JuC6oD40TWtf6R2S08kQ95cecRqUKd3UctVivnSt.png"
         }
       ]
     commonErrors:
@@ -67,7 +67,7 @@ GET /api/shop/locales
 ## cURL Example
 
 ```bash
-curl -X GET 'http://127.0.0.1:8000/api/shop/locales?page=1' \
+curl -X GET 'https://api-demo.bagisto.com/api/shop/locales?page=1' \
   -H 'accept: application/json' \
   -H 'X-STOREFRONT-KEY: pk_storefront_PvlE42nWGsKRVIf8bDlJngTPAdWAZbIy'
 ```

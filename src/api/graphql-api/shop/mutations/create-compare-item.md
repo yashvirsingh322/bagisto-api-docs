@@ -14,9 +14,28 @@ examples:
             updatedAt
             product {
               id
+              _id
+              sku
+              type
+              name
+              description
+              shortDescription
+              price
+              formattedPrice
+              minimumPrice
+              formattedMinimumPrice
+              maximumPrice
+              formattedMaximumPrice
+              guestCheckout
+              locale
+              channel
             }
             customer {
               id
+              firstName
+              lastName
+              gender
+              dateOfBirth
             }
           }
         }
@@ -32,15 +51,34 @@ examples:
         "data": {
           "createCompareItem": {
             "compareItem": {
-              "id": "/api/shop/compare-items/607",
-              "_id": 607,
+              "id": "/api/shop/compare-items/80",
+              "_id": 80,
               "createdAt": "2026-02-17T12:45:00+00:00",
               "updatedAt": "2026-02-17T12:45:00+00:00",
               "product": {
-                "id": "/api/shop/products/4"
+                "id": "/api/shop/products/4",
+                "_id": 4,
+                "sku": "IPHONE-15-PRO",
+                "type": "simple",
+                "name": "Apple iPhone 15 Pro",
+                "description": "Experience premium performance and cutting-edge technology with the Apple iPhone 15 Pro. Designed for speed, photography, and everyday convenience.",
+                "shortDescription": "Apple iPhone 15 Pro | Advanced Camera System, Fast Performance, All-Day Battery Life",
+                "price": "999",
+                "formattedPrice": "$999.00",
+                "minimumPrice": "899",
+                "formattedMinimumPrice": "$899.00",
+                "maximumPrice": "899",
+                "formattedMaximumPrice": "$899.00",
+                "guestCheckout": "1",
+                "locale": null,
+                "channel": null
               },
               "customer": {
-                "id": "/api/shop/customers/1"
+                "id": "/api/shop/customers/1",
+                "firstName": "John",
+                "lastName": "Doe",
+                "gender": "Male",
+                "dateOfBirth": "1990-01-15"
               }
             }
           }

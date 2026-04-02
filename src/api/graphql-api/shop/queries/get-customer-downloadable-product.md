@@ -16,6 +16,7 @@ examples:
           downloadUsed
           downloadCanceled
           status
+          downloadUrl
           remainingDownloads
           order {
             _id
@@ -42,6 +43,7 @@ examples:
             "downloadUsed": 1,
             "downloadCanceled": 0,
             "status": "available",
+            "downloadUrl": "https://your-domain.com/api/shop/customer-downloadable-products/1/download",
             "remainingDownloads": 4,
             "order": {
               "_id": 101,
@@ -81,6 +83,7 @@ query GetCustomerDownloadableProduct {
     downloadUsed
     downloadCanceled
     status
+    downloadUrl
     remainingDownloads
     order {
       _id
@@ -98,7 +101,7 @@ query GetCustomerDownloadableProduct {
 
 | Argument | Type | Required | Description |
 |----------|------|----------|-------------|
-| `id` | ID! | Yes | The IRI of the downloadable product purchase (e.g., `/api/shop/customer-downloadable-products/1`) |
+| `id` | ID! | Yes | The IRI of the downloadable product purchase (e.g., `/api/shop/customer-downloadable-products/1`). The numeric ID used in this IRI is the `_id` field from the [Get Downloadable Products](/api/graphql-api/shop/queries/get-customer-downloadable-products) query. |
 
 ## Response Fields
 
@@ -113,6 +116,7 @@ query GetCustomerDownloadableProduct {
 | `downloadUsed` | Int | Number of times downloaded |
 | `downloadCanceled` | Int | Number of canceled downloads |
 | `status` | String | Purchase status: `available`, `expired`, or `pending` |
+| `downloadUrl` | String | Direct REST API URL to download the purchased file. Use this URL with a GET request and customer authentication to download the file. See [Download Downloadable Product](/api/graphql-api/shop/queries/download-downloadable-product). |
 | `remainingDownloads` | Int | Computed remaining downloads (`null` if unlimited) |
 | `order` | Object | Associated order details |
 | `createdAt` | DateTime | Purchase creation date |
@@ -129,12 +133,12 @@ query GetCustomerDownloadableProduct {
 ## cURL Example
 
 ```bash
-curl -X POST "http://localhost:8000/api/graphql" \
+curl -X POST "https://api-demo.bagisto.com/api/graphql" \
   -H "X-STOREFRONT-KEY: pk_storefront_your_key_here" \
   -H "Authorization: Bearer YOUR_CUSTOMER_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "query": "query { customerDownloadableProduct(id: \"/api/shop/customer-downloadable-products/1\") { _id productName name fileName type downloadBought downloadUsed status remainingDownloads createdAt } }"
+    "query": "query { customerDownloadableProduct(id: \"/api/shop/customer-downloadable-products/1\") { _id productName name fileName type downloadBought downloadUsed status downloadUrl remainingDownloads createdAt } }"
   }'
 ```
 

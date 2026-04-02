@@ -2,8 +2,8 @@
 outline: false
 examples:
   - id: get-customer-invoices-by-order-with-items
-    title: Get Customer Invoices by Order ID with Items
-    description: Retrieve invoices for a specific order with detailed invoice line items.
+    title: Get Customer Invoice by Order ID with Items
+    description: Retrieve the invoice for a specific order with detailed invoice line items. Each order has exactly one invoice.
     query: |
       query customerInvoices {
         customerInvoices(first: 1, orderId: 6) {
@@ -219,8 +219,8 @@ examples:
         solution: Use valid first/after or last/before combinations with max value 100
 
   - id: get-customer-invoices-by-order
-    title: Get Customer Invoices - Filter by Order ID
-    description: Retrieve invoices for a specific order.
+    title: Get Customer Invoice - Filter by Order ID
+    description: Retrieve the invoice for a specific order. Each order has exactly one invoice, so this will always return a single result.
     query: |
       query GetInvoicesByOrder($orderId: Int) {
         customerInvoices(first: 10, orderId: $orderId) {
@@ -463,8 +463,8 @@ X-STOREFRONT-KEY: <storefrontKey>
 ### 1. Invoice History Dashboard
 Fetch all customer invoices to display in the account dashboard with pagination.
 
-### 2. Order-Specific Invoices
-Filter by `orderId` to show all invoices associated with a specific order.
+### 2. Order-Specific Invoice
+Filter by `orderId` to retrieve the invoice for a specific order. Each order has exactly one invoice, so this will always return a single result.
 
 ### 3. Paid Invoices
 Filter by `state: "paid"` to show confirmed payment history.

@@ -66,7 +66,7 @@ The PDF document includes:
 ### cURL Example
 
 ```bash
-curl -X GET "http://localhost:8000/api/shop/customer-invoices/1/pdf" \
+curl -X GET "https://api-demo.bagisto.com/api/shop/customer-invoices/1/pdf" \
   -H "X-STOREFRONT-KEY: pk_storefront_your_key_here" \
   -H "Authorization: Bearer YOUR_CUSTOMER_TOKEN" \
   -o invoice-001.pdf

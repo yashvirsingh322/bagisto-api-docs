@@ -6,7 +6,7 @@ examples:
     description: Retrieve a single locale by ID with basic information.
     curl: |
       curl -X 'GET' \
-        'http://127.0.0.1:8000/api/shop/locales/1' \
+        'https://api-demo.bagisto.com/api/shop/locales/1' \
         -H 'accept: application/json'
     headers: |
       Content-Type: application/json
@@ -18,7 +18,7 @@ examples:
         "name": "English",
         "direction": "ltr",
         "logoPath": "locales/en.png",
-        "logoUrl": "http://127.0.0.1:8000/storage/locales/en.png"
+        "logoUrl": "https://api-demo.bagisto.com/storage/locales/en.png"
       }
     commonErrors:
       - error: 404 Not Found
@@ -30,7 +30,7 @@ examples:
     description: Retrieve a single locale with all fields including timestamps.
     curl: |
       curl -X 'GET' \
-        'http://127.0.0.1:8000/api/shop/locales/2' \
+        'https://api-demo.bagisto.com/api/shop/locales/2' \
         -H 'accept: application/json'
     headers: |
       Content-Type: application/json
@@ -42,7 +42,7 @@ examples:
         "name": "Arabic",
         "direction": "rtl",
         "logoPath": "locales/ar.png",
-        "logoUrl": "http://127.0.0.1:8000/storage/locales/ar.png",
+        "logoUrl": "https://api-demo.bagisto.com/storage/locales/ar.png",
         "createdAt": "2023-11-20T18:15:58+05:30",
         "updatedAt": "2023-11-20T18:15:58+05:30"
       }
@@ -56,7 +56,7 @@ examples:
     description: Retrieve a right-to-left locale with full details for UI configuration.
     curl: |
       curl -X 'GET' \
-        'http://127.0.0.1:8000/api/shop/locales/2' \
+        'https://api-demo.bagisto.com/api/shop/locales/2' \
         -H 'accept: application/json'
     headers: |
       Content-Type: application/json
@@ -68,7 +68,7 @@ examples:
         "name": "Arabic",
         "direction": "rtl",
         "logoPath": "locales/ar.png",
-        "logoUrl": "http://127.0.0.1:8000/storage/locales/ar.png",
+        "logoUrl": "https://api-demo.bagisto.com/storage/locales/ar.png",
         "createdAt": "2023-11-20T18:15:58+05:30",
         "updatedAt": "2023-11-20T18:15:58+05:30"
       }
@@ -82,7 +82,7 @@ examples:
     description: Retrieve a locale using Node.js fetch API.
     curl: |
       curl -X 'GET' \
-        'http://127.0.0.1:8000/api/shop/locales/1' \
+        'https://api-demo.bagisto.com/api/shop/locales/1' \
         -H 'accept: application/json'
     headers: |
       Content-Type: application/json
@@ -94,7 +94,7 @@ examples:
         "name": "English",
         "direction": "ltr",
         "logoPath": "locales/en.png",
-        "logoUrl": "http://127.0.0.1:8000/storage/locales/en.png"
+        "logoUrl": "https://api-demo.bagisto.com/storage/locales/en.png"
       }
     commonErrors:
       - error: 404 Not Found
@@ -164,7 +164,7 @@ Response:
   "name": "English",
   "direction": "ltr",
   "logoPath": "locales/en.png",
-  "logoUrl": "http://127.0.0.1:8000/storage/locales/en.png"
+  "logoUrl": "https://api-demo.bagisto.com/storage/locales/en.png"
 }
 ```
 
@@ -180,7 +180,7 @@ Use the `logoUrl` field to display the locale flag or logo:
   "id": 1,
   "code": "en",
   "name": "English",
-  "logoUrl": "http://127.0.0.1:8000/storage/locales/en.png"
+  "logoUrl": "https://api-demo.bagisto.com/storage/locales/en.png"
 }
 ```
 
@@ -197,7 +197,7 @@ Response with `direction` field to determine RTL layout:
   "code": "ar",
   "name": "Arabic",
   "direction": "rtl",
-  "logoUrl": "http://127.0.0.1:8000/storage/locales/ar.png"
+  "logoUrl": "https://api-demo.bagisto.com/storage/locales/ar.png"
 }
 ```
 
@@ -215,7 +215,7 @@ Full response including timestamps:
   "name": "English",
   "direction": "ltr",
   "logoPath": "locales/en.png",
-  "logoUrl": "http://127.0.0.1:8000/storage/locales/en.png",
+  "logoUrl": "https://api-demo.bagisto.com/storage/locales/en.png",
   "createdAt": "2023-11-20T18:15:58+05:30",
   "updatedAt": "2023-11-20T18:15:58+05:30"
 }

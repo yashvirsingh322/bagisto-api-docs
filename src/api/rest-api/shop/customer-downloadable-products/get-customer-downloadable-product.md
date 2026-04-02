@@ -97,7 +97,7 @@ GET /api/shop/customer-downloadable-products/{id}
 ## cURL Example
 
 ```bash
-curl -X GET "http://localhost:8000/api/shop/customer-downloadable-products/1" \
+curl -X GET "https://api-demo.bagisto.com/api/shop/customer-downloadable-products/1" \
   -H "X-STOREFRONT-KEY: pk_storefront_your_key_here" \
   -H "Authorization: Bearer YOUR_CUSTOMER_TOKEN" \
   -H "Content-Type: application/json"

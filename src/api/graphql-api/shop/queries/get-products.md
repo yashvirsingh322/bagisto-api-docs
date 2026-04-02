@@ -167,7 +167,7 @@ examples:
 
   - id: get-products-cheapest-first
     title: Get Products - Cheapest First
-    description: Fetch products sorted by price in ascending order.
+    description: Fetch products sorted by price in ascending order. Uses minimumPrice as the sort basis.
     query: |
       query getProductsSorted {
         products(reverse: false, sortKey: "PRICE", first: 10) {
@@ -177,6 +177,8 @@ examples:
               name
               sku
               price
+              minimumPrice
+              maximumPrice
             }
           }
         }
@@ -193,7 +195,9 @@ examples:
                   "id": "5",
                   "name": "Budget Product",
                   "sku": "SKU005",
-                  "price": 9.99
+                  "price": 9.99,
+                  "minimumPrice": 9.99,
+                  "maximumPrice": 9.99
                 }
               }
             ]
@@ -207,7 +211,7 @@ examples:
 
   - id: get-products-expensive-first
     title: Get Products - Most Expensive First
-    description: Fetch products sorted by price in descending order.
+    description: Fetch products sorted by price in descending order. Uses minimumPrice as the sort basis.
     query: |
       query getProductsSorted {
         products(reverse: true, sortKey: "PRICE", first: 10) {
@@ -217,6 +221,8 @@ examples:
               name
               sku
               price
+              minimumPrice
+              maximumPrice
             }
           }
         }
@@ -233,7 +239,9 @@ examples:
                   "id": "50",
                   "name": "Premium Product",
                   "sku": "SKU050",
-                  "price": 999.99
+                  "price": 999.99,
+                  "minimumPrice": 999.99,
+                  "maximumPrice": 999.99
                 }
               }
             ]
@@ -244,6 +252,64 @@ examples:
       - error: PRICE_OUT_OF_RANGE
         cause: Price exceeds acceptable range
         solution: Check product pricing configuration
+
+  - id: get-products-currency-formatted-prices
+    title: Get Products with Currency Formatted Prices
+    description: Fetch products with all formatted price fields that reflect the active currency set via the locale header. Use these formatted fields instead of raw price fields when displaying prices to customers, as they include currency conversion and symbol.
+    query: |
+      query getProductsSorted {
+        products(first: 10) {
+          edges {
+            node {
+              id
+              name
+              sku
+              price
+              formattedPrice
+              specialPrice
+              formattedSpecialPrice
+              minimumPrice
+              formattedMinimumPrice
+              maximumPrice
+              formattedMaximumPrice
+              regularMinimumPrice
+              formattedRegularMinimumPrice
+              regularMaximumPrice
+              formattedRegularMaximumPrice
+            }
+          }
+        }
+      }
+    variables: |
+      {}
+    response: |
+      {
+        "data": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "id": "1",
+                  "name": "Product A",
+                  "sku": "SKU001",
+                  "price": 29.99,
+                  "formattedPrice": "$29.99",
+                  "specialPrice": 24.99,
+                  "formattedSpecialPrice": "$24.99",
+                  "minimumPrice": 24.99,
+                  "formattedMinimumPrice": "$24.99",
+                  "maximumPrice": 29.99,
+                  "formattedMaximumPrice": "$29.99",
+                  "regularMinimumPrice": 29.99,
+                  "formattedRegularMinimumPrice": "$29.99",
+                  "regularMaximumPrice": 29.99,
+                  "formattedRegularMaximumPrice": "$29.99"
+                }
+              }
+            ]
+          }
+        }
+      }
 
   - id: get-products-type-simple
     title: Get Products - Simple Type
@@ -1160,6 +1226,8 @@ The query supports cursor-based pagination to efficiently handle large product c
 - Publication and availability status
 - Created and updated timestamps
 
+> **Currency & Formatted Prices:** All price fields reflect the active currency set via the `X-Currency` header — both numeric fields (e.g. `price`, `specialPrice`, `minimumPrice`) and formatted fields (e.g. `formattedPrice`, `formattedMinimumPrice`) return converted values. The difference is that numeric fields return the converted amount as a number, while formatted fields return the converted amount as a string with the currency symbol prefixed (e.g. `"€84.99"`). See the "Get Products with Currency Formatted Prices" dropdown example above for all available price fields.
+
 ## Arguments
 
 | Argument | Type | Description |
@@ -1187,6 +1255,25 @@ The query supports cursor-based pagination to efficiently handle large product c
 | `pageInfo.startCursor` | `String` | Cursor of the first product on the current page. |
 | `pageInfo.endCursor` | `String` | Cursor of the last product on the current page. |
 | `totalCount` | `Int!` | Total number of products matching the query criteria. |
+
+## Price Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `price` | `Float` | Base catalog price. Returns the converted numeric value based on the active currency set via `X-Currency` header. |
+| `formattedPrice` | `String` | Same as `price` but returned as a string with the currency symbol prefixed (e.g. `"€84.99"`). |
+| `specialPrice` | `Float` | Discounted price if a special price is set, otherwise `null`. Reflects currency conversion. |
+| `formattedSpecialPrice` | `String` | Same as `specialPrice` but with the currency symbol prefixed. |
+| `minimumPrice` | `Float` | The lowest effective price — accounts for special price and configurable variant pricing. Used for price sorting. Reflects currency conversion. |
+| `formattedMinimumPrice` | `String` | Same as `minimumPrice` but with the currency symbol prefixed. |
+| `maximumPrice` | `Float` | The highest effective price across all variants or configurations. Reflects currency conversion. |
+| `formattedMaximumPrice` | `String` | Same as `maximumPrice` but with the currency symbol prefixed. |
+| `regularMinimumPrice` | `Float` | The regular (non-discounted) minimum price before any special price is applied. Reflects currency conversion. |
+| `formattedRegularMinimumPrice` | `String` | Same as `regularMinimumPrice` but with the currency symbol prefixed. |
+| `regularMaximumPrice` | `Float` | The regular (non-discounted) maximum price before any special price is applied. Reflects currency conversion. |
+| `formattedRegularMaximumPrice` | `String` | Same as `regularMaximumPrice` but with the currency symbol prefixed. |
+
+> The difference between numeric and formatted price fields is purely presentational: numeric fields (e.g. `price`) return the converted amount as a number, while formatted fields (e.g. `formattedPrice`) return the same converted amount as a string with the currency symbol (e.g. `"€84.99"`). Both reflect the active currency set via the `X-Currency` header.
 
 ## Product Types
 

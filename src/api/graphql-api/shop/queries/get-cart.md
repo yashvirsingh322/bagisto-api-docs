@@ -51,6 +51,7 @@ examples:
                   price
                   basePrice
                   total
+                  baseImage
                   baseTotal
                   discountAmount
                   baseDiscountAmount
@@ -67,6 +68,7 @@ examples:
                   formattedTotalInclTax
                   productUrlKey
                   canChangeQty
+                  options
                 }
               }
             }
@@ -180,8 +182,8 @@ examples:
       }
     commonErrors:
       - error: CART_NOT_FOUND
-        cause: Cart ID is invalid or expired
-        solution: Create a new cart or check the cart token
+        cause: Cart is empty or no active cart session exists
+        solution: Add at least one product to the cart before calling this query
       - error: INVALID_CART_ID
         cause: Invalid cart ID format
         solution: Provide valid cart ID
@@ -201,6 +203,8 @@ The `getCart` query retrieves the contents and summary information for a custome
 - Sync cart data with external inventory systems
 
 This query returns complete cart information including all items, quantities, prices, and applicable discounts/taxes needed for checkout and order processing.
+
+> **Note:** A cart session is only created when a product is added to the cart. If the cart is empty or no cart session exists, this query will return a `"Cart not found"` error. Make sure to add at least one product to the cart before calling this query.
  
 ## Possible Returns
 

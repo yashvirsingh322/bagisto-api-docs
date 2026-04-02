@@ -9,25 +9,36 @@ examples:
         createCustomer(input: $input) {
           customer {
             id
+            _id
+            token
+            channelId
+            customerGroupId
+            dateOfBirth
             email
+            gender
+            isSuspended
+            isVerified
+            name
             firstName
             lastName
+            rememberToken
+            subscribedToNewsLetter
             status
-            token
-            apiToken
+            phone
           }
-          message
-          success
         }
       }
     variables: |
       {
         "input": {
-          "email": "newcustomer@example.com",
-          "password": "SecurePassword123!",
           "firstName": "John",
           "lastName": "Doe",
-          "phone": "123-456-7890"
+          "email": "john@example.com",
+          "password": "Password123!",
+          "confirmPassword": "Password123!",
+          "phone": "1234567890",
+          "gender": "Male",
+          "subscribedToNewsLetter": true
         }
       }
     response: |
@@ -36,15 +47,81 @@ examples:
           "createCustomer": {
             "customer": {
               "id": "1",
-              "email": "newcustomer@example.com",
+              "email": "john@example.com",
+              "firstName": "John",
+              "lastName": "Doe",
+              "status": "active",
+              "token": "eyJpdiI6IjhWM..."
+            }
+          }
+        }
+      }
+    commonErrors:
+      - error: EMAIL_ALREADY_EXISTS
+        cause: Email address already registered
+        solution: Use different email or login instead
+      - error: INVALID_PASSWORD
+        cause: Password doesn't meet requirements
+        solution: Use stronger password (8+ chars, mix of types)
+      - error: INVALID_EMAIL
+        cause: Email format is invalid
+        solution: Provide valid email address
+
+  - id: register-customer-with-device-token
+    title: Register New Customer with Device Token
+    description: Create a new customer account and associate an FCM device token for push notifications. Only applicable if the Bagisto Push Notification package is installed.
+    query: |
+      mutation registerCustomer($input: createCustomerInput!) {
+        createCustomer(input: $input) {
+          customer {
+            id
+            _id
+            token
+            channelId
+            customerGroupId
+            dateOfBirth
+            email
+            gender
+            isSuspended
+            isVerified
+            name
+            firstName
+            lastName
+            rememberToken
+            subscribedToNewsLetter
+            status
+            phone
+            deviceToken
+          }
+        }
+      }
+    variables: |
+      {
+        "input": {
+          "firstName": "John",
+          "lastName": "Doe",
+          "email": "john@example.com",
+          "password": "Password123!",
+          "confirmPassword": "Password123!",
+          "phone": "1234567890",
+          "gender": "Male",
+          "subscribedToNewsLetter": true,
+          "deviceToken": "your_fcm_device_token"
+        }
+      }
+    response: |
+      {
+        "data": {
+          "createCustomer": {
+            "customer": {
+              "id": "1",
+              "email": "john@example.com",
               "firstName": "John",
               "lastName": "Doe",
               "status": "active",
               "token": "eyJpdiI6IjhWM...",
-              "apiToken": "abc123xyz789"
-            },
-            "message": "Customer registered successfully",
-            "success": true
+              "deviceToken": "your_fcm_device_token"
+            }
           }
         }
       }
@@ -76,6 +153,8 @@ The `registerCustomer` mutation creates a new customer account. Use this mutatio
 
 This mutation validates input, checks for duplicate emails, and generates authentication credentials for immediate use.
 
+> **Push Notifications:** The `deviceToken` field is only applicable if the [Bagisto Push Notification](https://bagisto.com/en/extensions/push-notifications-for-bagisto/) package is installed. It accepts an FCM (Firebase Cloud Messaging) device token to enable push notifications for the registered customer. If the package is not installed, this field can be omitted.
+
 ## Arguments
 
 | Argument | Type | Description |
@@ -89,6 +168,7 @@ This mutation validates input, checks for duplicate emails, and generates authen
 | `input.gender` | `String` | Gender: `male`, `female`, `other`. |
 | `input.dateOfBirth` | `Date` | Customer birth date (YYYY-MM-DD). |
 | `input.subscribeToNewsletter` | `Boolean` | Opt-in to marketing emails. Default: `false` |
+| `input.deviceToken` | `String` | FCM device token for push notifications. Only required if the [Bagisto Push Notification](https://bagisto.com/en/extensions/push-notifications-for-bagisto/) package is installed. |
 
 ## Possible Returns
 

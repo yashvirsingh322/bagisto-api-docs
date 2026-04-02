@@ -319,6 +319,145 @@ examples:
         cause: Allowed IPs format is invalid
         solution: Use comma-separated IPs or CIDR notation
 
+  - id: get-channel-with-relationships
+    title: Get Channel with Relationships
+    description: Retrieve a channel with its related locales, currencies, default locale, and base currency.
+    query: |
+      query getChannelByID($id: ID!) {
+        channel(id: $id) {
+          id
+          _id
+          code
+          hostname
+          theme
+          timezone
+          homeSeo
+          logoUrl
+          faviconUrl
+          locales {
+            edges {
+              node {
+                id
+                _id
+                code
+                name
+                direction
+              }
+            }
+          }
+          currencies {
+            edges {
+              node {
+                id
+                _id
+                code
+                name
+                symbol
+              }
+            }
+          }
+          defaultLocale {
+            id
+            _id
+            code
+            name
+            direction
+          }
+          baseCurrency {
+            id
+            _id
+            code
+            name
+            symbol
+          }
+        }
+      }
+    variables: |
+      {
+        "id": "/api/shop/channels/1"
+      }
+    response: |
+      {
+        "data": {
+          "channel": {
+            "id": "/api/shop/channels/1",
+            "_id": 1,
+            "code": "default",
+            "hostname": "example.com",
+            "theme": "default-theme",
+            "timezone": "UTC",
+            "homeSeo": "{\"meta_title\":\"Default Store\",\"meta_description\":\"Welcome to our store\",\"meta_keywords\":\"bagisto,store\"}",
+            "logoUrl": "https://example.com/channels/logo-1.png",
+            "faviconUrl": "https://example.com/channels/favicon-1.ico",
+            "locales": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "/api/shop/locales/1",
+                    "_id": 1,
+                    "code": "en",
+                    "name": "English",
+                    "direction": "ltr"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/locales/2",
+                    "_id": 2,
+                    "code": "ar",
+                    "name": "Arabic",
+                    "direction": "rtl"
+                  }
+                }
+              ]
+            },
+            "currencies": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "/api/shop/currencies/1",
+                    "_id": 1,
+                    "code": "USD",
+                    "name": "US Dollar",
+                    "symbol": "$"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/currencies/3",
+                    "_id": 3,
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "€"
+                  }
+                }
+              ]
+            },
+            "defaultLocale": {
+              "id": "/api/shop/locales/1",
+              "_id": 1,
+              "code": "en",
+              "name": "English",
+              "direction": "ltr"
+            },
+            "baseCurrency": {
+              "id": "/api/shop/currencies/1",
+              "_id": 1,
+              "code": "USD",
+              "name": "US Dollar",
+              "symbol": "$"
+            }
+          }
+        }
+      }
+    commonErrors:
+      - error: CHANNEL_NOT_FOUND
+        cause: Channel with given ID does not exist
+        solution: Verify the channel ID is correct
+      - error: UNAUTHORIZED
+        cause: User is not authenticated
+        solution: Provide valid authentication credentials
+
   - id: get-channel-with-translations
     title: Get Channel with All Translations
     description: Retrieve channel with complete translation information for all languages.
@@ -462,6 +601,11 @@ This query returns comprehensive channel data including logos, favicons, themes,
 | `translation.maintenanceModeText` | `String` | Custom maintenance mode message. |
 | `translation.createdAt` | `DateTime!` | Translation creation timestamp. |
 | `translation.updatedAt` | `DateTime!` | Translation update timestamp. |
+| `homeSeo` | `String` | JSON string containing SEO metadata (meta_title, meta_description, meta_keywords). |
+| `locales` | `LocaleCollection!` | All locales (languages) enabled for this channel. |
+| `currencies` | `CurrencyCollection!` | All currencies enabled for this channel. |
+| `defaultLocale` | `Locale!` | The default locale used when no language is explicitly selected. |
+| `baseCurrency` | `Currency!` | The base currency used for pricing on this channel. |
 | `translations` | `ChannelTranslationCollection!` | All available translations. |
 | `translations.edges` | `[Edge!]!` | Translation edges with cursors. |
 | `translations.edges.node` | `ChannelTranslation!` | Individual translation. |
@@ -472,6 +616,23 @@ This query returns comprehensive channel data including logos, favicons, themes,
 | `translations.pageInfo.startCursor` | `String` | First translation cursor. |
 | `translations.pageInfo.endCursor` | `String` | Last translation cursor. |
 | `translations.totalCount` | `Int!` | Total translations for this channel. |
+
+## Channel Relationships
+
+The **Get Channel with Relationships** variant fetches the channel along with its associated configuration objects — locales, currencies, default locale, and base currency. These are not simple scalar fields; they are linked resources that define how the channel behaves for different regions and markets.
+
+| Relationship | Type | Description |
+|---|---|---|
+| `locales` | Collection | All languages enabled for this channel. Use this to build a language switcher or determine which locales the channel supports. |
+| `currencies` | Collection | All currencies enabled for this channel. Use this to display price selectors or determine accepted currencies. |
+| `defaultLocale` | Single object | The fallback language used when no locale is explicitly selected by the user. |
+| `baseCurrency` | Single object | The primary currency used for pricing and calculations on this channel. |
+
+**When to use this variant:**
+- Building a storefront that needs to know which languages and currencies are available
+- Rendering a locale or currency switcher in the header
+- Determining the channel's default display language for first-time visitors
+- Resolving the base currency before formatting prices
 
 ## IP Allowlist Format
 
@@ -498,7 +659,10 @@ Use the "Maintenance Details" example to check if channel is under maintenance a
 ### 4. Multi-Language Support
 Use the "With All Translations" example to display channel information in all languages.
 
-### 5. Channel Routing
+### 5. Channel Relationships (Locales, Currencies)
+Use the "With Relationships" example to get all locales, currencies, default locale, and base currency associated with the channel.
+
+### 6. Channel Routing
 Use the basic query to get channel hostname and timezone for routing and localization.
 
 ## Best Practices

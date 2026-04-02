@@ -125,6 +125,8 @@ The `pages` query retrieves a collection of all CMS (Content Management System) 
 
 This query returns all pages with their active locale translation. Use the `page(id:)` query to fetch a single page by ID.
 
+> **Note:** The `translation` field returns content for the locale specified in the request header. If a translation does not exist for the selected locale, the content will automatically fall back to the store's default language.
+
 ## Arguments
 
 | Argument | Type | Required | Description |

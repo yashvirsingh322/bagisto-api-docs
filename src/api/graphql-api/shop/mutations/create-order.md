@@ -36,7 +36,7 @@ examples:
             "postalCode": "10001",
             "country": "US",
             "email": "john@example.com",
-            "phone": "123-456-7890"
+            "phone": "1234567890"
           },
           "shippingAddress": {
             "firstName": "John",

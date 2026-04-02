@@ -31,35 +31,6 @@ examples:
         cause: Missing or invalid Bearer token
         solution: Login and provide a valid customer authentication token
 
-  - id: delete-all-wishlists-empty
-    title: Delete All Wishlist Items - No Items
-    description: Calling delete all when the customer has no wishlist items returns a zero deleted count.
-    query: |
-      mutation DeleteAllWishlists {
-        createDeleteAllWishlists(input: {}) {
-          deleteAllWishlists {
-            message
-            deletedCount
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "createDeleteAllWishlists": {
-            "deleteAllWishlists": {
-              "message": "All wishlist items have been removed successfully",
-              "deletedCount": 0
-            }
-          }
-        }
-      }
-    commonErrors:
-      - error: UNAUTHENTICATED
-        cause: Missing or invalid Bearer token
-        solution: Login and provide a valid customer authentication token
 ---
 
 # Delete All Wishlist Items
@@ -98,3 +69,5 @@ Authorization: Bearer <accessToken>
 |-------|------|-------------|
 | `deleteAllWishlists.message` | `String!` | Success message confirming deletion. |
 | `deleteAllWishlists.deletedCount` | `Int!` | Number of wishlist items that were removed. |
+
+> **Note:** If the customer has no wishlist items, the mutation still succeeds and returns `deletedCount: 0` with the same success message. No error is thrown for an already-empty wishlist.

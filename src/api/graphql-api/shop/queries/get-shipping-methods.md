@@ -10,36 +10,39 @@ examples:
           _id
           id
           code
-          description
-          method
-          price
           label
+          method
+          description
+          price
+          formattedPrice
         }
       }
     response: |
       {
-          "data": {
-              "collectionShippingRates": [
-                  {
-                      "_id": "flatrate_flatrate_flatrate",
-                      "id": "/api/.well-known/genid/f14f85f51f8e3efd572e",
-                      "code": "flatrate",
-                      "description": "Flat Rate Shipping",
-                      "method": "flatrate_flatrate",
-                      "price": 20,
-                      "label": "Flat Rate"
-                  },
-                  {
-                      "_id": "free_free_free",
-                      "id": "/api/.well-known/genid/f14f85f51f8e3efd572e",
-                      "code": "free",
-                      "description": "Free Shipping",
-                      "method": "free_free",
-                      "price": 0,
-                      "label": "Free Shipping"
-                  }
-              ]
-          }
+        "data": {
+          "collectionShippingRates": [
+            {
+              "_id": "flatrate_flatrate_flatrate",
+              "id": "/api/.well-known/genid/f14f85f51f8e3efd572e",
+              "code": "flatrate",
+              "label": "Flat Rate",
+              "method": "flatrate_flatrate",
+              "description": "Flat Rate Shipping",
+              "price": 20,
+              "formattedPrice": "$20.00"
+            },
+            {
+              "_id": "free_free_free",
+              "id": "/api/.well-known/genid/f14f85f51f8e3efd572e",
+              "code": "free",
+              "label": "Free Shipping",
+              "method": "free_free",
+              "description": "Free Shipping",
+              "price": 0,
+              "formattedPrice": "$0.00"
+            }
+          ]
+        }
       }
 ---
 
@@ -70,6 +73,7 @@ Authorization: Bearer <accessToken>
 | `description` | String | Human-readable method description |
 | `method` | String | Shipping method identifier |
 | `price` | Float | Shipping cost amount |
+| `formattedPrice` | String | Shipping cost formatted with currency symbol (e.g. `$20.00`) |
 | `label` | String | Display label for the shipping method |
 
 ## Prerequisites
@@ -109,5 +113,5 @@ Authorization: Bearer <accessToken>
 ## Related Documentation
 
 - [Get Cart](/api/graphql-api/shop/queries/get-cart)
-- [Set Shipping Address](/api/graphql-api/shop/mutations/set-shipping-address)
+- [Set Checkout Address](/api/graphql-api/shop/mutations/set-billing-address)
 - [Set Shipping Method](/api/graphql-api/shop/mutations/set-shipping-method)

@@ -11,11 +11,11 @@ examples:
             node {
               id
               _id
+              name
               addressType
               parentAddressId
               firstName
               lastName
-              gender
               companyName
               address
               city
@@ -30,12 +30,10 @@ examples:
               additional
               createdAt
               updatedAt
-              name
             }
           }
         }
       }
-
     variables: |
       {}
     response: |
@@ -45,17 +43,52 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "1",
+                  "id": "/api/shop/get_checkout_addresses/3025",
+                  "_id": 3025,
+                  "name": "John Doe",
+                  "addressType": "cart_billing",
+                  "parentAddressId": null,
                   "firstName": "John",
                   "lastName": "Doe",
-                  "address": "123 Main Street",
-                  "city": "New York",
-                  "state": "NY",
+                  "companyName": null,
+                  "address": "123 Main St",
+                  "city": "Los Angeles",
+                  "state": "CA",
                   "country": "US",
-                  "zipCode": "10001",
-                  "phone": "+15550100",
-                  "useForShipping": true,
-                  "createdAt": "2024-01-10T10:00:00Z"
+                  "postcode": "90001",
+                  "email": "john@example.com",
+                  "phone": "2125551234",
+                  "vatId": null,
+                  "defaultAddress": false,
+                  "useForShipping": false,
+                  "additional": null,
+                  "createdAt": "2026-04-02T13:44:34+05:30",
+                  "updatedAt": "2026-04-02T13:44:34+05:30"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/get_checkout_addresses/3026",
+                  "_id": 3026,
+                  "name": "John Doe",
+                  "addressType": "cart_shipping",
+                  "parentAddressId": null,
+                  "firstName": "John",
+                  "lastName": "Doe",
+                  "companyName": null,
+                  "address": "123 Main St",
+                  "city": "Los Angeles",
+                  "state": "CA",
+                  "country": "US",
+                  "postcode": "90001",
+                  "email": "john@example.com",
+                  "phone": "2125551234",
+                  "vatId": null,
+                  "defaultAddress": false,
+                  "useForShipping": false,
+                  "additional": null,
+                  "createdAt": "2026-04-02T13:44:34+05:30",
+                  "updatedAt": "2026-04-02T13:44:34+05:30"
                 }
               }
             ]

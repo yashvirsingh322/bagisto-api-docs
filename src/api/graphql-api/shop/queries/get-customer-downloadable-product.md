@@ -101,7 +101,7 @@ query GetCustomerDownloadableProduct {
 
 | Argument | Type | Required | Description |
 |----------|------|----------|-------------|
-| `id` | ID! | Yes | The IRI of the downloadable product purchase (e.g., `/api/shop/customer-downloadable-products/1`) |
+| `id` | ID! | Yes | The IRI of the downloadable product purchase (e.g., `/api/shop/customer-downloadable-products/1`). The numeric ID used in this IRI is the `_id` field from the [Get Downloadable Products](/api/graphql-api/shop/queries/get-customer-downloadable-products) query. |
 
 ## Response Fields
 

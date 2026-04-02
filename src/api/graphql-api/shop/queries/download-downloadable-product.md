@@ -42,11 +42,13 @@ examples:
 
 ## About
 
-After a customer purchases a downloadable product and the order is completed, the purchased files can be downloaded using the `downloadUrl` returned by the [Get Downloadable Products](/api/graphql-api/shop/queries/get-customer-downloadable-products) query. This download is handled via a **REST API endpoint** (not a GraphQL query), as the response is binary file content rather than JSON.
+After a customer purchases a downloadable product and the order is completed, the purchased files can be downloaded using the `downloadUrl` field. This URL is available from both the [Get Downloadable Products](/api/graphql-api/shop/queries/get-customer-downloadable-products) query (list of all purchases) and the [Get Downloadable Product](/api/graphql-api/shop/queries/get-customer-downloadable-product) query (single purchase). Use the `downloadUrl` value directly in a cURL request to download the file.
+
+This download is handled via a **REST API endpoint** (not a GraphQL query), as the response is binary file content rather than JSON.
 
 ## Purchased Product Downloads
 
-After a customer purchases a downloadable product and the order is completed, they can download the actual product files. This requires customer authentication.
+After a customer purchases a downloadable product and the order is completed, they can download the actual product files. This requires customer authentication. Use the `downloadUrl` from the GraphQL query response as the URL in your cURL request.
 
 **Endpoint:**
 ```

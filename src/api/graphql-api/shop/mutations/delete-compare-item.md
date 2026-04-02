@@ -9,10 +9,17 @@ examples:
         deleteCompareItem(input: $input) {
           compareItem {
             id
+            _id
             product {
+              id
+              _id
               sku
               type
-              createdAt
+              name
+              price
+              formattedPrice
+              minimumPrice
+              formattedMinimumPrice
             }
           }
         }
@@ -20,7 +27,7 @@ examples:
     variables: |
       {
         "input": {
-          "id": "/api/shop/compare-items/606"
+          "id": "/api/shop/compare-items/80"
         }
       }
     response: |
@@ -28,11 +35,18 @@ examples:
         "data": {
           "deleteCompareItem": {
             "compareItem": {
-              "id": "/api/shop/compare-items/606",
+              "id": "/api/shop/compare-items/80",
+              "_id": 80,
               "product": {
-                "sku": "LP15-2026",
+                "id": "/api/shop/products/4",
+                "_id": 4,
+                "sku": "IPHONE-15-PRO",
                 "type": "simple",
-                "createdAt": "2026-02-01T08:00:00+00:00"
+                "name": "Apple iPhone 15 Pro",
+                "price": "999",
+                "formattedPrice": "$999.00",
+                "minimumPrice": "899",
+                "formattedMinimumPrice": "$899.00"
               }
             }
           }

@@ -57,12 +57,12 @@ Once installed, access the interactive API documentation:
 
 ### Admin API Documentation
 ```
-http://localhost/public/api/admin/documentation
+https://api-demo.bagisto.com/api/admin/documentation
 ```
 
 ### Shop API Documentation  
 ```
-http://localhost/public/api/shop/documentation
+https://api-demo.bagisto.com/api/shop/documentation
 ```
 
 ::: info Interactive Testing
@@ -85,7 +85,7 @@ Include the token in your requests:
 ```bash
 curl -H "Authorization: Bearer YOUR_TOKEN_HERE" \
      -H "Accept: application/json" \
-     http://localhost/public/api/v1/admin/get
+     https://api-demo.bagisto.com/api/v1/admin/get
 ```
 
 ## 🎯 Common Use Cases

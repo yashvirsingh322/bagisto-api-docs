@@ -1,258 +1,6 @@
 ---
 outline: false
 examples:
-  - id: get-products-sorted-az
-    title: Get Products Sorted A-Z
-    description: Fetch products sorted by title in ascending order.
-    query: |
-      query getProductsSorted {
-        products(reverse: false, sortKey: "TITLE", first: 10) {
-          edges {
-            node {
-              id
-              name
-              sku
-              price
-            }
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "products": {
-            "edges": [
-              {
-                "node": {
-                  "id": "1",
-                  "name": "Product A",
-                  "sku": "SKU001",
-                  "price": 29.99
-                }
-              }
-            ]
-          }
-        }
-      }
-    commonErrors:
-      - error: INVALID_SORT_KEY
-        cause: Sort key not supported
-        solution: Use valid sort keys like TITLE, PRICE, CREATED_AT
-
-  - id: get-products-sorted-za
-    title: Get Products Sorted Z-A
-    description: Fetch products sorted by title in descending order.
-    query: |
-      query getProductsSorted {
-        products(reverse: true, sortKey: "TITLE", first: 10) {
-          edges {
-            node {
-              id
-              name
-              sku
-              price
-            }
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "products": {
-            "edges": [
-              {
-                "node": {
-                  "id": "10",
-                  "name": "Zebra Product",
-                  "sku": "SKU010",
-                  "price": 99.99
-                }
-              }
-            ]
-          }
-        }
-      }
-    commonErrors:
-      - error: INVALID_REVERSE_PARAM
-        cause: Reverse parameter invalid
-        solution: Use true or false
-
-  - id: get-products-newest-first
-    title: Get Products - Newest First
-    description: Fetch newest products first sorted by creation date.
-    query: |
-      query getProductsSorted {
-        products(reverse: true, sortKey: "CREATED_AT", first: 10) {
-          edges {
-            node {
-              id
-              name
-              sku
-              price
-              createdAt
-            }
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "products": {
-            "edges": [
-              {
-                "node": {
-                  "id": "100",
-                  "name": "Newest Product",
-                  "sku": "SKU100",
-                  "price": 49.99,
-                  "createdAt": "2024-01-20T10:00:00Z"
-                }
-              }
-            ]
-          }
-        }
-      }
-    commonErrors:
-      - error: NO_PRODUCTS
-        cause: No products available
-        solution: Add products to your store
-
-  - id: get-products-oldest-first
-    title: Get Products - Oldest First
-    description: Fetch oldest products first sorted by creation date.
-    query: |
-      query getProductsSorted {
-        products(reverse: false, sortKey: "CREATED_AT", first: 10) {
-          edges {
-            node {
-              id
-              name
-              sku
-              price
-              createdAt
-            }
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "products": {
-            "edges": [
-              {
-                "node": {
-                  "id": "1",
-                  "name": "First Product",
-                  "sku": "SKU001",
-                  "price": 29.99,
-                  "createdAt": "2023-01-01T08:00:00Z"
-                }
-              }
-            ]
-          }
-        }
-      }
-    commonErrors:
-      - error: INVALID_DATE_FORMAT
-        cause: Date format is invalid
-        solution: Use ISO 8601 date format
-
-  - id: get-products-cheapest-first
-    title: Get Products - Cheapest First
-    description: Fetch products sorted by price in ascending order. Uses minimumPrice as the sort basis.
-    query: |
-      query getProductsSorted {
-        products(reverse: false, sortKey: "PRICE", first: 10) {
-          edges {
-            node {
-              id
-              name
-              sku
-              price
-              minimumPrice
-              maximumPrice
-            }
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "products": {
-            "edges": [
-              {
-                "node": {
-                  "id": "5",
-                  "name": "Budget Product",
-                  "sku": "SKU005",
-                  "price": 9.99,
-                  "minimumPrice": 9.99,
-                  "maximumPrice": 9.99
-                }
-              }
-            ]
-          }
-        }
-      }
-    commonErrors:
-      - error: INVALID_PRICE
-        cause: Price format is invalid
-        solution: Ensure prices are positive numbers
-
-  - id: get-products-expensive-first
-    title: Get Products - Most Expensive First
-    description: Fetch products sorted by price in descending order. Uses minimumPrice as the sort basis.
-    query: |
-      query getProductsSorted {
-        products(reverse: true, sortKey: "PRICE", first: 10) {
-          edges {
-            node {
-              id
-              name
-              sku
-              price
-              minimumPrice
-              maximumPrice
-            }
-          }
-        }
-      }
-    variables: |
-      {}
-    response: |
-      {
-        "data": {
-          "products": {
-            "edges": [
-              {
-                "node": {
-                  "id": "50",
-                  "name": "Premium Product",
-                  "sku": "SKU050",
-                  "price": 999.99,
-                  "minimumPrice": 999.99,
-                  "maximumPrice": 999.99
-                }
-              }
-            ]
-          }
-        }
-      }
-    commonErrors:
-      - error: PRICE_OUT_OF_RANGE
-        cause: Price exceeds acceptable range
-        solution: Check product pricing configuration
-
   - id: get-products-currency-formatted-prices
     title: Get Products with Currency Formatted Prices
     description: Fetch products with all formatted price fields that reflect the active currency set via the locale header. Use these formatted fields instead of raw price fields when displaying prices to customers, as they include currency conversion and symbol.
@@ -289,21 +37,78 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "1",
-                  "name": "Product A",
-                  "sku": "SKU001",
-                  "price": 29.99,
-                  "formattedPrice": "$29.99",
-                  "specialPrice": 24.99,
-                  "formattedSpecialPrice": "$24.99",
-                  "minimumPrice": 24.99,
-                  "formattedMinimumPrice": "$24.99",
-                  "maximumPrice": 29.99,
-                  "formattedMaximumPrice": "$29.99",
-                  "regularMinimumPrice": 29.99,
-                  "formattedRegularMinimumPrice": "$29.99",
-                  "regularMaximumPrice": 29.99,
-                  "formattedRegularMaximumPrice": "$29.99"
+                  "id": "/api/shop/products/1",
+                  "name": "Coastal Breeze Men's Blue Zipper Hoodie",
+                  "sku": "COASTALBREEZEMENSHOODIE",
+                  "price": "100",
+                  "formattedPrice": "$100.00",
+                  "specialPrice": null,
+                  "formattedSpecialPrice": null,
+                  "minimumPrice": "100",
+                  "formattedMinimumPrice": "$100.00",
+                  "maximumPrice": "100",
+                  "formattedMaximumPrice": "$100.00",
+                  "regularMinimumPrice": "100",
+                  "formattedRegularMinimumPrice": "$100.00",
+                  "regularMaximumPrice": "100",
+                  "formattedRegularMaximumPrice": "$100.00"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/22",
+                  "name": "Acme Drawstring Bag",
+                  "sku": "ACME-DRAWBAG-001",
+                  "price": "3000",
+                  "formattedPrice": "$3,000.00",
+                  "specialPrice": "2700",
+                  "formattedSpecialPrice": "$2,700.00",
+                  "minimumPrice": "2700",
+                  "formattedMinimumPrice": "$2,700.00",
+                  "maximumPrice": "2700",
+                  "formattedMaximumPrice": "$2,700.00",
+                  "regularMinimumPrice": "3000",
+                  "formattedRegularMinimumPrice": "$3,000.00",
+                  "regularMaximumPrice": "3000",
+                  "formattedRegularMaximumPrice": "$3,000.00"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/92",
+                  "name": "Bagisto Sticker",
+                  "sku": "bagisto-sticker",
+                  "price": "10",
+                  "formattedPrice": "$10.00",
+                  "specialPrice": "8",
+                  "formattedSpecialPrice": "$8.00",
+                  "minimumPrice": "8",
+                  "formattedMinimumPrice": "$8.00",
+                  "maximumPrice": "8",
+                  "formattedMaximumPrice": "$8.00",
+                  "regularMinimumPrice": "10",
+                  "formattedRegularMinimumPrice": "$10.00",
+                  "regularMaximumPrice": "10",
+                  "formattedRegularMaximumPrice": "$10.00"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/114",
+                  "name": "Nike Shoes",
+                  "sku": "Nike-Shoes",
+                  "price": "200",
+                  "formattedPrice": "$200.00",
+                  "specialPrice": "123",
+                  "formattedSpecialPrice": "$123.00",
+                  "minimumPrice": "123",
+                  "formattedMinimumPrice": "$123.00",
+                  "maximumPrice": "123",
+                  "formattedMaximumPrice": "$123.00",
+                  "regularMinimumPrice": "200",
+                  "formattedRegularMinimumPrice": "$200.00",
+                  "regularMaximumPrice": "200",
+                  "formattedRegularMaximumPrice": "$200.00"
                 }
               }
             ]
@@ -372,20 +177,20 @@ examples:
               {
                 "node": {
                   "id": "/api/shop/products/1",
-                  "name": "Classic White T-Shirt",
-                  "sku": "TSHIRT-WHT-001",
-                  "urlKey": "classic-white-t-shirt",
-                  "description": "A comfortable everyday white t-shirt made from 100% cotton.",
-                  "shortDescription": "100% cotton white t-shirt.",
-                  "price": "29.99",
-                  "specialPrice": "24.99",
+                  "name": "Coastal Breeze Men's Blue Zipper Hoodie",
+                  "sku": "COASTALBREEZEMENSHOODIE",
+                  "urlKey": "coastal-breeze-mens-blue-zipper-hoodie",
+                  "description": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish...",
+                  "shortDescription": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear.",
+                  "price": "100",
+                  "specialPrice": null,
                   "images": {
                     "edges": [
                       {
                         "node": {
-                          "id": "/api/shop/product-images/10",
-                          "publicPath": "https://your-store.com/storage/product/tshirt-white.jpg",
-                          "position": 1
+                          "id": "/api/admin/images/967",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/1/zKcWZTLDjcawJmaNg8g1cpARqwVONgEKEflabstT.webp",
+                          "position": "1"
                         }
                       }
                     ]
@@ -394,10 +199,181 @@ examples:
                     "edges": [
                       {
                         "node": {
-                          "value": "White",
+                          "value": "COASTALBREEZEMENSHOODIE",
                           "attribute": {
-                            "code": "color",
-                            "adminName": "Color"
+                            "code": "sku",
+                            "adminName": "SKU"
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                          "attribute": {
+                            "code": "name",
+                            "adminName": "Name"
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                          "attribute": {
+                            "code": "url_key",
+                            "adminName": "URL Key"
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "1",
+                          "attribute": {
+                            "code": "manage_stock",
+                            "adminName": "Manage Stock"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "categories": {
+                    "edges": []
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2",
+                  "name": "PureStride Men's Classic White Sneakers",
+                  "sku": "PUREWHTSNEAK2023",
+                  "urlKey": "purestride-mens-classic-white-sneakers",
+                  "description": "Introducing PureStride Men's Classic White Sneakers, a perfect blend of style, comfort, and versatility...",
+                  "shortDescription": "Step into timeless style and comfort with our PureStride Men's Classic White Sneakers.",
+                  "price": "189",
+                  "specialPrice": null,
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/969",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2/XmdfIafCjuYEhHiBkHvzmOuDT0mpGHDTi9QhnUoY.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "PUREWHTSNEAK2023",
+                          "attribute": {
+                            "code": "sku",
+                            "adminName": "SKU"
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "PureStride Men's Classic White Sneakers",
+                          "attribute": {
+                            "code": "name",
+                            "adminName": "Name"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "categories": {
+                    "edges": []
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/92",
+                  "name": "Bagisto Sticker",
+                  "sku": "bagisto-sticker",
+                  "urlKey": "bagisto-sticker",
+                  "description": "A collectible Bagisto branded sticker, perfect for laptops and notebooks.",
+                  "shortDescription": "Bagisto branded collectible sticker.",
+                  "price": "10",
+                  "specialPrice": "8",
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/965",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/92/JUvPvPCFeYnjPdVOr1HThLzHptZ7BZLp2RQPnSG5.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "bagisto-sticker",
+                          "attribute": {
+                            "code": "sku",
+                            "adminName": "SKU"
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Bagisto Sticker",
+                          "attribute": {
+                            "code": "name",
+                            "adminName": "Name"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "categories": {
+                    "edges": []
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/91",
+                  "name": "Bagisto Keyboard",
+                  "sku": "Bagisto-keyboard",
+                  "urlKey": "bagisto-keyboard",
+                  "description": "A mechanical keyboard designed for productivity and comfort.",
+                  "shortDescription": "Mechanical keyboard for everyday computing.",
+                  "price": "20",
+                  "specialPrice": null,
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/964",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/91/E9jCNFXrqr2PYYLKIXUbjFRBURpkYms3MWKJRIba.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "Bagisto-keyboard",
+                          "attribute": {
+                            "code": "sku",
+                            "adminName": "SKU"
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Bagisto Keyboard",
+                          "attribute": {
+                            "code": "name",
+                            "adminName": "Name"
                           }
                         }
                       }
@@ -407,9 +383,9 @@ examples:
                     "edges": [
                       {
                         "node": {
-                          "id": "/api/shop/categories/3",
+                          "id": "/api/shop/categories/8",
                           "translation": {
-                            "name": "T-Shirts"
+                            "name": "Electronics"
                           }
                         }
                       }
@@ -418,7 +394,7 @@ examples:
                 }
               }
             ],
-            "totalCount": 16
+            "totalCount": 45
           }
         }
       }
@@ -510,32 +486,56 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/5",
-                  "name": "Premium Hoodie",
-                  "sku": "HOODIE-001",
+                  "id": "/api/shop/products/123",
+                  "name": "Zoe Tank",
+                  "sku": "ZOE-TANK-001",
                   "type": "configurable",
-                  "combinations": "{\"small-black\":{\"id\":\"6\"},\"medium-black\":{\"id\":\"7\"}}",
-                  "superAttributeOptions": "{\"size\":{\"small\":\"1\",\"medium\":\"2\"},\"color\":{\"black\":\"3\"}}",
+                  "combinations": "{\"124\":{\"color\":1,\"size\":6},\"125\":{\"color\":2,\"size\":6},\"129\":{\"color\":1,\"size\":7},\"132\":{\"color\":2,\"size\":7}}",
+                  "superAttributeOptions": "[{\"id\":23,\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":1,\"label\":\"Red\"},{\"id\":2,\"label\":\"Green\"}]},{\"id\":24,\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"},{\"id\":7,\"label\":\"M\"}]}]",
                   "variants": {
                     "edges": [
                       {
                         "node": {
-                          "id": "/api/shop/products/6",
-                          "name": "Premium Hoodie - Small / Black",
-                          "sku": "HOODIE-001-SM-BLK",
-                          "price": "59.99",
+                          "id": "/api/shop/products/124",
+                          "name": "Zoe Tank - Red / S",
+                          "sku": "ZOE-TANK-RED-S",
+                          "price": "2040",
                           "attributeValues": {
                             "edges": [
                               {
                                 "node": {
-                                  "value": "Small",
-                                  "attribute": { "code": "size", "adminName": "Size" }
+                                  "value": "ZOE-TANK-RED-S",
+                                  "attribute": { "code": "sku", "adminName": "SKU" }
                                 }
                               },
                               {
                                 "node": {
-                                  "value": "Black",
-                                  "attribute": { "code": "color", "adminName": "Color" }
+                                  "value": "Zoe Tank - Red / S",
+                                  "attribute": { "code": "name", "adminName": "Name" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "/api/shop/products/129",
+                          "name": "Zoe Tank - Red / M",
+                          "sku": "ZOE-TANK-RED-M",
+                          "price": "2040",
+                          "attributeValues": {
+                            "edges": [
+                              {
+                                "node": {
+                                  "value": "ZOE-TANK-RED-M",
+                                  "attribute": { "code": "sku", "adminName": "SKU" }
+                                }
+                              },
+                              {
+                                "node": {
+                                  "value": "Zoe Tank - Red / M",
+                                  "attribute": { "code": "name", "adminName": "Name" }
                                 }
                               }
                             ]
@@ -544,26 +544,122 @@ examples:
                       }
                     ]
                   },
-                  "urlKey": "premium-hoodie",
-                  "description": "A premium quality hoodie available in multiple sizes and colors.",
-                  "shortDescription": "Premium quality hoodie.",
-                  "minimumPrice": "59.99",
-                  "images": { "edges": [] },
-                  "attributeValues": { "edges": [] },
-                  "categories": {
+                  "urlKey": "zoe-tank",
+                  "description": "A stylish tank top available in multiple colors and sizes, perfect for layering or wearing solo.",
+                  "shortDescription": "Stylish tank top with color and size options.",
+                  "minimumPrice": "2040",
+                  "images": {
                     "edges": [
                       {
                         "node": {
-                          "id": "/api/shop/categories/4",
-                          "translation": { "name": "Hoodies" }
+                          "id": "/api/admin/images/50",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/123/zoe-tank.webp",
+                          "position": "1"
                         }
                       }
                     ]
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "ZOE-TANK-001",
+                          "attribute": { "code": "sku", "adminName": "SKU" }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Zoe Tank",
+                          "attribute": { "code": "name", "adminName": "Name" }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "zoe-tank",
+                          "attribute": { "code": "url_key", "adminName": "URL Key" }
+                        }
+                      }
+                    ]
+                  },
+                  "categories": {
+                    "edges": []
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2495",
+                  "name": "Ivory Frost Classic Overcoat",
+                  "sku": "IVORY-OVERCOAT-001",
+                  "type": "configurable",
+                  "combinations": "{\"2496\":{\"color\":19,\"size\":6},\"2497\":{\"color\":19,\"size\":7},\"2498\":{\"color\":20,\"size\":6},\"2499\":{\"color\":20,\"size\":7}}",
+                  "superAttributeOptions": "[{\"id\":23,\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":19,\"label\":\"Blue\"},{\"id\":20,\"label\":\"Ash grey\"}]},{\"id\":24,\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"},{\"id\":7,\"label\":\"M\"}]}]",
+                  "variants": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/products/2496",
+                          "name": "Ivory Frost Classic Overcoat - Blue / S",
+                          "sku": "IVORY-OVERCOAT-BLUE-S",
+                          "price": "500",
+                          "attributeValues": {
+                            "edges": [
+                              {
+                                "node": {
+                                  "value": "IVORY-OVERCOAT-BLUE-S",
+                                  "attribute": { "code": "sku", "adminName": "SKU" }
+                                }
+                              },
+                              {
+                                "node": {
+                                  "value": "Ivory Frost Classic Overcoat - Blue / S",
+                                  "attribute": { "code": "name", "adminName": "Name" }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "urlKey": "ivory-frost-classic-overcoat",
+                  "description": "The Ivory Frost Classic Overcoat blends modern simplicity with timeless winter design. Crafted in a smooth, insulating fabric, it offers dependable warmth while maintaining a lightweight, structured feel.",
+                  "shortDescription": "A sleek ivory overcoat with a tailored fit and soft warmth.",
+                  "minimumPrice": "500",
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/950",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2495/FFHxE9HE2Ezt9aqvr6s3fPPCc1nrjwMNna1o1wTQ.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "IVORY-OVERCOAT-001",
+                          "attribute": { "code": "sku", "adminName": "SKU" }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Ivory Frost Classic Overcoat",
+                          "attribute": { "code": "name", "adminName": "Name" }
+                        }
+                      }
+                    ]
+                  },
+                  "categories": {
+                    "edges": []
                   }
                 }
               }
             ],
-            "totalCount": 9
+            "totalCount": 12
           }
         }
       }
@@ -638,39 +734,221 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/20",
-                  "name": "Conference Room Booking",
-                  "sku": "BOOKING-CONF-001",
+                  "id": "/api/shop/products/2507",
+                  "name": "Professional Photography Session",
+                  "sku": "PROFESSIONAL-PHOTOGRAPHY-SESSION",
                   "type": "booking",
-                  "urlKey": "conference-room-booking",
-                  "description": "Book a conference room by the hour.",
-                  "shortDescription": "Hourly conference room rental.",
-                  "price": "50.00",
+                  "urlKey": "professional-photography-session",
+                  "description": "Capture high-quality photos with a professional photography session. Suitable for portraits, events, and product shoots.",
+                  "shortDescription": "Book a professional photography session for personal or commercial use.",
+                  "price": "100",
+                  "specialPrice": "99",
+                  "bookingProducts": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/booking-products/1",
+                          "type": "default",
+                          "qty": 150,
+                          "location": "Noida, Uttar Pradesh",
+                          "showLocation": "0",
+                          "availableEveryWeek": null,
+                          "availableFrom": "2026-04-06T06:30:00.000000Z",
+                          "availableTo": "2026-12-31T06:30:00.000000Z",
+                          "createdAt": "2026-04-02T13:24:30.000000Z",
+                          "updatedAt": "2026-04-06T10:09:47.000000Z"
+                        }
+                      }
+                    ]
+                  },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/850",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2507/1jO3Pb5UA89ZaVsp1cnlICSFgZKlwy6lPlDJynGu.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "categories": { "edges": [] }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2508",
+                  "name": "Live Music Concert Ticket",
+                  "sku": "LIVE-MUSIC-CONCERT-TICKET",
+                  "type": "booking",
+                  "urlKey": "live-music-concert-ticket",
+                  "description": "Enjoy a live music concert featuring top artists and an energetic crowd.",
+                  "shortDescription": "Book tickets for an exciting live music concert experience.",
+                  "price": "120",
                   "specialPrice": null,
                   "bookingProducts": {
                     "edges": [
                       {
                         "node": {
-                          "id": "1",
-                          "type": "default",
-                          "qty": 10,
-                          "location": "Main Building, Floor 2",
-                          "showLocation": true,
-                          "availableEveryWeek": true,
-                          "availableFrom": null,
-                          "availableTo": null,
-                          "createdAt": "2025-01-10T09:00:00+05:30",
-                          "updatedAt": "2025-01-10T09:00:00+05:30"
+                          "id": "/api/shop/booking-products/2",
+                          "type": "event",
+                          "qty": 0,
+                          "location": "Noida, Uttar Pradesh",
+                          "showLocation": "0",
+                          "availableEveryWeek": null,
+                          "availableFrom": "2026-04-06T06:30:00.000000Z",
+                          "availableTo": "2026-04-30T06:30:00.000000Z",
+                          "createdAt": "2026-04-02T13:41:33.000000Z",
+                          "updatedAt": "2026-04-06T10:01:47.000000Z"
                         }
                       }
                     ]
                   },
-                  "images": { "edges": [] },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/846",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2508/qXYifNamNZcymBWoGmuh3cauzyujPl23mMH1XYPt.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "categories": { "edges": [] }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2509",
+                  "name": "Men's Haircut Appointment",
+                  "sku": "SALON-HAIRCUT-APPOINTMENT",
+                  "type": "booking",
+                  "urlKey": "mens-haircut-appointment",
+                  "description": "Schedule a haircut with experienced stylists. Choose your preferred date and time slot.",
+                  "shortDescription": "Book a professional haircut appointment with flexible time slots.",
+                  "price": "60",
+                  "specialPrice": "55",
+                  "bookingProducts": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/booking-products/3",
+                          "type": "appointment",
+                          "qty": 10,
+                          "location": "Noida, Uttar Pradesh",
+                          "showLocation": "0",
+                          "availableEveryWeek": "0",
+                          "availableFrom": "2026-04-06T06:30:00.000000Z",
+                          "availableTo": "2026-12-30T06:30:00.000000Z",
+                          "createdAt": "2026-04-02T13:52:29.000000Z",
+                          "updatedAt": "2026-04-06T10:06:42.000000Z"
+                        }
+                      }
+                    ]
+                  },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/847",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2509/JaLDOwXAOLJCecJs7hlPwEiDr2G42WlHIjJxFdxF.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "categories": { "edges": [] }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2510",
+                  "name": "Wooden Folding Chair Rental",
+                  "sku": "WOODEN-FOLDING-CHAIR-RENTAL",
+                  "type": "booking",
+                  "urlKey": "wooden-folding-chair-rental",
+                  "description": "High-quality wooden folding chairs available for daily rental. Ideal for weddings, parties, and corporate events.",
+                  "shortDescription": "Rent durable wooden folding chairs for events and gatherings.",
+                  "price": "109",
+                  "specialPrice": "99",
+                  "bookingProducts": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/booking-products/4",
+                          "type": "rental",
+                          "qty": 150,
+                          "location": "Noida, Uttar Pradesh",
+                          "showLocation": "0",
+                          "availableEveryWeek": "0",
+                          "availableFrom": "2026-04-06T06:30:00.000000Z",
+                          "availableTo": "2026-04-30T06:30:00.000000Z",
+                          "createdAt": "2026-04-02T14:02:30.000000Z",
+                          "updatedAt": "2026-04-06T10:02:29.000000Z"
+                        }
+                      }
+                    ]
+                  },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/848",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2510/eDIAyoJLDAshEe3AOwhi2sgoFH9sAjpMvoemDVpo.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "categories": { "edges": [] }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2511",
+                  "name": "Fine Dining Table Reservation",
+                  "sku": "FINE-DINING-TABLE-RESERVATION",
+                  "type": "booking",
+                  "urlKey": "fine-dining-table-reservation",
+                  "description": "Book a table for a fine dining experience with comfortable seating and a premium ambiance.",
+                  "shortDescription": "Reserve a table at a premium dining restaurant.",
+                  "price": "200",
+                  "specialPrice": "195",
+                  "bookingProducts": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/shop/booking-products/5",
+                          "type": "table",
+                          "qty": 5,
+                          "location": "Mumbai, Maharashtra",
+                          "showLocation": "0",
+                          "availableEveryWeek": "0",
+                          "availableFrom": "2026-04-06T06:30:00.000000Z",
+                          "availableTo": "2026-04-30T06:30:00.000000Z",
+                          "createdAt": "2026-04-02T14:10:57.000000Z",
+                          "updatedAt": "2026-04-06T10:06:05.000000Z"
+                        }
+                      }
+                    ]
+                  },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/849",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2511/lw253CbVba9nRZVUGy9atW9t85ADE2UwldssE8t6.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
                   "categories": { "edges": [] }
                 }
               }
             ],
-            "totalCount": 0
+            "totalCount": 5
           }
         }
       }
@@ -740,31 +1018,47 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/30",
-                  "name": "1-Year Extended Warranty",
-                  "sku": "WARRANTY-1YR",
+                  "id": "/api/shop/products/2505",
+                  "name": "HD Streaming Subscription - 1 Month Access",
+                  "sku": "HD-STREAMING-SUBSCRIPTION-1-MONTH",
                   "type": "virtual",
-                  "urlKey": "1-year-extended-warranty",
-                  "description": "Extend your product warranty by 1 year with full coverage.",
-                  "shortDescription": "1-year full coverage warranty.",
-                  "price": "19.99",
-                  "specialPrice": null,
-                  "images": { "edges": [] },
-                  "attributeValues": { "edges": [] },
-                  "categories": {
+                  "urlKey": "hd-streaming-subscription-1-month-access",
+                  "description": "This 1-month HD streaming subscription gives you unlimited access to a wide range of movies, TV series, and exclusive content across multiple genres.",
+                  "shortDescription": "Enjoy unlimited access to movies and TV shows with a 1-month HD streaming plan.",
+                  "price": "64",
+                  "specialPrice": "59",
+                  "images": {
                     "edges": [
                       {
                         "node": {
-                          "id": "/api/shop/categories/10",
-                          "translation": { "name": "Services" }
+                          "id": "/api/admin/images/842",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2505/sCwS1QRNlJHLPjw5UzxYSR21oqYbMvo4UNRYklME.webp",
+                          "position": "1"
                         }
                       }
                     ]
-                  }
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "HD-STREAMING-SUBSCRIPTION-1-MONTH",
+                          "attribute": { "code": "sku", "adminName": "SKU" }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "HD Streaming Subscription - 1 Month Access",
+                          "attribute": { "code": "name", "adminName": "Name" }
+                        }
+                      }
+                    ]
+                  },
+                  "categories": { "edges": [] }
                 }
               }
             ],
-            "totalCount": 0
+            "totalCount": 1
           }
         }
       }
@@ -845,53 +1139,105 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/40",
-                  "name": "Office Essentials Bundle",
-                  "sku": "OFFICE-BUNDLE-001",
+                  "id": "/api/shop/products/2516",
+                  "name": "Arctic Frost Winter Accessories",
+                  "sku": "GP-001",
                   "type": "grouped",
-                  "urlKey": "office-essentials-bundle",
-                  "description": "A curated bundle of essential office products.",
-                  "shortDescription": "Essential office products bundle.",
+                  "urlKey": "arctic-frost-winter-accessories",
+                  "description": "A thoughtfully curated set of essential winter accessories including a beanie, gloves, and socks.",
+                  "shortDescription": "Curated winter accessories set with beanie, gloves, and socks.",
                   "groupedProducts": {
                     "edges": [
                       {
                         "node": {
-                          "id": "1",
+                          "id": "/api/shop/product_grouped_products/1",
                           "qty": 1,
-                          "sortOrder": 1,
+                          "sortOrder": 0,
                           "associatedProduct": {
-                            "id": "/api/shop/products/41",
-                            "name": "Ballpoint Pen Pack",
-                            "sku": "PEN-BALL-12",
-                            "price": "5.99",
+                            "id": "/api/shop/products/2512",
+                            "name": "Arctic Cozy Knit Unisex Beanie",
+                            "sku": "SP-001",
+                            "price": "14",
                             "specialPrice": null,
-                            "images": { "edges": [] }
+                            "images": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "id": "/api/admin/images/851",
+                                    "publicPath": "https://api-demo.bagisto.com/storage/product/2512/Muc0qeWks34MTZaxf38s6DBmfqMqrCxku81Uo8EB.webp"
+                                  }
+                                }
+                              ]
+                            }
                           }
                         }
                       },
                       {
                         "node": {
-                          "id": "2",
+                          "id": "/api/shop/product_grouped_products/2",
+                          "qty": 1,
+                          "sortOrder": 1,
+                          "associatedProduct": {
+                            "id": "/api/shop/products/2514",
+                            "name": "Arctic Touchscreen Winter Gloves",
+                            "sku": "SP-003",
+                            "price": "21",
+                            "specialPrice": "17",
+                            "images": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "id": "/api/admin/images/853",
+                                    "publicPath": "https://api-demo.bagisto.com/storage/product/2514/g8lR0Ity8HcpE20A4yAkX5wvLY5RlTC67NJKyyg6.webp"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "/api/shop/product_grouped_products/3",
                           "qty": 1,
                           "sortOrder": 2,
                           "associatedProduct": {
-                            "id": "/api/shop/products/42",
-                            "name": "Spiral Notebook A5",
-                            "sku": "NB-SPIRAL-A5",
-                            "price": "3.49",
+                            "id": "/api/shop/products/2515",
+                            "name": "Arctic Warmth Wool Blend Socks",
+                            "sku": "SP-004",
+                            "price": "21",
                             "specialPrice": null,
-                            "images": { "edges": [] }
+                            "images": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "id": "/api/admin/images/854",
+                                    "publicPath": "https://api-demo.bagisto.com/storage/product/2515/442ouyaT1K4weKSZGhSDtSKDBbrhiH0aWWwGcFW0.webp"
+                                  }
+                                }
+                              ]
+                            }
                           }
                         }
                       }
                     ]
                   },
-                  "images": { "edges": [] },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/855",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2516/5Kgto6KVm6FLMaaDEY6pwCcVoTIhX03D3OGDzwbf.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
                   "categories": { "edges": [] }
                 }
               }
             ],
-            "totalCount": 0
+            "totalCount": 1
           }
         }
       }
@@ -990,28 +1336,28 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/50",
-                  "name": "UX Design Course",
-                  "sku": "COURSE-UX-001",
+                  "id": "/api/shop/products/2506",
+                  "name": "Complete Personal Finance Guide (eBook PDF)",
+                  "sku": "COMPLETE-PERSONAL-FINANCE-GUIDE-EBOOK",
                   "type": "downloadable",
-                  "urlKey": "ux-design-course",
-                  "description": "A comprehensive UX design course with 40 video lessons.",
-                  "shortDescription": "40-lesson UX design video course.",
-                  "price": "99.00",
-                  "specialPrice": "79.00",
+                  "urlKey": "complete-personal-finance-guide-ebook-pdf",
+                  "description": "This comprehensive personal finance eBook helps you take control of your money with practical strategies for budgeting, saving, investing, and debt management.",
+                  "shortDescription": "Download a practical guide to managing money, saving, and building long-term wealth.",
+                  "price": "70",
+                  "specialPrice": "69",
                   "downloadableLinks": {
                     "edges": [
                       {
                         "node": {
-                          "id": "1",
-                          "type": "file",
-                          "price": "0.00",
-                          "downloads": 5,
-                          "sortOrder": 1,
-                          "fileUrl": "https://your-store.com/storage/downloadable/course-module-1.zip",
-                          "sampleFileUrl": null,
+                          "id": "/api/shop/product-downloadable-links/2",
+                          "type": "url",
+                          "price": "69",
+                          "downloads": 10,
+                          "sortOrder": 0,
+                          "fileUrl": "https://api-demo.bagisto.com/storage/",
+                          "sampleFileUrl": "https://api-demo.bagisto.com/api/downloadable/download-sample/link/2",
                           "translation": {
-                            "title": "Module 1 – Introduction to UX"
+                            "title": "Full eBook PDF"
                           }
                         }
                       }
@@ -1021,24 +1367,49 @@ examples:
                     "edges": [
                       {
                         "node": {
-                          "id": "1",
+                          "id": "/api/shop/product-downloadable-samples/1",
                           "type": "file",
-                          "fileUrl": "https://your-store.com/storage/downloadable/sample-ux.pdf",
-                          "sortOrder": 1,
+                          "fileUrl": "https://api-demo.bagisto.com/api/downloadable/download-sample/sample/1",
+                          "sortOrder": 0,
                           "translation": {
-                            "title": "Free Sample – UX Basics"
+                            "title": ""
                           }
                         }
                       }
                     ]
                   },
-                  "images": { "edges": [] },
-                  "attributeValues": { "edges": [] },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/843",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2506/XY0sCaNbWfeXDntNFbYnlL6N5uOJ9tfyR7AtntSf.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "attributeValues": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "COMPLETE-PERSONAL-FINANCE-GUIDE-EBOOK",
+                          "attribute": { "code": "sku", "adminName": "SKU" }
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Complete Personal Finance Guide (eBook PDF)",
+                          "attribute": { "code": "name", "adminName": "Name" }
+                        }
+                      }
+                    ]
+                  },
                   "categories": { "edges": [] }
                 }
               }
             ],
-            "totalCount": 0
+            "totalCount": 1
           }
         }
       }
@@ -1134,54 +1505,85 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/60",
-                  "name": "Build Your Own Laptop",
-                  "sku": "LAPTOP-BUNDLE-001",
+                  "id": "/api/shop/products/2517",
+                  "name": "Arctic Frost Winter Accessories Bundle",
+                  "sku": "BP-001",
                   "type": "bundle",
-                  "urlKey": "build-your-own-laptop",
-                  "description": "Configure your own laptop by choosing CPU, RAM, and storage.",
-                  "shortDescription": "Customisable laptop bundle.",
-                  "minimumPrice": "799.00",
+                  "urlKey": "arctic-frost-winter-accessories-bundle",
+                  "description": "A curated bundle of essential winter accessories. Choose from beanies, scarves, gloves, and socks to build your perfect winter kit.",
+                  "shortDescription": "Build your perfect winter accessories bundle with beanie, scarf, gloves, and socks.",
+                  "minimumPrice": "69",
                   "bundleOptions": {
                     "edges": [
                       {
                         "node": {
-                          "id": "1",
-                          "type": "select",
-                          "isRequired": true,
-                          "sortOrder": 1,
-                          "translation": { "label": "Choose RAM" },
+                          "id": "/api/shop/product_bundle_options/1",
+                          "type": "radio",
+                          "isRequired": "1",
+                          "sortOrder": 0,
+                          "translation": { "label": "Bundle Option 1" },
                           "bundleOptionProducts": {
                             "edges": [
                               {
                                 "node": {
-                                  "id": "1",
+                                  "id": "/api/shop/product-bundle-option-products/1",
                                   "qty": 1,
-                                  "isDefault": true,
-                                  "isUserDefined": false,
-                                  "sortOrder": 1,
+                                  "isDefault": "1",
+                                  "isUserDefined": "1",
+                                  "sortOrder": 0,
                                   "product": {
-                                    "id": "/api/shop/products/61",
-                                    "name": "8GB DDR5 RAM",
-                                    "sku": "RAM-8GB-DDR5",
-                                    "price": "80.00",
-                                    "images": { "edges": [] }
+                                    "id": "/api/shop/products/2512",
+                                    "name": "Arctic Cozy Knit Unisex Beanie",
+                                    "sku": "SP-001",
+                                    "price": "14",
+                                    "images": {
+                                      "edges": [
+                                        {
+                                          "node": {
+                                            "id": "/api/admin/images/851",
+                                            "publicPath": "https://api-demo.bagisto.com/storage/product/2512/Muc0qeWks34MTZaxf38s6DBmfqMqrCxku81Uo8EB.webp"
+                                          }
+                                        }
+                                      ]
+                                    }
                                   }
                                 }
-                              },
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "id": "/api/shop/product_bundle_options/3",
+                          "type": "checkbox",
+                          "isRequired": "1",
+                          "sortOrder": 2,
+                          "translation": { "label": "Bundle Option 2" },
+                          "bundleOptionProducts": {
+                            "edges": [
                               {
                                 "node": {
-                                  "id": "2",
+                                  "id": "/api/shop/product-bundle-option-products/3",
                                   "qty": 1,
-                                  "isDefault": false,
-                                  "isUserDefined": false,
-                                  "sortOrder": 2,
+                                  "isDefault": "1",
+                                  "isUserDefined": "1",
+                                  "sortOrder": 0,
                                   "product": {
-                                    "id": "/api/shop/products/62",
-                                    "name": "16GB DDR5 RAM",
-                                    "sku": "RAM-16GB-DDR5",
-                                    "price": "140.00",
-                                    "images": { "edges": [] }
+                                    "id": "/api/shop/products/2514",
+                                    "name": "Arctic Touchscreen Winter Gloves",
+                                    "sku": "SP-003",
+                                    "price": "21",
+                                    "images": {
+                                      "edges": [
+                                        {
+                                          "node": {
+                                            "id": "/api/admin/images/853",
+                                            "publicPath": "https://api-demo.bagisto.com/storage/product/2514/g8lR0Ity8HcpE20A4yAkX5wvLY5RlTC67NJKyyg6.webp"
+                                          }
+                                        }
+                                      ]
+                                    }
                                   }
                                 }
                               }
@@ -1191,12 +1593,22 @@ examples:
                       }
                     ]
                   },
-                  "images": { "edges": [] },
+                  "images": {
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "/api/admin/images/856",
+                          "publicPath": "https://api-demo.bagisto.com/storage/product/2517/lW2A3FH3oKBJnnukyUyKUArdrr8dwTJxxDKthSgq.webp",
+                          "position": "1"
+                        }
+                      }
+                    ]
+                  },
                   "categories": { "edges": [] }
                 }
               }
             ],
-            "totalCount": 0
+            "totalCount": 1
           }
         }
       }

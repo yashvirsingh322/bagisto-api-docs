@@ -16,34 +16,31 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/locales/1"
+        "id": "/api/shop/locales/10"
       }
     response: |
       {
         "data": {
           "locale": {
-            "id": "/api/shop/locales/1",
-            "_id": 1,
-            "code": "en",
-            "name": "English",
-            "direction": "ltr"
+            "id": "/api/shop/locales/10",
+            "_id": 10,
+            "code": "AR",
+            "name": "Arabic",
+            "direction": "rtl"
           }
         }
       }
     commonErrors:
       - error: Variable "$id" of required type "ID!" was not provided.
         cause: Locale ID parameter is required
-        solution: Provide a valid locale ID in format /api/locales/{id} or numeric ID
-      - error: Invalid ID format. Expected IRI format like "/api/shop/locales/1" or numeric ID
-        cause: Locale ID is not in valid format
-        solution: Verify the locale ID is in correct format, use "/api/locales/1" or "1"
+        solution: Provide a valid locale ID in format /api/shop/locales/{id} or numeric ID
       - error: Locale not found
         cause: Locale ID does not exist in the system
         solution: Verify the locale ID is correct and exists
 
   - id: get-locale-complete
     title: Get Single Locale - Complete Details
-    description: Retrieve a single locale with all fields including logos, paths, and timestamps.
+    description: Retrieve a single locale with all fields including logo path and URL.
     query: |
       query getSingleLocale($id: ID!) {
         locale(id: $id) {
@@ -53,26 +50,24 @@ examples:
           name
           direction
           logoPath
-          createdAt
-          updatedAt
+          logoUrl
         }
       }
     variables: |
       {
-        "id": "/api/shop/locales/1"
+        "id": "/api/shop/locales/10"
       }
     response: |
       {
         "data": {
           "locale": {
-            "id": "/api/shop/locales/1",
-            "_id": 1,
-            "code": "en",
-            "name": "English",
-            "direction": "ltr",
-            "logoPath": "locales/en.png",
-            "createdAt": null,
-            "updatedAt": null
+            "id": "/api/shop/locales/10",
+            "_id": 10,
+            "code": "AR",
+            "name": "Arabic",
+            "direction": "rtl",
+            "logoPath": "locales/AR.png",
+            "logoUrl": "https://api-demo.bagisto.com/storage/locales/AR.png"
           }
         }
       }
@@ -80,9 +75,6 @@ examples:
       - error: Locale not found
         cause: The provided locale ID does not exist
         solution: Use a valid locale ID from the get-locales query
-      - error: Invalid ID format. Expected IRI format like "/api/shop/locales/1" or numeric ID
-        cause: Invalid ID format provided
-        solution: Provide valid locale ID in format /api/locales/1 or numeric ID like "1"
 
   - id: get-locale-by-code
     title: Get Single Locale - Using Numeric ID
@@ -96,66 +88,24 @@ examples:
           name
           direction
           logoPath
-          createdAt
-          updatedAt
+          logoUrl
         }
       }
     variables: |
       {
-        "id": "1"
+        "id": "10"
       }
     response: |
       {
         "data": {
           "locale": {
-            "id": "/api/shop/locales/1",
-            "_id": 1,
-            "code": "en",
-            "name": "English",
-            "direction": "ltr",
-            "logoPath": "locales/en.png",
-            "createdAt": null,
-            "updatedAt": null
-          }
-        }
-      }
-    commonErrors:
-      - error: Invalid ID format. Expected IRI format like "/api/shop/locales/1" or numeric ID
-        cause: ID format is not recognized
-        solution: Use either numeric ID like "1" or IRI format like /api/locales/1
-
-  - id: get-locale-rtl
-    title: Get RTL Locale Details
-    description: Retrieve a right-to-left locale with full details for UI configuration.
-    query: |
-      query getSingleLocale($id: ID!) {
-        locale(id: $id) {
-          id
-          _id
-          code
-          name
-          direction
-          logoPath
-          createdAt
-          updatedAt
-        }
-      }
-    variables: |
-      {
-        "id": "/api/shop/locales/2"
-      }
-    response: |
-      {
-        "data": {
-          "locale": {
-            "id": "/api/shop/locales/2",
-            "_id": 2,
-            "code": "ar",
+            "id": "/api/shop/locales/10",
+            "_id": 10,
+            "code": "AR",
             "name": "Arabic",
             "direction": "rtl",
-            "logoPath": "locales/ar.png",
-            "createdAt": null,
-            "updatedAt": null
+            "logoPath": "locales/AR.png",
+            "logoUrl": "https://api-demo.bagisto.com/storage/locales/AR.png"
           }
         }
       }

@@ -47,59 +47,82 @@ examples:
           "customerDownloadableProducts": {
             "edges": [
               {
-                "cursor": "MQ==",
+                "cursor": "MA==",
                 "node": {
-                  "_id": 1,
-                  "productName": "Laravel E-Book",
-                  "name": "PDF Download",
-                  "fileName": "laravel-ebook.pdf",
-                  "type": "file",
-                  "downloadBought": 5,
-                  "downloadUsed": 1,
+                  "_id": 4,
+                  "productName": "Complete Personal Finance Guide (eBook PDF)",
+                  "name": "Full eBook PDF",
+                  "fileName": null,
+                  "type": "url",
+                  "downloadBought": 10,
+                  "downloadUsed": 4,
                   "downloadCanceled": 0,
                   "status": "available",
-                  "downloadUrl": "https://your-domain.com/api/shop/customer-downloadable-products/1/download",
-                  "remainingDownloads": 4,
+                  "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-downloadable-products/4/download",
+                  "remainingDownloads": "6",
                   "order": {
-                    "_id": 101,
-                    "incrementId": "101",
+                    "_id": 531,
+                    "incrementId": "531",
                     "status": "completed"
                   },
-                  "createdAt": "2025-06-15T10:30:00+00:00",
-                  "updatedAt": "2025-06-15T10:30:00+00:00"
+                  "createdAt": "2026-04-02T18:54:41+05:30",
+                  "updatedAt": "2026-04-06T17:39:56+05:30"
+                }
+              },
+              {
+                "cursor": "MQ==",
+                "node": {
+                  "_id": 2,
+                  "productName": "Dummy Download",
+                  "name": "link",
+                  "fileName": "Game 2.jpg",
+                  "type": "file",
+                  "downloadBought": 20,
+                  "downloadUsed": 15,
+                  "downloadCanceled": 0,
+                  "status": "available",
+                  "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-downloadable-products/2/download",
+                  "remainingDownloads": "5",
+                  "order": {
+                    "_id": 150,
+                    "incrementId": "150",
+                    "status": "completed"
+                  },
+                  "createdAt": "2025-05-19T16:55:59+05:30",
+                  "updatedAt": "2026-04-06T17:39:48+05:30"
                 }
               },
               {
                 "cursor": "Mg==",
                 "node": {
-                  "_id": 2,
-                  "productName": "Stock Photo Pack",
-                  "name": "High-Res Bundle",
-                  "fileName": "photo-pack.zip",
-                  "type": "url",
-                  "downloadBought": 3,
-                  "downloadUsed": 3,
+                  "_id": 1,
+                  "productName": "Dummy Download",
+                  "name": "link",
+                  "fileName": "Game 2.jpg",
+                  "type": "file",
+                  "downloadBought": 10,
+                  "downloadUsed": 10,
                   "downloadCanceled": 0,
                   "status": "expired",
-                  "downloadUrl": "https://your-domain.com/api/shop/customer-downloadable-products/2/download",
-                  "remainingDownloads": 0,
+                  "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-downloadable-products/1/download",
+                  "remainingDownloads": "0",
                   "order": {
-                    "_id": 102,
-                    "incrementId": "102",
+                    "_id": 149,
+                    "incrementId": "149",
                     "status": "completed"
                   },
-                  "createdAt": "2025-06-10T08:00:00+00:00",
-                  "updatedAt": "2025-06-12T14:00:00+00:00"
+                  "createdAt": "2025-05-19T13:07:35+05:30",
+                  "updatedAt": "2025-05-19T16:53:40+05:30"
                 }
               }
             ],
             "pageInfo": {
               "endCursor": "Mg==",
-              "startCursor": "MQ==",
+              "startCursor": "MA==",
               "hasNextPage": false,
               "hasPreviousPage": false
             },
-            "totalCount": 2
+            "totalCount": 3
           }
         }
       }

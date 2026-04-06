@@ -24,9 +24,9 @@ examples:
           "currency": {
             "id": "/api/shop/currencies/3",
             "_id": 3,
-            "code": "EUR",
-            "name": "Euro",
-            "symbol": "€"
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ"
           }
         }
       }
@@ -68,13 +68,13 @@ examples:
           "currency": {
             "id": "/api/shop/currencies/3",
             "_id": 3,
-            "code": "EUR",
-            "name": "Euro",
-            "symbol": "€",
-            "decimal": 2,
-            "groupSeparator": ".",
-            "decimalSeparator": ",",
-            "currencyPosition": "right"
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ",
+            "decimal": "2",
+            "groupSeparator": ",",
+            "decimalSeparator": ".",
+            "currencyPosition": "left_with_space"
           }
         }
       }
@@ -105,21 +105,21 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": "3"
       }
     response: |
       {
         "data": {
           "currency": {
-            "id": "/api/shop/currencies/1",
-            "_id": 1,
-            "code": "USD",
-            "name": "US Dollar",
-            "symbol": "$",
-            "decimal": 2,
+            "id": "/api/shop/currencies/3",
+            "_id": 3,
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ",
+            "decimal": "2",
             "groupSeparator": ",",
             "decimalSeparator": ".",
-            "currencyPosition": "left"
+            "currencyPosition": "left_with_space"
           }
         }
       }
@@ -147,21 +147,21 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/currencies/2"
+        "id": "/api/shop/currencies/3"
       }
     response: |
       {
         "data": {
           "currency": {
-            "id": "/api/shop/currencies/2",
-            "_id": 2,
-            "code": "INR",
-            "name": "Indian Rupee",
-            "symbol": "₹",
-            "decimal": 2,
+            "id": "/api/shop/currencies/3",
+            "_id": 3,
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ",
+            "decimal": "2",
             "groupSeparator": ",",
             "decimalSeparator": ".",
-            "currencyPosition": "left"
+            "currencyPosition": "left_with_space"
           }
         }
       }

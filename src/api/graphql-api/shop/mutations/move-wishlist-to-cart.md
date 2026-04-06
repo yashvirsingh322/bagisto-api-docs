@@ -15,7 +15,7 @@ examples:
     variables: |
       {
         "input": {
-          "wishlistItemId": 68,
+          "wishlistItemId": 77,
           "quantity": 2
         }
       }

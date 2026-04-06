@@ -6,22 +6,25 @@ examples:
     title: Download Purchased Product
     description: Download the actual purchased downloadable product file. Requires customer authentication. Each download decrements the remaining download count.
     query: |
-      curl -X GET "https://your-domain.com/api/shop/customer-downloadable-products/{purchase_id}/download" \
-        -H "X-STOREFRONT-KEY: pk_storefront_your_key_here" \
-        -H "Authorization: Bearer <your_access_token>" \
+      curl --location 'https://api-demo.bagisto.com/api/shop/customer-downloadable-products/4/download' \
+        --header 'X-STOREFRONT-KEY: pk_storefront_vxLIYv5PIp7jkujPNGLFQoDvIdsh2RMF' \
+        --header 'Authorization: Bearer 191|bqM2sAQ7iYAc1NMoUjYSPyJXybXA8jGhhZgri2F9c25665e8'
         -o purchased-product.png
     variables: |
       {}
     response: |
-      Binary file content is returned directly on success.
-      Save the response to a file using the -o flag:
+      HTTP/1.1 200 OK
+      Content-Type: image/png (or application/pdf, application/zip, etc.)
+      Content-Disposition: attachment; filename="downloaded-file.png"
 
-      curl -X GET "https://your-domain.com/api/shop/customer-downloadable-products/403/download" \
-        -H "X-STOREFRONT-KEY: pk_storefront_your_key_here" \
-        -H "Authorization: Bearer 2879|mZB2airbqULCamPo..." \
-        -o purchased-product.png
+      [Binary file content — the actual purchased file]
 
-      On authentication failure:
+      The response is the raw file content, not JSON.
+      In Postman, the file opens directly in the browser
+      or downloads automatically.
+      In cURL, use the -o flag to save it to a file.
+
+      On authentication failure (HTTP 401):
       {
         "message": "Unauthorized: Customer authentication required.",
         "error": "unauthenticated"

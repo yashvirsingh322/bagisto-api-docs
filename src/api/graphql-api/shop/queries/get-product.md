@@ -2258,3 +2258,156 @@ The `bookingProducts` field returns a `type` that determines which slot/ticket r
 ::: tip
 Only the relationship matching the product's booking type will contain data. For example, an appointment booking product will have data in `appointmentSlot` but not in `rentalSlot` or `tableSlot`. Always check the `type` field first to determine which relationship to query.
 :::
+
+## Product Fields Reference
+
+Below is a complete reference of all available fields on the `Product` type. Use this as a lookup when building your queries — include only the fields you need.
+
+### Basic Information
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | `ID!` | Unique product identifier in IRI format (e.g. `/api/shop/products/1`) |
+| `_id` | `Int!` | Numeric database ID |
+| `sku` | `String!` | Stock Keeping Unit — unique product code for inventory tracking |
+| `type` | `String!` | Product type: `simple`, `virtual`, `configurable`, `grouped`, `bundle`, `downloadable`, `booking` |
+| `name` | `String` | Product display name |
+| `urlKey` | `String` | URL-friendly slug (e.g. `premium-wireless-headphones`) |
+| `status` | `String` | Product status (`1` = active, `0` = inactive) |
+| `locale` | `String` | Locale of the returned product data |
+| `channel` | `String` | Channel the product belongs to |
+| `productNumber` | `String` | Optional product number assigned by the store |
+| `additional` | `Iterable` | Additional product data stored as key-value pairs |
+| `createdAt` | `String` | Product creation timestamp |
+| `updatedAt` | `String` | Last modification timestamp |
+
+### Descriptions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `description` | `String` | Full product description (plain text) |
+| `descriptionHtml` | `String` | Full product description with HTML formatting preserved |
+| `shortDescription` | `String` | Brief product summary for listing pages |
+
+### Pricing
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `price` | `String` | Base catalog price. Reflects active currency conversion. |
+| `specialPrice` | `String` | Discounted price if set, otherwise `null` |
+| `specialPriceFrom` | `String` | Start date for the special price (YYYY-MM-DD) |
+| `specialPriceTo` | `String` | End date for the special price (YYYY-MM-DD) |
+| `cost` | `String` | Product cost/purchase price (internal use) |
+| `minimumPrice` | `String` | Lowest effective price — accounts for special price and variant pricing. Used for price sorting. |
+| `maximumPrice` | `String` | Highest effective price across all variants |
+| `regularMinimumPrice` | `String` | Regular (non-discounted) minimum price |
+| `regularMaximumPrice` | `String` | Regular (non-discounted) maximum price |
+| `formattedPrice` | `String` | `price` with currency symbol (e.g. `$99.00`) |
+| `formattedSpecialPrice` | `String` | `specialPrice` with currency symbol |
+| `formattedMinimumPrice` | `String` | `minimumPrice` with currency symbol |
+| `formattedMaximumPrice` | `String` | `maximumPrice` with currency symbol |
+| `formattedRegularMinimumPrice` | `String` | `regularMinimumPrice` with currency symbol |
+| `formattedRegularMaximumPrice` | `String` | `regularMaximumPrice` with currency symbol |
+| `taxCategoryId` | `String` | Tax category ID assigned to the product |
+
+### Physical Dimensions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `weight` | `String` | Product weight |
+| `length` | `String` | Product length |
+| `width` | `String` | Product width |
+| `height` | `String` | Product height |
+
+### Attributes
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `color` | `String` | Color attribute value (if applicable) |
+| `size` | `String` | Size attribute value (if applicable) |
+| `brand` | `String` | Brand attribute value (if applicable) |
+
+### SEO
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `metaTitle` | `String` | SEO meta title for the product page |
+| `metaKeywords` | `String` | SEO meta keywords |
+| `metaDescription` | `String` | SEO meta description |
+
+### Flags & Settings
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `isSaleable` | `String` | Whether the product can be purchased (`1` = yes) |
+| `new` | `String` | Whether the product is marked as "new" (`1` = yes) |
+| `featured` | `String` | Whether the product is featured (`1` = yes) |
+| `visibleIndividually` | `String` | Whether the product appears in catalog listings (`1` = yes) |
+| `guestCheckout` | `String` | Whether guest users can purchase this product (`1` = yes) |
+| `manageStock` | `String` | Whether stock is managed for this product (`1` = yes) |
+
+### Configurable Product Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `superAttributeOptions` | `String` | JSON-encoded array of configurable attributes and their selectable options. See [Configurable Products](#configurable-products). |
+| `combinations` | `String` | JSON-encoded object mapping variant IDs to their attribute option combinations. See [Configurable Products](#configurable-products). |
+
+### Media
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `baseImageUrl` | `String` | URL of the product's primary/base image |
+
+## Product Relationships Reference
+
+These are the connection/relationship fields available on the `Product` type. Each returns a paginated cursor connection supporting `first`, `last`, `before`, and `after` arguments.
+
+### Core Relationships
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `images` | `ProductImageCursorConnection` | Product gallery images with `id`, `publicPath`, and `position` |
+| `videos` | `ProductVideoCursorConnection` | Product videos |
+| `categories` | `CategoryCursorConnection` | Categories the product belongs to, with `translation { name }` |
+| `attributeValues` | `AttributeValueCursorConnection` | All attribute values with `value` and `attribute { code, adminName }` |
+| `attributeFamily` | `AttributeFamily!` | The attribute family this product belongs to (not paginated) |
+| `channels` | `ChannelCursorConnection` | Channels this product is assigned to |
+
+### Variant & Configuration
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `variants` | `ProductCursorConnection` | Child variant products (for configurable products). Each variant is a full `Product` with its own `id`, `name`, `sku`, `price`, and `attributeValues`. |
+| `superAttributes` | `AttributeCursorConnection` | The attributes used for configurable options (e.g. Color, Size) |
+| `parent` | `Product!` | Parent product (for variant products — returns the configurable parent) |
+
+### Product Type-Specific
+
+| Relationship | Return Type | Description | Dropdown Example |
+|---|---|---|---|
+| `groupedProducts` | `ProductGroupedProductCursorConnection` | Associated child products with `qty`, `sortOrder`, and `associatedProduct` details | "Get Grouped Product" |
+| `bundleOptions` | `ProductBundleOptionCursorConnection` | Bundle option groups with selectable products and quantities | — |
+| `downloadableLinks` | `ProductDownloadableLinkCursorConnection` | Downloadable links with `price`, `formattedPrice`, `translation { title }`, and sample info | "Get Downloadable Product with Samples" |
+| `downloadableSamples` | `ProductDownloadableSampleCursorConnection` | Product-level sample files with `file`, `fileUrl`, `url`, and `translation { title }` | "Get Downloadable Product with Samples" |
+| `bookingProducts` | `BookingProductCursorConnection` | Booking configuration with `type`, `availableFrom`, `availableTo`, `qty`, `location`, and type-specific slots | "Get Appointment/Rental/Default/Table/Event Booking Product" |
+| `customizableOptions` | `ProductCustomizableOptionCursorConnection` | Custom product options (e.g. engraving text, gift wrapping) | — |
+
+### Related & Recommended Products
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `relatedProducts` | `ProductCursorConnection` | Products marked as related — typically shown in a "Related Products" section on the product page |
+| `upSells` | `ProductCursorConnection` | Up-sell products — higher-value alternatives shown on the product page |
+| `crossSells` | `ProductCursorConnection` | Cross-sell products — complementary items shown during checkout or in the cart |
+
+### Reviews
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `reviews` | `ProductReviewCursorConnection` | All reviews for this product (all statuses) |
+| `approvedReviews` | `ProductReviewCursorConnection` | Only admin-approved reviews — use this for public-facing display |
+
+::: tip
+All relationship fields support cursor-based pagination with `first`, `last`, `before`, and `after` arguments. For example: `images(first: 5)` returns only the first 5 images. Use the nested `pageInfo { hasNextPage, endCursor }` to paginate through large collections.
+:::

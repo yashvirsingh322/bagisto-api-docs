@@ -22,7 +22,7 @@ examples:
     variables: |
       {
         "input": {
-          "productId": 1
+          "productId": 2499
         }
       }
     response: |
@@ -30,14 +30,14 @@ examples:
         "data": {
           "createWishlist": {
             "wishlist": {
-              "id": "/api/shop/wishlists/70",
-              "_id": 70,
+              "id": "/api/shop/wishlists/75",
+              "_id": 75,
               "product": {
-                "id": "/api/shop/products/1",
-                "name": "Coastal Breeze Men's Blue Zipper Hoodie",
-                "price": "100"
+                "id": "/api/shop/wishlists/75",
+                "name": "Ivory Frost Classic Overcoat XL",
+                "price": "500"
               },
-              "createdAt": "2026-02-17T20:17:36+05:30"
+              "createdAt": "2026-04-06T18:36:59+05:30"
             }
           }
         }

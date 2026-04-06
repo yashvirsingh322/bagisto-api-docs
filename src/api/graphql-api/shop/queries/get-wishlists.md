@@ -56,42 +56,129 @@ examples:
           "wishlists": {
             "edges": [
               {
-                "cursor": "MQ==",
+                "cursor": "MA==",
                 "node": {
-                  "id": "/api/shop/wishlists/69",
-                  "_id": 69,
+                  "id": "/api/shop/wishlists/78",
+                  "_id": 78,
                   "product": {
-                    "id": "/api/shop/products/1",
-                    "name": "Sample Product",
-                    "price": "99.99",
-                    "sku": "PROD-001",
-                    "type": "simple",
-                    "description": "A sample product description",
-                    "baseImageUrl": "https://example.com/storage/product/1/sample-product.jpg"
+                    "id": "/api/shop/products/2500",
+                    "name": "Mint Axis Unisex Tailored Blazer",
+                    "price": "0",
+                    "sku": "MINT-BLAZER-001",
+                    "type": "configurable",
+                    "description": "The Mint Axis Unisex Tailored Blazer is built for those who lead with style, not trends. Featuring a structured yet comfortable silhouette, this blazer balances precision tailoring with a contemporary mint tone.",
+                    "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2500/T97yKJVNKlmi6GXoqKl8FNqfM8115Wxo6jw4WhPF.webp"
                   },
                   "customer": {
-                    "id": "/api/shop/customers/1",
-                    "email": "customer@example.com"
+                    "id": "/api/shop/customers/122",
+                    "email": "john.doe@example.com"
                   },
                   "channel": {
                     "id": "/api/shop/channels/1",
                     "code": "default",
                     "translation": {
-                      "name": "Default"
+                      "name": "bagisto store"
                     }
                   },
-                  "createdAt": "2026-02-17T10:00:00+00:00",
-                  "updatedAt": "2026-02-17T10:00:00+00:00"
+                  "createdAt": "2026-04-06T18:44:50+05:30",
+                  "updatedAt": "2026-04-06T18:44:50+05:30"
+                }
+              },
+              {
+                "cursor": "MQ==",
+                "node": {
+                  "id": "/api/shop/wishlists/79",
+                  "_id": 79,
+                  "product": {
+                    "id": "/api/shop/products/2495",
+                    "name": "Ivory Frost Classic Overcoat",
+                    "price": "0",
+                    "sku": "IVORY-OVERCOAT-001",
+                    "type": "configurable",
+                    "description": "The Ivory Frost Classic Overcoat blends modern simplicity with timeless winter design. Crafted in a smooth, insulating fabric, it offers dependable warmth while maintaining a lightweight, structured feel.",
+                    "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2495/FFHxE9HE2Ezt9aqvr6s3fPPCc1nrjwMNna1o1wTQ.webp"
+                  },
+                  "customer": {
+                    "id": "/api/shop/customers/122",
+                    "email": "john.doe@example.com"
+                  },
+                  "channel": {
+                    "id": "/api/shop/channels/1",
+                    "code": "default",
+                    "translation": {
+                      "name": "bagisto store"
+                    }
+                  },
+                  "createdAt": "2026-04-06T18:44:51+05:30",
+                  "updatedAt": "2026-04-06T18:44:51+05:30"
+                }
+              },
+              {
+                "cursor": "Mg==",
+                "node": {
+                  "id": "/api/shop/wishlists/80",
+                  "_id": 80,
+                  "product": {
+                    "id": "/api/shop/products/2359",
+                    "name": "Horizon Arc 49\" OLED Curved Gaming Monitor",
+                    "price": "4000",
+                    "sku": "HORIZON-MONITOR-49",
+                    "type": "simple",
+                    "description": "Lightning-fast 240Hz refresh and 0.03ms GtG response eliminate motion blur, supported by NVIDIA G-Sync and AMD FreeSync Premium Pro for smooth gameplay without stuttering.",
+                    "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2359/jTCVFLzBdbUfmJzDnLa6puGF8kRqEk5NNDYPjN09.webp"
+                  },
+                  "customer": {
+                    "id": "/api/shop/customers/122",
+                    "email": "john.doe@example.com"
+                  },
+                  "channel": {
+                    "id": "/api/shop/channels/1",
+                    "code": "default",
+                    "translation": {
+                      "name": "bagisto store"
+                    }
+                  },
+                  "createdAt": "2026-04-06T18:44:54+05:30",
+                  "updatedAt": "2026-04-06T18:44:54+05:30"
+                }
+              },
+              {
+                "cursor": "Mw==",
+                "node": {
+                  "id": "/api/shop/wishlists/81",
+                  "_id": 81,
+                  "product": {
+                    "id": "/api/shop/products/122",
+                    "name": "Classic Cowboy Hat",
+                    "price": "149.99",
+                    "sku": "COWBOY-HAT-001",
+                    "type": "simple",
+                    "description": "A timeless cowboy hat crafted from premium materials, perfect for outdoor adventures and western-style fashion.",
+                    "baseImageUrl": "https://api-demo.bagisto.com/storage/product/122/P9n1dbmgM4UOBT3zUAEGCn4wpKi0GjPGhgS1jZe7.webp"
+                  },
+                  "customer": {
+                    "id": "/api/shop/customers/122",
+                    "email": "john.doe@example.com"
+                  },
+                  "channel": {
+                    "id": "/api/shop/channels/1",
+                    "code": "default",
+                    "translation": {
+                      "name": "bagisto store"
+                    }
+                  },
+                  "createdAt": "2026-04-06T18:44:55+05:30",
+                  "updatedAt": "2026-04-06T18:44:55+05:30"
                 }
               }
             ],
             "pageInfo": {
-              "endCursor": "MQ==",
-              "startCursor": "MQ==",
+              "endCursor": "Mw==",
+              "startCursor": "MA==",
               "hasNextPage": false,
               "hasPreviousPage": false
             },
-            "totalCount": 1
+            "totalCount": 4
           }
         }
       }

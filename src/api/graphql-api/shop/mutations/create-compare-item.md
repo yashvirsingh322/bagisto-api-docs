@@ -43,7 +43,7 @@ examples:
     variables: |
       {
         "input": {
-          "productId": 4
+          "productId": 2514
         }
       }
     response: |
@@ -51,30 +51,30 @@ examples:
         "data": {
           "createCompareItem": {
             "compareItem": {
-              "id": "/api/shop/compare-items/80",
-              "_id": 80,
-              "createdAt": "2026-02-17T12:45:00+00:00",
-              "updatedAt": "2026-02-17T12:45:00+00:00",
+              "id": "/api/shop/compare_items/38",
+              "_id": 38,
+              "createdAt": "2026-04-06T18:50:10+05:30",
+              "updatedAt": "2026-04-06T18:50:10+05:30",
               "product": {
-                "id": "/api/shop/products/4",
-                "_id": 4,
-                "sku": "IPHONE-15-PRO",
+                "id": "/api/shop/compare_items/38",
+                "_id": 2514,
+                "sku": "SP-003",
                 "type": "simple",
-                "name": "Apple iPhone 15 Pro",
-                "description": "Experience premium performance and cutting-edge technology with the Apple iPhone 15 Pro. Designed for speed, photography, and everyday convenience.",
-                "shortDescription": "Apple iPhone 15 Pro | Advanced Camera System, Fast Performance, All-Day Battery Life",
-                "price": "999",
-                "formattedPrice": "$999.00",
-                "minimumPrice": "899",
-                "formattedMinimumPrice": "$899.00",
-                "maximumPrice": "899",
-                "formattedMaximumPrice": "$899.00",
+                "name": "Arctic Touchscreen Winter Gloves",
+                "description": "Introducing the Arctic Touchscreen Winter Gloves – where warmth, style, and connectivity meet to enhance your winter experience. Crafted from high-quality acrylic, these gloves are designed to provide exceptional warmth and durability.",
+                "shortDescription": "Stay connected and warm with our Arctic Touchscreen Winter Gloves. These gloves are crafted from high-quality acrylic for warmth and durability with a touchscreen-compatible design.",
+                "price": "21",
+                "formattedPrice": "$21.00",
+                "minimumPrice": "17",
+                "formattedMinimumPrice": "$17.00",
+                "maximumPrice": "17",
+                "formattedMaximumPrice": "$17.00",
                 "guestCheckout": "1",
                 "locale": null,
                 "channel": null
               },
               "customer": {
-                "id": "/api/shop/customers/1",
+                "id": "/api/shop/customers/122",
                 "firstName": "John",
                 "lastName": "Doe",
                 "gender": "Male",

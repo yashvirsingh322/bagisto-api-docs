@@ -40,26 +40,17 @@ examples:
               },
               {
                 "node": {
-                  "id": "/api/shop/locales/2",
-                  "_id": 2,
-                  "code": "ar",
+                  "id": "/api/shop/locales/10",
+                  "_id": 10,
+                  "code": "AR",
                   "name": "Arabic",
                   "direction": "rtl"
-                }
-              },
-              {
-                "node": {
-                  "id": "/api/shop/locales/3",
-                  "_id": 3,
-                  "code": "fr",
-                  "name": "French",
-                  "direction": "ltr"
                 }
               }
             ],
             "pageInfo": {
               "hasNextPage": false,
-              "endCursor": "Mw=="
+              "endCursor": "MQ=="
             }
           }
         }
@@ -87,8 +78,6 @@ examples:
               name
               direction
               logoPath
-              createdAt
-              updatedAt
               logoUrl
             }
           }
@@ -109,55 +98,37 @@ examples:
           "locales": {
             "edges": [
               {
-                "cursor": "MQ==",
+                "cursor": "MA==",
                 "node": {
                   "id": "/api/shop/locales/1",
                   "_id": 1,
                   "code": "en",
                   "name": "English",
                   "direction": "ltr",
-                  "logoPath": "/locales/en-logo.png",
-                  "createdAt": "2024-01-15T10:30:00Z",
-                  "updatedAt": "2024-01-20T14:22:00Z",
-                  "logoUrl": "https://example.com/storage/locales/en-logo.png"
+                  "logoPath": "locales/en.png",
+                  "logoUrl": "https://api-demo.bagisto.com/storage/locales/en.png"
                 }
               },
               {
-                "cursor": "Mg==",
+                "cursor": "MQ==",
                 "node": {
-                  "id": "/api/shop/locales/2",
-                  "_id": 2,
-                  "code": "ar",
+                  "id": "/api/shop/locales/10",
+                  "_id": 10,
+                  "code": "AR",
                   "name": "Arabic",
                   "direction": "rtl",
-                  "logoPath": "/locales/ar-logo.png",
-                  "createdAt": "2024-01-15T10:35:00Z",
-                  "updatedAt": "2024-01-20T14:25:00Z",
-                  "logoUrl": "https://example.com/storage/locales/ar-logo.png"
-                }
-              },
-              {
-                "cursor": "Mw==",
-                "node": {
-                  "id": "/api/shop/locales/3",
-                  "_id": 3,
-                  "code": "fr",
-                  "name": "French",
-                  "direction": "ltr",
-                  "logoPath": "/locales/fr-logo.png",
-                  "createdAt": "2024-01-15T10:40:00Z",
-                  "updatedAt": "2024-01-20T14:30:00Z",
-                  "logoUrl": "https://example.com/storage/locales/fr-logo.png"
+                  "logoPath": "locales/AR.png",
+                  "logoUrl": "https://api-demo.bagisto.com/storage/locales/AR.png"
                 }
               }
             ],
             "pageInfo": {
-              "endCursor": "Mw==",
-              "startCursor": "MQ==",
+              "endCursor": "MQ==",
+              "startCursor": "MA==",
               "hasNextPage": false,
               "hasPreviousPage": false
             },
-            "totalCount": 3
+            "totalCount": 2
           }
         }
       }
@@ -184,6 +155,7 @@ examples:
               name
               direction
               logoUrl
+              logoPath
             }
           }
           pageInfo {
@@ -206,31 +178,33 @@ examples:
           "locales": {
             "edges": [
               {
-                "cursor": "MQ==",
+                "cursor": "MA==",
                 "node": {
                   "id": "/api/shop/locales/1",
                   "_id": 1,
                   "code": "en",
                   "name": "English",
                   "direction": "ltr",
-                  "logoUrl": "https://example.com/storage/locales/en-logo.png"
+                  "logoUrl": "https://api-demo.bagisto.com/storage/locales/en.png",
+                  "logoPath": "locales/en.png"
                 }
               },
               {
-                "cursor": "Mg==",
+                "cursor": "MQ==",
                 "node": {
-                  "id": "/api/shop/locales/2",
-                  "_id": 2,
-                  "code": "ar",
+                  "id": "/api/shop/locales/10",
+                  "_id": 10,
+                  "code": "AR",
                   "name": "Arabic",
                   "direction": "rtl",
-                  "logoUrl": "https://example.com/storage/locales/ar-logo.png"
+                  "logoUrl": "https://api-demo.bagisto.com/storage/locales/AR.png",
+                  "logoPath": "locales/AR.png"
                 }
               }
             ],
             "pageInfo": {
-              "endCursor": "Mg==",
-              "startCursor": "MQ==",
+              "endCursor": "MQ==",
+              "startCursor": "MA==",
               "hasNextPage": false,
               "hasPreviousPage": false
             },

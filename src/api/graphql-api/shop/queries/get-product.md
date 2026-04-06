@@ -16,17 +16,17 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2499
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "1",
-            "name": "Product Name",
-            "sku": "PROD-001",
-            "urlKey": "product-name",
-            "price": 99.99
+            "id": "/api/shop/products/2499",
+            "name": "Ivory Frost Classic Overcoat XL",
+            "sku": "sku-345346346-variant-9",
+            "urlKey": "sku-345346346-variant-9",
+            "price": "500"
           }
         }
       }
@@ -52,17 +52,17 @@ examples:
       }
     variables: |
       {
-        "sku": "COASTALBREEZEMENSHOODIE"
+        "sku": "sku-345346346-variant-9"
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "/api/shop/products/1",
-            "name": "Coastal Breeze Men's Blue Zipper Hoodie",
-            "sku": "COASTALBREEZEMENSHOODIE",
-            "urlKey": "coastal-breeze-mens-blue-zipper-hoodie",
-            "price": "100"
+            "id": "/api/shop/products/2499",
+            "name": "Ivory Frost Classic Overcoat XL",
+            "sku": "sku-345346346-variant-9",
+            "urlKey": "sku-345346346-variant-9",
+            "price": "500"
           }
         }
       }
@@ -106,36 +106,627 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2468
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "1",
-            "name": "T-Shirt",
-            "sku": "TSHIRT-001",
-            "urlKey": "t-shirt",
-            "price": 29.99,
+            "id": "/api/shop/products/2468",
+            "name": "Minimalist Cotton Shirt",
+            "sku": "345325",
+            "urlKey": "minimalist-cotton-shirt",
+            "price": "0",
             "variants": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/products/8",
-                    "name": "OmniHeat Men's Solid Hooded Puffer Jacket-Blue-Yellow-M",
-                    "sku": "SP-005",
-                    "price": "14",
+                    "id": "/api/shop/products/2469",
+                    "name": "قميص قطني أصفر بتصميم بسيط، مقاس صغير",
+                    "sku": "345325-variant-3-6",
+                    "price": "463",
                     "attributeValues": {
                       "edges": [
                         {
                           "node": {
-                            "value": "SP-001",
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
                             "attribute": {
                               "code": "sku",
                               "adminName": "SKU"
                             }
                           }
                         },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2470",
+                    "name": "Minimalist Cotton Shirt Lavender Grey S",
+                    "sku": "345325-variant-26-6",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2471",
+                    "name": "Minimalist Cotton Shirt Charcoal S",
+                    "sku": "345325-variant-27-6",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2472",
+                    "name": "Minimalist Cotton Shirt Yellow M",
+                    "sku": "345325-variant-3-7",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2473",
+                    "name": "Minimalist Cotton Shirt Lavender Grey M",
+                    "sku": "345325-variant-26-7",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2474",
+                    "name": "Minimalist Cotton Shirt Charcoal M",
+                    "sku": "345325-variant-27-7",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
                       ]
                     }
                   }
@@ -240,56 +831,84 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2478
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "/api/shop/products/1",
-            "name": "Premium Wireless Headphones",
-            "sku": "HEADPHONES-001",
-            "type": "simple",
-            "urlKey": "premium-wireless-headphones",
+            "id": "/api/shop/products/2478",
+            "name": "Contemporary Fit Cut-Out Top",
+            "sku": "sku9324729384",
+            "type": "configurable",
+            "urlKey": "contemporary-fit-cut-out-top",
             "locale": "en",
-            "channel": "default",
+            "channel": null,
             "status": "1",
-            "description": "High-quality wireless headphones with noise cancellation and 30-hour battery life",
-            "shortDescription": "Premium wireless headphones with active noise cancellation",
-            "color": null,
-            "size": null,
-            "featured": true,
-            "new": false,
-            "guestCheckout": true,
-            "isSaleable": true,
-            "price": 199.99,
-            "specialPrice": 149.99,
-            "minimumPrice": 149.99,
-            "maximumPrice": 199.99,
-            "regularMinimumPrice": 199.99,
-            "regularMaximumPrice": 199.99,
-            "formattedPrice": "$199.99",
-            "formattedSpecialPrice": "$149.99",
-            "formattedMinimumPrice": "$149.99",
-            "formattedMaximumPrice": "$199.99",
-            "formattedRegularMinimumPrice": "$199.99",
-            "formattedRegularMaximumPrice": "$199.99",
-            "superAttributeOptions": "[{\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":19,\"label\":\"Blue\"},{\"id\":20,\"label\":\"Ash grey\"},{\"id\":23,\"label\":\"Pink\"}]},{\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"},{\"id\":7,\"label\":\"M\"}]}]",
-            "combinations": "{\"8\":{\"color\":3,\"size\":7},\"9\":{\"color\":3,\"size\":8},\"10\":{\"color\":2,\"size\":7},\"11\":{\"color\":2,\"size\":8}}",
+            "description": "This modern cut-out tank top is designed for those who prefer bold simplicity with a contemporary edge. Crafted with a body-hugging fit and subtle ribbed texture, it enhances the silhouette while keeping the look clean and refined",
+            "shortDescription": "A sleek ribbed tank top with a bold cut-out detail, designed to make a confident style statement with minimal effort.",
+            "color": "",
+            "size": "",
+            "featured": "",
+            "new": "1",
+            "guestCheckout": "1",
+            "isSaleable": "1",
+            "price": "0",
+            "specialPrice": null,
+            "minimumPrice": "435",
+            "maximumPrice": "435",
+            "regularMinimumPrice": "435",
+            "regularMaximumPrice": "435",
+            "formattedPrice": "$0.00",
+            "formattedSpecialPrice": null,
+            "formattedMinimumPrice": "$435.00",
+            "formattedMaximumPrice": "$435.00",
+            "formattedRegularMinimumPrice": "$435.00",
+            "formattedRegularMaximumPrice": "$435.00",
+            "superAttributeOptions": "[{\"id\":23,\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":1,\"label\":\"Red\"},{\"id\":5,\"label\":\"White\"},{\"id\":20,\"label\":\"Ash grey\"}]},{\"id\":24,\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"}]}]",
+            "combinations": "{\"2479\":{\"color\":1,\"size\":6},\"2480\":{\"color\":5,\"size\":6},\"2482\":{\"color\":20,\"size\":6}}",
             "images": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/admin/images/7",
-                    "publicPath": "https://api-demo.bagisto.com/storage/product/7/L79gIVq7SdiKK2Xk7MHVHdEZgAb32TedY764iZr4.webp",
+                    "id": "/api/admin/images/678",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/AA1X8qJMtgi3HKHGiwmV1LEPFrQk6Z8aYPc137Y0.webp",
                     "position": "1"
                   }
                 },
                 {
                   "node": {
-                    "id": "/api/admin/images/8",
-                    "publicPath": "https://api-demo.bagisto.com/storage/product/7/sW5mmHIh07PJJefnSLC8jwtvx0BpjnWVhVUYonVs.webp",
+                    "id": "/api/admin/images/679",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/LXF5IyrOREvTpNl0mMMeWgMLNFFWb7LqQjfn21H6.webp",
                     "position": "2"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/admin/images/680",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/1P3HJK8nT9Bl5sPoG2zuR0AqNbPpJ3faR7u9aAaF.webp",
+                    "position": "3"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/admin/images/681",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/BXiWC67lLJGuIrbaA20JTaJ9eeEvLWXFKabsA0sj.webp",
+                    "position": "4"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/admin/images/682",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/y4arFOtq37paTb2XpIhtKLiA0QGqsIvOsBpRKKOV.webp",
+                    "position": "5"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/admin/images/683",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/ynwH4VNSV0lJi26P8pyZLKCRKXFOEHQdGI7wbChD.webp",
+                    "position": "6"
                   }
                 }
               ]
@@ -298,25 +917,413 @@ examples:
               "edges": [
                 {
                   "node": {
-                    "value": "Black",
+                    "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
                     "attribute": {
-                      "code": "color",
-                      "adminName": "Color"
+                      "code": "short_description",
+                      "adminName": "Short Description"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                    "attribute": {
+                      "code": "description",
+                      "adminName": "Description"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "COASTALBREEZEMENSHOODIE",
+                    "attribute": {
+                      "code": "sku",
+                      "adminName": "SKU"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                    "attribute": {
+                      "code": "name",
+                      "adminName": "Name"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                    "attribute": {
+                      "code": "url_key",
+                      "adminName": "URL Key"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "",
+                    "attribute": {
+                      "code": "product_number",
+                      "adminName": "Product Number"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "1",
+                    "attribute": {
+                      "code": "manage_stock",
+                      "adminName": "Manage Stock"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                    "attribute": {
+                      "code": "meta_title",
+                      "adminName": "Meta Title"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "",
+                    "attribute": {
+                      "code": "meta_keywords",
+                      "adminName": "Meta Keywords"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                    "attribute": {
+                      "code": "meta_description",
+                      "adminName": "Meta Description"
                     }
                   }
                 }
               ]
             },
             "variants": {
-              "edges": []
+              "edges": [
+                {
+                  "node": {
+                    "id": "/api/shop/products/2479",
+                    "name": "Contemporary Fit Cut-Out Top Red S",
+                    "sku": "sku9324729384-variant-1-6",
+                    "price": "435",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2480",
+                    "name": "Contemporary Fit Cut-Out Top White S",
+                    "sku": "sku9324729384-variant-4-6",
+                    "price": "435",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2482",
+                    "name": "Contemporary Fit Cut-Out Top Ash Grey S",
+                    "sku": "sku9324729384-variant-20-6",
+                    "price": "435",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control. Convenient front pockets are perfect for storage and keeping your hands warm.",
+                            "attribute": {
+                              "code": "short_description",
+                              "adminName": "Short Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "The Coastal Breeze Men's Blue Zipper Hoodie is your reliable companion for staying warm, comfortable, and stylish. This hoodie is designed for the modern man who values both fashion and functionality. The stylish blue design adds a touch of contemporary flair, making it suitable for various occasions, whether you're running errands, heading to the gym, or simply enjoying a relaxed day out. Warmth is a top priority, and this hoodie delivers. The interior lining is soft and cozy, ensuring that you stay comfortable and warm even in cooler weather. It's the perfect addition to your wardrobe when you need that extra layer of insulation. The full zipper closure is not just about style; it allows you to control your comfort and temperature easily. You can wear the hoodie fully zipped for maximum warmth or open it up for a more relaxed look. This versatility makes it a go-to choice for various settings. Convenience is key, and the front pockets provide just that. They are perfect for storing your essentials, whether it's your phone, wallet, or keys. Plus, they keep your hands warm during chilly days. Crafted from a comfortable and durable cotton blend, this hoodie is designed to withstand everyday wear and maintain its stylish appeal. Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This hoodie is more than just clothing; it's a reflection of your modern and practical fashion sense. Let it be your reliable choice for staying cozy and fashionable in any situation, ensuring you look and feel your best.",
+                            "attribute": {
+                              "code": "description",
+                              "adminName": "Description"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "COASTALBREEZEMENSHOODIE",
+                            "attribute": {
+                              "code": "sku",
+                              "adminName": "SKU"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "name",
+                              "adminName": "Name"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "coastal-breeze-mens-blue-zipper-hoodie",
+                            "attribute": {
+                              "code": "url_key",
+                              "adminName": "URL Key"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "product_number",
+                              "adminName": "Product Number"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": {
+                              "code": "manage_stock",
+                              "adminName": "Manage Stock"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Coastal Breeze Men's Blue Zipper Hoodie",
+                            "attribute": {
+                              "code": "meta_title",
+                              "adminName": "Meta Title"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "",
+                            "attribute": {
+                              "code": "meta_keywords",
+                              "adminName": "Meta Keywords"
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Stay warm and stylish with the Coastal Breeze Men's Blue Zipper Hoodie. This fashionable hoodie features a modern design, making it ideal for casual and active wear. The soft and cozy interior lining provides warmth, while the full zipper closure allows for versatile styling and temperature control.",
+                            "attribute": {
+                              "code": "meta_description",
+                              "adminName": "Meta Description"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
             },
             "categories": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/categories/3",
+                    "id": "/api/shop/categories/22",
                     "translation": {
-                      "name": "Electronics"
+                      "name": "Fashion"
                     }
                   }
                 }
@@ -375,46 +1382,31 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2506
       }
     response: |
       {
         "data": {
           "product": {
-            "_id": 15,
-            "name": "Laravel Masterclass E-Book",
-            "sku": "EBOOK-LARAVEL-001",
+            "_id": 2506,
+            "name": "Complete Personal Finance Guide (eBook PDF)",
+            "sku": "COMPLETE-PERSONAL-FINANCE-GUIDE-EBOOK",
             "type": "downloadable",
-            "price": "49.99",
+            "price": "70",
             "downloadableLinks": {
               "edges": [
                 {
                   "node": {
-                    "_id": 1,
-                    "type": "file",
-                    "translation": {
-                      "title": "Part 1 - Fundamentals"
-                    },
-                    "price": "29.99",
-                    "formattedPrice": "$29.99",
-                    "sampleType": "file",
-                    "sampleFile": "product_downloadable_links/15/part1-sample.pdf",
-                    "sampleFileUrl": "https://your-domain.com/api/downloadable/download-sample/link/1",
-                    "sampleUrl": null
-                  }
-                },
-                {
-                  "node": {
                     "_id": 2,
-                    "type": "file",
+                    "type": "url",
                     "translation": {
-                      "title": "Part 2 - Advanced Topics"
+                      "title": "Full eBook PDF"
                     },
-                    "price": "39.99",
-                    "formattedPrice": "$39.99",
+                    "price": "69",
+                    "formattedPrice": "$69.00",
                     "sampleType": "file",
-                    "sampleFile": "product_downloadable_links/15/part2-sample.pdf",
-                    "sampleFileUrl": "https://your-domain.com/api/downloadable/download-sample/link/2",
+                    "sampleFile": "product_downloadable_links/2506/4aUxeYumTemSR3QwHHHGmdiHBG2qWek3KDR8fhYK.pdf",
+                    "sampleFileUrl": "https://api-demo.bagisto.com/api/downloadable/download-sample/link/2",
                     "sampleUrl": null
                   }
                 }
@@ -426,11 +1418,11 @@ examples:
                   "node": {
                     "_id": 1,
                     "type": "file",
-                    "file": "product_downloadable_links/15/table-of-contents.pdf",
-                    "fileUrl": "https://your-domain.com/api/downloadable/download-sample/sample/1",
+                    "file": "product_downloadable_links/2506/1apTXUkt2ugCISKHadT5Fmp4EwU7YeWYY2wb4mNs.pdf",
+                    "fileUrl": "https://api-demo.bagisto.com/api/downloadable/download-sample/sample/1",
                     "url": null,
                     "translation": {
-                      "title": "Table of Contents Preview"
+                      "title": ""
                     }
                   }
                 }
@@ -524,59 +1516,85 @@ examples:
       }
     variables: |
       {
-        "id": "20"
+        "id": 2516
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "/api/shop/products/20",
-            "name": "Fitness Essentials Kit",
-            "sku": "FITNESS-KIT-001",
+            "id": "/api/shop/products/2516",
+            "name": "Arctic Frost Winter Accessories",
+            "sku": "GP-001",
             "type": "grouped",
-            "urlKey": "fitness-essentials-kit",
+            "urlKey": "arctic-frost-winter-accessories",
             "locale": "en",
             "channel": null,
             "status": "1",
-            "description": "Get everything you need to start your fitness journey with this all-in-one kit. Includes a yoga mat, resistance bands, and a water bottle.",
-            "shortDescription": "All-in-one fitness starter kit with yoga mat, resistance bands, and water bottle.",
+            "description": "Introducing the Arctic Frost Winter Accessories Bundle, your go-to solution for staying warm, stylish, and connected during the chilly winter days. This thoughtfully curated set brings together Four essential winter accessories to create a harmonious ensemble. The luxurious scarf, woven from a blend of acrylic and wool, not only adds a layer of warmth but also brings a touch of elegance to your winter wardrobe. The soft knit beanie, crafted with care, promises to keep you cozy while adding a fashionable flair to your look. But it doesn't end there – our bundle also includes touchscreen-compatible gloves. Stay connected without sacrificing warmth as you navigate your devices effortlessly. Whether you're answering calls, sending messages, or capturing winter moments on your smartphone, these gloves ensure convenience without compromising style. The soft and cozy texture of the socks offers a luxurious feel against your skin. Say goodbye to chilly feet as you embrace the plush warmth provided by these wool blend socks. The Arctic Frost Winter Accessories Bundle is not just about functionality; it's a statement of winter fashion. Each piece is designed not only to protect you from the cold but also to elevate your style during the frosty season. The materials chosen for this bundle prioritize both durability and comfort, ensuring that you can enjoy the winter wonderland in style. Whether you're treating yourself or searching for the perfect gift, the Arctic Frost Winter Accessories Bundle is a versatile choice. Delight someone special during the holiday season or elevate your own winter wardrobe with this stylish and functional ensemble. Embrace the frost with confidence, knowing that you have the perfect accessories to keep you warm and chic.",
+            "shortDescription": "Embrace the winter chill with our Arctic Frost Winter Accessories Bundle. This curated set includes a luxurious scarf, a cozy beanie, touchscreen-compatible gloves and wool Blend Socks. Stylish and functional, this ensemble is crafted from high-quality materials, ensuring both durability and comfort. Elevate your winter wardrobe or delight someone special with this perfect gifting option.",
             "featured": "1",
             "new": "1",
             "guestCheckout": "1",
             "isSaleable": "1",
             "price": "0",
             "specialPrice": null,
-            "minimumPrice": "15.99",
-            "maximumPrice": "49.99",
-            "regularMinimumPrice": "15.99",
-            "regularMaximumPrice": "49.99",
+            "minimumPrice": "14",
+            "maximumPrice": "21",
+            "regularMinimumPrice": "14",
+            "regularMaximumPrice": "21",
             "formattedPrice": "$0.00",
             "formattedSpecialPrice": null,
-            "formattedMinimumPrice": "$15.99",
-            "formattedMaximumPrice": "$49.99",
-            "formattedRegularMinimumPrice": "$15.99",
-            "formattedRegularMaximumPrice": "$49.99",
+            "formattedMinimumPrice": "$14.00",
+            "formattedMaximumPrice": "$21.00",
+            "formattedRegularMinimumPrice": "$14.00",
+            "formattedRegularMaximumPrice": "$21.00",
             "groupedProducts": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/grouped-products/1",
+                    "id": "/api/shop/product_grouped_products/1",
+                    "qty": 1,
+                    "sortOrder": 0,
+                    "associatedProduct": {
+                      "id": "/api/shop/products/2512",
+                      "name": "Arctic Cozy Knit Unisex Beanie",
+                      "sku": "SP-001",
+                      "price": "14",
+                      "formattedPrice": "$14.00",
+                      "specialPrice": null,
+                      "formattedSpecialPrice": null,
+                      "images": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "/api/admin/images/851",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/2512/Muc0qeWks34MTZaxf38s6DBmfqMqrCxku81Uo8EB.webp"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/product_grouped_products/2",
                     "qty": 1,
                     "sortOrder": 1,
                     "associatedProduct": {
-                      "id": "/api/shop/products/21",
-                      "name": "Premium Yoga Mat",
-                      "sku": "YOGA-MAT-001",
-                      "price": "29.99",
-                      "formattedPrice": "$29.99",
-                      "specialPrice": null,
-                      "formattedSpecialPrice": null,
+                      "id": "/api/shop/products/2514",
+                      "name": "Arctic Touchscreen Winter Gloves",
+                      "sku": "SP-003",
+                      "price": "21",
+                      "formattedPrice": "$21.00",
+                      "specialPrice": "17",
+                      "formattedSpecialPrice": "$17.00",
                       "images": {
                         "edges": [
                           {
                             "node": {
-                              "id": "/api/admin/images/50",
-                              "publicPath": "https://api-demo.bagisto.com/storage/product/21/yoga-mat.webp"
+                              "id": "/api/admin/images/853",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/2514/g8lR0Ity8HcpE20A4yAkX5wvLY5RlTC67NJKyyg6.webp"
                             }
                           }
                         ]
@@ -586,45 +1604,26 @@ examples:
                 },
                 {
                   "node": {
-                    "id": "/api/shop/grouped-products/2",
-                    "qty": 2,
+                    "id": "/api/shop/product_grouped_products/3",
+                    "qty": 1,
                     "sortOrder": 2,
                     "associatedProduct": {
-                      "id": "/api/shop/products/22",
-                      "name": "Resistance Bands Set",
-                      "sku": "RESISTANCE-BANDS-001",
-                      "price": "15.99",
-                      "formattedPrice": "$15.99",
-                      "specialPrice": "12.99",
-                      "formattedSpecialPrice": "$12.99",
+                      "id": "/api/shop/products/2515",
+                      "name": "Arctic Warmth Wool Blend Socks",
+                      "sku": "SP-004",
+                      "price": "21",
+                      "formattedPrice": "$21.00",
+                      "specialPrice": null,
+                      "formattedSpecialPrice": null,
                       "images": {
                         "edges": [
                           {
                             "node": {
-                              "id": "/api/admin/images/51",
-                              "publicPath": "https://api-demo.bagisto.com/storage/product/22/resistance-bands.webp"
+                              "id": "/api/admin/images/854",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/2515/442ouyaT1K4weKSZGhSDtSKDBbrhiH0aWWwGcFW0.webp"
                             }
                           }
                         ]
-                      }
-                    }
-                  }
-                },
-                {
-                  "node": {
-                    "id": "/api/shop/grouped-products/3",
-                    "qty": 1,
-                    "sortOrder": 3,
-                    "associatedProduct": {
-                      "id": "/api/shop/products/23",
-                      "name": "Insulated Water Bottle",
-                      "sku": "WATER-BOTTLE-001",
-                      "price": "19.99",
-                      "formattedPrice": "$19.99",
-                      "specialPrice": null,
-                      "formattedSpecialPrice": null,
-                      "images": {
-                        "edges": []
                       }
                     }
                   }
@@ -632,19 +1631,18 @@ examples:
               ]
             },
             "images": {
-              "edges": []
-            },
-            "categories": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/categories/5",
-                    "translation": {
-                      "name": "Fitness & Sports"
-                    }
+                    "id": "/api/admin/images/855",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2516/5Kgto6KVm6FLMaaDEY6pwCcVoTIhX03D3OGDzwbf.webp",
+                    "position": "1"
                   }
                 }
               ]
+            },
+            "categories": {
+              "edges": []
             }
           }
         }
@@ -669,6 +1667,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 appointmentSlot {
                   id
                   _id
@@ -685,36 +1688,36 @@ examples:
       }
     variables: |
       {
-        "id": 2555
+        "id": 2509
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2555",
-            "name": "Appointment Booking Product",
-            "sku": "APPOINTMENT-001",
-            "urlKey": "appointment-booking-product",
-            "price": 100,
+            "id": "/api/shop/products/2509",
+            "name": "Men's Haircut Appointment",
+            "sku": "SALON-HAIRCUT-APPOINTMENT",
+            "urlKey": "mens-haircut-appointment",
+            "price": "60",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_1",
+                    "_id": 3,
                     "type": "appointment",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-12-30T06:30:00.000000Z",
+                    "qty": 10,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": "0",
                     "appointmentSlot": {
-                      "id": "/api/booking/slots/1",
-                      "_id": "slot_1",
-                      "bookingProductId": "2555",
-                      "duration": 60,
+                      "id": "1",
+                      "_id": 1,
+                      "bookingProductId": "3",
+                      "duration": 45,
                       "breakTime": 15,
-                      "sameSlotAllDays": true,
-                      "slots": [
-                        {
-                          "day": "monday",
-                          "slots": ["09:00 - 12:00", "14:00 - 18:00"]
-                        }
-                      ]
+                      "sameSlotAllDays": "1",
+                      "slots": "[{\"to\": \"10:45\", \"from\": \"10:00\"}, {\"to\": \"11:45\", \"from\": \"11:00\"}, {\"to\": \"12:45\", \"from\": \"12:00\"}, {\"to\": \"14:45\", \"from\": \"14:00\"}, {\"to\": \"15:45\", \"from\": \"15:00\"}]"
                     }
                   }
                 }
@@ -746,6 +1749,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 rentalSlot {
                   id
                   _id
@@ -763,32 +1771,37 @@ examples:
       }
     variables: |
       {
-        "id": 2556
+        "id": 2510
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2556",
-            "name": "Rental Booking Product",
-            "sku": "RENTAL-001",
-            "urlKey": "rental-booking-product",
-            "price": 50,
+            "id": "/api/shop/products/2510",
+            "name": "Wooden Folding Chair Rental",
+            "sku": "WOODEN-FOLDING-CHAIR-RENTAL",
+            "urlKey": "wooden-folding-chair-rental",
+            "price": "109",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_2",
+                    "_id": 4,
                     "type": "rental",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-04-30T06:30:00.000000Z",
+                    "qty": 150,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": "0",
                     "rentalSlot": {
-                      "id": "/api/booking/slots/2",
-                      "_id": "slot_2",
-                      "bookingProductId": "2556",
-                      "rentingType": "daily",
-                      "dailyPrice": 100,
-                      "hourlyPrice": 15,
-                      "sameSlotAllDays": true,
-                      "slots": []
+                      "id": "1",
+                      "_id": 1,
+                      "bookingProductId": "4",
+                      "rentingType": "daily_hourly",
+                      "dailyPrice": "99",
+                      "hourlyPrice": "105",
+                      "sameSlotAllDays": "1",
+                      "slots": "[{\"to\": \"18:00\", \"from\": \"12:00\"}]"
                     }
                   }
                 }
@@ -820,6 +1833,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 defaultSlot {
                   id
                   _id
@@ -835,39 +1853,35 @@ examples:
       }
     variables: |
       {
-        "id": 2558
+        "id": 2507
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2558",
-            "name": "Default Booking Product",
-            "sku": "DEFAULT-001",
-            "urlKey": "default-booking-product",
-            "price": 75,
+            "id": "/api/shop/products/2507",
+            "name": "Professional Photography Session",
+            "sku": "PROFESSIONAL-PHOTOGRAPHY-SESSION",
+            "urlKey": "professional-photography-session",
+            "price": "100",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_3",
+                    "_id": 1,
                     "type": "default",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-12-31T06:30:00.000000Z",
+                    "qty": 150,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": null,
                     "defaultSlot": {
-                      "id": "/api/booking/slots/3",
-                      "_id": "slot_3",
-                      "bookingType": "default",
-                      "duration": 60,
-                      "breakTime": 0,
-                      "slots": [
-                        {
-                          "day": "monday",
-                          "slots": ["10:00 - 17:00"]
-                        },
-                        {
-                          "day": "tuesday",
-                          "slots": ["10:00 - 17:00"]
-                        }
-                      ]
+                      "id": "1",
+                      "_id": 1,
+                      "bookingType": "one",
+                      "duration": null,
+                      "breakTime": null,
+                      "slots": "[{\"id\": \"1\", \"to\": \"18:00\", \"from\": \"12:00\", \"to_day\": \"1\", \"from_day\": \"1\"}, {\"id\": \"2\", \"to\": \"18:00\", \"from\": \"12:00\", \"to_day\": \"2\", \"from_day\": \"2\"}, {\"id\": \"1\", \"to\": \"18:00\", \"from\": \"12:00\", \"to_day\": \"3\", \"from_day\": \"3\"}]"
                     }
                   }
                 }
@@ -899,6 +1913,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 tableSlot {
                   id
                   _id
@@ -918,59 +1937,39 @@ examples:
       }
     variables: |
       {
-        "id": 2563
+        "id": 2511
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2563",
-            "name": "Table Booking Product",
-            "sku": "TABLE-001",
-            "urlKey": "table-booking-product",
-            "price": 0,
+            "id": "/api/shop/products/2511",
+            "name": "Fine Dining Table Reservation",
+            "sku": "FINE-DINING-TABLE-RESERVATION",
+            "urlKey": "fine-dining-table-reservation",
+            "price": "200",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_4",
+                    "_id": 5,
                     "type": "table",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-04-30T06:30:00.000000Z",
+                    "qty": 5,
+                    "location": "Mumbai, Maharashtra",
+                    "availableEveryWeek": "0",
                     "tableSlot": {
-                      "id": "/api/booking/slots/4",
-                      "_id": "slot_4",
-                      "bookingProductId": "2563",
+                      "id": "1",
+                      "_id": 1,
+                      "bookingProductId": "5",
                       "priceType": "guest",
-                      "guestLimit": 10,
-                      "duration": 120,
-                      "breakTime": 0,
+                      "guestLimit": 0,
+                      "duration": 45,
+                      "breakTime": 15,
                       "preventSchedulingBefore": 2,
-                      "sameSlotAllDays": false,
-                      "slots": [
-                        {
-                          "day": "monday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "tuesday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "wednesday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "thursday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "friday",
-                          "slots": ["18:00 - 23:00"]
-                        },
-                        {
-                          "day": "saturday",
-                          "slots": ["18:00 - 23:00"]
-                        }
-                      ]
+                      "sameSlotAllDays": "1",
+                      "slots": "[{\"to\": \"12:45\", \"from\": \"12:00\"}, {\"to\": \"13:45\", \"from\": \"13:00\"}, {\"to\": \"14:45\", \"from\": \"14:00\"}, {\"to\": \"19:45\", \"from\": \"19:00\"}, {\"to\": \"20:45\", \"from\": \"20:00\"}, {\"to\": \"21:45\", \"from\": \"21:00\"}]"
                     }
                   }
                 }
@@ -1002,6 +2001,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 eventTickets {
                   edges {
                     node {
@@ -1023,47 +2027,52 @@ examples:
       }
     variables: |
       {
-        "id": 2564
+        "id": 2508
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2564",
-            "name": "Event Booking Product",
-            "sku": "EVENT-001",
-            "urlKey": "event-booking-product",
-            "price": 0,
+            "id": "/api/shop/products/2508",
+            "name": "Live Music Concert Ticket",
+            "sku": "LIVE-MUSIC-CONCERT-TICKET",
+            "urlKey": "live-music-concert-ticket",
+            "price": "120",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_5",
+                    "_id": 2,
                     "type": "event",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-04-30T06:30:00.000000Z",
+                    "qty": 0,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": null,
                     "eventTickets": {
                       "edges": [
                         {
                           "node": {
-                            "id": "/api/booking/tickets/1",
-                            "_id": "ticket_1",
-                            "bookingProductId": "2564",
-                            "price": 50,
-                            "qty": 100,
-                            "specialPrice": 40,
-                            "specialPriceFrom": "2024-01-01",
-                            "specialPriceTo": "2024-12-31"
+                            "id": "7",
+                            "_id": 7,
+                            "bookingProductId": "2",
+                            "price": "120",
+                            "qty": 1500,
+                            "specialPrice": "115",
+                            "specialPriceFrom": "2026-04-06 12:00:00",
+                            "specialPriceTo": "2026-04-30 12:00:00"
                           }
                         },
                         {
                           "node": {
-                            "id": "/api/booking/tickets/2",
-                            "_id": "ticket_2",
-                            "bookingProductId": "2564",
-                            "price": 100,
-                            "qty": 50,
-                            "specialPrice": null,
-                            "specialPriceFrom": null,
-                            "specialPriceTo": null
+                            "id": "8",
+                            "_id": 8,
+                            "bookingProductId": "2",
+                            "price": "125",
+                            "qty": 150,
+                            "specialPrice": "120",
+                            "specialPriceFrom": "2026-04-02 12:00:00",
+                            "specialPriceTo": "2026-04-30 12:00:00"
                           }
                         }
                       ]

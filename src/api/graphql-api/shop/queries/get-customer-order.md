@@ -118,8 +118,8 @@ examples:
                 {
                   "node": {
                     "id": "/api/shop/order-items/1",
-                    "sku": "PROD-001",
-                    "name": "Sample Product",
+                    "sku": "ACME-DRAWBAG-001",
+                    "name": "Acme Drawstring Bag",
                     "qtyOrdered": 2,
                     "qtyShipped": 0,
                     "qtyInvoiced": 2,
@@ -250,8 +250,8 @@ examples:
                         {
                           "node": {
                             "_id": 1,
-                            "sku": "PROD-001",
-                            "name": "Sample Product",
+                            "sku": "ACME-DRAWBAG-001",
+                            "name": "Acme Drawstring Bag",
                             "qty": 2,
                             "weight": 5.5
                           }

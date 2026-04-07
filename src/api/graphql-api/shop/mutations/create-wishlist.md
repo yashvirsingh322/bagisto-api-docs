@@ -11,6 +11,7 @@ examples:
             id
             _id
             product {
+              _id
               id
               name
               price
@@ -30,14 +31,15 @@ examples:
         "data": {
           "createWishlist": {
             "wishlist": {
-              "id": "/api/shop/wishlists/75",
-              "_id": 75,
+              "id": "/api/shop/wishlists/89",
+              "_id": 89,
               "product": {
-                "id": "/api/shop/wishlists/75",
+                "_id": 2499,
+                "id": "/api/shop/wishlists/89",
                 "name": "Ivory Frost Classic Overcoat XL",
                 "price": "500"
               },
-              "createdAt": "2026-04-06T18:36:59+05:30"
+              "createdAt": "2026-04-07T13:55:19+05:30"
             }
           }
         }

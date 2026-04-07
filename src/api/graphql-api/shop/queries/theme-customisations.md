@@ -32,7 +32,8 @@ examples:
       }
     variables: |
       {
-        "first": 5
+        "first": 5,
+        "after": null
       }
     response: |
       {
@@ -41,34 +42,90 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/theme_customizations/1",
+                  "id": "/api/shop/theme-customizations/1",
                   "_id": 1,
                   "type": "image_carousel",
                   "name": "Image Carousel",
                   "status": "1",
                   "themeCode": "default",
-                  "sortOrder": 1
+                  "sortOrder": 1,
+                  "translation": {
+                    "locale": "en",
+                    "options": "{\"images\": [{\"link\": \"fashion\", \"image\": \"storage/theme/1/ATTrUoI1AN2s8mR7KdlxfmGPG1eeFV0uwdIPn9fb.webp\", \"title\": \"Fashion\"}, {\"link\": \"furniture\", \"image\": \"storage/theme/1/CoizBehgRZ4vqmV1gw88HiJWnx16BVorCpRxaBSb.webp\", \"title\": \"Furniture\"}, {\"link\": \"electronics\", \"image\": \"storage/theme/1/HRIEAfZ4vTc0hrW5G5L1tK3vzmwBXgZR781tjEwU.webp\", \"title\": \"Electronics\"}]}"
+                  }
                 },
                 "cursor": "MA=="
               },
               {
                 "node": {
-                  "id": "/api/theme_customizations/2",
-                  "_id": 2,
-                  "type": "static_content",
-                  "name": "Offer Information",
+                  "id": "/api/shop/theme-customizations/3",
+                  "_id": 3,
+                  "type": "category_carousel",
+                  "name": "Categories Collections",
                   "status": "1",
                   "themeCode": "default",
-                  "sortOrder": 2
+                  "sortOrder": 3,
+                  "translation": {
+                    "locale": "en",
+                    "options": "{\"filters\": {\"sort\": \"asc\", \"limit\": \"10\", \"parent_id\": \"1\"}}"
+                  }
                 },
                 "cursor": "MQ=="
+              },
+              {
+                "node": {
+                  "id": "/api/shop/theme-customizations/4",
+                  "_id": 4,
+                  "type": "product_carousel",
+                  "name": "New Products",
+                  "status": "1",
+                  "themeCode": "default",
+                  "sortOrder": 4,
+                  "translation": {
+                    "locale": "en",
+                    "options": "{\"title\": \"New Products\", \"filters\": {\"new\": 1, \"sort\": \"asc\", \"limit\": 10}}"
+                  }
+                },
+                "cursor": "Mg=="
+              },
+              {
+                "node": {
+                  "id": "/api/shop/theme-customizations/5",
+                  "_id": 5,
+                  "type": "static_content",
+                  "name": "Top Collections",
+                  "status": "1",
+                  "themeCode": "default",
+                  "sortOrder": 5,
+                  "translation": {
+                    "locale": "en",
+                    "options": "{\"css\": \"...\", \"html\": \"<div class=\\\"top-collection-container\\\">...</div>\"}"
+                  }
+                },
+                "cursor": "Mw=="
+              },
+              {
+                "node": {
+                  "id": "/api/shop/theme-customizations/6",
+                  "_id": 6,
+                  "type": "static_content",
+                  "name": "Bold Collections",
+                  "status": "1",
+                  "themeCode": "default",
+                  "sortOrder": 6,
+                  "translation": {
+                    "locale": "en",
+                    "options": "{\"css\": \"...\", \"html\": \"<div class=\\\"container section-gap\\\">...</div>\"}"
+                  }
+                },
+                "cursor": "NA=="
               }
             ],
             "pageInfo": {
               "hasNextPage": true,
-              "endCursor": "MQ=="
+              "endCursor": "NA=="
             },
-            "totalCount": 10
+            "totalCount": 12
           }
         }
       }
@@ -76,9 +133,6 @@ examples:
       - error: invalid-pagination
         cause: Invalid pagination arguments
         solution: Use valid first/after or last/before combinations with max value 100
-      - error: invalid-type-filter
-        cause: Invalid type filter value
-        solution: Use valid type values like footer_links, image_carousel, product_carousel, etc.
 
   - id: get-theme-customizations-with-type-filter
     title: Get Theme Customizations - Filtered by Type
@@ -144,7 +198,7 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/theme_customizations/11",
+                  "id": "/api/shop/theme-customizations/11",
                   "_id": 11,
                   "type": "footer_links",
                   "name": "Footer Links",
@@ -152,31 +206,31 @@ examples:
                   "themeCode": "default",
                   "sortOrder": 11,
                   "translation": {
-                    "id": "/api/shop/theme_customization_translations/49",
-                    "_id": 49,
+                    "id": "/api/shop/theme_customization_translations/11",
+                    "_id": 11,
                     "themeCustomizationId": "11",
                     "locale": "en",
-                    "options": "{\"column_1\": [{\"url\": \"/page/about-us\", \"title\": \"About Us\", \"sort_order\": 1}, {\"url\": \"/contact-us\", \"title\": \"Contact Us\", \"sort_order\": 2}], \"column_2\": [{\"url\": \"/page/privacy-policy\", \"title\": \"Privacy Policy\", \"sort_order\": 1}]}"
+                    "options": "{\"column_1\": [{\"url\": \"https://api-demo.bagisto.com/page/privacy-policy\", \"title\": \"Privacy policy\", \"sort_order\": \"3\"}, {\"url\": \"https://api-demo.bagisto.com/page/whats-new\", \"title\": \"What's New\", \"sort_order\": \"3\"}, {\"url\": \"https://api-demo.bagisto.com/page/shipping-policy\", \"title\": \"Shipping\", \"sort_order\": \"4\"}], \"column_2\": [{\"url\": \"https://api-demo.bagisto.com/page/about\", \"title\": \"About Us\", \"sort_order\": \"1\"}, {\"url\": \"https://api-demo.bagisto.com/page/cutomer-service\", \"title\": \"Customer Service\", \"sort_order\": \"5\"}]}"
                   },
                   "translations": {
                     "edges": [
                       {
                         "node": {
-                          "id": "/api/shop/theme_customization_translations/49",
-                          "_id": 49,
+                          "id": "/api/shop/theme_customization_translations/11",
+                          "_id": 11,
                           "themeCustomizationId": "11",
                           "locale": "en",
-                          "options": "{\"column_1\": [{\"url\": \"/page/about-us\", \"title\": \"About Us\", \"sort_order\": 1}, {\"url\": \"/contact-us\", \"title\": \"Contact Us\", \"sort_order\": 2}], \"column_2\": [{\"url\": \"/page/privacy-policy\", \"title\": \"Privacy Policy\", \"sort_order\": 1}]}"
+                          "options": "{\"column_1\": [{\"url\": \"https://api-demo.bagisto.com/page/privacy-policy\", \"title\": \"Privacy policy\", \"sort_order\": \"3\"}, {\"url\": \"https://api-demo.bagisto.com/page/whats-new\", \"title\": \"What's New\", \"sort_order\": \"3\"}, {\"url\": \"https://api-demo.bagisto.com/page/shipping-policy\", \"title\": \"Shipping\", \"sort_order\": \"4\"}], \"column_2\": [{\"url\": \"https://api-demo.bagisto.com/page/about\", \"title\": \"About Us\", \"sort_order\": \"1\"}, {\"url\": \"https://api-demo.bagisto.com/page/cutomer-service\", \"title\": \"Customer Service\", \"sort_order\": \"5\"}]}"
                         },
                         "cursor": "MA=="
                       },
                       {
                         "node": {
-                          "id": "/api/shop/theme_customization_translations/61",
-                          "_id": 61,
+                          "id": "/api/shop/theme_customization_translations/21",
+                          "_id": 21,
                           "themeCustomizationId": "11",
-                          "locale": "ar",
-                          "options": "{\"column_1\": [{\"url\": \"/page/about-us\", \"title\": \"معلومات عنا\", \"sort_order\": 1}, {\"url\": \"/contact-us\", \"title\": \"اتصل بنا\", \"sort_order\": 2}], \"column_2\": [{\"url\": \"/page/privacy-policy\", \"title\": \"سياسة الخصوصية\", \"sort_order\": 1}]}"
+                          "locale": "AR",
+                          "options": "{\"column_1\": [{\"url\": \"https://api-demo.bagisto.com/page/privacy-policy\", \"title\": \"سياسة الخصوصية\", \"sort_order\": \"3\"}, {\"url\": \"https://api-demo.bagisto.com/page/whats-new\", \"title\": \"ما الجديد\", \"sort_order\": \"3\"}, {\"url\": \"https://api-demo.bagisto.com/page/shipping-policy\", \"title\": \"سياسة الشحن\", \"sort_order\": \"4\"}], \"column_2\": [{\"url\": \"https://api-demo.bagisto.com/page/about\", \"title\": \"من نحن\", \"sort_order\": \"1\"}, {\"url\": \"https://api-demo.bagisto.com/page/cutomer-service\", \"title\": \"خدمة العملاء\", \"sort_order\": \"5\"}]}"
                         },
                         "cursor": "MQ=="
                       }
@@ -269,7 +323,9 @@ examples:
       }
     variables: |
       {
-        "first": 3
+        "first": 2,
+        "after": null,
+        "type": "static_content"
       }
     response: |
       {
@@ -278,43 +334,43 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/theme_customizations/1",
-                  "_id": 1,
+                  "id": "/api/shop/theme-customizations/5",
+                  "_id": 5,
                   "themeCode": "default",
-                  "type": "image_carousel",
-                  "name": "Image Carousel",
-                  "sortOrder": 1,
+                  "type": "static_content",
+                  "name": "Top Collections",
+                  "sortOrder": 5,
                   "status": "1",
                   "channelId": "1",
-                  "createdAt": "2024-06-19T17:03:35+05:30",
-                  "updatedAt": "2025-11-14T00:25:18+05:30",
+                  "createdAt": "2024-04-16T16:14:15+05:30",
+                  "updatedAt": "2026-04-07T12:02:47+05:30",
                   "translation": {
-                    "id": "/api/shop/theme_customization_translations/49",
-                    "_id": 49,
-                    "themeCustomizationId": "1",
+                    "id": "/api/shop/theme_customization_translations/5",
+                    "_id": 5,
+                    "themeCustomizationId": "5",
                     "locale": "en",
-                    "options": "{\"images\": [{\"link\": \"/search?new=1\", \"image\": \"storage/theme/1/H65GRYoNfWrHLqKv06szKiZVn1jLymYXaw4NGI82.webp\", \"title\": \"Get Ready For New Collection\"}]}"
+                    "options": "{\"css\": \".top-collection-header {...}\", \"html\": \"<div class=\\\"top-collection-container\\\"><div class=\\\"top-collection-header\\\"><h2>The game with our new additions!</h2></div>...</div>\"}"
                   },
                   "translations": {
                     "edges": [
                       {
                         "cursor": "MA==",
                         "node": {
-                          "id": "/api/shop/theme_customization_translations/49",
-                          "_id": 49,
-                          "themeCustomizationId": "1",
+                          "id": "/api/shop/theme_customization_translations/5",
+                          "_id": 5,
+                          "themeCustomizationId": "5",
                           "locale": "en",
-                          "options": "{\"images\": [{\"link\": \"/search?new=1\", \"image\": \"storage/theme/1/H65GRYoNfWrHLqKv06szKiZVn1jLymYXaw4NGI82.webp\", \"title\": \"Get Ready For New Collection\"}]}"
+                          "options": "{\"css\": \".top-collection-header {...}\", \"html\": \"<div class=\\\"top-collection-container\\\">...</div>\"}"
                         }
                       },
                       {
                         "cursor": "MQ==",
                         "node": {
-                          "id": "/api/shop/theme_customization_translations/61",
-                          "_id": 61,
-                          "themeCustomizationId": "1",
-                          "locale": "ar",
-                          "options": "{\"images\": [{\"link\": \"\", \"image\": \"storage/theme/1/tvdjNA4y0cqRhDXzXe8L2vUapXkpmETdIStPHTLt.webp\", \"title\": \"استعد للمجموعة الجديدة\"}]}"
+                          "id": "/api/shop/theme_customization_translations/22",
+                          "_id": 22,
+                          "themeCustomizationId": "5",
+                          "locale": "AR",
+                          "options": "{\"css\": \".top-collection-header {...}\", \"html\": \"<div class=\\\"top-collection-container\\\"><div class=\\\"top-collection-header\\\"><h2>اللعبة مع إضافاتنا الجديدة!</h2></div>...</div>\"}"
                         }
                       }
                     ],
@@ -331,43 +387,43 @@ examples:
               },
               {
                 "node": {
-                  "id": "/api/theme_customizations/2",
-                  "_id": 2,
+                  "id": "/api/shop/theme-customizations/6",
+                  "_id": 6,
                   "themeCode": "default",
                   "type": "static_content",
-                  "name": "Offer Information",
-                  "sortOrder": 2,
+                  "name": "Bold Collections",
+                  "sortOrder": 6,
                   "status": "1",
                   "channelId": "1",
-                  "createdAt": "2024-06-19T17:03:35+05:30",
-                  "updatedAt": "2024-06-19T17:03:35+05:30",
+                  "createdAt": "2024-04-16T16:14:15+05:30",
+                  "updatedAt": "2026-04-07T12:08:41+05:30",
                   "translation": {
-                    "id": "/api/shop/theme_customization_translations/50",
-                    "_id": 50,
-                    "themeCustomizationId": "2",
+                    "id": "/api/shop/theme_customization_translations/6",
+                    "_id": 6,
+                    "themeCustomizationId": "6",
                     "locale": "en",
-                    "options": "{\"css\": \".home-offer h1 {display: block;}\", \"html\": \"<div class=\\\"home-offer\\\"><h1>Get UPTO 40% OFF</h1></div>\"}"
+                    "options": "{\"css\": \".section-gap{margin-top:80px} ...\", \"html\": \"<div class=\\\"container section-gap\\\"><div class=\\\"inline-col-wrapper\\\">...<h2 class=\\\"inline-col-title\\\">Get Ready for our new Bold Collections!</h2>...</div></div>\"}"
                   },
                   "translations": {
                     "edges": [
                       {
                         "cursor": "MA==",
                         "node": {
-                          "id": "/api/shop/theme_customization_translations/50",
-                          "_id": 50,
-                          "themeCustomizationId": "2",
+                          "id": "/api/shop/theme_customization_translations/6",
+                          "_id": 6,
+                          "themeCustomizationId": "6",
                           "locale": "en",
-                          "options": "{\"css\": \".home-offer h1 {display: block;}\", \"html\": \"<div class=\\\"home-offer\\\"><h1>Get UPTO 40% OFF</h1></div>\"}"
+                          "options": "{\"css\": \".section-gap{margin-top:80px} ...\", \"html\": \"<div class=\\\"container section-gap\\\">...<h2>Get Ready for our new Bold Collections!</h2>...</div>\"}"
                         }
                       },
                       {
                         "cursor": "MQ==",
                         "node": {
-                          "id": "/api/shop/theme_customization_translations/62",
-                          "_id": 62,
-                          "themeCustomizationId": "2",
-                          "locale": "ar",
-                          "options": "{\"css\": \".home-offer h1 {display: block;}\", \"html\": \"<div class=\\\"home-offer\\\"><h1>احصل على خصم يصل إلى 40%</h1></div>\"}"
+                          "id": "/api/shop/theme_customization_translations/23",
+                          "_id": 23,
+                          "themeCustomizationId": "6",
+                          "locale": "AR",
+                          "options": "{\"css\": \".section-gap{margin-top:80px} ...\", \"html\": \"<div class=\\\"container section-gap\\\">...<h2>استعدوا لمجموعاتنا الجديدة الجريئة!</h2>...</div>\"}"
                         }
                       }
                     ],
@@ -381,68 +437,15 @@ examples:
                   }
                 },
                 "cursor": "MQ=="
-              },
-              {
-                "node": {
-                  "id": "/api/theme_customizations/3",
-                  "_id": 3,
-                  "themeCode": "default",
-                  "type": "category_carousel",
-                  "name": "Categories Collections",
-                  "sortOrder": 3,
-                  "status": "1",
-                  "channelId": "1",
-                  "createdAt": "2024-06-19T17:03:35+05:30",
-                  "updatedAt": "2024-06-19T17:03:35+05:30",
-                  "translation": {
-                    "id": "/api/shop/theme_customization_translations/51",
-                    "_id": 51,
-                    "themeCustomizationId": "3",
-                    "locale": "en",
-                    "options": "{\"filters\": {\"sort\": \"asc\", \"limit\": 10, \"parent_id\": 1}}"
-                  },
-                  "translations": {
-                    "edges": [
-                      {
-                        "cursor": "MA==",
-                        "node": {
-                          "id": "/api/shop/theme_customization_translations/51",
-                          "_id": 51,
-                          "themeCustomizationId": "3",
-                          "locale": "en",
-                          "options": "{\"filters\": {\"sort\": \"asc\", \"limit\": 10, \"parent_id\": 1}}"
-                        }
-                      },
-                      {
-                        "cursor": "MQ==",
-                        "node": {
-                          "id": "/api/shop/theme_customization_translations/63",
-                          "_id": 63,
-                          "themeCustomizationId": "3",
-                          "locale": "ar",
-                          "options": "{\"filters\": {\"sort\": \"asc\", \"limit\": 10, \"parent_id\": 1}}"
-                        }
-                      }
-                    ],
-                    "pageInfo": {
-                      "endCursor": "MQ==",
-                      "startCursor": "MA==",
-                      "hasNextPage": false,
-                      "hasPreviousPage": false
-                    },
-                    "totalCount": 2
-                  }
-                },
-                "cursor": "Mg=="
               }
             ],
             "pageInfo": {
-              "endCursor": "Mg==",
+              "endCursor": "MQ==",
               "startCursor": "MA==",
               "hasNextPage": true,
               "hasPreviousPage": false
             },
-            "totalCount": 10
+            "totalCount": 4
           }
         }
       }

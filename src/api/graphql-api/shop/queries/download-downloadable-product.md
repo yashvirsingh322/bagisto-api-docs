@@ -6,9 +6,9 @@ examples:
     title: Download Purchased Product
     description: Download the actual purchased downloadable product file. Requires customer authentication. Each download decrements the remaining download count.
     query: |
-      curl --location 'https://api-demo.bagisto.com/api/shop/customer-downloadable-products/4/download' \
-        --header 'X-STOREFRONT-KEY: pk_storefront_vxLIYv5PIp7jkujPNGLFQoDvIdsh2RMF' \
-        --header 'Authorization: Bearer 191|bqM2sAQ7iYAc1NMoUjYSPyJXybXA8jGhhZgri2F9c25665e8'
+      curl -X GET "https://api-demo.bagisto.com/api/shop/customer-downloadable-products/4/download" \
+        -H "X-STOREFRONT-KEY: <storefrontKey>" \
+        -H "Authorization: Bearer <accessToken>" \
         -o purchased-product.png
     variables: |
       {}

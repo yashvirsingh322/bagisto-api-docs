@@ -33,18 +33,18 @@ examples:
           "page": {
             "id": "/api/shop/pages/1",
             "_id": 1,
-            "layout": "default",
-            "createdAt": "2024-01-10T08:00:00+00:00",
-            "updatedAt": "2024-06-15T12:30:00+00:00",
+            "layout": null,
+            "createdAt": "2024-04-16T16:14:17+05:30",
+            "updatedAt": "2024-04-16T16:14:17+05:30",
             "translation": {
               "id": "/api/shop/page_translations/1",
               "_id": 1,
               "pageTitle": "About Us",
               "urlKey": "about-us",
-              "htmlContent": "<h1>About Us</h1><p>Welcome to our store. We are committed to quality and customer satisfaction.</p>",
-              "metaTitle": "About Us - Our Store",
-              "metaDescription": "Learn more about our company and values.",
-              "metaKeywords": "about us, company, store",
+              "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">We are dedicated to providing high-quality products and services to our customers. Our team is passionate about innovation and customer satisfaction. We believe in transparency, integrity, and building long-term relationships with our users.</div></div>",
+              "metaTitle": "about us",
+              "metaDescription": "",
+              "metaKeywords": "aboutus",
               "locale": "en"
             }
           }

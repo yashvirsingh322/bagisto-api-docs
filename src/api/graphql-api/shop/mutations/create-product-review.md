@@ -106,7 +106,7 @@ examples:
               "rating": 5,
               "comment": "Here's the product with photos attached. The quality is excellent as you can see from the images.",
               "status": 0,
-              "attachments": "[{\"type\":\"image\",\"url\":\"http://example.com/storage/review/93/image1.webp\"},{\"type\":\"image\",\"url\":\"http://example.com/storage/review/93/image2.png\"}]",
+              "attachments": "[{\"type\":\"image\",\"url\":\"https://api-demo.bagisto.com/storage/review/93/image1.webp\"},{\"type\":\"image\",\"url\":\"https://api-demo.bagisto.com/storage/review/93/image2.png\"}]",
               "createdAt": "2024-12-26T11:15:30+05:30",
               "updatedAt": "2024-12-26T11:15:30+05:30"
             }
@@ -174,7 +174,7 @@ examples:
               "rating": 5,
               "comment": "This is a detailed product review with multiple attachments including product photos and a video demonstration. The product quality exceeded my expectations.",
               "status": 1,
-              "attachments": "[{\"type\":\"image\",\"url\":\"http://example.com/storage/review/94/photo1.webp\"},{\"type\":\"video\",\"url\":\"http://example.com/storage/review/94/demo.mp4\"}]",
+              "attachments": "[{\"type\":\"image\",\"url\":\"https://api-demo.bagisto.com/storage/review/94/photo1.webp\"},{\"type\":\"video\",\"url\":\"https://api-demo.bagisto.com/storage/review/94/demo.mp4\"}]",
               "createdAt": "2024-12-26T12:45:20+05:30",
               "updatedAt": "2024-12-26T12:45:20+05:30"
             },
@@ -336,7 +336,7 @@ This mutation supports Base64-encoded image and video attachments for rich media
 
 **Example Response:**
 ```json
-"[{\"type\":\"image\",\"url\":\"http://example.com/storage/review/94/photo1.webp\"},{\"type\":\"video\",\"url\":\"http://example.com/storage/review/94/demo.mp4\"}]"
+"[{\"type\":\"image\",\"url\":\"https://api-demo.bagisto.com/storage/review/94/photo1.webp\"},{\"type\":\"video\",\"url\":\"https://api-demo.bagisto.com/storage/review/94/demo.mp4\"}]"
 ```
 
 ## Review Status

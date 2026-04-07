@@ -82,8 +82,8 @@ examples:
                 {
                   "node": {
                     "id": "/api/shop/invoice-items/1",
-                    "sku": "PROD-001",
-                    "name": "Sample Product",
+                    "sku": "ACME-DRAWBAG-001",
+                    "name": "Acme Drawstring Bag",
                     "qty": 2,
                     "price": 50.00,
                     "total": 100.00

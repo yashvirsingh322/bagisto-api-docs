@@ -267,10 +267,10 @@ The query supports cursor-based pagination and allows you to fetch all currencie
 | `code` | `String!` | ISO 4217 currency code (e.g., "USD", "EUR", "INR") |
 | `name` | `String!` | Display name of the currency (e.g., "US Dollar", "Euro") |
 | `symbol` | `String!` | Currency symbol (e.g., "$", "€", "₹") |
-| `decimal` | `Int` | Number of decimal places for the currency |
-| `groupSeparator` | `String` | Thousands group separator character (e.g., ",") |
-| `decimalSeparator` | `String` | Decimal separator character (e.g., ".") |
-| `currencyPosition` | `String` | Position of currency symbol: "left" or "right" |
+| `decimal` | `String` | Number of decimal places for the currency (e.g., `"2"`) |
+| `groupSeparator` | `String` | Thousands group separator character (e.g., `","`) |
+| `decimalSeparator` | `String` | Decimal separator character (e.g., `"."`) |
+| `currencyPosition` | `String` | Position of currency symbol relative to the amount: `"left"`, `"left_with_space"`, `"right"`, `"right_with_space"`, or `null` (use system default) |
 
 ## Common Use Cases
 

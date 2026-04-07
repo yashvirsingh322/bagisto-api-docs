@@ -66,9 +66,9 @@ examples:
                         "node": {
                           "id": "/api/shop/invoice-items/1",
                           "_id": 1,
-                          "sku": "PROD-001",
+                          "sku": "ACME-DRAWBAG-001",
                           "parentId": null,
-                          "name": "Sample Product",
+                          "name": "Acme Drawstring Bag",
                           "price": 100.00,
                           "qty": 1,
                           "total": 100.00,

@@ -560,7 +560,7 @@ examples:
                   "sku": "SPR-048",
                   "price": 65.99,
                   "urlKey": "spring-floral-dress",
-                  "baseImageUrl": "https://example.com/storage/product/48/image.jpg"
+                  "baseImageUrl": "https://api-demo.bagisto.com/storage/product/48/image.jpg"
                 }
               }
             ],

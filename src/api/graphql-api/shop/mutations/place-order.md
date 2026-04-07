@@ -100,6 +100,6 @@ All of these must be completed before placing an order:
 ## Related Documentation
 
 - [Create Cart](/api/graphql-api/shop/mutations/create-cart)
-- [Set Shipping Address](/api/graphql-api/shop/mutations/set-shipping-address)
+- [Set Checkout Address](/api/graphql-api/shop/mutations/set-billing-address)
 - [Set Payment Method](/api/graphql-api/shop/mutations/set-payment-method)
 - [Get Customer Orders](/api/graphql-api/shop/queries/get-customer-orders)

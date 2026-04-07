@@ -25,8 +25,8 @@ examples:
             "id": "/api/shop/channels/1",
             "_id": 1,
             "code": "default",
-            "hostname": "example.com",
-            "timezone": "UTC"
+            "hostname": "https://api-demo.bagisto.com",
+            "timezone": null
           }
         }
       }
@@ -105,80 +105,108 @@ examples:
             "id": "/api/shop/channels/1",
             "_id": 1,
             "code": "default",
-            "timezone": "UTC",
-            "theme": "default-theme",
-            "hostname": "example.com",
-            "logo": "/channels/logo-1.png",
-            "favicon": "/channels/favicon-1.ico",
-            "isMaintenanceOn": false,
-            "allowedIps": "127.0.0.1,192.168.1.1",
-            "createdAt": "2024-01-15T10:30:00Z",
-            "updatedAt": "2024-12-20T14:20:00Z",
-            "logoUrl": "https://example.com/channels/logo-1.png",
-            "faviconUrl": "https://example.com/channels/favicon-1.ico",
+            "timezone": null,
+            "theme": "default",
+            "hostname": "https://api-demo.bagisto.com",
+            "logo": "channels/default-logo.png",
+            "favicon": "channels/default-favicon.ico",
+            "isMaintenanceOn": "0",
+            "allowedIps": "",
+            "createdAt": null,
+            "updatedAt": "2026-04-07T13:10:17+05:30",
+            "logoUrl": "https://api-demo.bagisto.com/storage/channels/default-logo.png",
+            "faviconUrl": "https://api-demo.bagisto.com/storage/channels/default-favicon.ico",
             "translation": {
-              "id": "/api/shop/channel-translations/1",
+              "id": "/api/shop/channel_translations/1",
               "_id": 1,
-              "channelId": 1,
+              "channelId": "1",
               "locale": "en",
-              "name": "Default Store",
-              "description": "Default English store for all customers",
-              "maintenanceModeText": "Store is currently under maintenance. Please visit again later.",
-              "createdAt": "2024-01-15T10:30:00Z",
-              "updatedAt": "2024-12-20T14:20:00Z"
+              "name": "bagisto store",
+              "description": "",
+              "maintenanceModeText": "",
+              "createdAt": null,
+              "updatedAt": "2026-04-07T13:10:17+05:30"
             },
             "translations": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/channel-translations/1",
+                    "id": "/api/shop/channel_translations/1",
                     "_id": 1,
-                    "channelId": 1,
+                    "channelId": "1",
                     "locale": "en",
-                    "name": "Default Store",
-                    "description": "Default English store for all customers",
-                    "maintenanceModeText": "Store is currently under maintenance. Please visit again later.",
-                    "createdAt": "2024-01-15T10:30:00Z",
-                    "updatedAt": "2024-12-20T14:20:00Z"
+                    "name": "bagisto store",
+                    "description": "",
+                    "maintenanceModeText": "",
+                    "createdAt": null,
+                    "updatedAt": "2026-04-07T13:10:17+05:30"
                   },
                   "cursor": "MA=="
                 },
                 {
                   "node": {
-                    "id": "/api/shop/channel-translations/2",
-                    "_id": 2,
-                    "channelId": 1,
-                    "locale": "ar",
-                    "name": "متجر افتراضي",
-                    "description": "متجر اللغة العربية الافتراضي لجميع العملاء",
-                    "maintenanceModeText": "المتجر قيد الصيانة حاليا. يرجى زيارتنا لاحقا.",
-                    "createdAt": "2024-01-15T10:30:00Z",
-                    "updatedAt": "2024-12-20T14:20:00Z"
+                    "id": "/api/shop/channel_translations/5",
+                    "_id": 5,
+                    "channelId": "1",
+                    "locale": "es",
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null,
+                    "createdAt": null,
+                    "updatedAt": null
                   },
                   "cursor": "MQ=="
                 },
                 {
                   "node": {
-                    "id": "/api/shop/channel-translations/3",
-                    "_id": 3,
-                    "channelId": 1,
+                    "id": "/api/shop/channel_translations/2",
+                    "_id": 2,
+                    "channelId": "1",
                     "locale": "fr",
-                    "name": "Magasin par défaut",
-                    "description": "Magasin français par défaut pour tous les clients",
-                    "maintenanceModeText": "Le magasin est actuellement en maintenance. Veuillez visiter plus tard.",
-                    "createdAt": "2024-01-15T10:30:00Z",
-                    "updatedAt": "2024-12-20T14:20:00Z"
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null,
+                    "createdAt": null,
+                    "updatedAt": null
                   },
                   "cursor": "Mg=="
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/channel_translations/3",
+                    "_id": 3,
+                    "channelId": "1",
+                    "locale": "nl",
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null,
+                    "createdAt": null,
+                    "updatedAt": null
+                  },
+                  "cursor": "Mw=="
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/channel_translations/4",
+                    "_id": 4,
+                    "channelId": "1",
+                    "locale": "tr",
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null,
+                    "createdAt": null,
+                    "updatedAt": null
+                  },
+                  "cursor": "NA=="
                 }
               ],
               "pageInfo": {
-                "endCursor": "Mg==",
+                "endCursor": "NA==",
                 "startCursor": "MA==",
                 "hasNextPage": false,
                 "hasPreviousPage": false
               },
-              "totalCount": 3
+              "totalCount": 5
             }
           }
         }
@@ -223,15 +251,15 @@ examples:
             "id": "/api/shop/channels/1",
             "_id": 1,
             "code": "default",
-            "hostname": "example.com",
-            "theme": "default-theme",
-            "logo": "/channels/logo-1.png",
-            "favicon": "/channels/favicon-1.ico",
-            "logoUrl": "https://example.com/channels/logo-1.png",
-            "faviconUrl": "https://example.com/channels/favicon-1.ico",
+            "hostname": "https://api-demo.bagisto.com",
+            "theme": "default",
+            "logo": "channels/default-logo.png",
+            "favicon": "channels/default-favicon.ico",
+            "logoUrl": "https://api-demo.bagisto.com/storage/channels/default-logo.png",
+            "faviconUrl": "https://api-demo.bagisto.com/storage/channels/default-favicon.ico",
             "translation": {
-              "name": "Default Store",
-              "description": "Default English store for all customers"
+              "name": "bagisto store",
+              "description": ""
             }
           }
         }
@@ -280,36 +308,48 @@ examples:
             "id": "/api/shop/channels/1",
             "_id": 1,
             "code": "default",
-            "hostname": "example.com",
-            "isMaintenanceOn": true,
-            "allowedIps": "127.0.0.1,192.168.1.0/24,10.0.0.0/8",
+            "hostname": "https://api-demo.bagisto.com",
+            "isMaintenanceOn": "0",
+            "allowedIps": "",
             "translation": {
               "locale": "en",
-              "name": "Default Store",
-              "maintenanceModeText": "Our store is currently under maintenance. We will be back online shortly. Thank you for your patience!"
+              "name": "bagisto store",
+              "maintenanceModeText": ""
             },
             "translations": {
               "edges": [
                 {
                   "node": {
                     "locale": "en",
-                    "maintenanceModeText": "Our store is currently under maintenance. We will be back online shortly. Thank you for your patience!"
+                    "maintenanceModeText": ""
                   }
                 },
                 {
                   "node": {
-                    "locale": "ar",
-                    "maintenanceModeText": "متجرنا قيد الصيانة حاليا. سنعود للعمل قريبا. شكرا لصبركم!"
+                    "locale": "es",
+                    "maintenanceModeText": null
                   }
                 },
                 {
                   "node": {
                     "locale": "fr",
-                    "maintenanceModeText": "Notre magasin est actuellement en maintenance. Nous serons de retour bientôt. Merci de votre patience!"
+                    "maintenanceModeText": null
+                  }
+                },
+                {
+                  "node": {
+                    "locale": "nl",
+                    "maintenanceModeText": null
+                  }
+                },
+                {
+                  "node": {
+                    "locale": "tr",
+                    "maintenanceModeText": null
                   }
                 }
               ],
-              "totalCount": 3
+              "totalCount": 5
             }
           }
         }
@@ -383,12 +423,16 @@ examples:
             "id": "/api/shop/channels/1",
             "_id": 1,
             "code": "default",
-            "hostname": "example.com",
-            "theme": "default-theme",
-            "timezone": "UTC",
-            "homeSeo": "{\"meta_title\":\"Default Store\",\"meta_description\":\"Welcome to our store\",\"meta_keywords\":\"bagisto,store\"}",
-            "logoUrl": "https://example.com/channels/logo-1.png",
-            "faviconUrl": "https://example.com/channels/favicon-1.ico",
+            "hostname": "https://api-demo.bagisto.com",
+            "theme": "default",
+            "timezone": null,
+            "homeSeo": {
+              "meta_title": "Demo store",
+              "meta_keywords": "Demo store meta keyword",
+              "meta_description": "Demo store meta description"
+            },
+            "logoUrl": null,
+            "faviconUrl": null,
             "locales": {
               "edges": [
                 {
@@ -402,9 +446,9 @@ examples:
                 },
                 {
                   "node": {
-                    "id": "/api/shop/locales/2",
-                    "_id": 2,
-                    "code": "ar",
+                    "id": "/api/shop/locales/10",
+                    "_id": 10,
+                    "code": "AR",
                     "name": "Arabic",
                     "direction": "rtl"
                   }
@@ -426,9 +470,9 @@ examples:
                   "node": {
                     "id": "/api/shop/currencies/3",
                     "_id": 3,
-                    "code": "EUR",
-                    "name": "Euro",
-                    "symbol": "€"
+                    "code": "AED",
+                    "name": "Dirham",
+                    "symbol": "د.إ"
                   }
                 }
               ]
@@ -499,46 +543,66 @@ examples:
             "id": "/api/shop/channels/1",
             "_id": 1,
             "code": "default",
-            "hostname": "example.com",
-            "timezone": "UTC",
+            "hostname": "https://api-demo.bagisto.com",
+            "timezone": null,
             "translations": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/channel-translations/1",
+                    "id": "/api/shop/channel_translations/1",
                     "locale": "en",
-                    "name": "Default Store",
-                    "description": "Default English store for all customers",
-                    "maintenanceModeText": "Store is under maintenance"
+                    "name": "bagisto store",
+                    "description": "",
+                    "maintenanceModeText": ""
                   },
                   "cursor": "MA=="
                 },
                 {
                   "node": {
-                    "id": "/api/shop/channel-translations/2",
-                    "locale": "ar",
-                    "name": "متجر افتراضي",
-                    "description": "متجر اللغة العربية الافتراضي",
-                    "maintenanceModeText": "المتجر قيد الصيانة"
+                    "id": "/api/shop/channel_translations/5",
+                    "locale": "es",
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null
                   },
                   "cursor": "MQ=="
                 },
                 {
                   "node": {
-                    "id": "/api/shop/channel-translations/3",
+                    "id": "/api/shop/channel_translations/2",
                     "locale": "fr",
-                    "name": "Magasin par défaut",
-                    "description": "Magasin français par défaut",
-                    "maintenanceModeText": "Le magasin est en maintenance"
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null
                   },
                   "cursor": "Mg=="
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/channel_translations/3",
+                    "locale": "nl",
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null
+                  },
+                  "cursor": "Mw=="
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/channel_translations/4",
+                    "locale": "tr",
+                    "name": "Default",
+                    "description": null,
+                    "maintenanceModeText": null
+                  },
+                  "cursor": "NA=="
                 }
               ],
               "pageInfo": {
                 "hasNextPage": false,
-                "endCursor": "Mg=="
+                "endCursor": "NA=="
               },
-              "totalCount": 3
+              "totalCount": 5
             }
           }
         }

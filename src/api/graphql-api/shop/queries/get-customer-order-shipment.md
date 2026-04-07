@@ -45,8 +45,8 @@ examples:
                 {
                   "node": {
                     "id": "/api/shop/shipment-items/1",
-                    "name": "Sample Product",
-                    "sku": "PROD-001",
+                    "name": "Acme Drawstring Bag",
+                    "sku": "ACME-DRAWBAG-001",
                     "qty": 2
                   }
                 }

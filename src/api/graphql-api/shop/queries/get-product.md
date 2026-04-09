@@ -1325,6 +1325,8 @@ examples:
                       specialPrice
                       specialPriceFrom
                       specialPriceTo
+                      formattedPrice
+                      formattedSpecialPrice
                       translation {
                         locale
                         name
@@ -1383,6 +1385,8 @@ examples:
                             "specialPrice": "115",
                             "specialPriceFrom": "2026-04-06 12:00:00",
                             "specialPriceTo": "2026-04-30 12:00:00",
+                            "formattedPrice": "$120.00",
+                            "formattedSpecialPrice": "$115.00",
                             "translation": {
                               "locale": "en",
                               "name": "Standard Entry Ticket",
@@ -1411,6 +1415,8 @@ examples:
                             "specialPrice": "120",
                             "specialPriceFrom": "2026-04-02 12:00:00",
                             "specialPriceTo": "2026-04-30 12:00:00",
+                            "formattedPrice": "$125.00",
+                            "formattedSpecialPrice": "$120.00",
                             "translation": {
                               "locale": "en",
                               "name": "VIP Access Ticket",

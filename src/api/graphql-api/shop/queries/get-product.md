@@ -1325,6 +1325,20 @@ examples:
                       specialPrice
                       specialPriceFrom
                       specialPriceTo
+                      translation {
+                        locale
+                        name
+                        description
+                      }
+                      translations {
+                        edges {
+                          node {
+                            locale
+                            name
+                            description
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1368,7 +1382,23 @@ examples:
                             "qty": 1500,
                             "specialPrice": "115",
                             "specialPriceFrom": "2026-04-06 12:00:00",
-                            "specialPriceTo": "2026-04-30 12:00:00"
+                            "specialPriceTo": "2026-04-30 12:00:00",
+                            "translation": {
+                              "locale": "en",
+                              "name": "Standard Entry Ticket",
+                              "description": "General admission ticket for the event with access to all standard areas and performances."
+                            },
+                            "translations": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "locale": "en",
+                                    "name": "Standard Entry Ticket",
+                                    "description": "General admission ticket for the event with access to all standard areas and performances."
+                                  }
+                                }
+                              ]
+                            }
                           }
                         },
                         {
@@ -1380,7 +1410,23 @@ examples:
                             "qty": 150,
                             "specialPrice": "120",
                             "specialPriceFrom": "2026-04-02 12:00:00",
-                            "specialPriceTo": "2026-04-30 12:00:00"
+                            "specialPriceTo": "2026-04-30 12:00:00",
+                            "translation": {
+                              "locale": "en",
+                              "name": "VIP Access Ticket",
+                              "description": "VIP ticket includes priority entry, reserved seating, and access to exclusive areas near the stage."
+                            },
+                            "translations": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "locale": "en",
+                                    "name": "VIP Access Ticket",
+                                    "description": "VIP ticket includes priority entry, reserved seating, and access to exclusive areas near the stage."
+                                  }
+                                }
+                              ]
+                            }
                           }
                         }
                       ]

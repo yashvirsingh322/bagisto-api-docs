@@ -309,19 +309,19 @@ examples:
             "_id": 1,
             "code": "default",
             "hostname": "https://api-demo.bagisto.com",
-            "isMaintenanceOn": "0",
-            "allowedIps": "",
+            "isMaintenanceOn": "1",
+            "allowedIps": "192.168.45.51",
             "translation": {
               "locale": "en",
               "name": "bagisto store",
-              "maintenanceModeText": ""
+              "maintenanceModeText": "Maintenance Mode"
             },
             "translations": {
               "edges": [
                 {
                   "node": {
                     "locale": "en",
-                    "maintenanceModeText": ""
+                    "maintenanceModeText": "Maintenance Mode"
                   }
                 },
                 {

@@ -142,5 +142,5 @@ Authorization: Bearer <accessToken>
 ## Related Documentation
 
 - [Get Customer Addresses](/api/graphql-api/shop/queries/get-customer-addresses)
-- [Set Shipping Address](/api/graphql-api/shop/mutations/set-shipping-address)
+- [Set Checkout Address](/api/graphql-api/shop/mutations/set-billing-address)
 - [Set Billing Address](/api/graphql-api/shop/mutations/set-billing-address)

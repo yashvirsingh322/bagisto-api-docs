@@ -16,7 +16,7 @@ examples:
     variables: |
       {
         "input": {
-          "id": "/api/shop/wishlists/69"
+          "id": "/api/shop/wishlists/76"
         }
       }
     response: |
@@ -24,8 +24,8 @@ examples:
         "data": {
           "deleteWishlist": {
             "wishlist": {
-              "id": "/api/shop/wishlists/69",
-              "_id": 69
+              "id": "/api/shop/wishlists/76",
+              "_id": 76
             }
           }
         }
@@ -63,7 +63,7 @@ Authorization: Bearer <accessToken>
 
 | Argument | Type | Description |
 |----------|------|-------------|
-| `id` | `ID!` | The IRI of the wishlist item to delete (e.g. `/api/shop/wishlists/69`). |
+| `id` | `ID!` | The IRI of the wishlist item to delete (e.g. `/api/shop/wishlists/76`). |
 | `clientMutationId` | `String` | Optional client-side mutation identifier for tracking. |
 
 ## Possible Returns

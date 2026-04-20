@@ -6,7 +6,7 @@ examples:
     description: Retrieve the invoice for a specific order with detailed invoice line items. Each order has exactly one invoice.
     query: |
       query customerInvoices {
-        customerInvoices(first: 1, orderId: 6) {
+        customerInvoices(first: 1, orderId: 590) {
           edges {
             node {
               orderCurrencyCode        
@@ -58,38 +58,38 @@ examples:
               {
                 "node": {
                   "orderCurrencyCode": "USD",
-                  "grandTotal": 150.00,
-                  "downloadUrl": "/customer/invoices/download/1",
+                  "grandTotal": 4810,
+                  "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-invoices/532/pdf",
                   "items": {
                     "edges": [
                       {
                         "node": {
-                          "id": "/api/shop/invoice-items/1",
-                          "_id": 1,
-                          "sku": "PROD-001",
+                          "id": "/api/customer_invoice_items/803",
+                          "_id": 803,
+                          "sku": "AURORA-BLAZER-001",
                           "parentId": null,
-                          "name": "Sample Product",
-                          "price": 100.00,
+                          "name": "Aurora Cream Winter Blazer Coat",
+                          "price": 5000,
                           "qty": 1,
-                          "total": 100.00,
-                          "basePrice": 100.00,
-                          "description": "Product description",
-                          "baseTotal": 100.00,
-                          "taxAmount": 10.00,
-                          "baseTaxAmount": 10.00,
-                          "discountPercent": 0.00,
-                          "discountAmount": 0.00,
-                          "baseDiscountAmount": 0.00,
-                          "priceInclTax": 110.00,
-                          "basePriceInclTax": 110.00,
-                          "totalInclTax": 110.00,
-                          "baseTotalInclTax": 110.00,
-                          "productId": 1,
-                          "productType": "simple",
-                          "orderItemId": 1,
-                          "invoiceId": 1,
-                          "createdAt": "2025-02-10T10:30:00+00:00",
-                          "updatedAt": "2025-02-10T10:30:00+00:00"
+                          "total": 5000,
+                          "basePrice": 5000,
+                          "description": null,
+                          "baseTotal": 5000,
+                          "taxAmount": 0,
+                          "baseTaxAmount": 0,
+                          "discountPercent": 0,
+                          "discountAmount": 200,
+                          "baseDiscountAmount": 200,
+                          "priceInclTax": "5000.0000",
+                          "basePriceInclTax": "5000.0000",
+                          "totalInclTax": "5000.0000",
+                          "baseTotalInclTax": "5000.0000",
+                          "productId": "2493",
+                          "productType": "Webkul\\Product\\Models\\Product",
+                          "orderItemId": 871,
+                          "invoiceId": 532,
+                          "createdAt": "2026-04-10T18:43:10+05:30",
+                          "updatedAt": "2026-04-10T18:43:10+05:30"
                         }
                       }
                     ]

@@ -62,7 +62,7 @@ examples:
                   "product": {
                     "id": "/api/shop/products/2",
                     "_id": 2,
-                    "sku": "PROD-002",
+                    "sku": "PUREWHTSNEAK2023",
                     "type": "simple"
                   },
                   "customer": {

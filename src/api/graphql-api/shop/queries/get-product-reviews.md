@@ -103,8 +103,8 @@ examples:
     title: Get Product Reviews - By Product ID
     description: Retrieve reviews for a specific product using its numeric product ID.
     query: |
-      query productReviews($first: Int, $after: String, $productId: Int) {
-        productReviews(first: $first, after: $after, product_id: $productId) {
+      query productReviews($productId: Int) {
+        productReviews(product_id: $productId) {
           edges {
             node {
               id
@@ -114,22 +114,16 @@ examples:
               rating
               comment
               status
+              attachments
               createdAt
               updatedAt
             }
-            cursor
           }
-          pageInfo {
-            hasNextPage
-            endCursor
-          }
-          totalCount
         }
       }
     variables: |
       {
-        "productId": 1,
-        "first": 10
+        "productId": 2446
       }
     response: |
       {
@@ -138,38 +132,19 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/reviews/2",
-                  "_id": 2,
-                  "name": "lxbfYeaa",
-                  "title": "Mr.",
-                  "rating": 1,
-                  "comment": "1",
+                  "id": "/api/shop/reviews/33",
+                  "_id": 33,
+                  "name": "Hiroshi Tanaka",
+                  "title": "Solid Gaming Keyboard",
+                  "rating": 5,
+                  "comment": "Gaming casual competitive Valorant/CS2. Switches tactile response accurate fast 8k polling proof. RGB control easy app intuitive. Wrist rest supportive gaming sessions. Cons: USB-C port slightly loose after 3 months (QA variance), N-key rollover flawless. Reliable 4 months daily use robust build. Worth ₹11.5k investment.",
                   "status": "approved",
-                  "createdAt": "2025-05-27T17:50:27+05:30",
-                  "updatedAt": "2025-09-03T12:40:50+05:30"
-                },
-                "cursor": "MA=="
-              },
-              {
-                "node": {
-                  "id": "/api/shop/reviews/3",
-                  "_id": 3,
-                  "name": "lxbfYeaa",
-                  "title": "Mr.",
-                  "rating": 1,
-                  "comment": "1",
-                  "status": "approved",
-                  "createdAt": "2025-05-27T17:52:20+05:30",
-                  "updatedAt": "2025-09-03T12:40:50+05:30"
-                },
-                "cursor": "MQ=="
+                  "attachments": null,
+                  "createdAt": "2026-01-08T13:50:01+05:30",
+                  "updatedAt": "2026-01-08T13:50:23+05:30"
+                }
               }
-            ],
-            "pageInfo": {
-              "hasNextPage": false,
-              "endCursor": "MQ=="
-            },
-            "totalCount": 2
+            ]
           }
         }
       }

@@ -16,15 +16,15 @@ examples:
       } 
     response: |
       {
-          "data": {
-              "createRemoveCoupon": {
-                  "removeCoupon": {
-                      "id": "4813", 
-                      "discountAmount": 0,
-                      "grandTotal": 100
-                  }
-              }
+        "data": {
+          "createRemoveCoupon": {
+            "removeCoupon": {
+              "id": "5163",
+              "discountAmount": 0,
+              "grandTotal": 5000
+            }
           }
+        }
       }
 ---
 

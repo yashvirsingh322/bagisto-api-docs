@@ -40,40 +40,67 @@ examples:
         "data": {
           "treeCategories": [
             {
-              "id": "/api/shop/categories/2",
-              "_id": 2,
-              "position": 1,
+              "id": "/api/shop/categories/8",
+              "_id": 8,
+              "position": 2,
               "status": "1",
               "translation": {
-                "name": "Men",
-                "slug": "men",
-                "urlPath": "men"
+                "name": "Electronics",
+                "slug": "electronics",
+                "urlPath": "electronics"
+              },
+              "children": {
+                "edges": []
+              }
+            },
+            {
+              "id": "/api/shop/categories/23",
+              "_id": 23,
+              "position": 3,
+              "status": "1",
+              "translation": {
+                "name": "Furniture",
+                "slug": "furniture",
+                "urlPath": ""
               },
               "children": {
                 "edges": [
                   {
                     "node": {
-                      "id": "/api/shop/categories/6",
-                      "_id": 6,
-                      "position": 1,
+                      "id": "/api/shop/categories/19",
+                      "_id": 19,
+                      "position": 7,
                       "status": "1",
                       "translation": {
-                        "name": "Formal wear",
-                        "slug": "formal-wear-men",
-                        "urlPath": "men/formal-wear-men"
+                        "name": "Plastic Sofa",
+                        "slug": "plastic-sofa",
+                        "urlPath": ""
                       }
                     }
                   },
                   {
                     "node": {
-                      "id": "/api/shop/categories/7",
-                      "_id": 7,
-                      "position": 2,
+                      "id": "/api/shop/categories/20",
+                      "_id": 20,
+                      "position": 6,
                       "status": "1",
                       "translation": {
-                        "name": "Casual wear",
-                        "slug": "casual-wear-men",
-                        "urlPath": "men/casual-wear-men"
+                        "name": "Wooden Sofa",
+                        "slug": "wooden-sofa",
+                        "urlPath": ""
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "/api/shop/categories/21",
+                      "_id": 21,
+                      "position": 5,
+                      "status": "1",
+                      "translation": {
+                        "name": "Leather Sofa",
+                        "slug": "leather-sofa",
+                        "urlPath": ""
                       }
                     }
                   }
@@ -81,31 +108,17 @@ examples:
               }
             },
             {
-              "id": "/api/shop/categories/4",
-              "_id": 4,
-              "position": 2,
+              "id": "/api/shop/categories/22",
+              "_id": 22,
+              "position": 4,
               "status": "1",
               "translation": {
-                "name": "Woman",
-                "slug": "woman",
-                "urlPath": "woman"
+                "name": "Fashion",
+                "slug": "fashion",
+                "urlPath": ""
               },
               "children": {
-                "edges": [
-                  {
-                    "node": {
-                      "id": "/api/shop/categories/15",
-                      "_id": 15,
-                      "position": 2,
-                      "status": "1",
-                      "translation": {
-                        "name": "Casual Wear",
-                        "slug": "casual-wear-female",
-                        "urlPath": "woman/casual-wear-female"
-                      }
-                    }
-                  }
-                ]
+                "edges": []
               }
             }
           ]
@@ -192,51 +205,117 @@ examples:
         "data": {
           "treeCategories": [
             {
-              "id": "/api/shop/categories/2",
-              "_id": 2,
-              "position": 1,
+              "id": "/api/shop/categories/8",
+              "_id": 8,
+              "position": 2,
               "status": "1",
-              "logoPath": "category/2/OYsuHioryn5KrOE7p8wQ2hQ3BReXY5CSbDzhvEk8.webp",
+              "logoPath": "category/8/Vk59z6w128ExCrY3lwlSYWhVrYenucFhTuick0VD.webp",
               "displayMode": "products_and_description",
               "_lft": "14",
-              "_rgt": "23",
+              "_rgt": "15",
               "additional": null,
               "bannerPath": null,
-              "createdAt": "2023-11-02T16:41:54+05:30",
-              "updatedAt": "2023-11-29T10:56:40+05:30",
-              "url": "https://api-demo.bagisto.com/men",
-              "logoUrl": "https://api-demo.bagisto.com/storage/category/2/OYsuHioryn5KrOE7p8wQ2hQ3BReXY5CSbDzhvEk8.webp",
+              "createdAt": "2024-04-19T13:36:12+05:30",
+              "updatedAt": "2026-01-02T19:23:45+05:30",
+              "url": "https://api-demo.bagisto.com/electronics",
+              "logoUrl": "https://api-demo.bagisto.com/storage/category/8/Vk59z6w128ExCrY3lwlSYWhVrYenucFhTuick0VD.webp",
               "bannerUrl": null,
               "translation": {
-                "name": "Men",
-                "slug": "men",
-                "urlPath": "men"
+                "name": "Electronics",
+                "slug": "electronics",
+                "urlPath": "electronics"
+              },
+              "children": {
+                "edges": []
+              },
+              "translations": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "/api/shop/category_translations/60",
+                      "_id": 60,
+                      "categoryId": "8",
+                      "name": "Electronics",
+                      "slug": "electronics",
+                      "urlPath": "electronics",
+                      "description": "<p>Discover a wide range of cutting-edge electronics, from smartphones and laptops to home appliances and gadgets.</p>",
+                      "metaTitle": "Electronics",
+                      "metaDescription": "",
+                      "metaKeywords": "electronics, electronics-keyboard",
+                      "localeId": "1",
+                      "locale": "en"
+                    },
+                    "cursor": "MA=="
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "MA==",
+                  "startCursor": "MA==",
+                  "hasNextPage": true,
+                  "hasPreviousPage": false
+                },
+                "totalCount": 2
+              }
+            },
+            {
+              "id": "/api/shop/categories/23",
+              "_id": 23,
+              "position": 3,
+              "status": "1",
+              "logoPath": "category/23/GuIZOJY3oW09ku4zqxIfKvtXho9gOnq4eCl0HmOW.webp",
+              "displayMode": "products_and_description",
+              "_lft": "18",
+              "_rgt": "25",
+              "additional": null,
+              "bannerPath": null,
+              "createdAt": "2025-09-03T12:43:50+05:30",
+              "updatedAt": "2025-09-03T18:26:45+05:30",
+              "url": "https://api-demo.bagisto.com/furniture",
+              "logoUrl": "https://api-demo.bagisto.com/storage/category/23/GuIZOJY3oW09ku4zqxIfKvtXho9gOnq4eCl0HmOW.webp",
+              "bannerUrl": null,
+              "translation": {
+                "name": "Furniture",
+                "slug": "furniture",
+                "urlPath": ""
               },
               "children": {
                 "edges": [
                   {
                     "node": {
-                      "id": "/api/shop/categories/6",
-                      "_id": 6,
-                      "position": 1,
+                      "id": "/api/shop/categories/19",
+                      "_id": 19,
+                      "position": 7,
                       "status": "1",
                       "translation": {
-                        "name": "Formal wear",
-                        "slug": "formal-wear-men",
-                        "urlPath": "men/formal-wear-men"
+                        "name": "Plastic Sofa",
+                        "slug": "plastic-sofa",
+                        "urlPath": ""
                       }
                     }
                   },
                   {
                     "node": {
-                      "id": "/api/shop/categories/7",
-                      "_id": 7,
-                      "position": 2,
+                      "id": "/api/shop/categories/20",
+                      "_id": 20,
+                      "position": 6,
                       "status": "1",
                       "translation": {
-                        "name": "Casual wear",
-                        "slug": "casual-wear-men",
-                        "urlPath": "men/casual-wear-men"
+                        "name": "Wooden Sofa",
+                        "slug": "wooden-sofa",
+                        "urlPath": ""
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "/api/shop/categories/21",
+                      "_id": 21,
+                      "position": 5,
+                      "status": "1",
+                      "translation": {
+                        "name": "Leather Sofa",
+                        "slug": "leather-sofa",
+                        "urlPath": ""
                       }
                     }
                   }
@@ -246,13 +325,66 @@ examples:
                 "edges": [
                   {
                     "node": {
-                      "id": "/api/shop/category_translations/2",
-                      "_id": 2,
-                      "categoryId": "2",
-                      "name": "Men",
-                      "slug": "men",
-                      "urlPath": "men",
-                      "description": "<p>Men</p>",
+                      "id": "/api/shop/category_translations/195",
+                      "_id": 195,
+                      "categoryId": "23",
+                      "name": "Furniture",
+                      "slug": "furniture",
+                      "urlPath": "",
+                      "description": "<p>Discover our wide range of furniture designed to bring comfort, style, and functionality to every corner of your home.</p>",
+                      "metaTitle": "",
+                      "metaDescription": "",
+                      "metaKeywords": "",
+                      "localeId": "1",
+                      "locale": "en"
+                    },
+                    "cursor": "MA=="
+                  }
+                ],
+                "pageInfo": {
+                  "endCursor": "MA==",
+                  "startCursor": "MA==",
+                  "hasNextPage": true,
+                  "hasPreviousPage": false
+                },
+                "totalCount": 2
+              }
+            },
+            {
+              "id": "/api/shop/categories/22",
+              "_id": 22,
+              "position": 4,
+              "status": "1",
+              "logoPath": "category/22/MDbnYET88gzG1ipz3ClxiKSO2wOybEzESa0o0jHc.webp",
+              "displayMode": "products_and_description",
+              "_lft": "16",
+              "_rgt": "17",
+              "additional": null,
+              "bannerPath": null,
+              "createdAt": "2025-08-28T18:52:22+05:30",
+              "updatedAt": "2026-01-02T19:24:08+05:30",
+              "url": "https://api-demo.bagisto.com/fashion",
+              "logoUrl": "https://api-demo.bagisto.com/storage/category/22/MDbnYET88gzG1ipz3ClxiKSO2wOybEzESa0o0jHc.webp",
+              "bannerUrl": null,
+              "translation": {
+                "name": "Fashion",
+                "slug": "fashion",
+                "urlPath": ""
+              },
+              "children": {
+                "edges": []
+              },
+              "translations": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "/api/shop/category_translations/186",
+                      "_id": 186,
+                      "categoryId": "22",
+                      "name": "Fashion",
+                      "slug": "fashion",
+                      "urlPath": "",
+                      "description": "<p>Explore the latest trends in fashion with our curated collection of clothing, accessories, and footwear.</p>",
                       "metaTitle": "",
                       "metaDescription": "",
                       "metaKeywords": "",
@@ -284,7 +416,7 @@ examples:
     description: Retrieve categories filtered by a specific parent ID to get a subtree.
     query: |
       query treeCategories {
-        treeCategories(parentId: 2) {
+        treeCategories(parentId: 23) {
           id
           _id
           position
@@ -320,32 +452,48 @@ examples:
         "data": {
           "treeCategories": [
             {
-              "id": "/api/shop/categories/6",
-              "_id": 6,
-              "position": 1,
+              "id": "/api/shop/categories/21",
+              "_id": 21,
+              "position": 5,
               "status": "1",
-              "logoPath": "category/6/logo.webp",
+              "logoPath": "category/21/Q8Z5RUYiBwPVKVkJNJ0XOfWitDiqP7admksTYxKm.webp",
               "displayMode": "products_and_description",
               "translation": {
-                "name": "Formal wear",
-                "slug": "formal-wear-men",
-                "urlPath": "men/formal-wear-men"
+                "name": "Leather Sofa",
+                "slug": "leather-sofa",
+                "urlPath": ""
               },
               "children": {
                 "edges": []
               }
             },
             {
-              "id": "/api/shop/categories/7",
-              "_id": 7,
-              "position": 2,
+              "id": "/api/shop/categories/20",
+              "_id": 20,
+              "position": 6,
               "status": "1",
-              "logoPath": "category/7/logo.webp",
+              "logoPath": "category/20/WO71UuFFtbSRbjZVr7QUbNuMZM4PRSIAjHSLqUUY.webp",
               "displayMode": "products_and_description",
               "translation": {
-                "name": "Casual wear",
-                "slug": "casual-wear-men",
-                "urlPath": "men/casual-wear-men"
+                "name": "Wooden Sofa",
+                "slug": "wooden-sofa",
+                "urlPath": ""
+              },
+              "children": {
+                "edges": []
+              }
+            },
+            {
+              "id": "/api/shop/categories/19",
+              "_id": 19,
+              "position": 7,
+              "status": "1",
+              "logoPath": "category/19/pmfWVVuhj7VK4dXFZG1ZlBeaUPwLrE4Ua99oer9l.webp",
+              "displayMode": "products_and_description",
+              "translation": {
+                "name": "Plastic Sofa",
+                "slug": "plastic-sofa",
+                "urlPath": ""
               },
               "children": {
                 "edges": []

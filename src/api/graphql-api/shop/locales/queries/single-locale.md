@@ -16,34 +16,31 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/locales/1"
+        "id": "/api/shop/locales/10"
       }
     response: |
       {
         "data": {
           "locale": {
-            "id": "/api/shop/locales/1",
-            "_id": 1,
-            "code": "en",
-            "name": "English",
-            "direction": "ltr"
+            "id": "/api/shop/locales/10",
+            "_id": 10,
+            "code": "AR",
+            "name": "Arabic",
+            "direction": "rtl"
           }
         }
       }
     commonErrors:
       - error: Variable "$id" of required type "ID!" was not provided.
         cause: Locale ID parameter is required
-        solution: Provide a valid locale ID in format /api/locales/{id} or numeric ID
-      - error: Invalid ID format. Expected IRI format like "/api/shop/locales/1" or numeric ID
-        cause: Locale ID is not in valid format
-        solution: Verify the locale ID is in correct format, use "/api/locales/1" or "1"
+        solution: Provide a valid locale ID in format /api/shop/locales/{id} or numeric ID
       - error: Locale not found
         cause: Locale ID does not exist in the system
         solution: Verify the locale ID is correct and exists
 
   - id: get-locale-complete
     title: Get Single Locale - Complete Details
-    description: Retrieve a single locale with all fields including logos, paths, and timestamps.
+    description: Retrieve a single locale with all fields including logo path and URL.
     query: |
       query getSingleLocale($id: ID!) {
         locale(id: $id) {
@@ -52,23 +49,25 @@ examples:
           code
           name
           direction
-          logoPath 
+          logoPath
+          logoUrl
         }
       }
     variables: |
       {
-        "id": "/api/shop/locales/1"
+        "id": "/api/shop/locales/10"
       }
     response: |
       {
         "data": {
           "locale": {
-            "id": "/api/shop/locales/1",
-            "_id": 1,
-            "code": "en",
-            "name": "English",
-            "direction": "ltr",
-            "logoPath": "locales/en.png"
+            "id": "/api/shop/locales/10",
+            "_id": 10,
+            "code": "AR",
+            "name": "Arabic",
+            "direction": "rtl",
+            "logoPath": "locales/AR.png",
+            "logoUrl": "https://api-demo.bagisto.com/storage/locales/AR.png"
           }
         }
       }
@@ -76,9 +75,6 @@ examples:
       - error: Locale not found
         cause: The provided locale ID does not exist
         solution: Use a valid locale ID from the get-locales query
-      - error: Invalid ID format. Expected IRI format like "/api/shop/locales/1" or numeric ID
-        cause: Invalid ID format provided
-        solution: Provide valid locale ID in format /api/locales/1 or numeric ID like "1"
 
   - id: get-locale-by-code
     title: Get Single Locale - Using Numeric ID
@@ -92,58 +88,24 @@ examples:
           name
           direction
           logoPath
+          logoUrl
         }
       }
     variables: |
       {
-        "id": "1"
+        "id": "10"
       }
     response: |
       {
         "data": {
           "locale": {
-            "id": "/api/shop/locales/1",
-            "_id": 1,
-            "code": "en",
-            "name": "English",
-            "direction": "ltr",
-            "logoPath": "locales/en.png"
-          }
-        }
-      }
-    commonErrors:
-      - error: Invalid ID format. Expected IRI format like "/api/shop/locales/1" or numeric ID
-        cause: ID format is not recognized
-        solution: Use either numeric ID like "1" or IRI format like /api/locales/1
-
-  - id: get-locale-rtl
-    title: Get RTL Locale Details
-    description: Retrieve a right-to-left locale with full details for UI configuration.
-    query: |
-      query getSingleLocale($id: ID!) {
-        locale(id: $id) {
-          id
-          _id
-          code
-          name
-          direction
-          logoPath
-        }
-      }
-    variables: |
-      {
-        "id": "/api/shop/locales/2"
-      }
-    response: |
-      {
-        "data": {
-          "locale": {
-            "id": "/api/shop/locales/2",
-            "_id": 2,
-            "code": "ar",
+            "id": "/api/shop/locales/10",
+            "_id": 10,
+            "code": "AR",
             "name": "Arabic",
             "direction": "rtl",
-            "logoPath": "locales/ar.png"
+            "logoPath": "locales/AR.png",
+            "logoUrl": "https://api-demo.bagisto.com/storage/locales/AR.png"
           }
         }
       }
@@ -172,7 +134,7 @@ The query allows you to fetch a specific locale with all its properties and rela
 
 | Argument | Type | Required | Description |
 |----------|------|----------|-------------|
-| `id` | `ID!` | ✅ Yes | The unique identifier of the locale. Can be either numeric ID or IRI format (`/api/shop/locales/{id}`). |
+| `id` | `ID!` | Yes | The unique identifier of the locale. Can be either numeric ID or IRI format (`/api/shop/locales/{id}`). |
 
 ## Possible Returns
 
@@ -186,71 +148,11 @@ The query allows you to fetch a specific locale with all its properties and rela
 |-------|------|-------------|
 | `id` | `String!` | Unique identifier in format `/api/shop/locales/{id}` |
 | `_id` | `Int!` | Numeric identifier for the locale |
-| `code` | `String!` | Unique locale code (e.g., "en", "ar", "fr", "de") |
-| `name` | `String!` | Display name of the locale (e.g., "English", "Arabic") |
-| `direction` | `String!` | Text direction: "ltr" (left-to-right) or "rtl" (right-to-left) |
-| `logoPath` | `String` | File path to the locale logo (e.g., "locales/en.png") |
-
-## Common Use Cases
-
-### Get Locale Details by IRI ID
-
-```graphql
-query GetLocaleByIRI($id: ID!) {
-  locale(id: $id) {
-    id
-    _id
-    code
-    name
-    direction
-    logoPath
-  }
-}
-```
-
-Variables:
-```json
-{
-  "id": "/api/shop/locales/1"
-}
-```
-
-### Get Locale with Logo and Timestamps
-
-```graphql
-query GetLocaleDetails($id: ID!) {
-  locale(id: $id) {
-    id
-    code
-    name
-    direction
-    logoPath
-  }
-}
-```
-
-### Check If Locale is RTL
-
-```graphql
-query GetLocaleDirection($id: ID!) {
-  locale(id: $id) {
-    code
-    name
-    direction
-  }
-}
-```
-
-### Validate Locale Existence
-
-```graphql
-query ValidateLocale($id: ID!) {
-  locale(id: $id) {
-    id
-    code
-  }
-}
-```
+| `code` | `String!` | Unique locale code (e.g., `"en"`, `"AR"`) |
+| `name` | `String!` | Display name of the locale (e.g., `"English"`, `"Arabic"`) |
+| `direction` | `String!` | Text direction: `"ltr"` (left-to-right) or `"rtl"` (right-to-left) |
+| `logoPath` | `String` | File path to the locale logo (e.g., `"locales/en.png"`) |
+| `logoUrl` | `String` | Full URL to the locale logo image |
 
 ## Error Handling
 
@@ -276,32 +178,6 @@ query ValidateLocale($id: ID!) {
 }
 ```
 
-### Invalid ID Format
-
-```json
-{
-  "errors": [
-    {
-      "message": "Invalid ID format. Expected IRI format like \"/api/shop/locales/1\" or numeric ID"
-    }
-  ]
-}
-```
-
-## Best Practices
-
-1. **Always Provide ID** - The ID parameter is required for this query
-2. **Check for Null** - Handle the case when locale is not found (returns null)
-3. **Use Direction Field** - Always check the `direction` field for proper UI layout
-4. **Cache Results** - Locales change infrequently; implement caching
-5. **Validate Before Using** - Verify locale exists before using in operations
-6. **Use Variables** - Use GraphQL variables for dynamic locale queries
-7. **Request Needed Fields** - Only request fields you'll actually use
-8. **Handle RTL Properly** - Apply appropriate CSS classes based on direction
-
 ## Related Resources
 
-- [Get Locales](/api/graphql-api/shop/queries/get-locales) - Retrieve all locales with pagination
-- [Pagination Guide](/api/graphql-api/pagination) - Cursor pagination documentation
-- [Shop API Overview](/api/graphql-api/shop-api) - Overview of Shop API resources
-- [Authentication Guide](/api/graphql-api/authentication) - Authentication and authorization
+- [Get Locales](/api/graphql-api/shop/locales/queries/locales) - Retrieve all locales with pagination

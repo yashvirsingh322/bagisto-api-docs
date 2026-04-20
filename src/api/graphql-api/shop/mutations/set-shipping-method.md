@@ -103,5 +103,5 @@ Authorization: Bearer <accessToken>
 ## Related Documentation
 
 - [Get Shipping Methods](/api/graphql-api/shop/queries/get-shipping-methods)
-- [Set Shipping Address](/api/graphql-api/shop/mutations/set-shipping-address)
+- [Set Checkout Address](/api/graphql-api/shop/mutations/set-billing-address)
 - [Set Payment Method](/api/graphql-api/shop/mutations/set-payment-method)

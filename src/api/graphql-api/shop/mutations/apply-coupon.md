@@ -20,19 +20,19 @@ examples:
       }
     variables: |
       {
-          "couponCode": "SAVE10"
+        "couponCode": "BIRTHDAY20"
       }
     response: |
       {
-          "data": {
-              "createApplyCoupon": {
-                  "applyCoupon": {
-                      "id": "4813", 
-                      "discountAmount": 0,
-                      "grandTotal": 100
-                  }
-              }
+        "data": {
+          "createApplyCoupon": {
+            "applyCoupon": {
+              "id": "5163",
+              "discountAmount": 200,
+              "grandTotal": 4800
+            }
           }
+        }
       }
     commonErrors:
       - error: INVALID_COUPON

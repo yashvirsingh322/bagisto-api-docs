@@ -11,6 +11,7 @@ examples:
             id
             _id
             product {
+              _id
               id
               name
               price
@@ -22,7 +23,7 @@ examples:
     variables: |
       {
         "input": {
-          "productId": 1
+          "productId": 2499
         }
       }
     response: |
@@ -30,14 +31,15 @@ examples:
         "data": {
           "toggleWishlist": {
             "wishlist": {
-              "id": "/api/shop/wishlists/71",
-              "_id": 71,
+              "id": "/api/shop/wishlists/89",
+              "_id": 89,
               "product": {
-                "id": "/api/shop/products/1",
-                "name": "Sample Product",
-                "price": "99.99"
+                "_id": 2499,
+                "id": "/api/shop/wishlists/89",
+                "name": "Ivory Frost Classic Overcoat XL",
+                "price": "500"
               },
-              "createdAt": "2026-02-17T10:00:00+00:00"
+              "createdAt": "2026-04-07T13:55:19+05:30"
             }
           }
         }
@@ -52,7 +54,7 @@ examples:
 
   - id: toggle-wishlist-remove
     title: Toggle Wishlist - Remove Item
-    description: Toggle a product that already exists in the wishlist. The item is removed and an error-style message is returned.
+    description: Toggle a product that already exists in the wishlist. The item is removed and an error-style message is returned with toggleWishlist set to null.
     query: |
       mutation ToggleWishlist($input: toggleWishlistInput!) {
         toggleWishlist(input: $input) {
@@ -60,6 +62,7 @@ examples:
             id
             _id
             product {
+              _id
               id
               name
               price
@@ -71,16 +74,28 @@ examples:
     variables: |
       {
         "input": {
-          "productId": 1
+          "productId": 2499
         }
       }
     response: |
       {
         "errors": [
           {
-            "message": "Item Successfully Removed From Wishlist"
+            "message": "Item Successfully Removed From Wishlist",
+            "locations": [
+              {
+                "line": 2,
+                "column": 3
+              }
+            ],
+            "path": [
+              "toggleWishlist"
+            ]
           }
-        ]
+        ],
+        "data": {
+          "toggleWishlist": null
+        }
       }
     commonErrors:
       - error: UNAUTHENTICATED

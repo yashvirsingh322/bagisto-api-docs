@@ -29,30 +29,30 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/wishlists/69"
+        "id": "/api/shop/wishlists/81"
       }
     response: |
       {
         "data": {
           "wishlist": {
-            "id": "/api/shop/wishlists/69",
-            "_id": 69,
+            "id": "/api/shop/wishlists/81",
+            "_id": 81,
             "product": {
-              "id": "/api/shop/products/1",
-              "name": "Sample Product",
-              "price": "99.99",
-              "baseImageUrl": "https://example.com/storage/product/1/sample-product.jpg"
+              "id": "/api/shop/products/122",
+              "name": "Classic Cowboy Hat",
+              "price": "149.99",
+              "baseImageUrl": "https://api-demo.bagisto.com/storage/product/122/P9n1dbmgM4UOBT3zUAEGCn4wpKi0GjPGhgS1jZe7.webp"
             },
             "customer": {
-              "id": "/api/shop/customers/1",
-              "email": "customer@example.com"
+              "id": "/api/shop/customers/122",
+              "email": "john.doe@example.com"
             },
             "channel": {
               "id": "/api/shop/channels/1",
               "code": "default"
             },
-            "createdAt": "2026-02-17T10:00:00+00:00",
-            "updatedAt": "2026-02-17T10:00:00+00:00"
+            "createdAt": "2026-04-06T18:44:55+05:30",
+            "updatedAt": "2026-04-06T18:44:55+05:30"
           }
         }
       }

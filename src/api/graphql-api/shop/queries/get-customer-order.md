@@ -39,6 +39,7 @@ examples:
                 id
                 sku
                 name
+                additional
                 qtyOrdered
                 qtyShipped
                 qtyInvoiced
@@ -118,8 +119,9 @@ examples:
                 {
                   "node": {
                     "id": "/api/shop/order-items/1",
-                    "sku": "PROD-001",
-                    "name": "Sample Product",
+                    "sku": "ACME-DRAWBAG-001",
+                    "name": "Acme Drawstring Bag",
+                    "additional": "{\"locale\": \"en\", \"quantity\": 2, \"attributes\": [{\"option_id\": \"2\", \"option_label\": \"Blue\", \"attribute_name\": \"Color\"}, {\"option_id\": \"7\", \"option_label\": \"M\", \"attribute_name\": \"Size\"}], \"is_buy_now\": \"0\", \"product_id\": \"22\"}",
                     "qtyOrdered": 2,
                     "qtyShipped": 0,
                     "qtyInvoiced": 2,
@@ -250,8 +252,8 @@ examples:
                         {
                           "node": {
                             "_id": 1,
-                            "sku": "PROD-001",
-                            "name": "Sample Product",
+                            "sku": "ACME-DRAWBAG-001",
+                            "name": "Acme Drawstring Bag",
                             "qty": 2,
                             "weight": 5.5
                           }
@@ -349,6 +351,7 @@ X-STOREFRONT-KEY: <storefrontKey>
 | `items.edges.node.id` | `ID!` | IRI identifier of the order item. |
 | `items.edges.node.sku` | `String!` | Product SKU. |
 | `items.edges.node.name` | `String!` | Product name at time of order. |
+| `items.edges.node.additional` | `String (JSON)` | JSON-encoded string containing additional details captured at order time — selected attributes (e.g. color, size), booking slots, event tickets, configurable options, etc. The structure varies by product type. |
 | `items.edges.node.qtyOrdered` | `Int!` | Quantity ordered. |
 | `items.edges.node.qtyShipped` | `Int!` | Quantity shipped. |
 | `items.edges.node.qtyInvoiced` | `Int!` | Quantity invoiced. |
@@ -379,6 +382,79 @@ X-STOREFRONT-KEY: <storefrontKey>
 | `addresses.edges.node.defaultAddress` | `Boolean` | Whether this is the default address. |
 | `createdAt` | `DateTime!` | Order creation timestamp. |
 | `updatedAt` | `DateTime!` | Order last update timestamp. |
+
+## Order Item `additional` Field
+
+The `additional` field on each order item is a JSON-encoded string that contains all the product-specific details captured at the moment of purchase. This is essential for displaying exactly what the customer selected on order confirmation, invoice, and order history pages. The structure of this field varies depending on the product type.
+
+| Product Type | `additional` Contains |
+|---|---|
+| **Configurable** | Selected attributes (e.g. Color, Size) with `option_id`, `option_label`, and `attribute_name` |
+| **Booking - Appointment / Default** | Booking date, slot range (e.g. "28 April, 2026 11:00 AM"), and time slot timestamps |
+| **Booking - Rental** | Rental period (date_from, date_to) or hourly slot details |
+| **Booking - Event** | Selected event ticket types and quantities |
+| **Booking - Table** | Reservation date, slot, and booking note |
+| **Downloadable** | Selected downloadable link IDs and titles |
+| **Bundle** | Selected bundle option products and quantities |
+
+### Example — Configurable Product
+
+```json
+{
+  "locale": "en",
+  "quantity": 2,
+  "attributes": [
+    { "option_id": "2", "option_label": "Blue", "attribute_name": "Color" },
+    { "option_id": "7", "option_label": "M", "attribute_name": "Size" }
+  ],
+  "is_buy_now": "0",
+  "product_id": "22"
+}
+```
+
+### Example — Booking Appointment
+
+```json
+{
+  "locale": "en",
+  "booking": {
+    "date": "2026-04-28",
+    "slot": "1777354200-1777356900"
+  },
+  "cart_id": 5144,
+  "quantity": 1,
+  "attributes": [
+    { "option_id": 0, "option_label": "28 April, 2026 11:00 AM", "attribute_name": "Booking From" },
+    { "option_id": 0, "option_label": "28 April, 2026 11:45 AM", "attribute_name": "Booking Till" }
+  ],
+  "is_buy_now": "0",
+  "product_id": "2509"
+}
+```
+
+### Example — Booking Event
+
+```json
+{
+  "locale": "en",
+  "booking": {
+    "qty": { "7": "1", "8": "1" },
+    "slot": "1775457000-1777530600",
+    "ticket_id": 7
+  },
+  "cart_id": 5141,
+  "quantity": 1,
+  "attributes": [
+    { "option_id": 0, "option_label": "Standard Entry Ticket", "attribute_name": "Event Ticket" },
+    { "option_id": 0, "option_label": "06 April, 2026", "attribute_name": "Event From" },
+    { "option_id": 0, "option_label": "30 April, 2026", "attribute_name": "Event Till" }
+  ],
+  "is_buy_now": "0",
+  "product_id": "2508"
+}
+```
+
+> Always parse this field as JSON in your application. Use the `attributes` array to render selected options on order detail pages, and the `booking` object for booking-specific products.
 
 ## Error Handling
 

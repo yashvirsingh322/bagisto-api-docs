@@ -21,21 +21,21 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/categories/1"
+        "id": "/api/shop/categories/23"
       }
     response: |
       {
         "data": {
           "category": {
-            "id": "/api/shop/categories/1",
-            "_id": 1,
-            "position": 1,
-            "status": 1,
+            "id": "/api/shop/categories/23",
+            "_id": 23,
+            "position": 3,
+            "status": "1",
             "translation": {
-              "name": "Electronics",
-              "slug": "electronics",
-              "urlPath": "electronics",
-              "description": "All electronic devices and gadgets"
+              "name": "Furniture",
+              "slug": "furniture",
+              "urlPath": "",
+              "description": "<p>Discover our wide range of <strong>furniture designed to bring comfort, style, and functionality</strong> to every corner of your home. From elegant sofas and sturdy wooden tables to cozy beds and smart storage solutions, each piece is crafted with quality and care to suit your lifestyle.</p>"
             }
           }
         }
@@ -70,20 +70,20 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 23
       }
     response: |
       {
         "data": {
           "category": {
-            "id": "/api/shop/categories/1",
-            "_id": 1,
-            "position": 1,
-            "status": 1,
+            "id": "/api/shop/categories/23",
+            "_id": 23,
+            "position": 3,
+            "status": "1",
             "translation": {
-              "name": "Electronics",
-              "slug": "electronics",
-              "urlPath": "electronics"
+              "name": "Furniture",
+              "slug": "furniture",
+              "urlPath": ""
             }
           }
         }
@@ -186,149 +186,135 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/categories/1"
+        "id": "/api/shop/categories/23"
       }
     response: |
       {
         "data": {
           "category": {
-            "id": "/api/shop/categories/1",
-            "_id": 1,
-            "position": 1,
-            "logoPath": "/categories/electronics-logo.png",
-            "logoUrl": "https://example.com/categories/electronics-logo.png",
-            "status": 1,
+            "id": "/api/shop/categories/23",
+            "_id": 23,
+            "position": 3,
+            "logoPath": "category/23/GuIZOJY3oW09ku4zqxIfKvtXho9gOnq4eCl0HmOW.webp",
+            "logoUrl": "https://api-demo.bagisto.com/storage/category/23/GuIZOJY3oW09ku4zqxIfKvtXho9gOnq4eCl0HmOW.webp",
+            "status": "1",
             "displayMode": "products_and_description",
-            "_lft": 1,
-            "_rgt": 10,
-            "additional": "{}",
-            "bannerPath": "/categories/electronics-banner.jpg",
-            "bannerUrl": "https://example.com/categories/electronics-banner.jpg",
+            "_lft": "18",
+            "_rgt": "25",
+            "additional": null,
+            "bannerPath": null,
+            "bannerUrl": null,
             "translation": {
-              "id": "/api/shop/category-translations/1",
-              "_id": 1,
-              "categoryId": 1,
-              "name": "Electronics",
-              "slug": "electronics",
-              "urlPath": "electronics",
-              "description": "All electronic devices and gadgets",
-              "metaTitle": "Electronics - Best Deals Online",
-              "metaDescription": "Shop the latest electronics and gadgets at unbeatable prices",
-              "metaKeywords": "electronics, gadgets, devices, phones, laptops",
-              "localeId": 1,
+              "id": "/api/shop/category_translations/195",
+              "_id": 195,
+              "categoryId": "23",
+              "name": "Furniture",
+              "slug": "furniture",
+              "urlPath": "",
+              "description": "<p>Discover our wide range of <strong>furniture designed to bring comfort, style, and functionality</strong> to every corner of your home.</p>",
+              "metaTitle": "",
+              "metaDescription": "",
+              "metaKeywords": "",
+              "localeId": "1",
               "locale": "en"
             },
             "translations": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/category-translations/1",
-                    "_id": 1,
-                    "categoryId": 1,
-                    "name": "Electronics",
-                    "slug": "electronics",
-                    "urlPath": "electronics",
-                    "description": "All electronic devices and gadgets",
-                    "metaTitle": "Electronics - Best Deals Online",
-                    "metaDescription": "Shop the latest electronics and gadgets at unbeatable prices",
-                    "metaKeywords": "electronics, gadgets, devices, phones, laptops",
-                    "localeId": 1,
+                    "id": "/api/shop/category_translations/195",
+                    "_id": 195,
+                    "categoryId": "23",
+                    "name": "Furniture",
+                    "slug": "furniture",
+                    "urlPath": "",
+                    "description": "<p>Discover our wide range of <strong>furniture designed to bring comfort, style, and functionality</strong> to every corner of your home.</p>",
+                    "metaTitle": "",
+                    "metaDescription": "",
+                    "metaKeywords": "",
+                    "localeId": "1",
                     "locale": "en"
                   },
                   "cursor": "MA=="
                 },
                 {
                   "node": {
-                    "id": "/api/shop/category-translations/2",
-                    "_id": 2,
-                    "categoryId": 1,
-                    "name": "الإلكترونيات",
-                    "slug": "electronics-ar",
-                    "urlPath": "electronics-ar",
-                    "description": "جميع الأجهزة الإلكترونية والغجزم",
-                    "metaTitle": "الإلكترونيات - أفضل العروض",
-                    "metaDescription": "تسوق أحدث الأجهزة الإلكترونية بأسعار لا تقبل المنافسة",
-                    "metaKeywords": "إلكترونيات, أجهزة, هواتف, أجهزة كمبيوتر",
-                    "localeId": 2,
-                    "locale": "ar"
+                    "id": "/api/shop/category_translations/204",
+                    "_id": 204,
+                    "categoryId": "23",
+                    "name": "الأثاث",
+                    "slug": "الأثاث",
+                    "urlPath": "",
+                    "description": "<p>اكتشف مجموعتنا الواسعة من الأثاث المصمم ليمنح كل زاوية في منزلك الراحة، والأناقة، والعملية.</p>",
+                    "metaTitle": "",
+                    "metaDescription": "",
+                    "metaKeywords": "",
+                    "localeId": null,
+                    "locale": "AR"
                   },
                   "cursor": "MQ=="
-                },
-                {
-                  "node": {
-                    "id": "/api/shop/category-translations/3",
-                    "_id": 3,
-                    "categoryId": 1,
-                    "name": "Électronique",
-                    "slug": "electronique",
-                    "urlPath": "electronique",
-                    "description": "Tous les appareils et gadgets électroniques",
-                    "metaTitle": "Électronique - Meilleures Offres",
-                    "metaDescription": "Achetez les derniers appareils électroniques à des prix imbattables",
-                    "metaKeywords": "électronique, gadgets, appareils, téléphones, ordinateurs portables",
-                    "localeId": 3,
-                    "locale": "fr"
-                  },
-                  "cursor": "Mg=="
                 }
               ],
               "pageInfo": {
-                "endCursor": "Mg==",
+                "endCursor": "MQ==",
                 "startCursor": "MA==",
                 "hasNextPage": false,
                 "hasPreviousPage": false
               },
-              "totalCount": 3
+              "totalCount": 2
             },
-            "createdAt": "2024-01-15T10:30:00Z",
-            "updatedAt": "2024-12-20T14:20:00Z",
-            "url": "https://example.com/electronics",
+            "createdAt": "2025-09-03T12:43:50+05:30",
+            "updatedAt": "2025-09-03T18:26:45+05:30",
+            "url": "https://api-demo.bagisto.com/furniture",
             "children": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/categories/5",
-                    "_id": 5,
-                    "position": 1,
-                    "logoUrl": "https://example.com/categories/mobiles-logo.png",
-                    "status": 1,
+                    "id": "/api/shop/categories/19",
+                    "_id": 19,
+                    "position": 7,
+                    "logoUrl": "https://api-demo.bagisto.com/storage/category/19/pmfWVVuhj7VK4dXFZG1ZlBeaUPwLrE4Ua99oer9l.webp",
+                    "status": "1",
                     "translation": {
-                      "name": "Mobile Phones",
-                      "slug": "mobile-phones"
+                      "name": "Plastic Sofa",
+                      "slug": "plastic-sofa"
                     }
                   }
                 },
                 {
                   "node": {
-                    "id": "/api/shop/categories/6",
-                    "_id": 6,
-                    "position": 2,
-                    "logoUrl": "https://example.com/categories/laptops-logo.png",
-                    "status": 1,
+                    "id": "/api/shop/categories/20",
+                    "_id": 20,
+                    "position": 6,
+                    "logoUrl": "https://api-demo.bagisto.com/storage/category/20/WO71UuFFtbSRbjZVr7QUbNuMZM4PRSIAjHSLqUUY.webp",
+                    "status": "1",
                     "translation": {
-                      "name": "Laptops",
-                      "slug": "laptops"
+                      "name": "Wooden Sofa",
+                      "slug": "wooden-sofa"
                     }
                   }
                 },
                 {
                   "node": {
-                    "id": "/api/shop/categories/7",
-                    "_id": 7,
-                    "position": 3,
-                    "logoUrl": "https://example.com/categories/accessories-logo.png",
-                    "status": 1,
+                    "id": "/api/shop/categories/21",
+                    "_id": 21,
+                    "position": 5,
+                    "logoUrl": "https://api-demo.bagisto.com/storage/category/21/Q8Z5RUYiBwPVKVkJNJ0XOfWitDiqP7admksTYxKm.webp",
+                    "status": "1",
                     "translation": {
-                      "name": "Accessories",
-                      "slug": "accessories"
+                      "name": "Leather Sofa",
+                      "slug": "leather-sofa"
                     }
                   }
                 }
               ],
               "pageInfo": {
                 "hasNextPage": false,
-                "totalCount": 3
-              }
+                "endCursor": "Mg==",
+                "startCursor": "MA==",
+                "hasPreviousPage": false
+              },
+              "totalCount": 3
             }
           }
         }
@@ -337,9 +323,6 @@ examples:
       - error: id-required
         cause: Category ID parameter is missing
         solution: Provide the category ID as a required parameter
-      - error: invalid-id-format
-        cause: Invalid ID format. Expected IRI format like "/api/shop/categories/1" or numeric ID
-        solution: Use either numeric ID (1) or IRI format (/api/shop/categories/1)
       - error: not-found
         cause: Category with given ID does not exist
         solution: Verify the category ID is correct and the category is active
@@ -379,44 +362,44 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/categories/1"
+        "id": "/api/shop/categories/23"
       }
     response: |
       {
         "data": {
           "category": {
-            "id": "/api/shop/categories/1",
-            "_id": 1,
-            "url": "https://example.com/electronics",
+            "id": "/api/shop/categories/23",
+            "_id": 23,
+            "url": "https://api-demo.bagisto.com/furniture",
             "translation": {
-              "name": "Electronics",
-              "slug": "electronics",
-              "urlPath": "electronics",
-              "description": "All electronic devices and gadgets",
-              "metaTitle": "Electronics - Best Deals Online",
-              "metaDescription": "Shop the latest electronics and gadgets at unbeatable prices",
-              "metaKeywords": "electronics, gadgets, devices, phones, laptops"
+              "name": "Furniture",
+              "slug": "furniture",
+              "urlPath": "",
+              "description": "<p>Discover our wide range of <strong>furniture designed to bring comfort, style, and functionality</strong> to every corner of your home. From elegant sofas and sturdy wooden tables to cozy beds and smart storage solutions, each piece is crafted with quality and care to suit your lifestyle.</p>",
+              "metaTitle": "",
+              "metaDescription": "",
+              "metaKeywords": ""
             },
             "translations": {
               "edges": [
                 {
                   "node": {
-                    "name": "Electronics",
-                    "slug": "electronics",
-                    "metaTitle": "Electronics - Best Deals Online",
-                    "metaDescription": "Shop the latest electronics and gadgets at unbeatable prices",
-                    "metaKeywords": "electronics, gadgets, devices, phones, laptops",
+                    "name": "Furniture",
+                    "slug": "furniture",
+                    "metaTitle": "",
+                    "metaDescription": "",
+                    "metaKeywords": "",
                     "locale": "en"
                   }
                 },
                 {
                   "node": {
-                    "name": "الإلكترونيات",
-                    "slug": "electronics-ar",
-                    "metaTitle": "الإلكترونيات - أفضل العروض",
-                    "metaDescription": "تسوق أحدث الأجهزة الإلكترونية بأسعار لا تقبل المنافسة",
-                    "metaKeywords": "إلكترونيات, أجهزة, هواتف",
-                    "locale": "ar"
+                    "name": "الأثاث",
+                    "slug": "الأثاث",
+                    "metaTitle": "",
+                    "metaDescription": "",
+                    "metaKeywords": "",
+                    "locale": "AR"
                   }
                 }
               ],
@@ -459,30 +442,30 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/categories/1"
+        "id": "/api/shop/categories/23"
       }
     response: |
       {
         "data": {
           "category": {
-            "id": "/api/shop/categories/1",
-            "_id": 1,
-            "position": 1,
-            "logoPath": "/categories/electronics-logo.png",
-            "logoUrl": "https://example.com/categories/electronics-logo.png",
-            "bannerPath": "/categories/electronics-banner.jpg",
-            "bannerUrl": "https://example.com/categories/electronics-banner.jpg",
+            "id": "/api/shop/categories/23",
+            "_id": 23,
+            "position": 3,
+            "logoPath": "category/23/GuIZOJY3oW09ku4zqxIfKvtXho9gOnq4eCl0HmOW.webp",
+            "logoUrl": "https://api-demo.bagisto.com/storage/category/23/GuIZOJY3oW09ku4zqxIfKvtXho9gOnq4eCl0HmOW.webp",
+            "bannerPath": null,
+            "bannerUrl": null,
             "displayMode": "products_and_description",
-            "status": 1,
-            "_lft": 1,
-            "_rgt": 10,
+            "status": "1",
+            "_lft": "18",
+            "_rgt": "25",
             "translation": {
-              "name": "Electronics",
-              "slug": "electronics",
-              "description": "All electronic devices and gadgets"
+              "name": "Furniture",
+              "slug": "furniture",
+              "description": "<p>Discover our wide range of <strong>furniture designed to bring comfort, style, and functionality</strong> to every corner of your home. From elegant sofas and sturdy wooden tables to cozy beds and smart storage solutions, each piece is crafted with quality and care to suit your lifestyle.</p>"
             },
             "children": {
-              "totalCount": 5
+              "totalCount": 3
             }
           }
         }
@@ -532,59 +515,75 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/categories/1"
+        "id": "/api/shop/categories/23"
       }
     response: |
       {
         "data": {
           "category": {
-            "id": "/api/shop/categories/1",
-            "_id": 1,
+            "id": "/api/shop/categories/23",
+            "_id": 23,
             "translation": {
-              "name": "Electronics",
-              "slug": "electronics"
+              "name": "Furniture",
+              "slug": "furniture"
             },
-            "url": "https://example.com/electronics",
+            "url": "https://api-demo.bagisto.com/furniture",
             "children": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/categories/5",
-                    "_id": 5,
-                    "position": 1,
+                    "id": "/api/shop/categories/19",
+                    "_id": 19,
+                    "position": 7,
                     "translation": {
-                      "name": "Mobile Phones",
-                      "slug": "mobile-phones"
+                      "name": "Plastic Sofa",
+                      "slug": "plastic-sofa"
                     },
-                    "logoUrl": "https://example.com/categories/mobiles-logo.png",
-                    "status": 1,
+                    "logoUrl": "https://api-demo.bagisto.com/storage/category/19/pmfWVVuhj7VK4dXFZG1ZlBeaUPwLrE4Ua99oer9l.webp",
+                    "status": "1",
                     "children": {
-                      "totalCount": 3
+                      "totalCount": 0
                     }
                   }
                 },
                 {
                   "node": {
-                    "id": "/api/shop/categories/6",
-                    "_id": 6,
-                    "position": 2,
+                    "id": "/api/shop/categories/20",
+                    "_id": 20,
+                    "position": 6,
                     "translation": {
-                      "name": "Laptops",
-                      "slug": "laptops"
+                      "name": "Wooden Sofa",
+                      "slug": "wooden-sofa"
                     },
-                    "logoUrl": "https://example.com/categories/laptops-logo.png",
-                    "status": 1,
+                    "logoUrl": "https://api-demo.bagisto.com/storage/category/20/WO71UuFFtbSRbjZVr7QUbNuMZM4PRSIAjHSLqUUY.webp",
+                    "status": "1",
                     "children": {
-                      "totalCount": 2
+                      "totalCount": 0
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/categories/21",
+                    "_id": 21,
+                    "position": 5,
+                    "translation": {
+                      "name": "Leather Sofa",
+                      "slug": "leather-sofa"
+                    },
+                    "logoUrl": "https://api-demo.bagisto.com/storage/category/21/Q8Z5RUYiBwPVKVkJNJ0XOfWitDiqP7admksTYxKm.webp",
+                    "status": "1",
+                    "children": {
+                      "totalCount": 0
                     }
                   }
                 }
               ],
               "pageInfo": {
                 "hasNextPage": false,
-                "endCursor": "MQ=="
+                "endCursor": "Mg=="
               },
-              "totalCount": 2
+              "totalCount": 3
             }
           }
         }

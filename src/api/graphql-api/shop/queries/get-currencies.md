@@ -40,26 +40,17 @@ examples:
               },
               {
                 "node": {
-                  "id": "/api/shop/currencies/2",
-                  "_id": 2,
-                  "code": "INR",
-                  "name": "Indian Rupee",
-                  "symbol": "₹"
-                }
-              },
-              {
-                "node": {
                   "id": "/api/shop/currencies/3",
                   "_id": 3,
-                  "code": "EUR",
-                  "name": "Euro",
-                  "symbol": "€"
+                  "code": "AED",
+                  "name": "Dirham",
+                  "symbol": "د.إ"
                 }
               }
             ],
             "pageInfo": {
               "hasNextPage": false,
-              "endCursor": "Mw=="
+              "endCursor": "MQ=="
             }
           }
         }
@@ -109,55 +100,41 @@ examples:
           "currencies": {
             "edges": [
               {
-                "cursor": "MQ==",
+                "cursor": "MA==",
                 "node": {
                   "id": "/api/shop/currencies/1",
                   "_id": 1,
                   "code": "USD",
                   "name": "US Dollar",
                   "symbol": "$",
-                  "decimal": 2,
+                  "decimal": "2",
                   "groupSeparator": ",",
                   "decimalSeparator": ".",
-                  "currencyPosition": "left"
+                  "currencyPosition": null
                 }
               },
               {
-                "cursor": "Mg==",
-                "node": {
-                  "id": "/api/shop/currencies/2",
-                  "_id": 2,
-                  "code": "INR",
-                  "name": "Indian Rupee",
-                  "symbol": "₹",
-                  "decimal": 2,
-                  "groupSeparator": ",",
-                  "decimalSeparator": ".",
-                  "currencyPosition": "left"
-                }
-              },
-              {
-                "cursor": "Mw==",
+                "cursor": "MQ==",
                 "node": {
                   "id": "/api/shop/currencies/3",
                   "_id": 3,
-                  "code": "EUR",
-                  "name": "Euro",
-                  "symbol": "€",
-                  "decimal": 2,
-                  "groupSeparator": ".",
-                  "decimalSeparator": ",",
-                  "currencyPosition": "right"
+                  "code": "AED",
+                  "name": "Dirham",
+                  "symbol": "د.إ",
+                  "decimal": "2",
+                  "groupSeparator": ",",
+                  "decimalSeparator": ".",
+                  "currencyPosition": "left_with_space"
                 }
               }
             ],
             "pageInfo": {
-              "endCursor": "Mw==",
-              "startCursor": "MQ==",
+              "endCursor": "MQ==",
+              "startCursor": "MA==",
               "hasNextPage": false,
               "hasPreviousPage": false
             },
-            "totalCount": 3
+            "totalCount": 2
           }
         }
       }
@@ -205,7 +182,7 @@ examples:
           "currencies": {
             "edges": [
               {
-                "cursor": "MQ==",
+                "cursor": "MA==",
                 "node": {
                   "id": "/api/shop/currencies/1",
                   "_id": 1,
@@ -215,23 +192,23 @@ examples:
                 }
               },
               {
-                "cursor": "Mg==",
+                "cursor": "MQ==",
                 "node": {
-                  "id": "/api/shop/currencies/2",
-                  "_id": 2,
-                  "code": "INR",
-                  "name": "Indian Rupee",
-                  "symbol": "₹"
+                  "id": "/api/shop/currencies/3",
+                  "_id": 3,
+                  "code": "AED",
+                  "name": "Dirham",
+                  "symbol": "د.إ"
                 }
               }
             ],
             "pageInfo": {
-              "endCursor": "Mg==",
-              "startCursor": "MQ==",
-              "hasNextPage": true,
+              "endCursor": "MQ==",
+              "startCursor": "MA==",
+              "hasNextPage": false,
               "hasPreviousPage": false
             },
-            "totalCount": 5
+            "totalCount": 2
           }
         }
       }
@@ -290,10 +267,10 @@ The query supports cursor-based pagination and allows you to fetch all currencie
 | `code` | `String!` | ISO 4217 currency code (e.g., "USD", "EUR", "INR") |
 | `name` | `String!` | Display name of the currency (e.g., "US Dollar", "Euro") |
 | `symbol` | `String!` | Currency symbol (e.g., "$", "€", "₹") |
-| `decimal` | `Int` | Number of decimal places for the currency |
-| `groupSeparator` | `String` | Thousands group separator character (e.g., ",") |
-| `decimalSeparator` | `String` | Decimal separator character (e.g., ".") |
-| `currencyPosition` | `String` | Position of currency symbol: "left" or "right" |
+| `decimal` | `String` | Number of decimal places for the currency (e.g., `"2"`) |
+| `groupSeparator` | `String` | Thousands group separator character (e.g., `","`) |
+| `decimalSeparator` | `String` | Decimal separator character (e.g., `"."`) |
+| `currencyPosition` | `String` | Position of currency symbol relative to the amount: `"left"`, `"left_with_space"`, `"right"`, `"right_with_space"`, or `null` (use system default) |
 
 ## Common Use Cases
 

@@ -24,9 +24,9 @@ examples:
           "currency": {
             "id": "/api/shop/currencies/3",
             "_id": 3,
-            "code": "EUR",
-            "name": "Euro",
-            "symbol": "€"
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ"
           }
         }
       }
@@ -68,13 +68,13 @@ examples:
           "currency": {
             "id": "/api/shop/currencies/3",
             "_id": 3,
-            "code": "EUR",
-            "name": "Euro",
-            "symbol": "€",
-            "decimal": 2,
-            "groupSeparator": ".",
-            "decimalSeparator": ",",
-            "currencyPosition": "right"
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ",
+            "decimal": "2",
+            "groupSeparator": ",",
+            "decimalSeparator": ".",
+            "currencyPosition": "left_with_space"
           }
         }
       }
@@ -105,21 +105,21 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": "3"
       }
     response: |
       {
         "data": {
           "currency": {
-            "id": "/api/shop/currencies/1",
-            "_id": 1,
-            "code": "USD",
-            "name": "US Dollar",
-            "symbol": "$",
-            "decimal": 2,
+            "id": "/api/shop/currencies/3",
+            "_id": 3,
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ",
+            "decimal": "2",
             "groupSeparator": ",",
             "decimalSeparator": ".",
-            "currencyPosition": "left"
+            "currencyPosition": "left_with_space"
           }
         }
       }
@@ -147,21 +147,21 @@ examples:
       }
     variables: |
       {
-        "id": "/api/shop/currencies/2"
+        "id": "/api/shop/currencies/3"
       }
     response: |
       {
         "data": {
           "currency": {
-            "id": "/api/shop/currencies/2",
-            "_id": 2,
-            "code": "INR",
-            "name": "Indian Rupee",
-            "symbol": "₹",
-            "decimal": 2,
+            "id": "/api/shop/currencies/3",
+            "_id": 3,
+            "code": "AED",
+            "name": "Dirham",
+            "symbol": "د.إ",
+            "decimal": "2",
             "groupSeparator": ",",
             "decimalSeparator": ".",
-            "currencyPosition": "left"
+            "currencyPosition": "left_with_space"
           }
         }
       }
@@ -207,10 +207,10 @@ The query allows you to fetch a specific currency with all its properties.
 | `code` | `String!` | ISO 4217 currency code (e.g., "USD", "EUR", "INR") |
 | `name` | `String!` | Display name of the currency (e.g., "US Dollar", "Euro") |
 | `symbol` | `String!` | Currency symbol (e.g., "$", "€", "₹") |
-| `decimal` | `Int` | Number of decimal places for the currency |
-| `groupSeparator` | `String` | Thousands group separator character (e.g., ",") |
-| `decimalSeparator` | `String` | Decimal separator character (e.g., ".") |
-| `currencyPosition` | `String` | Position of currency symbol: "left" or "right" |
+| `decimal` | `String` | Number of decimal places for the currency (e.g., `"2"`) |
+| `groupSeparator` | `String` | Thousands group separator character (e.g., `","`) |
+| `decimalSeparator` | `String` | Decimal separator character (e.g., `"."`) |
+| `currencyPosition` | `String` | Position of currency symbol relative to the amount: `"left"`, `"left_with_space"`, `"right"`, `"right_with_space"`, or `null` (use system default) |
 
 ## Common Use Cases
 

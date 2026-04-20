@@ -61,47 +61,81 @@ examples:
           "compareItems": {
             "edges": [
               {
-                "cursor": "MQ==",
+                "cursor": "MA==",
                 "node": {
-                  "id": "/api/shop/compare-items/80",
-                  "_id": 80,
+                  "id": "/api/shop/compare_items/36",
+                  "_id": 36,
                   "product": {
-                    "id": "/api/shop/products/4",
-                    "_id": 4,
-                    "sku": "IPHONE-15-PRO",
-                    "type": "simple",
-                    "name": "Apple iPhone 15 Pro",
-                    "description": "Experience premium performance and cutting-edge technology with the Apple iPhone 15 Pro.",
-                    "shortDescription": "Apple iPhone 15 Pro | Advanced Camera System, Fast Performance, All-Day Battery Life",
-                    "price": "999",
-                    "formattedPrice": "$999.00",
-                    "minimumPrice": "899",
-                    "formattedMinimumPrice": "$899.00",
-                    "maximumPrice": "899",
-                    "formattedMaximumPrice": "$899.00",
+                    "id": "/api/shop/products/2495",
+                    "_id": 2495,
+                    "sku": "IVORY-OVERCOAT-001",
+                    "type": "configurable",
+                    "name": "Ivory Frost Classic Overcoat",
+                    "description": "The Ivory Frost Classic Overcoat blends modern simplicity with timeless winter design. Crafted in a smooth, insulating fabric, it offers dependable warmth while maintaining a lightweight, structured feel.",
+                    "shortDescription": "A sleek ivory overcoat with a tailored fit and soft warmth, designed to elevate everyday winter styling with minimal effort.",
+                    "price": "0",
+                    "formattedPrice": "$0.00",
+                    "minimumPrice": "500",
+                    "formattedMinimumPrice": "$500.00",
+                    "maximumPrice": "500",
+                    "formattedMaximumPrice": "$500.00",
                     "guestCheckout": "1",
                     "locale": null,
                     "channel": null
                   },
                   "customer": {
-                    "id": "/api/shop/customers/1",
+                    "id": "/api/shop/customers/122",
                     "firstName": "John",
                     "lastName": "Doe",
                     "gender": "Male",
                     "dateOfBirth": "1990-01-15"
                   },
-                  "createdAt": "2026-02-17T10:30:00+00:00",
-                  "updatedAt": "2026-02-17T10:30:00+00:00"
+                  "createdAt": "2026-04-06T18:47:53+05:30",
+                  "updatedAt": "2026-04-06T18:47:53+05:30"
+                }
+              },
+              {
+                "cursor": "MQ==",
+                "node": {
+                  "id": "/api/shop/compare_items/37",
+                  "_id": 37,
+                  "product": {
+                    "id": "/api/shop/products/2500",
+                    "_id": 2500,
+                    "sku": "MINT-BLAZER-001",
+                    "type": "configurable",
+                    "name": "Mint Axis Unisex Tailored Blazer",
+                    "description": "The Mint Axis Unisex Tailored Blazer is built for those who lead with style, not trends. Featuring a structured yet comfortable silhouette, this blazer balances precision tailoring with a contemporary mint tone.",
+                    "shortDescription": "A modern mint blazer with a sharp tailored fit, designed for confident, gender-neutral styling and effortless statement wear.",
+                    "price": "0",
+                    "formattedPrice": "$0.00",
+                    "minimumPrice": "544",
+                    "formattedMinimumPrice": "$544.00",
+                    "maximumPrice": "544",
+                    "formattedMaximumPrice": "$544.00",
+                    "guestCheckout": "1",
+                    "locale": null,
+                    "channel": null
+                  },
+                  "customer": {
+                    "id": "/api/shop/customers/122",
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "gender": "Male",
+                    "dateOfBirth": "1990-01-15"
+                  },
+                  "createdAt": "2026-04-06T18:47:53+05:30",
+                  "updatedAt": "2026-04-06T18:47:53+05:30"
                 }
               }
             ],
             "pageInfo": {
               "endCursor": "MQ==",
-              "startCursor": "MQ==",
+              "startCursor": "MA==",
               "hasNextPage": false,
               "hasPreviousPage": false
             },
-            "totalCount": 1
+            "totalCount": 2
           }
         }
       }

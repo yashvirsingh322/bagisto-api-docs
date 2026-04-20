@@ -11,6 +11,7 @@ examples:
             id
             _id
             product {
+              _id
               id
               name
               price
@@ -22,7 +23,7 @@ examples:
     variables: |
       {
         "input": {
-          "productId": 1
+          "productId": 2499
         }
       }
     response: |
@@ -30,14 +31,15 @@ examples:
         "data": {
           "createWishlist": {
             "wishlist": {
-              "id": "/api/shop/wishlists/70",
-              "_id": 70,
+              "id": "/api/shop/wishlists/89",
+              "_id": 89,
               "product": {
-                "id": "/api/shop/products/1",
-                "name": "Coastal Breeze Men's Blue Zipper Hoodie",
-                "price": "100"
+                "_id": 2499,
+                "id": "/api/shop/wishlists/89",
+                "name": "Ivory Frost Classic Overcoat XL",
+                "price": "500"
               },
-              "createdAt": "2026-02-17T20:17:36+05:30"
+              "createdAt": "2026-04-07T13:55:19+05:30"
             }
           }
         }

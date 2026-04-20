@@ -161,7 +161,7 @@ examples:
                   "id": "/api/admin/attribute_options/10",
                   "adminName": "Pattern1",
                   "swatchValue": null,
-                  "swatchValueUrl": "https://example.com/swatches/pattern1.png",
+                  "swatchValueUrl": "https://api-demo.bagisto.com/storage/swatches/pattern1.png",
                   "translation": {
                     "locale": "en",
                     "label": "Pattern 1"
@@ -173,7 +173,7 @@ examples:
                   "id": "/api/admin/attribute_options/11",
                   "adminName": "Pattern2",
                   "swatchValue": null,
-                  "swatchValueUrl": "https://example.com/swatches/pattern2.png",
+                  "swatchValueUrl": "https://api-demo.bagisto.com/storage/swatches/pattern2.png",
                   "translation": {
                     "locale": "en",
                     "label": "Pattern 2"

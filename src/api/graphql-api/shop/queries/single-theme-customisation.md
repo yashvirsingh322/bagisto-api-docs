@@ -27,7 +27,7 @@ examples:
       {
         "data": {
           "themeCustomization": {
-            "id": "/api/theme_customizations/1",
+            "id": "/api/shop/theme-customizations/1",
             "_id": 1,
             "type": "image_carousel",
             "name": "Image Carousel",
@@ -35,7 +35,7 @@ examples:
             "themeCode": "default",
             "translation": {
               "locale": "en",
-              "options": "{\"images\": [{\"link\": \"/search?new=1\", \"image\": \"storage/theme/1/H65GRYoNfWrHLqKv06szKiZVn1jLymYXaw4NGI82.webp\", \"title\": \"Get Ready For New Collection\"}]}"
+              "options": "{\"images\": [{\"link\": \"fashion\", \"image\": \"storage/theme/1/ATTrUoI1AN2s8mR7KdlxfmGPG1eeFV0uwdIPn9fb.webp\", \"title\": \"Fashion\"}, {\"link\": \"furniture\", \"image\": \"storage/theme/1/CoizBehgRZ4vqmV1gw88HiJWnx16BVorCpRxaBSb.webp\", \"title\": \"Furniture\"}, {\"link\": \"electronics\", \"image\": \"storage/theme/1/HRIEAfZ4vTc0hrW5G5L1tK3vzmwBXgZR781tjEwU.webp\", \"title\": \"Electronics\"}]}"
             }
           }
         }
@@ -44,16 +44,13 @@ examples:
       - error: id-required
         cause: Theme Customization ID parameter is missing
         solution: Provide the theme customization ID as a required parameter
-      - error: invalid-id-format
-        cause: Invalid ID format. Expected IRI format like "/api/shop/theme-customizations/1" or numeric ID
-        solution: Use either numeric ID (1) or IRI format (/api/theme_customizations/1)
       - error: not-found
         cause: Theme Customization with given ID does not exist
         solution: Verify the theme customization ID is correct
 
   - id: get-theme-customisation-by-numeric-id
     title: Get Theme Customisation by Numeric ID
-    description: Retrieve theme customisation using numeric ID format instead of IRI.
+    description: Retrieve a theme customisation using a numeric ID instead of IRI format.
     query: |
       query getThemeCustomisation($id: ID!) {
         themeCustomization(id: $id) {
@@ -72,40 +69,34 @@ examples:
       }
     variables: |
       {
-        "id": "2"
+        "id": 5
       }
     response: |
       {
         "data": {
           "themeCustomization": {
-            "id": "/api/theme_customizations/2",
-            "_id": 2,
+            "id": "/api/shop/theme-customizations/5",
+            "_id": 5,
             "type": "static_content",
-            "name": "Offer Information",
+            "name": "Top Collections",
             "status": "1",
             "themeCode": "default",
-            "sortOrder": 2,
+            "sortOrder": 5,
             "translation": {
               "locale": "en",
-              "options": "{\"css\": \".home-offer h1 {display: block;}\", \"html\": \"<div class=\\\"home-offer\\\"><h1>Get UPTO 40% OFF</h1></div>\"}"
+              "options": "{\"css\": \".top-collection-header {...}\", \"html\": \"<div class=\\\"top-collection-container\\\"><div class=\\\"top-collection-header\\\"><h2>The game with our new additions!</h2></div>...</div>\"}"
             }
           }
         }
       }
     commonErrors:
-      - error: id-required
-        cause: Theme Customization ID parameter is missing
-        solution: Provide the theme customization ID as a required parameter
-      - error: invalid-id-format
-        cause: Invalid ID format. Expected IRI format like "/api/shop/theme-customizations/1" or numeric ID
-        solution: Use either numeric ID (1) or IRI format (/api/theme_customizations/1)
       - error: not-found
         cause: Theme Customization with given ID does not exist
         solution: Verify the theme customization ID is correct
 
   - id: get-theme-customisation-complete
     title: Get Theme Customisation - Complete Details
-    description: Retrieve complete theme customisation information including all translations, timestamps, and channel information.
+    description: Retrieve complete theme customisation details including timestamps and all translations.
     query: |
       query getThemeCustomisation($id: ID!) {
         themeCustomization(id: $id) {
@@ -149,49 +140,49 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 5
       }
     response: |
       {
         "data": {
           "themeCustomization": {
-            "id": "/api/theme_customizations/1",
-            "_id": 1,
+            "id": "/api/shop/theme-customizations/5",
+            "_id": 5,
             "themeCode": "default",
-            "type": "image_carousel",
-            "name": "Image Carousel",
-            "sortOrder": 1,
+            "type": "static_content",
+            "name": "Top Collections",
+            "sortOrder": 5,
             "status": "1",
             "channelId": "1",
-            "createdAt": "2024-06-19T17:03:35+05:30",
-            "updatedAt": "2025-11-14T00:25:18+05:30",
+            "createdAt": "2024-04-16T16:14:15+05:30",
+            "updatedAt": "2026-04-07T12:02:47+05:30",
             "translation": {
-              "id": "/api/shop/theme_customization_translations/49",
-              "_id": 49,
-              "themeCustomizationId": "1",
+              "id": "/api/shop/theme_customization_translations/5",
+              "_id": 5,
+              "themeCustomizationId": "5",
               "locale": "en",
-              "options": "{\"images\": [{\"link\": \"/search?new=1\", \"image\": \"storage/theme/1/H65GRYoNfWrHLqKv06szKiZVn1jLymYXaw4NGI82.webp\", \"title\": \"Get Ready For New Collection\"}, {\"link\": \"/search?new=1&sort=created_at-desc\", \"image\": \"storage/theme/1/w7I2zjhQgdhRq6qHWjorr3iiJYPhgDs8Ll3V6gS0.webp\", \"title\": \"Get Ready For New Collection\"}]}"
+              "options": "{\"css\": \".top-collection-header {...}\", \"html\": \"<div class=\\\"top-collection-container\\\"><div class=\\\"top-collection-header\\\"><h2>The game with our new additions!</h2></div>...</div>\"}"
             },
             "translations": {
               "edges": [
                 {
                   "cursor": "MA==",
                   "node": {
-                    "id": "/api/shop/theme_customization_translations/49",
-                    "_id": 49,
-                    "themeCustomizationId": "1",
+                    "id": "/api/shop/theme_customization_translations/5",
+                    "_id": 5,
+                    "themeCustomizationId": "5",
                     "locale": "en",
-                    "options": "{\"images\": [{\"link\": \"/search?new=1\", \"image\": \"storage/theme/1/H65GRYoNfWrHLqKv06szKiZVn1jLymYXaw4NGI82.webp\", \"title\": \"Get Ready For New Collection\"}, {\"link\": \"/search?new=1&sort=created_at-desc\", \"image\": \"storage/theme/1/w7I2zjhQgdhRq6qHWjorr3iiJYPhgDs8Ll3V6gS0.webp\", \"title\": \"Get Ready For New Collection\"}]}"
+                    "options": "{\"css\": \".top-collection-header {...}\", \"html\": \"<div class=\\\"top-collection-container\\\">...<h2>The game with our new additions!</h2>...</div>\"}"
                   }
                 },
                 {
                   "cursor": "MQ==",
                   "node": {
-                    "id": "/api/shop/theme_customization_translations/61",
-                    "_id": 61,
-                    "themeCustomizationId": "1",
-                    "locale": "ar",
-                    "options": "{\"images\": [{\"link\": \"\", \"image\": \"storage/theme/1/tvdjNA4y0cqRhDXzXe8L2vUapXkpmETdIStPHTLt.webp\", \"title\": \"استعد للمجموعة الجديدة\"}, {\"link\": \"\", \"image\": \"storage/theme/1/YB0vNuzo1mxTUtjmJcRnB0SEhIjewPnXdzIhuJHQ.webp\", \"title\": \"استعد للمجموعة الجديدة\"}]}"
+                    "id": "/api/shop/theme_customization_translations/22",
+                    "_id": 22,
+                    "themeCustomizationId": "5",
+                    "locale": "AR",
+                    "options": "{\"css\": \".top-collection-header {...}\", \"html\": \"<div class=\\\"top-collection-container\\\">...<h2>اللعبة مع إضافاتنا الجديدة!</h2>...</div>\"}"
                   }
                 }
               ],
@@ -210,13 +201,9 @@ examples:
       - error: id-required
         cause: Theme Customization ID parameter is missing
         solution: Provide the theme customization ID as a required parameter
-      - error: invalid-id-format
-        cause: Invalid ID format. Expected IRI format like "/api/shop/theme-customizations/1" or numeric ID
-        solution: Use either numeric ID (1) or IRI format (/api/theme_customizations/1)
       - error: not-found
         cause: Theme Customization with given ID does not exist
-        solution: Verify the theme customization ID is correct and is active
-
+        solution: Verify the theme customization ID is correct
 ---
 
 # Get Theme Customisation

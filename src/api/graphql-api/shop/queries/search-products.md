@@ -31,10 +31,42 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "1",
-                  "name": "Cotton Shirt",
-                  "sku": "SHIRT-001",
-                  "price": 29.99
+                  "id": "/api/shop/products/144",
+                  "name": "Augusta Pullover Top Shirt",
+                  "sku": "AUGUSTA-PULLOVER-001",
+                  "price": "0"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2439",
+                  "name": "Azure Breeze Sleeveless Linen Shirt",
+                  "sku": "AZURE-LINEN-SHIRT-001",
+                  "price": "0"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/124",
+                  "name": "Clean Pink Shirt",
+                  "sku": "CLEAN-PINKSHIRT-001",
+                  "price": "2040"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2432",
+                  "name": "Coral Drift Linen V-Neck Shirt",
+                  "sku": "CORAL-VNECK-001",
+                  "price": "0"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2468",
+                  "name": "Minimalist Cotton Shirt",
+                  "sku": "MINIMAL-COTTON-001",
+                  "price": "0"
                 }
               }
             ]
@@ -86,27 +118,27 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "15",
-                  "sku": "JACKET-015",
-                  "price": 89.99,
-                  "name": "Leather Jacket",
-                  "urlKey": "leather-jacket",
-                  "baseImageUrl": "https://your-domain.com/storage/product/15/image.jpg",
-                  "description": "Premium quality leather jacket with a modern fit.",
-                  "shortDescription": "Premium leather jacket",
-                  "specialPrice": 74.99
+                  "id": "/api/shop/products/229",
+                  "sku": "VUPULSE-JEANS-001",
+                  "price": "600",
+                  "name": "VuPulse High-Waist Wide-Leg Denim Jeans",
+                  "urlKey": "vupulse-high-waist-wide-leg-denim-jeans",
+                  "baseImageUrl": "https://api-demo.bagisto.com/storage/product/229/XaW3Oqh8DEq6qm4JwNJ7x9EnhjW9CllTuiJthBpX.webp",
+                  "description": "Step into timeless style and comfort with our Classic Blue Denim Jeans. Crafted from high-quality, durable cotton denim with a flattering straight-leg fit.",
+                  "shortDescription": "Versatile mid-blue distressed denim jeans with high-rise waist and wide straight legs.",
+                  "specialPrice": null
                 }
               },
               {
                 "node": {
-                  "id": "18",
-                  "sku": "HOODIE-018",
-                  "price": 49.99,
-                  "name": "Classic Hoodie",
-                  "urlKey": "classic-hoodie",
-                  "baseImageUrl": "https://your-domain.com/storage/product/18/image.jpg",
-                  "description": "Comfortable cotton hoodie for everyday wear.",
-                  "shortDescription": "Cotton hoodie",
+                  "id": "/api/shop/products/232",
+                  "sku": "CHIC-SKIRT-TOP-001",
+                  "price": "0",
+                  "name": "Chic Skirt Top for Women",
+                  "urlKey": "chic-skirt-top-for-women",
+                  "baseImageUrl": "https://api-demo.bagisto.com/storage/product/232/2HCv4W2RyB7zFHKanwiZiv1WpMO0sP96oklzJ3RK.webp",
+                  "description": "Stylish and comfortable, this skirt top is designed to pair perfectly with any skirt. With a flattering fit and elegant details, it's ideal for both casual and dressy looks.",
+                  "shortDescription": "Complete your look with this stylish skirt top, specially designed to complement all types of skirts.",
                   "specialPrice": null
                 }
               }
@@ -114,10 +146,10 @@ examples:
             "pageInfo": {
               "hasNextPage": true,
               "hasPreviousPage": true,
-              "startCursor": "Mg==",
+              "startCursor": "Mw==",
               "endCursor": "NA=="
             },
-            "totalCount": 12
+            "totalCount": 19
           }
         }
       }
@@ -156,18 +188,36 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/5",
-                  "sku": "CONFIG-TEE-005"
+                  "id": "/api/shop/products/23",
+                  "sku": "LUGGAGE-BAGS-001"
                 }
               },
               {
                 "node": {
-                  "id": "/api/shop/products/12",
-                  "sku": "CONFIG-JACKET-012"
+                  "id": "/api/shop/products/93",
+                  "sku": "PUMA-WHITE-001"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/123",
+                  "sku": "ZOE-TANK-001"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2495",
+                  "sku": "IVORY-OVERCOAT-001"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2500",
+                  "sku": "MINT-BLAZER-001"
                 }
               }
             ],
-            "totalCount": 2
+            "totalCount": 27
           }
         }
       }
@@ -196,18 +246,36 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/7",
-                  "sku": "SHIRT-RED-007"
+                  "id": "/api/shop/products/114",
+                  "sku": "Nike-Shoes"
                 }
               },
               {
                 "node": {
-                  "id": "/api/shop/products/14",
-                  "sku": "DRESS-RED-014"
+                  "id": "/api/shop/products/123",
+                  "sku": "ZOE-TANK-001"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/280",
+                  "sku": "OAKCRAFT-SOFA-001"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2419",
+                  "sku": "SAGE-TSHIRT-001"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2468",
+                  "sku": "MINIMAL-COTTON-001"
                 }
               }
             ],
-            "totalCount": 2
+            "totalCount": 13
           }
         }
       }
@@ -273,11 +341,13 @@ examples:
         "data": {
           "products": {
             "edges": [
-              { "node": { "id": "/api/shop/products/3", "name": "Alpine Jacket", "sku": "ALP-003" } },
-              { "node": { "id": "/api/shop/products/8", "name": "Basic Tee", "sku": "BAS-008" } },
-              { "node": { "id": "/api/shop/products/1", "name": "Cotton Shirt", "sku": "COT-001" } }
+              { "node": { "id": "/api/shop/products/90", "name": "A Best Shoes", "sku": "main-shoes-123" } },
+              { "node": { "id": "/api/shop/products/120", "name": "Acme Baby Cap", "sku": "ACME-BABYCAP-001" } },
+              { "node": { "id": "/api/shop/products/22", "name": "Acme Drawstring Bag", "sku": "ACME-DRAWBAG-001" } },
+              { "node": { "id": "/api/shop/products/2414", "name": "AeroLoom High-Rise Baggy Jeans", "sku": "AEROLOOM-JEANS-001" } },
+              { "node": { "id": "/api/shop/products/2513", "name": "Arctic Bliss Stylish Winter Scarf", "sku": "SP-002" } }
             ],
-            "totalCount": 50
+            "totalCount": 84
           }
         }
       }
@@ -305,11 +375,13 @@ examples:
         "data": {
           "products": {
             "edges": [
-              { "node": { "id": "/api/shop/products/20", "name": "Wool Sweater", "sku": "WOL-020" } },
-              { "node": { "id": "/api/shop/products/15", "name": "Vintage Denim", "sku": "VIN-015" } },
-              { "node": { "id": "/api/shop/products/10", "name": "Urban Sneakers", "sku": "URB-010" } }
+              { "node": { "id": "/api/shop/products/123", "name": "Zoe Tank", "sku": "ZOE-TANK-001" } },
+              { "node": { "id": "/api/shop/products/1093", "name": "Wooden Sofa Model 751", "sku": "SOFA-WOODENSOFA-0751" } },
+              { "node": { "id": "/api/shop/products/2510", "name": "Wooden Folding Chair Rental", "sku": "WOODEN-FOLDING-CHAIR-RENTAL" } },
+              { "node": { "id": "/api/shop/products/115", "name": "Women Shoulder Bags", "sku": "WOMEN-SHOULDER-001" } },
+              { "node": { "id": "/api/shop/products/186", "name": "Women Shirt", "sku": "WOMEN-SHIRT-001" } }
             ],
-            "totalCount": 50
+            "totalCount": 84
           }
         }
       }
@@ -338,10 +410,18 @@ examples:
         "data": {
           "products": {
             "edges": [
-              { "node": { "id": "/api/shop/products/50", "name": "Summer Collection Dress", "sku": "SUM-050", "price": 79.99 } },
-              { "node": { "id": "/api/shop/products/49", "name": "Linen Trousers", "sku": "LIN-049", "price": 59.99 } }
+              { "node": { "id": "/api/shop/products/2517", "name": "Arctic Frost Winter Accessories Bundle", "sku": "BP-001", "price": "0" } },
+              { "node": { "id": "/api/shop/products/2516", "name": "Arctic Frost Winter Accessories", "sku": "GP-001", "price": "0" } },
+              { "node": { "id": "/api/shop/products/2515", "name": "Arctic Warmth Wool Blend Socks", "sku": "SP-004", "price": "21" } },
+              { "node": { "id": "/api/shop/products/2514", "name": "Arctic Touchscreen Winter Gloves", "sku": "SP-003", "price": "21" } },
+              { "node": { "id": "/api/shop/products/2513", "name": "Arctic Bliss Stylish Winter Scarf", "sku": "SP-002", "price": "17" } },
+              { "node": { "id": "/api/shop/products/2512", "name": "Arctic Cozy Knit Unisex Beanie", "sku": "SP-001", "price": "14" } },
+              { "node": { "id": "/api/shop/products/2511", "name": "Fine Dining Table Reservation", "sku": "FINE-DINING-TABLE-RESERVATION", "price": "200" } },
+              { "node": { "id": "/api/shop/products/2510", "name": "Wooden Folding Chair Rental", "sku": "WOODEN-FOLDING-CHAIR-RENTAL", "price": "109" } },
+              { "node": { "id": "/api/shop/products/2509", "name": "Men's Haircut Appointment", "sku": "SALON-HAIRCUT-APPOINTMENT", "price": "60" } },
+              { "node": { "id": "/api/shop/products/2508", "name": "Live Music Concert Ticket", "sku": "LIVE-MUSIC-CONCERT-TICKET", "price": "120" } }
             ],
-            "totalCount": 50
+            "totalCount": 84
           }
         }
       }
@@ -370,10 +450,15 @@ examples:
         "data": {
           "products": {
             "edges": [
-              { "node": { "id": "/api/shop/products/1", "name": "Cotton Shirt", "sku": "COT-001", "price": 29.99 } },
-              { "node": { "id": "/api/shop/products/2", "name": "Classic Polo", "sku": "CLA-002", "price": 34.99 } }
+              { "node": { "id": "/api/shop/products/1", "name": "Coastal Breeze Men's Blue Zipper Hoodie", "sku": "COASTALBREEZEMENSHOODIE", "price": "100" } },
+              { "node": { "id": "/api/shop/products/2", "name": "PureStride Men's Classic White Sneakers", "sku": "PUREWHTSNEAK2023", "price": "189" } },
+              { "node": { "id": "/api/shop/products/3", "name": "Midnight Blossom Women's Black Floral Print Sandals", "sku": "MIDNIGHTBLOSSOMHEELS2023", "price": "204" } },
+              { "node": { "id": "/api/shop/products/22", "name": "Acme Drawstring Bag", "sku": "ACME-DRAWBAG-001", "price": "3000" } },
+              { "node": { "id": "/api/shop/products/91", "name": "Bagisto Keyboard", "sku": "Bagisto-keyboard", "price": "20" } },
+              { "node": { "id": "/api/shop/products/92", "name": "Bagisto Sticker", "sku": "bagisto-sticker", "price": "10" } },
+              { "node": { "id": "/api/shop/products/114", "name": "Nike Shoes", "sku": "Nike-Shoes", "price": "200" } }
             ],
-            "totalCount": 50
+            "totalCount": 84
           }
         }
       }
@@ -475,7 +560,7 @@ examples:
                   "sku": "SPR-048",
                   "price": 65.99,
                   "urlKey": "spring-floral-dress",
-                  "baseImageUrl": "https://example.com/storage/product/48/image.jpg"
+                  "baseImageUrl": "https://api-demo.bagisto.com/storage/product/48/image.jpg"
                 }
               }
             ],
@@ -510,18 +595,17 @@ examples:
         "data": {
           "products": {
             "edges": [
-              {
-                "node": {
-                  "id": "/api/shop/products/25",
-                  "name": "Premium Leather Jacket",
-                  "sku": "PLJ-025",
-                  "price": 499.99,
-                  "urlKey": "premium-leather-jacket",
-                  "baseImageUrl": "https://example.com/storage/product/25/image.jpg"
-                }
-              }
+              { "node": { "id": "/api/shop/products/2517", "name": "Arctic Frost Winter Accessories Bundle", "sku": "BP-001", "price": "0", "urlKey": "arctic-frost-winter-accessories-bundle", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2517/lW2A3FH3oKBJnnukyUyKUArdrr8dwTJxxDKthSgq.webp" } },
+              { "node": { "id": "/api/shop/products/2516", "name": "Arctic Frost Winter Accessories", "sku": "GP-001", "price": "0", "urlKey": "arctic-frost-winter-accessories", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2516/5Kgto6KVm6FLMaaDEY6pwCcVoTIhX03D3OGDzwbf.webp" } },
+              { "node": { "id": "/api/shop/products/2514", "name": "Arctic Touchscreen Winter Gloves", "sku": "SP-003", "price": "21", "urlKey": "arctic-touchscreen-winter-gloves", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2514/g8lR0Ity8HcpE20A4yAkX5wvLY5RlTC67NJKyyg6.webp" } },
+              { "node": { "id": "/api/shop/products/2513", "name": "Arctic Bliss Stylish Winter Scarf", "sku": "SP-002", "price": "17", "urlKey": "arctic-bliss-stylish-winter-scarf", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2513/odMU05kvHJqzuDUdHGy9dlD3qAq1FEUbkQbkg3Wk.webp" } },
+              { "node": { "id": "/api/shop/products/2512", "name": "Arctic Cozy Knit Unisex Beanie", "sku": "SP-001", "price": "14", "urlKey": "arctic-cozy-knit-unisex-beanie", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2512/Muc0qeWks34MTZaxf38s6DBmfqMqrCxku81Uo8EB.webp" } },
+              { "node": { "id": "/api/shop/products/2511", "name": "Fine Dining Table Reservation", "sku": "FINE-DINING-TABLE-RESERVATION", "price": "200", "urlKey": "fine-dining-table-reservation", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2511/lw253CbVba9nRZVUGy9atW9t85ADE2UwldssE8t6.webp" } },
+              { "node": { "id": "/api/shop/products/2507", "name": "Professional Photography Session", "sku": "PROFESSIONAL-PHOTOGRAPHY-SESSION", "price": "100", "urlKey": "professional-photography-session", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2507/1jO3Pb5UA89ZaVsp1cnlICSFgZKlwy6lPlDJynGu.webp" } },
+              { "node": { "id": "/api/shop/products/2506", "name": "Complete Personal Finance Guide (eBook PDF)", "sku": "COMPLETE-PERSONAL-FINANCE-GUIDE-EBOOK", "price": "70", "urlKey": "complete-personal-finance-guide-ebook-pdf", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2506/XY0sCaNbWfeXDntNFbYnlL6N5uOJ9tfyR7AtntSf.webp" } },
+              { "node": { "id": "/api/shop/products/2505", "name": "HD Streaming Subscription - 1 Month Access", "sku": "HD-STREAMING-SUBSCRIPTION-1-MONTH", "price": "64", "urlKey": "hd-streaming-subscription-1-month-access", "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2505/sCwS1QRNlJHLPjw5UzxYSR21oqYbMvo4UNRYklME.webp" } }
             ],
-            "totalCount": 5
+            "totalCount": 56
           }
         }
       }
@@ -554,16 +638,36 @@ examples:
             "edges": [
               {
                 "node": {
-                  "id": "/api/shop/products/40",
-                  "name": "Brand Classic Sneakers",
-                  "sku": "BCS-040",
-                  "price": 129.99,
-                  "urlKey": "brand-classic-sneakers",
-                  "baseImageUrl": "https://example.com/storage/product/40/image.jpg"
+                  "id": "/api/shop/products/2500",
+                  "name": "Mint Axis Unisex Tailored Blazer",
+                  "sku": "MINT-BLAZER-001",
+                  "price": "0",
+                  "urlKey": "mint-axis-unisex-tailored-blazer",
+                  "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2500/T97yKJVNKlmi6GXoqKl8FNqfM8115Wxo6jw4WhPF.webp"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2495",
+                  "name": "Ivory Frost Classic Overcoat",
+                  "sku": "IVORY-OVERCOAT-001",
+                  "price": "0",
+                  "urlKey": "ivory-frost-classic-overcoat",
+                  "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2495/FFHxE9HE2Ezt9aqvr6s3fPPCc1nrjwMNna1o1wTQ.webp"
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/products/2493",
+                  "name": "Aurora Cream Winter Blazer Coat",
+                  "sku": "AURORA-BLAZER-001",
+                  "price": "5000",
+                  "urlKey": "aurora-cream-winter-blazer-coat",
+                  "baseImageUrl": "https://api-demo.bagisto.com/storage/product/2493/wnbCVz0T8R3sxMMlcYsTICoNEj8WK4M3mIL62YgE.webp"
                 }
               }
             ],
-            "totalCount": 12
+            "totalCount": 3
           }
         }
       }

@@ -6,7 +6,7 @@ examples:
     description: Retrieve details of a specific downloadable product purchase by its IRI identifier.
     query: |
       query GetCustomerDownloadableProduct {
-        customerDownloadableProduct(id: "/api/shop/customer-downloadable-products/1") {
+        customerDownloadableProduct(id: "/api/shop/customer-downloadable-products/4") {
           _id
           productName
           name
@@ -28,31 +28,32 @@ examples:
           updatedAt
         }
       }
+
     variables: |
       {}
     response: |
       {
         "data": {
           "customerDownloadableProduct": {
-            "_id": 1,
-            "productName": "Laravel E-Book",
-            "name": "PDF Download",
-            "fileName": "laravel-ebook.pdf",
-            "type": "file",
-            "downloadBought": 5,
+            "_id": 4,
+            "productName": "Complete Personal Finance Guide (eBook PDF)",
+            "name": "Full eBook PDF",
+            "fileName": null,
+            "type": "url",
+            "downloadBought": 10,
             "downloadUsed": 1,
             "downloadCanceled": 0,
             "status": "available",
-            "downloadUrl": "https://your-domain.com/api/shop/customer-downloadable-products/1/download",
-            "remainingDownloads": 4,
+            "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-downloadable-products/4/download",
+            "remainingDownloads": "9",
             "order": {
-              "_id": 101,
-              "incrementId": "101",
+              "_id": 531,
+              "incrementId": "531",
               "status": "completed",
-              "grandTotal": 29.99
+              "grandTotal": 138
             },
-            "createdAt": "2025-06-15T10:30:00+00:00",
-            "updatedAt": "2025-06-15T10:30:00+00:00"
+            "createdAt": "2026-04-02T18:54:41+05:30",
+            "updatedAt": "2026-04-02T18:55:29+05:30"
           }
         }
       }

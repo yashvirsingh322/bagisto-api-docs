@@ -16,17 +16,17 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2499
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "1",
-            "name": "Product Name",
-            "sku": "PROD-001",
-            "urlKey": "product-name",
-            "price": 99.99
+            "id": "/api/shop/products/2499",
+            "name": "Ivory Frost Classic Overcoat XL",
+            "sku": "sku-345346346-variant-9",
+            "urlKey": "sku-345346346-variant-9",
+            "price": "500"
           }
         }
       }
@@ -52,17 +52,17 @@ examples:
       }
     variables: |
       {
-        "sku": "COASTALBREEZEMENSHOODIE"
+        "sku": "sku-345346346-variant-9"
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "/api/shop/products/1",
-            "name": "Coastal Breeze Men's Blue Zipper Hoodie",
-            "sku": "COASTALBREEZEMENSHOODIE",
-            "urlKey": "coastal-breeze-mens-blue-zipper-hoodie",
-            "price": "100"
+            "id": "/api/shop/products/2499",
+            "name": "Ivory Frost Classic Overcoat XL",
+            "sku": "sku-345346346-variant-9",
+            "urlKey": "sku-345346346-variant-9",
+            "price": "500"
           }
         }
       }
@@ -72,7 +72,7 @@ examples:
         solution: Check product SKU spelling
   - id: get-product-with-variants
     title: Get Product with Variants
-    description: Retrieve product including variant options.
+    description: Retrieve a configurable product with its variant options and superAttributeOptions for building variant selectors.
     query: |
       query getProduct($id: ID!) {
         product(id: $id) {
@@ -81,6 +81,7 @@ examples:
           sku
           urlKey
           price
+          superAttributeOptions
           variants {
             edges {
               node {
@@ -106,36 +107,232 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2468
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "1",
-            "name": "T-Shirt",
-            "sku": "TSHIRT-001",
-            "urlKey": "t-shirt",
-            "price": 29.99,
+            "id": "/api/shop/products/2468",
+            "name": "Minimalist Cotton Shirt",
+            "sku": "MINIMAL-COTTON-001",
+            "urlKey": "minimalist-cotton-shirt",
+            "price": "0",
+            "superAttributeOptions": "[{\"id\":23,\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":3,\"label\":\"Yellow\"},{\"id\":26,\"label\":\"Lavender Grey\"},{\"id\":27,\"label\":\"Charcoal\"}]},{\"id\":24,\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"},{\"id\":7,\"label\":\"M\"}]}]",
             "variants": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/products/8",
-                    "name": "OmniHeat Men's Solid Hooded Puffer Jacket-Blue-Yellow-M",
-                    "sku": "SP-005",
-                    "price": "14",
+                    "id": "/api/shop/products/2469",
+                    "name": "Minimalist Cotton Shirt Yellow S",
+                    "sku": "MINIMAL-COTTON-YEL-S",
+                    "price": "463",
                     "attributeValues": {
                       "edges": [
                         {
                           "node": {
-                            "value": "SP-001",
-                            "attribute": {
-                              "code": "sku",
-                              "adminName": "SKU"
-                            }
+                            "value": "MINIMAL-COTTON-YEL-S",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
                           }
                         },
+                        {
+                          "node": {
+                            "value": "Minimalist Cotton Shirt Yellow S",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "463.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "3",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2470",
+                    "name": "Minimalist Cotton Shirt Lavender Grey S",
+                    "sku": "MINIMAL-COTTON-LAV-S",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "MINIMAL-COTTON-LAV-S",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Minimalist Cotton Shirt Lavender Grey S",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "463.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "26",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2471",
+                    "name": "Minimalist Cotton Shirt Charcoal S",
+                    "sku": "MINIMAL-COTTON-CHAR-S",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "MINIMAL-COTTON-CHAR-S",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Minimalist Cotton Shirt Charcoal S",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "463.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "27",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2472",
+                    "name": "Minimalist Cotton Shirt Yellow M",
+                    "sku": "MINIMAL-COTTON-YEL-M",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "MINIMAL-COTTON-YEL-M",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Minimalist Cotton Shirt Yellow M",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "463.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "3",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2473",
+                    "name": "Minimalist Cotton Shirt Lavender Grey M",
+                    "sku": "MINIMAL-COTTON-LAV-M",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "MINIMAL-COTTON-LAV-M",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Minimalist Cotton Shirt Lavender Grey M",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "463.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "26",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2474",
+                    "name": "Minimalist Cotton Shirt Charcoal M",
+                    "sku": "MINIMAL-COTTON-CHAR-M",
+                    "price": "463",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "MINIMAL-COTTON-CHAR-M",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Minimalist Cotton Shirt Charcoal M",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "463.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "27",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
                       ]
                     }
                   }
@@ -240,55 +437,55 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2478
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "/api/shop/products/1",
-            "name": "Premium Wireless Headphones",
-            "sku": "HEADPHONES-001",
-            "type": "simple",
-            "urlKey": "premium-wireless-headphones",
+            "id": "/api/shop/products/2478",
+            "name": "Contemporary Fit Cut-Out Top",
+            "sku": "CUTOUT-TOP-001",
+            "type": "configurable",
+            "urlKey": "contemporary-fit-cut-out-top",
             "locale": "en",
-            "channel": "default",
+            "channel": null,
             "status": "1",
-            "description": "High-quality wireless headphones with noise cancellation and 30-hour battery life",
-            "shortDescription": "Premium wireless headphones with active noise cancellation",
-            "color": null,
-            "size": null,
-            "featured": true,
-            "new": false,
-            "guestCheckout": true,
-            "isSaleable": true,
-            "price": 199.99,
-            "specialPrice": 149.99,
-            "minimumPrice": 149.99,
-            "maximumPrice": 199.99,
-            "regularMinimumPrice": 199.99,
-            "regularMaximumPrice": 199.99,
-            "formattedPrice": "$199.99",
-            "formattedSpecialPrice": "$149.99",
-            "formattedMinimumPrice": "$149.99",
-            "formattedMaximumPrice": "$199.99",
-            "formattedRegularMinimumPrice": "$199.99",
-            "formattedRegularMaximumPrice": "$199.99",
-            "superAttributeOptions": "[{\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":19,\"label\":\"Blue\"},{\"id\":20,\"label\":\"Ash grey\"},{\"id\":23,\"label\":\"Pink\"}]},{\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"},{\"id\":7,\"label\":\"M\"}]}]",
-            "combinations": "{\"8\":{\"color\":3,\"size\":7},\"9\":{\"color\":3,\"size\":8},\"10\":{\"color\":2,\"size\":7},\"11\":{\"color\":2,\"size\":8}}",
+            "description": "This modern cut-out tank top is designed for those who prefer bold simplicity with a contemporary edge. Crafted with a body-hugging fit and subtle ribbed texture, it enhances the silhouette while keeping the look clean and refined.",
+            "shortDescription": "A sleek ribbed tank top with a bold cut-out detail, designed to make a confident style statement with minimal effort.",
+            "color": "",
+            "size": "",
+            "featured": "",
+            "new": "1",
+            "guestCheckout": "1",
+            "isSaleable": "1",
+            "price": "0",
+            "specialPrice": null,
+            "minimumPrice": "435",
+            "maximumPrice": "435",
+            "regularMinimumPrice": "435",
+            "regularMaximumPrice": "435",
+            "formattedPrice": "$0.00",
+            "formattedSpecialPrice": null,
+            "formattedMinimumPrice": "$435.00",
+            "formattedMaximumPrice": "$435.00",
+            "formattedRegularMinimumPrice": "$435.00",
+            "formattedRegularMaximumPrice": "$435.00",
+            "superAttributeOptions": "[{\"id\":23,\"code\":\"color\",\"label\":\"Color\",\"options\":[{\"id\":1,\"label\":\"Red\"},{\"id\":5,\"label\":\"White\"},{\"id\":20,\"label\":\"Ash grey\"}]},{\"id\":24,\"code\":\"size\",\"label\":\"Size\",\"options\":[{\"id\":6,\"label\":\"S\"}]}]",
+            "combinations": "{\"2479\":{\"color\":1,\"size\":6},\"2480\":{\"color\":5,\"size\":6},\"2482\":{\"color\":20,\"size\":6}}",
             "images": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/admin/images/7",
-                    "publicPath": "https://api-demo.bagisto.com/storage/product/7/L79gIVq7SdiKK2Xk7MHVHdEZgAb32TedY764iZr4.webp",
+                    "id": "/api/admin/images/678",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/AA1X8qJMtgi3HKHGiwmV1LEPFrQk6Z8aYPc137Y0.webp",
                     "position": "1"
                   }
                 },
                 {
                   "node": {
-                    "id": "/api/admin/images/8",
-                    "publicPath": "https://api-demo.bagisto.com/storage/product/7/sW5mmHIh07PJJefnSLC8jwtvx0BpjnWVhVUYonVs.webp",
+                    "id": "/api/admin/images/679",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2478/LXF5IyrOREvTpNl0mMMeWgMLNFFWb7LqQjfn21H6.webp",
                     "position": "2"
                   }
                 }
@@ -298,25 +495,143 @@ examples:
               "edges": [
                 {
                   "node": {
-                    "value": "Black",
-                    "attribute": {
-                      "code": "color",
-                      "adminName": "Color"
-                    }
+                    "value": "CUTOUT-TOP-001",
+                    "attribute": { "code": "sku", "adminName": "SKU" }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "Contemporary Fit Cut-Out Top",
+                    "attribute": { "code": "name", "adminName": "Name" }
+                  }
+                },
+                {
+                  "node": {
+                    "value": "contemporary-fit-cut-out-top",
+                    "attribute": { "code": "url_key", "adminName": "URL Key" }
                   }
                 }
               ]
             },
             "variants": {
-              "edges": []
+              "edges": [
+                {
+                  "node": {
+                    "id": "/api/shop/products/2479",
+                    "name": "Contemporary Fit Cut-Out Top Red S",
+                    "sku": "CUTOUT-TOP-RED-S",
+                    "price": "435",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "CUTOUT-TOP-RED-S",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Contemporary Fit Cut-Out Top Red S",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "435.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "1",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2480",
+                    "name": "Contemporary Fit Cut-Out Top White S",
+                    "sku": "CUTOUT-TOP-WHT-S",
+                    "price": "435",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "CUTOUT-TOP-WHT-S",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Contemporary Fit Cut-Out Top White S",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "435.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "5",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/products/2482",
+                    "name": "Contemporary Fit Cut-Out Top Ash Grey S",
+                    "sku": "CUTOUT-TOP-AGREY-S",
+                    "price": "435",
+                    "attributeValues": {
+                      "edges": [
+                        {
+                          "node": {
+                            "value": "CUTOUT-TOP-AGREY-S",
+                            "attribute": { "code": "sku", "adminName": "SKU" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "Contemporary Fit Cut-Out Top Ash Grey S",
+                            "attribute": { "code": "name", "adminName": "Name" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "435.0000",
+                            "attribute": { "code": "price", "adminName": "Price" }
+                          }
+                        },
+                        {
+                          "node": {
+                            "value": "20",
+                            "attribute": { "code": "color", "adminName": "Color" }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
             },
             "categories": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/categories/3",
+                    "id": "/api/shop/categories/22",
                     "translation": {
-                      "name": "Electronics"
+                      "name": "Fashion"
                     }
                   }
                 }
@@ -375,46 +690,31 @@ examples:
       }
     variables: |
       {
-        "id": "1"
+        "id": 2506
       }
     response: |
       {
         "data": {
           "product": {
-            "_id": 15,
-            "name": "Laravel Masterclass E-Book",
-            "sku": "EBOOK-LARAVEL-001",
+            "_id": 2506,
+            "name": "Complete Personal Finance Guide (eBook PDF)",
+            "sku": "COMPLETE-PERSONAL-FINANCE-GUIDE-EBOOK",
             "type": "downloadable",
-            "price": "49.99",
+            "price": "70",
             "downloadableLinks": {
               "edges": [
                 {
                   "node": {
-                    "_id": 1,
-                    "type": "file",
-                    "translation": {
-                      "title": "Part 1 - Fundamentals"
-                    },
-                    "price": "29.99",
-                    "formattedPrice": "$29.99",
-                    "sampleType": "file",
-                    "sampleFile": "product_downloadable_links/15/part1-sample.pdf",
-                    "sampleFileUrl": "https://your-domain.com/api/downloadable/download-sample/link/1",
-                    "sampleUrl": null
-                  }
-                },
-                {
-                  "node": {
                     "_id": 2,
-                    "type": "file",
+                    "type": "url",
                     "translation": {
-                      "title": "Part 2 - Advanced Topics"
+                      "title": "Full eBook PDF"
                     },
-                    "price": "39.99",
-                    "formattedPrice": "$39.99",
+                    "price": "69",
+                    "formattedPrice": "$69.00",
                     "sampleType": "file",
-                    "sampleFile": "product_downloadable_links/15/part2-sample.pdf",
-                    "sampleFileUrl": "https://your-domain.com/api/downloadable/download-sample/link/2",
+                    "sampleFile": "product_downloadable_links/2506/4aUxeYumTemSR3QwHHHGmdiHBG2qWek3KDR8fhYK.pdf",
+                    "sampleFileUrl": "https://api-demo.bagisto.com/api/downloadable/download-sample/link/2",
                     "sampleUrl": null
                   }
                 }
@@ -426,11 +726,11 @@ examples:
                   "node": {
                     "_id": 1,
                     "type": "file",
-                    "file": "product_downloadable_links/15/table-of-contents.pdf",
-                    "fileUrl": "https://your-domain.com/api/downloadable/download-sample/sample/1",
+                    "file": "product_downloadable_links/2506/1apTXUkt2ugCISKHadT5Fmp4EwU7YeWYY2wb4mNs.pdf",
+                    "fileUrl": "https://api-demo.bagisto.com/api/downloadable/download-sample/sample/1",
                     "url": null,
                     "translation": {
-                      "title": "Table of Contents Preview"
+                      "title": ""
                     }
                   }
                 }
@@ -524,59 +824,85 @@ examples:
       }
     variables: |
       {
-        "id": "20"
+        "id": 2516
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "/api/shop/products/20",
-            "name": "Fitness Essentials Kit",
-            "sku": "FITNESS-KIT-001",
+            "id": "/api/shop/products/2516",
+            "name": "Arctic Frost Winter Accessories",
+            "sku": "GP-001",
             "type": "grouped",
-            "urlKey": "fitness-essentials-kit",
+            "urlKey": "arctic-frost-winter-accessories",
             "locale": "en",
             "channel": null,
             "status": "1",
-            "description": "Get everything you need to start your fitness journey with this all-in-one kit. Includes a yoga mat, resistance bands, and a water bottle.",
-            "shortDescription": "All-in-one fitness starter kit with yoga mat, resistance bands, and water bottle.",
+            "description": "Introducing the Arctic Frost Winter Accessories Bundle, your go-to solution for staying warm, stylish, and connected during the chilly winter days. This thoughtfully curated set brings together Four essential winter accessories to create a harmonious ensemble. The luxurious scarf, woven from a blend of acrylic and wool, not only adds a layer of warmth but also brings a touch of elegance to your winter wardrobe. The soft knit beanie, crafted with care, promises to keep you cozy while adding a fashionable flair to your look. But it doesn't end there – our bundle also includes touchscreen-compatible gloves. Stay connected without sacrificing warmth as you navigate your devices effortlessly. Whether you're answering calls, sending messages, or capturing winter moments on your smartphone, these gloves ensure convenience without compromising style. The soft and cozy texture of the socks offers a luxurious feel against your skin. Say goodbye to chilly feet as you embrace the plush warmth provided by these wool blend socks. The Arctic Frost Winter Accessories Bundle is not just about functionality; it's a statement of winter fashion. Each piece is designed not only to protect you from the cold but also to elevate your style during the frosty season. The materials chosen for this bundle prioritize both durability and comfort, ensuring that you can enjoy the winter wonderland in style. Whether you're treating yourself or searching for the perfect gift, the Arctic Frost Winter Accessories Bundle is a versatile choice. Delight someone special during the holiday season or elevate your own winter wardrobe with this stylish and functional ensemble. Embrace the frost with confidence, knowing that you have the perfect accessories to keep you warm and chic.",
+            "shortDescription": "Embrace the winter chill with our Arctic Frost Winter Accessories Bundle. This curated set includes a luxurious scarf, a cozy beanie, touchscreen-compatible gloves and wool Blend Socks. Stylish and functional, this ensemble is crafted from high-quality materials, ensuring both durability and comfort. Elevate your winter wardrobe or delight someone special with this perfect gifting option.",
             "featured": "1",
             "new": "1",
             "guestCheckout": "1",
             "isSaleable": "1",
             "price": "0",
             "specialPrice": null,
-            "minimumPrice": "15.99",
-            "maximumPrice": "49.99",
-            "regularMinimumPrice": "15.99",
-            "regularMaximumPrice": "49.99",
+            "minimumPrice": "14",
+            "maximumPrice": "21",
+            "regularMinimumPrice": "14",
+            "regularMaximumPrice": "21",
             "formattedPrice": "$0.00",
             "formattedSpecialPrice": null,
-            "formattedMinimumPrice": "$15.99",
-            "formattedMaximumPrice": "$49.99",
-            "formattedRegularMinimumPrice": "$15.99",
-            "formattedRegularMaximumPrice": "$49.99",
+            "formattedMinimumPrice": "$14.00",
+            "formattedMaximumPrice": "$21.00",
+            "formattedRegularMinimumPrice": "$14.00",
+            "formattedRegularMaximumPrice": "$21.00",
             "groupedProducts": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/grouped-products/1",
+                    "id": "/api/shop/product_grouped_products/1",
+                    "qty": 1,
+                    "sortOrder": 0,
+                    "associatedProduct": {
+                      "id": "/api/shop/products/2512",
+                      "name": "Arctic Cozy Knit Unisex Beanie",
+                      "sku": "SP-001",
+                      "price": "14",
+                      "formattedPrice": "$14.00",
+                      "specialPrice": null,
+                      "formattedSpecialPrice": null,
+                      "images": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "/api/admin/images/851",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/2512/Muc0qeWks34MTZaxf38s6DBmfqMqrCxku81Uo8EB.webp"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "id": "/api/shop/product_grouped_products/2",
                     "qty": 1,
                     "sortOrder": 1,
                     "associatedProduct": {
-                      "id": "/api/shop/products/21",
-                      "name": "Premium Yoga Mat",
-                      "sku": "YOGA-MAT-001",
-                      "price": "29.99",
-                      "formattedPrice": "$29.99",
-                      "specialPrice": null,
-                      "formattedSpecialPrice": null,
+                      "id": "/api/shop/products/2514",
+                      "name": "Arctic Touchscreen Winter Gloves",
+                      "sku": "SP-003",
+                      "price": "21",
+                      "formattedPrice": "$21.00",
+                      "specialPrice": "17",
+                      "formattedSpecialPrice": "$17.00",
                       "images": {
                         "edges": [
                           {
                             "node": {
-                              "id": "/api/admin/images/50",
-                              "publicPath": "https://api-demo.bagisto.com/storage/product/21/yoga-mat.webp"
+                              "id": "/api/admin/images/853",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/2514/g8lR0Ity8HcpE20A4yAkX5wvLY5RlTC67NJKyyg6.webp"
                             }
                           }
                         ]
@@ -586,45 +912,26 @@ examples:
                 },
                 {
                   "node": {
-                    "id": "/api/shop/grouped-products/2",
-                    "qty": 2,
+                    "id": "/api/shop/product_grouped_products/3",
+                    "qty": 1,
                     "sortOrder": 2,
                     "associatedProduct": {
-                      "id": "/api/shop/products/22",
-                      "name": "Resistance Bands Set",
-                      "sku": "RESISTANCE-BANDS-001",
-                      "price": "15.99",
-                      "formattedPrice": "$15.99",
-                      "specialPrice": "12.99",
-                      "formattedSpecialPrice": "$12.99",
+                      "id": "/api/shop/products/2515",
+                      "name": "Arctic Warmth Wool Blend Socks",
+                      "sku": "SP-004",
+                      "price": "21",
+                      "formattedPrice": "$21.00",
+                      "specialPrice": null,
+                      "formattedSpecialPrice": null,
                       "images": {
                         "edges": [
                           {
                             "node": {
-                              "id": "/api/admin/images/51",
-                              "publicPath": "https://api-demo.bagisto.com/storage/product/22/resistance-bands.webp"
+                              "id": "/api/admin/images/854",
+                              "publicPath": "https://api-demo.bagisto.com/storage/product/2515/442ouyaT1K4weKSZGhSDtSKDBbrhiH0aWWwGcFW0.webp"
                             }
                           }
                         ]
-                      }
-                    }
-                  }
-                },
-                {
-                  "node": {
-                    "id": "/api/shop/grouped-products/3",
-                    "qty": 1,
-                    "sortOrder": 3,
-                    "associatedProduct": {
-                      "id": "/api/shop/products/23",
-                      "name": "Insulated Water Bottle",
-                      "sku": "WATER-BOTTLE-001",
-                      "price": "19.99",
-                      "formattedPrice": "$19.99",
-                      "specialPrice": null,
-                      "formattedSpecialPrice": null,
-                      "images": {
-                        "edges": []
                       }
                     }
                   }
@@ -632,19 +939,18 @@ examples:
               ]
             },
             "images": {
-              "edges": []
-            },
-            "categories": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/categories/5",
-                    "translation": {
-                      "name": "Fitness & Sports"
-                    }
+                    "id": "/api/admin/images/855",
+                    "publicPath": "https://api-demo.bagisto.com/storage/product/2516/5Kgto6KVm6FLMaaDEY6pwCcVoTIhX03D3OGDzwbf.webp",
+                    "position": "1"
                   }
                 }
               ]
+            },
+            "categories": {
+              "edges": []
             }
           }
         }
@@ -669,6 +975,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 appointmentSlot {
                   id
                   _id
@@ -685,36 +996,36 @@ examples:
       }
     variables: |
       {
-        "id": 2555
+        "id": 2509
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2555",
-            "name": "Appointment Booking Product",
-            "sku": "APPOINTMENT-001",
-            "urlKey": "appointment-booking-product",
-            "price": 100,
+            "id": "/api/shop/products/2509",
+            "name": "Men's Haircut Appointment",
+            "sku": "SALON-HAIRCUT-APPOINTMENT",
+            "urlKey": "mens-haircut-appointment",
+            "price": "60",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_1",
+                    "_id": 3,
                     "type": "appointment",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-12-30T06:30:00.000000Z",
+                    "qty": 10,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": "0",
                     "appointmentSlot": {
-                      "id": "/api/booking/slots/1",
-                      "_id": "slot_1",
-                      "bookingProductId": "2555",
-                      "duration": 60,
+                      "id": "1",
+                      "_id": 1,
+                      "bookingProductId": "3",
+                      "duration": 45,
                       "breakTime": 15,
-                      "sameSlotAllDays": true,
-                      "slots": [
-                        {
-                          "day": "monday",
-                          "slots": ["09:00 - 12:00", "14:00 - 18:00"]
-                        }
-                      ]
+                      "sameSlotAllDays": "1",
+                      "slots": "[{\"to\": \"10:45\", \"from\": \"10:00\"}, {\"to\": \"11:45\", \"from\": \"11:00\"}, {\"to\": \"12:45\", \"from\": \"12:00\"}, {\"to\": \"14:45\", \"from\": \"14:00\"}, {\"to\": \"15:45\", \"from\": \"15:00\"}]"
                     }
                   }
                 }
@@ -746,6 +1057,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 rentalSlot {
                   id
                   _id
@@ -763,32 +1079,37 @@ examples:
       }
     variables: |
       {
-        "id": 2556
+        "id": 2510
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2556",
-            "name": "Rental Booking Product",
-            "sku": "RENTAL-001",
-            "urlKey": "rental-booking-product",
-            "price": 50,
+            "id": "/api/shop/products/2510",
+            "name": "Wooden Folding Chair Rental",
+            "sku": "WOODEN-FOLDING-CHAIR-RENTAL",
+            "urlKey": "wooden-folding-chair-rental",
+            "price": "109",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_2",
+                    "_id": 4,
                     "type": "rental",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-04-30T06:30:00.000000Z",
+                    "qty": 150,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": "0",
                     "rentalSlot": {
-                      "id": "/api/booking/slots/2",
-                      "_id": "slot_2",
-                      "bookingProductId": "2556",
-                      "rentingType": "daily",
-                      "dailyPrice": 100,
-                      "hourlyPrice": 15,
-                      "sameSlotAllDays": true,
-                      "slots": []
+                      "id": "1",
+                      "_id": 1,
+                      "bookingProductId": "4",
+                      "rentingType": "daily_hourly",
+                      "dailyPrice": "99",
+                      "hourlyPrice": "105",
+                      "sameSlotAllDays": "1",
+                      "slots": "[{\"to\": \"18:00\", \"from\": \"12:00\"}]"
                     }
                   }
                 }
@@ -820,6 +1141,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 defaultSlot {
                   id
                   _id
@@ -835,39 +1161,35 @@ examples:
       }
     variables: |
       {
-        "id": 2558
+        "id": 2507
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2558",
-            "name": "Default Booking Product",
-            "sku": "DEFAULT-001",
-            "urlKey": "default-booking-product",
-            "price": 75,
+            "id": "/api/shop/products/2507",
+            "name": "Professional Photography Session",
+            "sku": "PROFESSIONAL-PHOTOGRAPHY-SESSION",
+            "urlKey": "professional-photography-session",
+            "price": "100",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_3",
+                    "_id": 1,
                     "type": "default",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-12-31T06:30:00.000000Z",
+                    "qty": 150,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": null,
                     "defaultSlot": {
-                      "id": "/api/booking/slots/3",
-                      "_id": "slot_3",
-                      "bookingType": "default",
-                      "duration": 60,
-                      "breakTime": 0,
-                      "slots": [
-                        {
-                          "day": "monday",
-                          "slots": ["10:00 - 17:00"]
-                        },
-                        {
-                          "day": "tuesday",
-                          "slots": ["10:00 - 17:00"]
-                        }
-                      ]
+                      "id": "1",
+                      "_id": 1,
+                      "bookingType": "one",
+                      "duration": null,
+                      "breakTime": null,
+                      "slots": "[{\"id\": \"1\", \"to\": \"18:00\", \"from\": \"12:00\", \"to_day\": \"1\", \"from_day\": \"1\"}, {\"id\": \"2\", \"to\": \"18:00\", \"from\": \"12:00\", \"to_day\": \"2\", \"from_day\": \"2\"}, {\"id\": \"1\", \"to\": \"18:00\", \"from\": \"12:00\", \"to_day\": \"3\", \"from_day\": \"3\"}]"
                     }
                   }
                 }
@@ -899,6 +1221,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 tableSlot {
                   id
                   _id
@@ -918,59 +1245,39 @@ examples:
       }
     variables: |
       {
-        "id": 2563
+        "id": 2511
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2563",
-            "name": "Table Booking Product",
-            "sku": "TABLE-001",
-            "urlKey": "table-booking-product",
-            "price": 0,
+            "id": "/api/shop/products/2511",
+            "name": "Fine Dining Table Reservation",
+            "sku": "FINE-DINING-TABLE-RESERVATION",
+            "urlKey": "fine-dining-table-reservation",
+            "price": "200",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_4",
+                    "_id": 5,
                     "type": "table",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-04-30T06:30:00.000000Z",
+                    "qty": 5,
+                    "location": "Mumbai, Maharashtra",
+                    "availableEveryWeek": "0",
                     "tableSlot": {
-                      "id": "/api/booking/slots/4",
-                      "_id": "slot_4",
-                      "bookingProductId": "2563",
+                      "id": "1",
+                      "_id": 1,
+                      "bookingProductId": "5",
                       "priceType": "guest",
-                      "guestLimit": 10,
-                      "duration": 120,
-                      "breakTime": 0,
+                      "guestLimit": 0,
+                      "duration": 45,
+                      "breakTime": 15,
                       "preventSchedulingBefore": 2,
-                      "sameSlotAllDays": false,
-                      "slots": [
-                        {
-                          "day": "monday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "tuesday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "wednesday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "thursday",
-                          "slots": ["18:00 - 22:00"]
-                        },
-                        {
-                          "day": "friday",
-                          "slots": ["18:00 - 23:00"]
-                        },
-                        {
-                          "day": "saturday",
-                          "slots": ["18:00 - 23:00"]
-                        }
-                      ]
+                      "sameSlotAllDays": "1",
+                      "slots": "[{\"to\": \"12:45\", \"from\": \"12:00\"}, {\"to\": \"13:45\", \"from\": \"13:00\"}, {\"to\": \"14:45\", \"from\": \"14:00\"}, {\"to\": \"19:45\", \"from\": \"19:00\"}, {\"to\": \"20:45\", \"from\": \"20:00\"}, {\"to\": \"21:45\", \"from\": \"21:00\"}]"
                     }
                   }
                 }
@@ -1002,6 +1309,11 @@ examples:
               node {
                 _id
                 type
+                availableFrom
+                availableTo
+                qty
+                location
+                availableEveryWeek
                 eventTickets {
                   edges {
                     node {
@@ -1013,6 +1325,22 @@ examples:
                       specialPrice
                       specialPriceFrom
                       specialPriceTo
+                      formattedPrice
+                      formattedSpecialPrice
+                      translation {
+                        locale
+                        name
+                        description
+                      }
+                      translations {
+                        edges {
+                          node {
+                            locale
+                            name
+                            description
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1023,47 +1351,88 @@ examples:
       }
     variables: |
       {
-        "id": 2564
+        "id": 2508
       }
     response: |
       {
         "data": {
           "product": {
-            "id": "2564",
-            "name": "Event Booking Product",
-            "sku": "EVENT-001",
-            "urlKey": "event-booking-product",
-            "price": 0,
+            "id": "/api/shop/products/2508",
+            "name": "Live Music Concert Ticket",
+            "sku": "LIVE-MUSIC-CONCERT-TICKET",
+            "urlKey": "live-music-concert-ticket",
+            "price": "120",
             "bookingProducts": {
               "edges": [
                 {
                   "node": {
-                    "_id": "booking_5",
+                    "_id": 2,
                     "type": "event",
+                    "availableFrom": "2026-04-06T06:30:00.000000Z",
+                    "availableTo": "2026-04-30T06:30:00.000000Z",
+                    "qty": 0,
+                    "location": "Noida, Uttar Pradesh",
+                    "availableEveryWeek": null,
                     "eventTickets": {
                       "edges": [
                         {
                           "node": {
-                            "id": "/api/booking/tickets/1",
-                            "_id": "ticket_1",
-                            "bookingProductId": "2564",
-                            "price": 50,
-                            "qty": 100,
-                            "specialPrice": 40,
-                            "specialPriceFrom": "2024-01-01",
-                            "specialPriceTo": "2024-12-31"
+                            "id": "7",
+                            "_id": 7,
+                            "bookingProductId": "2",
+                            "price": "120",
+                            "qty": 1500,
+                            "specialPrice": "115",
+                            "specialPriceFrom": "2026-04-06 12:00:00",
+                            "specialPriceTo": "2026-04-30 12:00:00",
+                            "formattedPrice": "$120.00",
+                            "formattedSpecialPrice": "$115.00",
+                            "translation": {
+                              "locale": "en",
+                              "name": "Standard Entry Ticket",
+                              "description": "General admission ticket for the event with access to all standard areas and performances."
+                            },
+                            "translations": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "locale": "en",
+                                    "name": "Standard Entry Ticket",
+                                    "description": "General admission ticket for the event with access to all standard areas and performances."
+                                  }
+                                }
+                              ]
+                            }
                           }
                         },
                         {
                           "node": {
-                            "id": "/api/booking/tickets/2",
-                            "_id": "ticket_2",
-                            "bookingProductId": "2564",
-                            "price": 100,
-                            "qty": 50,
-                            "specialPrice": null,
-                            "specialPriceFrom": null,
-                            "specialPriceTo": null
+                            "id": "8",
+                            "_id": 8,
+                            "bookingProductId": "2",
+                            "price": "125",
+                            "qty": 150,
+                            "specialPrice": "120",
+                            "specialPriceFrom": "2026-04-02 12:00:00",
+                            "specialPriceTo": "2026-04-30 12:00:00",
+                            "formattedPrice": "$125.00",
+                            "formattedSpecialPrice": "$120.00",
+                            "translation": {
+                              "locale": "en",
+                              "name": "VIP Access Ticket",
+                              "description": "VIP ticket includes priority entry, reserved seating, and access to exclusive areas near the stage."
+                            },
+                            "translations": {
+                              "edges": [
+                                {
+                                  "node": {
+                                    "locale": "en",
+                                    "name": "VIP Access Ticket",
+                                    "description": "VIP ticket includes priority entry, reserved seating, and access to exclusive areas near the stage."
+                                  }
+                                }
+                              ]
+                            }
                           }
                         }
                       ]
@@ -1248,4 +1617,157 @@ The `bookingProducts` field returns a `type` that determines which slot/ticket r
 
 ::: tip
 Only the relationship matching the product's booking type will contain data. For example, an appointment booking product will have data in `appointmentSlot` but not in `rentalSlot` or `tableSlot`. Always check the `type` field first to determine which relationship to query.
+:::
+
+## Product Fields Reference
+
+Below is a complete reference of all available fields on the `Product` type. Use this as a lookup when building your queries — include only the fields you need.
+
+### Basic Information
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | `ID!` | Unique product identifier in IRI format (e.g. `/api/shop/products/1`) |
+| `_id` | `Int!` | Numeric database ID |
+| `sku` | `String!` | Stock Keeping Unit — unique product code for inventory tracking |
+| `type` | `String!` | Product type: `simple`, `virtual`, `configurable`, `grouped`, `bundle`, `downloadable`, `booking` |
+| `name` | `String` | Product display name |
+| `urlKey` | `String` | URL-friendly slug (e.g. `premium-wireless-headphones`) |
+| `status` | `String` | Product status (`1` = active, `0` = inactive) |
+| `locale` | `String` | Locale of the returned product data |
+| `channel` | `String` | Channel the product belongs to |
+| `productNumber` | `String` | Optional product number assigned by the store |
+| `additional` | `Iterable` | Additional product data stored as key-value pairs |
+| `createdAt` | `String` | Product creation timestamp |
+| `updatedAt` | `String` | Last modification timestamp |
+
+### Descriptions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `description` | `String` | Full product description (plain text) |
+| `descriptionHtml` | `String` | Full product description with HTML formatting preserved |
+| `shortDescription` | `String` | Brief product summary for listing pages |
+
+### Pricing
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `price` | `String` | Base catalog price. Reflects active currency conversion. |
+| `specialPrice` | `String` | Discounted price if set, otherwise `null` |
+| `specialPriceFrom` | `String` | Start date for the special price (YYYY-MM-DD) |
+| `specialPriceTo` | `String` | End date for the special price (YYYY-MM-DD) |
+| `cost` | `String` | Product cost/purchase price (internal use) |
+| `minimumPrice` | `String` | Lowest effective price — accounts for special price and variant pricing. Used for price sorting. |
+| `maximumPrice` | `String` | Highest effective price across all variants |
+| `regularMinimumPrice` | `String` | Regular (non-discounted) minimum price |
+| `regularMaximumPrice` | `String` | Regular (non-discounted) maximum price |
+| `formattedPrice` | `String` | `price` with currency symbol (e.g. `$99.00`) |
+| `formattedSpecialPrice` | `String` | `specialPrice` with currency symbol |
+| `formattedMinimumPrice` | `String` | `minimumPrice` with currency symbol |
+| `formattedMaximumPrice` | `String` | `maximumPrice` with currency symbol |
+| `formattedRegularMinimumPrice` | `String` | `regularMinimumPrice` with currency symbol |
+| `formattedRegularMaximumPrice` | `String` | `regularMaximumPrice` with currency symbol |
+| `taxCategoryId` | `String` | Tax category ID assigned to the product |
+
+### Physical Dimensions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `weight` | `String` | Product weight |
+| `length` | `String` | Product length |
+| `width` | `String` | Product width |
+| `height` | `String` | Product height |
+
+### Attributes
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `color` | `String` | Color attribute value (if applicable) |
+| `size` | `String` | Size attribute value (if applicable) |
+| `brand` | `String` | Brand attribute value (if applicable) |
+
+### SEO
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `metaTitle` | `String` | SEO meta title for the product page |
+| `metaKeywords` | `String` | SEO meta keywords |
+| `metaDescription` | `String` | SEO meta description |
+
+### Flags & Settings
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `isSaleable` | `String` | Whether the product can be purchased (`1` = yes) |
+| `new` | `String` | Whether the product is marked as "new" (`1` = yes) |
+| `featured` | `String` | Whether the product is featured (`1` = yes) |
+| `visibleIndividually` | `String` | Whether the product appears in catalog listings (`1` = yes) |
+| `guestCheckout` | `String` | Whether guest users can purchase this product (`1` = yes) |
+| `manageStock` | `String` | Whether stock is managed for this product (`1` = yes) |
+
+### Configurable Product Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `superAttributeOptions` | `String` | JSON-encoded array of configurable attributes and their selectable options. See [Configurable Products](#configurable-products). |
+| `combinations` | `String` | JSON-encoded object mapping variant IDs to their attribute option combinations. See [Configurable Products](#configurable-products). |
+
+### Media
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `baseImageUrl` | `String` | URL of the product's primary/base image |
+
+## Product Relationships Reference
+
+These are the connection/relationship fields available on the `Product` type. Each returns a paginated cursor connection supporting `first`, `last`, `before`, and `after` arguments.
+
+### Core Relationships
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `images` | `ProductImageCursorConnection` | Product gallery images with `id`, `publicPath`, and `position` |
+| `videos` | `ProductVideoCursorConnection` | Product videos |
+| `categories` | `CategoryCursorConnection` | Categories the product belongs to, with `translation { name }` |
+| `attributeValues` | `AttributeValueCursorConnection` | All attribute values with `value` and `attribute { code, adminName }` |
+| `attributeFamily` | `AttributeFamily!` | The attribute family this product belongs to (not paginated) |
+| `channels` | `ChannelCursorConnection` | Channels this product is assigned to |
+
+### Variant & Configuration
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `variants` | `ProductCursorConnection` | Child variant products (for configurable products). Each variant is a full `Product` with its own `id`, `name`, `sku`, `price`, and `attributeValues`. |
+| `superAttributes` | `AttributeCursorConnection` | The attributes used for configurable options (e.g. Color, Size) |
+| `parent` | `Product!` | Parent product (for variant products — returns the configurable parent) |
+
+### Product Type-Specific
+
+| Relationship | Return Type | Description | Dropdown Example |
+|---|---|---|---|
+| `groupedProducts` | `ProductGroupedProductCursorConnection` | Associated child products with `qty`, `sortOrder`, and `associatedProduct` details | "Get Grouped Product" |
+| `bundleOptions` | `ProductBundleOptionCursorConnection` | Bundle option groups with selectable products and quantities | — |
+| `downloadableLinks` | `ProductDownloadableLinkCursorConnection` | Downloadable links with `price`, `formattedPrice`, `translation { title }`, and sample info | "Get Downloadable Product with Samples" |
+| `downloadableSamples` | `ProductDownloadableSampleCursorConnection` | Product-level sample files with `file`, `fileUrl`, `url`, and `translation { title }` | "Get Downloadable Product with Samples" |
+| `bookingProducts` | `BookingProductCursorConnection` | Booking configuration with `type`, `availableFrom`, `availableTo`, `qty`, `location`, and type-specific slots | "Get Appointment/Rental/Default/Table/Event Booking Product" |
+| `customizableOptions` | `ProductCustomizableOptionCursorConnection` | Custom product options (e.g. engraving text, gift wrapping) | — |
+
+### Related & Recommended Products
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `relatedProducts` | `ProductCursorConnection` | Products marked as related — typically shown in a "Related Products" section on the product page |
+| `upSells` | `ProductCursorConnection` | Up-sell products — higher-value alternatives shown on the product page |
+| `crossSells` | `ProductCursorConnection` | Cross-sell products — complementary items shown during checkout or in the cart |
+
+### Reviews
+
+| Relationship | Return Type | Description |
+|---|---|---|
+| `reviews` | `ProductReviewCursorConnection` | All reviews for this product (all statuses) |
+| `approvedReviews` | `ProductReviewCursorConnection` | Only admin-approved reviews — use this for public-facing display |
+
+::: tip
+All relationship fields support cursor-based pagination with `first`, `last`, `before`, and `after` arguments. For example: `images(first: 5)` returns only the first 5 images. Use the nested `pageInfo { hasNextPage, endCursor }` to paginate through large collections.
 :::

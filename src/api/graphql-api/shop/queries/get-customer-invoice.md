@@ -6,7 +6,7 @@ examples:
     description: Retrieve details of a specific invoice by its IRI identifier.
     query: |
       query GetCustomerInvoice {
-        customerInvoice(id: "/api/shop/customer-invoices/1") {
+        customerInvoice(id: "/api/shop/customer-invoices/532") {
           incrementId
           state
           totalQty
@@ -52,41 +52,41 @@ examples:
       {
         "data": {
           "customerInvoice": {
-            "incrementId": "INV-001",
+            "incrementId": "532",
             "state": "paid",
-            "totalQty": 2,
-            "grandTotal": 110.00,
-            "baseGrandTotal": 110.00,
-            "subTotal": 100.00,
-            "baseSubTotal": 100.00,
-            "shippingAmount": 5.00,
-            "baseShippingAmount": 5.00,
-            "taxAmount": 5.00,
-            "baseTaxAmount": 5.00,
-            "discountAmount": 0.00,
-            "baseDiscountAmount": 0.00,
-            "shippingTaxAmount": 0.00,
-            "subTotalInclTax": 105.00,
-            "shippingAmountInclTax": 5.00,
+            "totalQty": 1,
+            "grandTotal": 4810,
+            "baseGrandTotal": 4810,
+            "subTotal": 5000,
+            "baseSubTotal": 5000,
+            "shippingAmount": 10,
+            "baseShippingAmount": 10,
+            "taxAmount": 0,
+            "baseTaxAmount": 0,
+            "discountAmount": 200,
+            "baseDiscountAmount": 200,
+            "shippingTaxAmount": 0,
+            "subTotalInclTax": 5000,
+            "shippingAmountInclTax": 10,
             "baseCurrencyCode": "USD",
             "channelCurrencyCode": "USD",
             "orderCurrencyCode": "USD",
-            "transactionId": "TXN-12345",
+            "transactionId": null,
             "emailSent": true,
             "reminders": 0,
-            "createdAt": "2025-02-10T10:30:00+00:00",
-            "updatedAt": "2025-02-10T10:30:00+00:00",
-            "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-invoices/1/pdf",
+            "createdAt": "2026-04-10T18:43:10+05:30",
+            "updatedAt": "2026-04-10T18:43:11+05:30",
+            "downloadUrl": "https://api-demo.bagisto.com/api/shop/customer-invoices/532/pdf",
             "items": {
               "edges": [
                 {
                   "node": {
-                    "id": "/api/shop/invoice-items/1",
-                    "sku": "PROD-001",
-                    "name": "Sample Product",
-                    "qty": 2,
-                    "price": 50.00,
-                    "total": 100.00
+                    "id": "/api/customer_invoice_items/803",
+                    "sku": "AURORA-BLAZER-001",
+                    "name": "Aurora Cream Winter Blazer Coat",
+                    "qty": 1,
+                    "price": 5000,
+                    "total": 5000
                   }
                 }
               ]

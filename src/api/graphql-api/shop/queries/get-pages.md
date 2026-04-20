@@ -40,18 +40,18 @@ examples:
                 "node": {
                   "id": "/api/shop/pages/1",
                   "_id": 1,
-                  "layout": "default",
-                  "createdAt": "2024-01-10T08:00:00+00:00",
-                  "updatedAt": "2024-06-15T12:30:00+00:00",
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
                   "translation": {
                     "id": "/api/shop/page_translations/1",
                     "_id": 1,
                     "pageTitle": "About Us",
                     "urlKey": "about-us",
-                    "htmlContent": "<h1>About Us</h1><p>Welcome to our store.</p>",
-                    "metaTitle": "About Us - Our Store",
-                    "metaDescription": "Learn more about our company and values.",
-                    "metaKeywords": "about us, company, store",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">We are dedicated to providing high-quality products and services to our customers...</div></div>",
+                    "metaTitle": "about us",
+                    "metaDescription": "",
+                    "metaKeywords": "aboutus",
                     "locale": "en"
                   }
                 }
@@ -60,18 +60,18 @@ examples:
                 "node": {
                   "id": "/api/shop/pages/2",
                   "_id": 2,
-                  "layout": "default",
-                  "createdAt": "2024-01-12T09:00:00+00:00",
-                  "updatedAt": "2024-06-20T10:00:00+00:00",
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
                   "translation": {
                     "id": "/api/shop/page_translations/2",
                     "_id": 2,
-                    "pageTitle": "Privacy Policy",
-                    "urlKey": "privacy-policy",
-                    "htmlContent": "<h1>Privacy Policy</h1><p>Your privacy matters to us.</p>",
-                    "metaTitle": "Privacy Policy",
-                    "metaDescription": "Read our privacy policy to understand how we handle your data.",
-                    "metaKeywords": "privacy, policy, data",
+                    "pageTitle": "Return Policy",
+                    "urlKey": "return-policy",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">If you are not satisfied with your purchase, you can return it within 30 days...</div></div>",
+                    "metaTitle": "return policy",
+                    "metaDescription": "",
+                    "metaKeywords": "return, policy",
                     "locale": "en"
                   }
                 }
@@ -80,18 +80,118 @@ examples:
                 "node": {
                   "id": "/api/shop/pages/3",
                   "_id": 3,
-                  "layout": "default",
-                  "createdAt": "2024-01-15T10:00:00+00:00",
-                  "updatedAt": "2024-07-01T08:45:00+00:00",
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
                   "translation": {
                     "id": "/api/shop/page_translations/3",
                     "_id": 3,
+                    "pageTitle": "Refund Policy",
+                    "urlKey": "refund-policy",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">We offer a 30-day refund policy on eligible products...</div></div>",
+                    "metaTitle": "Refund policy",
+                    "metaDescription": "",
+                    "metaKeywords": "refund, policy",
+                    "locale": "en"
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/pages/4",
+                  "_id": 4,
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
+                  "translation": {
+                    "id": "/api/shop/page_translations/4",
+                    "_id": 4,
                     "pageTitle": "Terms & Conditions",
-                    "urlKey": "terms-and-conditions",
-                    "htmlContent": "<h1>Terms & Conditions</h1><p>Please read our terms carefully.</p>",
+                    "urlKey": "terms-conditions",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">These terms and conditions govern your use of our website...</div></div>",
                     "metaTitle": "Terms & Conditions",
-                    "metaDescription": "Terms and conditions governing use of our store.",
-                    "metaKeywords": "terms, conditions, legal",
+                    "metaDescription": "",
+                    "metaKeywords": "term, conditions",
+                    "locale": "en"
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/pages/5",
+                  "_id": 5,
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
+                  "translation": {
+                    "id": "/api/shop/page_translations/5",
+                    "_id": 5,
+                    "pageTitle": "Terms of use",
+                    "urlKey": "terms-of-use",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">By accessing this website, you agree to follow our terms and conditions...</div></div>",
+                    "metaTitle": "Terms of use",
+                    "metaDescription": "",
+                    "metaKeywords": "term, use",
+                    "locale": "en"
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/pages/7",
+                  "_id": 7,
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
+                  "translation": {
+                    "id": "/api/shop/page_translations/7",
+                    "_id": 7,
+                    "pageTitle": "Customer Service",
+                    "urlKey": "cutomer-service",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">Our customer support team is available 24/7 to assist you...</div></div>",
+                    "metaTitle": "Customer Service",
+                    "metaDescription": "",
+                    "metaKeywords": "customer, service",
+                    "locale": "en"
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/pages/9",
+                  "_id": 9,
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
+                  "translation": {
+                    "id": "/api/shop/page_translations/9",
+                    "_id": 9,
+                    "pageTitle": "Payment Policy",
+                    "urlKey": "payment-policy",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">We accept multiple payment methods including credit/debit cards, digital wallets, and net banking...</div></div>",
+                    "metaTitle": "Payment Policy",
+                    "metaDescription": "",
+                    "metaKeywords": "payment, policy",
+                    "locale": "en"
+                  }
+                }
+              },
+              {
+                "node": {
+                  "id": "/api/shop/pages/10",
+                  "_id": 10,
+                  "layout": null,
+                  "createdAt": "2024-04-16T16:14:17+05:30",
+                  "updatedAt": "2024-04-16T16:14:17+05:30",
+                  "translation": {
+                    "id": "/api/shop/page_translations/10",
+                    "_id": 10,
+                    "pageTitle": "Shipping Policy",
+                    "urlKey": "shipping-policy",
+                    "htmlContent": "<div class=\"static-container\"><div class=\"mb-5\">We offer fast and reliable shipping worldwide. Orders are processed within 1-2 business days...</div></div>",
+                    "metaTitle": "Shipping Policy",
+                    "metaDescription": "",
+                    "metaKeywords": "shipping, policy",
                     "locale": "en"
                   }
                 }

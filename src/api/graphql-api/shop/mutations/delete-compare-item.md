@@ -27,7 +27,7 @@ examples:
     variables: |
       {
         "input": {
-          "id": "/api/shop/compare-items/80"
+          "id": "/api/shop/compare-items/38"
         }
       }
     response: |
@@ -35,18 +35,18 @@ examples:
         "data": {
           "deleteCompareItem": {
             "compareItem": {
-              "id": "/api/shop/compare-items/80",
-              "_id": 80,
+              "id": "/api/shop/compare_items/38",
+              "_id": 38,
               "product": {
-                "id": "/api/shop/products/4",
-                "_id": 4,
-                "sku": "IPHONE-15-PRO",
+                "id": "/api/shop/compare_items/38",
+                "_id": 2514,
+                "sku": "SP-003",
                 "type": "simple",
-                "name": "Apple iPhone 15 Pro",
-                "price": "999",
-                "formattedPrice": "$999.00",
-                "minimumPrice": "899",
-                "formattedMinimumPrice": "$899.00"
+                "name": "Arctic Touchscreen Winter Gloves",
+                "price": "21",
+                "formattedPrice": "$21.00",
+                "minimumPrice": "17",
+                "formattedMinimumPrice": "$17.00"
               }
             }
           }

@@ -261,12 +261,20 @@ export default defineConfig(({ command, mode }) => {
                         ]
                       },
                       {
-                        text: 'Theme Customisations',
+                        text: 'Theme',
                         collapsed: true,
-                        link: '/api/graphql-api/shop/theme-customisations/',
-                        items: [                    
-                          { text: 'Theme Customisations', link: '/api/graphql-api/shop/queries/theme-customisations' },
-                          { text: 'Single Theme Customisation', link: '/api/graphql-api/shop/queries/single-theme-customisation' }
+                        link: '/api/graphql-api/shop/theme/',
+                        items: [
+                          { text: 'Theme', link: '/api/graphql-api/shop/theme/' }
+                        ]
+                      },
+                      {
+                        text: 'Sections',
+                        collapsed: true,
+                        link: '/api/graphql-api/shop/sections/',
+                        items: [
+                          { text: 'Sections', link: '/api/graphql-api/shop/sections/list' },
+                          { text: 'Single Section', link: '/api/graphql-api/shop/sections/detail' }
                         ]
                       },
                       {
@@ -467,6 +475,7 @@ export default defineConfig(({ command, mode }) => {
                               { text: 'View Return', link: '/api/graphql-api/shop/returns/queries/view-return' },
                               { text: 'List Returnable Items', link: '/api/graphql-api/shop/returns/queries/list-returnable-items' },
                               { text: 'List Return Reasons', link: '/api/graphql-api/shop/returns/queries/list-return-reasons' },
+                              { text: 'List Return Custom Fields', link: '/api/graphql-api/shop/returns/queries/list-return-custom-fields' },
                               { text: 'List Return Messages', link: '/api/graphql-api/shop/returns/queries/list-return-messages' },
                             ]
                           },
@@ -680,6 +689,7 @@ export default defineConfig(({ command, mode }) => {
                           { text: 'Mass Delete Products', link: '/api/graphql-api/admin/catalog/products/mass-delete' },
                           { text: 'Mass Update Status', link: '/api/graphql-api/admin/catalog/products/mass-update-status' },
                           { text: 'Upload Image (REST only)', link: '/api/graphql-api/admin/catalog/products/images-upload' },
+                          { text: 'Update Image', link: '/api/graphql-api/admin/catalog/products/images-update' },
                           { text: 'Reorder Images', link: '/api/graphql-api/admin/catalog/products/images-reorder' },
                           { text: 'Delete Image', link: '/api/graphql-api/admin/catalog/products/images-delete' },
                           { text: 'List Inventories', link: '/api/graphql-api/admin/catalog/products/inventories-list' },
@@ -731,6 +741,44 @@ export default defineConfig(({ command, mode }) => {
                           { text: 'Delete Family', link: '/api/graphql-api/admin/catalog/families/families-delete' },
                         ]
                       }
+                    ]
+                  },
+                  {
+                    text: 'Appearance',
+                    link: '/api/graphql-api/admin/appearance/',
+                    collapsed: true,
+                    items: [
+                      {
+                        text: 'Themes',
+                        link: '/api/graphql-api/admin/appearance/themes/',
+                        collapsed: true,
+                        items: [
+                          { text: 'adminAppearanceThemes', link: '/api/graphql-api/admin/appearance/themes/list' },
+                          { text: 'adminAppearanceTheme', link: '/api/graphql-api/admin/appearance/themes/detail' },
+                          { text: 'adminAppearanceThemeImpact', link: '/api/graphql-api/admin/appearance/themes/impact' },
+                          { text: 'createAdminAppearanceThemeActivate', link: '/api/graphql-api/admin/appearance/themes/activate' },
+                        ]
+                      },
+                      {
+                        text: 'Sections',
+                        link: '/api/graphql-api/admin/appearance/sections/',
+                        collapsed: true,
+                        items: [
+                          { text: 'adminAppearanceSections', link: '/api/graphql-api/admin/appearance/sections/list' },
+                          { text: 'adminAppearanceSection', link: '/api/graphql-api/admin/appearance/sections/detail' },
+                          { text: 'createAdminAppearanceSection', link: '/api/graphql-api/admin/appearance/sections/create' },
+                          { text: 'updateAdminAppearanceSection', link: '/api/graphql-api/admin/appearance/sections/update' },
+                          { text: 'deleteAdminAppearanceSection', link: '/api/graphql-api/admin/appearance/sections/delete' },
+                          { text: 'createAdminAppearanceSectionDraft', link: '/api/graphql-api/admin/appearance/sections/draft' },
+                          { text: 'createAdminAppearanceSectionStatus', link: '/api/graphql-api/admin/appearance/sections/status' },
+                          { text: 'createAdminAppearanceSectionReorder', link: '/api/graphql-api/admin/appearance/sections/reorder' },
+                          { text: 'createAdminAppearanceSectionDuplicate', link: '/api/graphql-api/admin/appearance/sections/duplicate' },
+                          { text: 'createAdminAppearanceSectionPublish', link: '/api/graphql-api/admin/appearance/sections/publish' },
+                          { text: 'createAdminAppearanceSectionDiscard', link: '/api/graphql-api/admin/appearance/sections/discard' },
+                          { text: 'adminAppearanceSectionFields', link: '/api/graphql-api/admin/appearance/sections/fields' },
+                          { text: 'adminAppearanceSectionPreview', link: '/api/graphql-api/admin/appearance/sections/preview' },
+                        ]
+                      },
                     ]
                   },
                   {
@@ -1072,20 +1120,6 @@ export default defineConfig(({ command, mode }) => {
                         ]
                       },
                       {
-                        text: 'Themes',
-                        link: '/api/graphql-api/admin/settings/themes/',
-                        collapsed: true,
-                        items: [
-                          { text: 'List', link: '/api/graphql-api/admin/settings/themes/list' },
-                          { text: 'Detail', link: '/api/graphql-api/admin/settings/themes/detail' },
-                          { text: 'Create', link: '/api/graphql-api/admin/settings/themes/create' },
-                          { text: 'Update', link: '/api/graphql-api/admin/settings/themes/update' },
-                          { text: 'Delete', link: '/api/graphql-api/admin/settings/themes/delete' },
-                          { text: 'Mass Delete', link: '/api/graphql-api/admin/settings/themes/mass-delete' },
-                          { text: 'Mass Update Status', link: '/api/graphql-api/admin/settings/themes/mass-update-status' },
-                        ]
-                      },
-                      {
                         text: 'Tax Categories',
                         link: '/api/graphql-api/admin/settings/tax-categories/',
                         collapsed: true,
@@ -1418,11 +1452,20 @@ export default defineConfig(({ command, mode }) => {
                     ]
                   },
                   {
-                    text: 'Theme Customizations',
+                    text: 'Theme',
                     collapsed: true,
-                    link: '/api/rest-api/shop/theme-customizations/',
+                    link: '/api/rest-api/shop/theme/',
                     items: [
-                          { text: 'Theme Customizations', link: '/api/rest-api/shop/theme-customizations/get-theme-customizations' },
+                          { text: 'Get Theme', link: '/api/rest-api/shop/theme/' },
+                    ]
+                  },
+                  {
+                    text: 'Sections',
+                    collapsed: true,
+                    link: '/api/rest-api/shop/sections/',
+                    items: [
+                          { text: 'List Sections', link: '/api/rest-api/shop/sections/list' },
+                          { text: 'Get Section', link: '/api/rest-api/shop/sections/detail' },
                     ]
                   },
                   {
@@ -1534,6 +1577,7 @@ export default defineConfig(({ command, mode }) => {
                           { text: 'Close Return', link: '/api/rest-api/shop/returns/close-return' },
                           { text: 'List Returnable Items', link: '/api/rest-api/shop/returns/list-returnable-items' },
                           { text: 'List Return Reasons', link: '/api/rest-api/shop/returns/list-return-reasons' },
+                          { text: 'List Return Custom Fields', link: '/api/rest-api/shop/returns/list-return-custom-fields' },
                           { text: 'List Return Messages', link: '/api/rest-api/shop/returns/list-return-messages' },
                           { text: 'Send Return Message', link: '/api/rest-api/shop/returns/send-return-message' },
                     ]
@@ -1663,6 +1707,7 @@ export default defineConfig(({ command, mode }) => {
                           { text: 'Mass Update Status', link: '/api/rest-api/admin/catalog/products/mass-update-status' },
                           { text: 'Export Products (CSV)', link: '/api/rest-api/admin/catalog/products/export' },
                           { text: 'Upload Image', link: '/api/rest-api/admin/catalog/products/images-upload' },
+                          { text: 'Update Image', link: '/api/rest-api/admin/catalog/products/images-update' },
                           { text: 'Reorder Images', link: '/api/rest-api/admin/catalog/products/images-reorder' },
                           { text: 'Delete Image', link: '/api/rest-api/admin/catalog/products/images-delete' },
                           { text: 'Upload Downloadable File', link: '/api/rest-api/admin/catalog/products/downloadable-upload' },
@@ -1718,6 +1763,45 @@ export default defineConfig(({ command, mode }) => {
                           { text: 'Delete Family', link: '/api/rest-api/admin/catalog/families/families-delete' },
                         ]
                       }
+                    ]
+                  },
+                  {
+                    text: 'Appearance',
+                    link: '/api/rest-api/admin/appearance/',
+                    collapsed: true,
+                    items: [
+                      {
+                        text: 'Themes',
+                        link: '/api/rest-api/admin/appearance/themes/',
+                        collapsed: true,
+                        items: [
+                          { text: 'List Themes', link: '/api/rest-api/admin/appearance/themes/list' },
+                          { text: 'Get Theme', link: '/api/rest-api/admin/appearance/themes/detail' },
+                          { text: 'Theme Impact', link: '/api/rest-api/admin/appearance/themes/impact' },
+                          { text: 'Activate Theme', link: '/api/rest-api/admin/appearance/themes/activate' },
+                        ]
+                      },
+                      {
+                        text: 'Sections',
+                        link: '/api/rest-api/admin/appearance/sections/',
+                        collapsed: true,
+                        items: [
+                          { text: 'List Sections', link: '/api/rest-api/admin/appearance/sections/list' },
+                          { text: 'Get Section', link: '/api/rest-api/admin/appearance/sections/detail' },
+                          { text: 'Create Section', link: '/api/rest-api/admin/appearance/sections/create' },
+                          { text: 'Update Section', link: '/api/rest-api/admin/appearance/sections/update' },
+                          { text: 'Delete Section', link: '/api/rest-api/admin/appearance/sections/delete' },
+                          { text: 'Stage Edits', link: '/api/rest-api/admin/appearance/sections/draft' },
+                          { text: 'Stage Status', link: '/api/rest-api/admin/appearance/sections/status' },
+                          { text: 'Stage Order', link: '/api/rest-api/admin/appearance/sections/reorder' },
+                          { text: 'Copy Section', link: '/api/rest-api/admin/appearance/sections/duplicate' },
+                          { text: 'Publish', link: '/api/rest-api/admin/appearance/sections/publish' },
+                          { text: 'Discard', link: '/api/rest-api/admin/appearance/sections/discard' },
+                          { text: 'Section Fields', link: '/api/rest-api/admin/appearance/sections/fields' },
+                          { text: 'Upload Media', link: '/api/rest-api/admin/appearance/sections/media' },
+                          { text: 'Preview', link: '/api/rest-api/admin/appearance/sections/preview' },
+                        ]
+                      },
                     ]
                   },
                   {
@@ -2049,19 +2133,6 @@ export default defineConfig(({ command, mode }) => {
                           { text: 'Create', link: '/api/rest-api/admin/settings/roles/create' },
                           { text: 'Update', link: '/api/rest-api/admin/settings/roles/update' },
                           { text: 'Delete', link: '/api/rest-api/admin/settings/roles/delete' },
-                        ]
-                      },
-                      {
-                        text: 'Themes',
-                        collapsed: true,
-                        items: [
-                          { text: 'List', link: '/api/rest-api/admin/settings/themes/list' },
-                          { text: 'Detail', link: '/api/rest-api/admin/settings/themes/detail' },
-                          { text: 'Create', link: '/api/rest-api/admin/settings/themes/create' },
-                          { text: 'Update', link: '/api/rest-api/admin/settings/themes/update' },
-                          { text: 'Delete', link: '/api/rest-api/admin/settings/themes/delete' },
-                          { text: 'Mass Delete', link: '/api/rest-api/admin/settings/themes/mass-delete' },
-                          { text: 'Mass Update Status', link: '/api/rest-api/admin/settings/themes/mass-update-status' },
                         ]
                       },
                       {

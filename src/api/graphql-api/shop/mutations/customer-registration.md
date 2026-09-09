@@ -159,7 +159,7 @@ The `deviceToken` field applies only when the [Bagisto Push Notification](https:
 |------|------|----------|-------------|
 | `firstName` | String | ✅ Yes | Customer's first name |
 | `lastName` | String | ✅ Yes | Customer's last name |
-| `email` | String | ✅ Yes | Customer's email address (must be unique) |
+| `email` | String | ✅ Yes | Customer's email address, unique within the channel being registered on |
 | `password` | String | ✅ Yes | Password for the account (min. 8 characters) |
 | `confirmPassword` | String | ✅ Yes | Must match `password` |
 | `phone` | String | ❌ No | Customer's phone number |
@@ -206,7 +206,7 @@ e.g.
 
 ## Validation Rules
 
-- Email must be in valid format and unique across all customers
+- Email must be in valid format and unique within the channel being registered on — the same address may hold a separate account on each channel a store runs
 - Password must be at least 8 characters
 - `confirmPassword` must match `password`
 - First name and last name are required

@@ -46,7 +46,7 @@ examples:
       }
     commonErrors:
       - error: 400 Bad Request
-        cause: Email already registered
+        cause: Email already registered on this channel
         solution: Use a different email address
       - error: 422 Validation Error
         cause: Password does not meet requirements
@@ -94,7 +94,7 @@ examples:
       }
     commonErrors:
       - error: 409 Conflict
-        cause: Customer email already exists
+        cause: Customer email already exists on this channel
         solution: Use unique email or reset password instead
 ---
 
